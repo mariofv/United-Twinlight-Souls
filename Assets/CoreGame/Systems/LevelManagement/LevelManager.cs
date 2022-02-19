@@ -23,6 +23,10 @@ public class LevelManager : MonoBehaviour
 
     public IEnumerator LoadLevel(int level)
     {
+        GameManager.instance.EnterGameState(GameManager.GameState.LOADING_LEVEL, changeGameStateInput: false);
+
         yield return StartCoroutine(GameManager.instance.scenesManager.ChangeScene(gameLevels[level].levelScene));
+
+        GameManager.instance.EnterGameState(GameManager.GameState.COMBAT, changeGameStateInput: false);
     }
 }
