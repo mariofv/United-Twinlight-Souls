@@ -8,4 +8,5 @@ public class LevelAsset : ScriptableObject
 {
     public string levelName;
     public string levelScene;
+    public AudioClip levelMusic;
 }

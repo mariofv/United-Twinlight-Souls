@@ -262,6 +262,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: GameManager
       objectReference: {fileID: 0}
+    - target: {fileID: 9206042228799785097, guid: 9aa138b6efb0c244098e2e3efd8c2ead, type: 3}
+      propertyPath: levelMusicSource
+      value: 
+      objectReference: {fileID: 1620495044}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 9aa138b6efb0c244098e2e3efd8c2ead, type: 3}
 --- !u!1001 &1620495042
@@ -324,6 +328,11 @@ PrefabInstance:
 --- !u!20 &1620495043 stripped
 Camera:
   m_CorrespondingSourceObject: {fileID: 1347050425505611081, guid: f4fbbe1b57bb53741a09ce537881fc2f, type: 3}
+  m_PrefabInstance: {fileID: 1620495042}
+  m_PrefabAsset: {fileID: 0}
+--- !u!82 &1620495044 stripped
+AudioSource:
+  m_CorrespondingSourceObject: {fileID: 1199427945002102433, guid: f4fbbe1b57bb53741a09ce537881fc2f, type: 3}
   m_PrefabInstance: {fileID: 1620495042}
   m_PrefabAsset: {fileID: 0}
 --- !u!1 &1858461487

@@ -19,6 +19,8 @@ public class LevelAssetEditor : Editor
 
         SceneAsset newLevelScene = EditorGUILayout.ObjectField("Level Scene", oldLevelScene, typeof(SceneAsset), false) as SceneAsset;
 
+        EditorGUILayout.PropertyField(serializedObject.FindProperty("levelMusic"));
+
         if (EditorGUI.EndChangeCheck())
         {
             string newLevelScenePath = AssetDatabase.GetAssetPath(newLevelScene);
