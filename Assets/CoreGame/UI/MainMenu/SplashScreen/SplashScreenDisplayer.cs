@@ -2,6 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
+using UnityEngine.SceneManagement;
 
 public class SplashScreenDisplayer : MonoBehaviour
 {
@@ -96,6 +97,6 @@ public class SplashScreenDisplayer : MonoBehaviour
 
     private void EndSplashScreenDisplay()
     {
-
+        SceneManager.LoadScene(1);
     }
 }

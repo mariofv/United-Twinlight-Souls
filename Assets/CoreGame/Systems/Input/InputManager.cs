@@ -17,7 +17,9 @@ public class InputManager : MonoBehaviour
 
         playerInput.Combat.Movement.performed += ctx => OnMovementInput(ctx);
         playerInput.Combat.Movement.canceled += ctx => OnMovementInput(ctx);
-        
+
+        playerInput.Pause.Pause.started += ctx => GameManager.instance.OnPauseInput(ctx);
+
         if (Debug.isDebugBuild)
         {
         }

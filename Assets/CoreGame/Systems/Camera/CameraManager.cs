@@ -19,15 +19,18 @@ public class CameraManager : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        Vector3 cameraFocus;
-        Vector3 cameraPosition;
+        if (GameManager.instance.GetCurrentGameState() == GameManager.GameState.COMBAT)
+        {
+            Vector3 cameraFocus;
+            Vector3 cameraPosition;
 
-        currentCameraRail.GetCurrentCameraMotion(out cameraPosition, out cameraFocus);
-        mainCamera.transform.position = cameraPosition;
-        mainCamera.transform.LookAt(cameraFocus, Vector3.up);
+            currentCameraRail.GetCurrentCameraMotion(out cameraPosition, out cameraFocus);
+            mainCamera.transform.position = cameraPosition;
+            mainCamera.transform.LookAt(cameraFocus, Vector3.up);
 
-        currentProjectedFront = Vector3.ProjectOnPlane(mainCamera.transform.forward, Vector3.up);
-        currentProjectedRight = Vector3.ProjectOnPlane(mainCamera.transform.right, Vector3.up);
+            currentProjectedFront = Vector3.ProjectOnPlane(mainCamera.transform.forward, Vector3.up);
+            currentProjectedRight = Vector3.ProjectOnPlane(mainCamera.transform.right, Vector3.up);
+        }
     }
 
     public Vector3 GetCurrentProjectedFront()
