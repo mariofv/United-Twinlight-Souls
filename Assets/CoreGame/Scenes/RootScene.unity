@@ -418,7 +418,39 @@ PrefabInstance:
       objectReference: {fileID: 1620495043}
     - target: {fileID: 1718076885443525449, guid: 9cf61782db9609c43b7d5d0a2bf99c53, type: 3}
       propertyPath: m_RenderMode
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 1718076885443525449, guid: 9cf61782db9609c43b7d5d0a2bf99c53, type: 3}
+      propertyPath: m_AdditionalShaderChannelsFlag
+      value: 25
+      objectReference: {fileID: 0}
+    - target: {fileID: 2803099388969536056, guid: 9cf61782db9609c43b7d5d0a2bf99c53, type: 3}
+      propertyPath: m_IsActive
       value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 3113520446944817024, guid: 9cf61782db9609c43b7d5d0a2bf99c53, type: 3}
+      propertyPath: m_LocalPosition.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 3113520446944817024, guid: 9cf61782db9609c43b7d5d0a2bf99c53, type: 3}
+      propertyPath: m_LocalPosition.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4044581367573279654, guid: 9cf61782db9609c43b7d5d0a2bf99c53, type: 3}
+      propertyPath: m_LocalPosition.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4737475806192945354, guid: 9cf61782db9609c43b7d5d0a2bf99c53, type: 3}
+      propertyPath: m_fontSize
+      value: 37.65
+      objectReference: {fileID: 0}
+    - target: {fileID: 6326664882997163548, guid: 9cf61782db9609c43b7d5d0a2bf99c53, type: 3}
+      propertyPath: m_Color.b
+      value: 0.90196085
+      objectReference: {fileID: 0}
+    - target: {fileID: 6326664882997163548, guid: 9cf61782db9609c43b7d5d0a2bf99c53, type: 3}
+      propertyPath: m_Color.g
+      value: 0.9921569
       objectReference: {fileID: 0}
     - target: {fileID: 6980345809731162850, guid: 9cf61782db9609c43b7d5d0a2bf99c53, type: 3}
       propertyPath: m_Name
@@ -506,6 +538,14 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 8800306701045421198, guid: 9cf61782db9609c43b7d5d0a2bf99c53, type: 3}
       propertyPath: m_LocalEulerAnglesHint.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 8876917430113299509, guid: 9cf61782db9609c43b7d5d0a2bf99c53, type: 3}
+      propertyPath: m_LocalPosition.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 8876917430113299509, guid: 9cf61782db9609c43b7d5d0a2bf99c53, type: 3}
+      propertyPath: m_LocalPosition.y
       value: 0
       objectReference: {fileID: 0}
     m_RemovedComponents: []
