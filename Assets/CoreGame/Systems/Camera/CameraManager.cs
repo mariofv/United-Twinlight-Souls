@@ -5,7 +5,10 @@ using UnityEngine;
 public class CameraManager : MonoBehaviour
 {
     [SerializeField] private CameraRail currentCameraRail;
-    [SerializeField] private Camera mainCamera;
+    public Camera mainCamera;
+
+    private Vector3 currentProjectedFront;
+    private Vector3 currentProjectedRight;
 
     // Start is called before the first frame update
     void Start()
@@ -22,11 +25,23 @@ public class CameraManager : MonoBehaviour
         currentCameraRail.GetCurrentCameraMotion(out cameraPosition, out cameraFocus);
         mainCamera.transform.position = cameraPosition;
         mainCamera.transform.LookAt(cameraFocus, Vector3.up);
+
+        currentProjectedFront = Vector3.ProjectOnPlane(mainCamera.transform.forward, Vector3.up);
+        currentProjectedRight = Vector3.ProjectOnPlane(mainCamera.transform.right, Vector3.up);
+    }
+
+    public Vector3 GetCurrentProjectedFront()
+    {
+        return currentProjectedFront;
+    }
+
+    public Vector3 GetCurrentProjectedRight()
+    {
+        return currentProjectedRight;
     }
 
     public void SetCurrentCameraRail(CameraRail newCameraRail)
     {
         currentCameraRail = newCameraRail;
     }
-
 }

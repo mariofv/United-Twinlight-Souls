@@ -7,7 +7,7 @@ public class PlayerManager : MonoBehaviour
     private Transform characterTransform;
 
     public float movementSpeed;
-    private Vector2 movementVector;
+    private Vector3 movementVector;
 
     private void Awake()
     {
@@ -28,13 +28,17 @@ public class PlayerManager : MonoBehaviour
 
     private void FixedUpdate()
     {
-        transform.position += Time.fixedDeltaTime * movementSpeed * new Vector3(movementVector.x, 0f, movementVector.y);
+        transform.position += Time.fixedDeltaTime * movementSpeed * new Vector3(movementVector.x, 0f, movementVector.z);
     }
 
     public void Move(Vector2 inputedMovement)
     {
-        movementVector = inputedMovement.normalized;
+        Vector3 movementRight = GameManager.instance.cameraManager.GetCurrentProjectedRight().normalized * inputedMovement.x;
+        Vector3 movementFront = GameManager.instance.cameraManager.GetCurrentProjectedFront().normalized * inputedMovement.y;
+
+        movementVector = movementRight + movementFront;
     }
+
 
     public Vector3 GetPosition()
     {
