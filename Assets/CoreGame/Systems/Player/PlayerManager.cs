@@ -6,7 +6,8 @@ public class PlayerManager : MonoBehaviour
 {
     private Rigidbody characterRigidBody;
 
-    public float movementSpeed;
+    [SerializeField] private float movementSpeed;
+    [SerializeField] private float jumpForce;
     private Vector3 movementVector;
 
     private void Awake()
@@ -42,6 +43,11 @@ public class PlayerManager : MonoBehaviour
         Vector3 movementFront = GameManager.instance.cameraManager.GetCurrentProjectedFront().normalized * inputedMovement.y;
 
         movementVector = movementRight + movementFront;
+    }
+
+    public void Jump()
+    {
+        characterRigidBody.AddForce(Vector3.up * jumpForce);
     }
 
 

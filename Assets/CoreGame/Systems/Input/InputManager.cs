@@ -17,6 +17,7 @@ public class InputManager : MonoBehaviour
 
         playerInput.Combat.Movement.performed += ctx => OnMovementInput(ctx);
         playerInput.Combat.Movement.canceled += ctx => OnMovementInput(ctx);
+        playerInput.Combat.Jump.started += ctx => OnJumpInput(ctx);
 
         playerInput.Pause.Pause.started += ctx => GameManager.instance.OnPauseInput(ctx);
 
@@ -74,5 +75,10 @@ public class InputManager : MonoBehaviour
     public void OnMovementInput(InputAction.CallbackContext context)
     {
        GameManager.instance.player.Move(context.ReadValue<Vector2>());
+    }
+
+    public void OnJumpInput(InputAction.CallbackContext context)
+    {
+        GameManager.instance.player.Jump();
     }
 }
