@@ -4,14 +4,14 @@ using UnityEngine;
 
 public class PlayerManager : MonoBehaviour
 {
-    private Transform characterTransform;
+    private Rigidbody characterRigidBody;
 
     public float movementSpeed;
     private Vector3 movementVector;
 
     private void Awake()
     {
-        characterTransform = transform;
+        characterRigidBody = GetComponent<Rigidbody>();
     }
 
     // Start is called before the first frame update
@@ -28,7 +28,12 @@ public class PlayerManager : MonoBehaviour
 
     private void FixedUpdate()
     {
-        transform.position += Time.fixedDeltaTime * movementSpeed * new Vector3(movementVector.x, 0f, movementVector.z);
+        if (movementVector != Vector3.zero)
+        {
+            characterRigidBody.rotation = Quaternion.LookRotation(movementVector);
+        }
+
+        characterRigidBody.position += Time.fixedDeltaTime * movementSpeed * movementVector;
     }
 
     public void Move(Vector2 inputedMovement)
