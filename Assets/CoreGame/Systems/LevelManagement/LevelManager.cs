@@ -4,9 +4,10 @@ using UnityEngine;
 
 public class LevelManager : MonoBehaviour
 {
-    [SerializeField] private List<Level> gameLevels;
+    [SerializeField] private List<LevelAsset> gameLevels;
 
-    private int currentLevel = -1;
+    private int currentLevelIndex = -1;
+    private Level currentLevel;
 
 
     // Start is called before the first frame update
@@ -26,6 +27,11 @@ public class LevelManager : MonoBehaviour
         GameManager.instance.EnterGameState(GameManager.GameState.LOADING_LEVEL, changeGameStateInput: false);
 
         yield return StartCoroutine(GameManager.instance.scenesManager.ChangeScene(gameLevels[level].levelScene));
+        
+        currentLevelIndex = level;
+        currentLevel = GameObject.FindGameObjectWithTag(TagManager.LEVEL).GetComponent<Level>();
+
+        GameManager.instance.cameraManager.SetCurrentCameraRail(currentLevel.levelCameraRail);
 
         GameManager.instance.EnterGameState(GameManager.GameState.COMBAT, changeGameStateInput: false);
     }

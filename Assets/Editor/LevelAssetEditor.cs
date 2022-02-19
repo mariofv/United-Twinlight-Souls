@@ -3,12 +3,12 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEditor;
 
-[CustomEditor(typeof(Level), true)]
+[CustomEditor(typeof(LevelAsset), true)]
 public class LevelAssetEditor : Editor
 {
     public override void OnInspectorGUI()
     {
-        Level levelAsset = target as Level;
+        LevelAsset levelAsset = target as LevelAsset;
         SceneAsset oldLevelScene = AssetDatabase.LoadAssetAtPath<SceneAsset>(levelAsset.levelScene);
 
         serializedObject.Update();

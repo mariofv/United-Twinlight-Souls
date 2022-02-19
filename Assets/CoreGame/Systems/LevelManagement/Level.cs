@@ -2,10 +2,17 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-[CreateAssetMenu(fileName = "Level", menuName = "Level", order = 1)]
-[System.Serializable]
-public class Level : ScriptableObject
+public class Level : MonoBehaviour
 {
-    public string levelName;
-    public string levelScene;
+    public CameraRail levelCameraRail;
+
+    private void Start()
+    {
+    }
+
+    // Update is called once per frame
+    void Update()
+    {
+        
+    }
 }

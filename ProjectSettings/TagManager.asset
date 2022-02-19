@@ -6,6 +6,7 @@ TagManager:
   tags:
   - GameUI
   - MainMenuUI
+  - Level
   layers:
   - Default
   - TransparentFX

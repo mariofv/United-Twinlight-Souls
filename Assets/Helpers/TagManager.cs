@@ -11,5 +11,6 @@ public static class TagManager
     public const string CHARACTER = "Character";
     public const string ENEMY = "Enemy";
 
+    public const string LEVEL = "Level";
     public const string ENTITIES_HOLDER = "EntitiesHolder";
 }
