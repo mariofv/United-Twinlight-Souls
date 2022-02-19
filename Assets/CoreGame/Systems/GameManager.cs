@@ -19,6 +19,8 @@ public class GameManager : MonoBehaviour
     }
 
     public PlayerManager player;
+
+    public CameraManager cameraManager;
     public InputManager inputManager;
 
     // Start is called before the first frame update
