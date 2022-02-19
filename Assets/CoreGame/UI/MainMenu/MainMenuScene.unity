@@ -97,7 +97,7 @@ LightmapSettings:
     m_ExportTrainingData: 0
     m_TrainingDataDestination: TrainingData
     m_LightProbeSampleCountMultiplier: 4
-  m_LightingDataAsset: {fileID: 0}
+  m_LightingDataAsset: {fileID: 112000000, guid: 0ab854f0cf3b5c14f8297c3164fcaaf2, type: 2}
   m_LightingSettings: {fileID: 0}
 --- !u!196 &4
 NavMeshSettings:
@@ -347,7 +347,6 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 828953435}
-  - component: {fileID: 828953436}
   m_Layer: 0
   m_Name: LogoScreenCameraPosition
   m_TagString: Untagged
@@ -369,14 +368,6 @@ Transform:
   m_Father: {fileID: 713823967}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 143.304, y: -41.612, z: 178.959}
---- !u!81 &828953436
-AudioListener:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 828953434}
-  m_Enabled: 1
 --- !u!1 &2145520679
 GameObject:
   m_ObjectHideFlags: 0

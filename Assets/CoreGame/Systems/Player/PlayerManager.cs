@@ -69,6 +69,10 @@ public class PlayerManager : MonoBehaviour
         jumping = true;
     }
 
+    public void TeleportPlayer(Vector3 position)
+    {
+        characterTransform.position = position;
+    }
 
     public Vector3 GetPosition()
     {
