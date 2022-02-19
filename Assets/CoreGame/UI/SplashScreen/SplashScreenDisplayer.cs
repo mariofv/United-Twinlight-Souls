@@ -26,7 +26,6 @@ public class SplashScreenDisplayer : MonoBehaviour
     private void Awake()
     {
         splashScreenCanvasGroup = GetComponent<CanvasGroup>();
-        transitionDuration = splashScreenDuration * 0.5f;
     }
 
     // Start is called before the first frame update
