@@ -28,7 +28,7 @@ public class PlayerManager : MonoBehaviour
 
     private void FixedUpdate()
     {
-        transform.position += Time.fixedDeltaTime * movementSpeed * new Vector3(movementVector.x, movementVector.y, 0f);
+        transform.position += Time.fixedDeltaTime * movementSpeed * new Vector3(movementVector.x, 0f, movementVector.y);
     }
 
     public void Move(Vector2 inputedMovement)
