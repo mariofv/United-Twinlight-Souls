@@ -1,11 +1,14 @@
 fileFormatVersion: 2
-guid: 9a72971da7ec1c64686d5683f3d43b28
+guid: 196a96bbfde6b1c4bac6a9ecab23fbc2
 ModelImporter:
   serializedVersion: 20200
   internalIDToNameTable:
   - first:
-      74: 1827226128182048838
-    second: IdleCombat
+      74: -623603649343465320
+    second: Fall
+  - first:
+      74: -623603649343465320
+    second: Scene
   externalObjects: {}
   materials:
     materialImportMode: 2
@@ -35,11 +38,11 @@ ModelImporter:
     extraUserProperties: []
     clipAnimations:
     - serializedVersion: 16
-      name: IdleCombat
-      takeName: Take 001
+      name: Fall
+      takeName: Scene
       internalID: 0
-      firstFrame: 5
-      lastFrame: 60
+      firstFrame: 1
+      lastFrame: 250
       wrapMode: 0
       orientationOffsetY: 0
       level: 0
@@ -62,7 +65,7 @@ ModelImporter:
       transformMask: []
       maskType: 3
       maskSource: {instanceID: 0}
-      additiveReferencePoseFrame: 5
+      additiveReferencePoseFrame: 1
     isReadable: 0
   meshes:
     lODScreenPercentages: []

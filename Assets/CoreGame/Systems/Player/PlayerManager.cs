@@ -11,6 +11,8 @@ public class PlayerManager : MonoBehaviour
     [SerializeField] private float jumpForce;
     private Vector3 movementVector;
 
+    private const float VERTICAL_VELOCITY_EPSILON = 0.00001f;
+
     private void Awake()
     {
         characterRigidBody = GetComponent<Rigidbody>();
@@ -34,6 +36,14 @@ public class PlayerManager : MonoBehaviour
         {
             characterRigidBody.rotation = Quaternion.LookRotation(movementVector);
         }
+
+        float verticalVelocity = characterRigidBody.velocity.y;
+        bool isAirborne = Mathf.Abs(verticalVelocity) > VERTICAL_VELOCITY_EPSILON;
+        if (isAirborne)
+        {
+            characterAnimator.SetFloat("verticalVelocity", verticalVelocity);
+        }
+        characterAnimator.SetBool("isAirborne", isAirborne);
 
         characterRigidBody.position += Time.fixedDeltaTime * movementSpeed * movementVector;
     }
