@@ -46,6 +46,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 684cffb2720e17d44880fef300fc4949, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  characterRigidBody: {fileID: 0}
+  characterAnimator: {fileID: 5993322870105679182}
   movementSpeed: 5
   jumpForce: 300
 --- !u!136 &3127495798517225859
@@ -164,10 +166,19 @@ PrefabInstance:
       propertyPath: m_Name
       value: Barald
       objectReference: {fileID: 0}
+    - target: {fileID: 5866666021909216657, guid: a1bf4f573a328cf409c426b19c3c9f41, type: 3}
+      propertyPath: m_Controller
+      value: 
+      objectReference: {fileID: 9100000, guid: ba2f407e79a9bfa4e8be3d9859dc9a4a, type: 2}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: a1bf4f573a328cf409c426b19c3c9f41, type: 3}
 --- !u!4 &417888850298437428 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: -8679921383154817045, guid: a1bf4f573a328cf409c426b19c3c9f41, type: 3}
+  m_PrefabInstance: {fileID: 163847902121105631}
+  m_PrefabAsset: {fileID: 0}
+--- !u!95 &5993322870105679182 stripped
+Animator:
+  m_CorrespondingSourceObject: {fileID: 5866666021909216657, guid: a1bf4f573a328cf409c426b19c3c9f41, type: 3}
   m_PrefabInstance: {fileID: 163847902121105631}
   m_PrefabAsset: {fileID: 0}

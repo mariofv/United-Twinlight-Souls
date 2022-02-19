@@ -4,7 +4,8 @@ using UnityEngine;
 
 public class PlayerManager : MonoBehaviour
 {
-    private Rigidbody characterRigidBody;
+    [SerializeField] private Rigidbody characterRigidBody;
+    [SerializeField] private Animator characterAnimator;
 
     [SerializeField] private float movementSpeed;
     [SerializeField] private float jumpForce;
@@ -43,6 +44,8 @@ public class PlayerManager : MonoBehaviour
         Vector3 movementFront = GameManager.instance.cameraManager.GetCurrentProjectedFront().normalized * inputedMovement.y;
 
         movementVector = movementRight + movementFront;
+
+        characterAnimator.SetBool("moving", movementVector != Vector3.zero);
     }
 
     public void Jump()
