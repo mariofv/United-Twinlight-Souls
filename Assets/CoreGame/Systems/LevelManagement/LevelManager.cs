@@ -4,6 +4,11 @@ using UnityEngine;
 
 public class LevelManager : MonoBehaviour
 {
+    [SerializeField] private List<Level> gameLevels;
+
+    private int currentLevel = -1;
+
+
     // Start is called before the first frame update
     void Start()
     {
@@ -18,6 +23,6 @@ public class LevelManager : MonoBehaviour
 
     public IEnumerator LoadLevel(int level)
     {
-        yield return null;
+        yield return StartCoroutine(GameManager.instance.scenesManager.ChangeScene(gameLevels[level].levelScene));
     }
 }
