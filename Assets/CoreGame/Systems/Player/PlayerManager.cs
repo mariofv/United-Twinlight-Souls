@@ -35,4 +35,9 @@ public class PlayerManager : MonoBehaviour
     {
         movementVector = inputedMovement.normalized;
     }
+
+    public Vector3 GetPosition()
+    {
+        return transform.position;
+    }
 }
