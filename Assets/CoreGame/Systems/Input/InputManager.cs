@@ -71,6 +71,6 @@ public class InputManager : MonoBehaviour
 
     public void OnMovementInput(InputAction.CallbackContext context)
     {
-       // GameManager.instance.player.controlledCharacter.inputManager.movementVector = context.ReadValue<Vector2>();
+       GameManager.instance.player.Move(context.ReadValue<Vector2>());
     }
 }
