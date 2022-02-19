@@ -12,5 +12,6 @@ public static class TagManager
     public const string ENEMY = "Enemy";
 
     public const string LEVEL = "Level";
+    public const string LEVEL_COLLIDER = "LevelCollider";
     public const string ENTITIES_HOLDER = "EntitiesHolder";
 }

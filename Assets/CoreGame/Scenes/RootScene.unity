@@ -170,6 +170,14 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 2286648280658548795, guid: 4622866028b83bf4a82cdcec90573ed3, type: 3}
+      propertyPath: m_IsKinematic
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 5814452665316528148, guid: 4622866028b83bf4a82cdcec90573ed3, type: 3}
+      propertyPath: gravityRayDistance
+      value: 1.26
+      objectReference: {fileID: 0}
     - target: {fileID: 6572351940774386867, guid: 4622866028b83bf4a82cdcec90573ed3, type: 3}
       propertyPath: m_LocalEulerAnglesHint.y
       value: 180

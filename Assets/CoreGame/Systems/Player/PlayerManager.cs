@@ -4,19 +4,20 @@ using UnityEngine;
 
 public class PlayerManager : MonoBehaviour
 {
-    [SerializeField] private Rigidbody characterRigidBody;
+    [SerializeField] private Transform characterTransform;
     [SerializeField] private Animator characterAnimator;
 
     [SerializeField] private float movementSpeed;
-    [SerializeField] private float jumpForce;
+    [SerializeField] private float gravity;
+    [SerializeField] private float jumpSpeed;
+    [SerializeField] private CharacterController characterController;
+
     private Vector3 movementVector;
-
-    private const float VERTICAL_VELOCITY_EPSILON = 0.00001f;
-
-    private void Awake()
-    {
-        characterRigidBody = GetComponent<Rigidbody>();
-    }
+    private float verticalVelocity = 0f;
+    private bool isAirborne = false;
+    private bool jumping = false;
+    private float previousVerticalPosition;
+    private const float FALLING_EPSILON = 0.01f;
 
     // Start is called before the first frame update
     void Start()
@@ -27,25 +28,29 @@ public class PlayerManager : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        
-    }
+        bool significantVerticalMovement = Mathf.Abs(previousVerticalPosition - characterTransform.position.y) > FALLING_EPSILON;
+        isAirborne = !characterController.isGrounded;
 
-    private void FixedUpdate()
-    {
+        if (!isAirborne  && verticalVelocity < 0f)
+        {
+            verticalVelocity = 0f;
+            jumping = false;
+        }
+
+        characterAnimator.SetBool("isAirborne", isAirborne && jumping);
+
         if (movementVector != Vector3.zero)
         {
-            characterRigidBody.rotation = Quaternion.LookRotation(movementVector);
+            characterTransform.rotation = Quaternion.LookRotation(movementVector);
         }
 
-        float verticalVelocity = characterRigidBody.velocity.y;
-        bool isAirborne = Mathf.Abs(verticalVelocity) > VERTICAL_VELOCITY_EPSILON;
-        if (isAirborne)
-        {
-            characterAnimator.SetFloat("verticalVelocity", verticalVelocity);
-        }
-        characterAnimator.SetBool("isAirborne", isAirborne);
+        characterController.Move(Time.deltaTime * movementSpeed * movementVector);
+        
+        verticalVelocity -= gravity * Time.deltaTime;
+        characterAnimator.SetFloat("verticalVelocity", verticalVelocity);
 
-        characterRigidBody.position += Time.fixedDeltaTime * movementSpeed * movementVector;
+        previousVerticalPosition = characterTransform.position.y;
+        characterController.Move(Time.deltaTime * verticalVelocity * Vector3.up);
     }
 
     public void Move(Vector2 inputedMovement)
@@ -60,7 +65,8 @@ public class PlayerManager : MonoBehaviour
 
     public void Jump()
     {
-        characterRigidBody.AddForce(Vector3.up * jumpForce);
+        verticalVelocity = jumpSpeed;
+        jumping = true;
     }
 
 
