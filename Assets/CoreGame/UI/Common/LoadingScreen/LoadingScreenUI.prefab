@@ -650,6 +650,12 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   uiElementCanvasGroup: {fileID: 7776317075922584498}
+  loadingScreenTips:
+  - {fileID: 7033614149143909396}
+  - {fileID: 5801992350057265842}
+  - {fileID: 9001571749312688554}
+  - {fileID: 6743800653588753763}
+  timeBetweenTips: 3
 --- !u!1 &5882122956823953534
 GameObject:
   m_ObjectHideFlags: 0
