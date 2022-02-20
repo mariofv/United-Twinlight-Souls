@@ -23,6 +23,8 @@ public class UISettings : MonoBehaviour
     {
         public const float DISPLAY_TIME = 0.125f;
         public const float DISPLAY_OFFSET = 100;
+
+        public const float LOADING_SCREEN_TIP_DISPLAY_TIME = 3;
         //public static TweenParams TWEEN_PARAMS = new TweenParams().SetAutoKill(false).SetUpdate(true);
     };
 

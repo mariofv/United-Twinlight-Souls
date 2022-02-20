@@ -7,7 +7,6 @@ using Tweening;
 public class LoadingScreenUIManager : UIElement
 {
     [SerializeField] private List<Image> loadingScreenTips;
-    [SerializeField] private float timeBetweenTips;
 
     private float currentTime = 0;
     private int currentTip = 0;
@@ -55,7 +54,7 @@ public class LoadingScreenUIManager : UIElement
     private void Update()
     {
         currentTime += Time.deltaTime;
-        if (currentTime >= timeBetweenTips)
+        if (currentTime >= UISettings.GameUISettings.LOADING_SCREEN_TIP_DISPLAY_TIME)
         {
             ShowNextTip();
         }

@@ -26,18 +26,18 @@ public class LevelManager : MonoBehaviour
     {
         if (fade)
         {
+            CursorHider.HideCursor();
             GameManager.instance.uiManager.levelTransitionUIManager.FadeOut();
             while (GameManager.instance.uiManager.levelTransitionUIManager.IsFadingOut())
             {
                 yield return new WaitForFixedUpdate();
             }
         }
-
         GameManager.instance.EnterGameState(GameManager.GameState.LOADING_LEVEL, changeGameStateInput: true);
 
         GameManager.instance.uiManager.loadingScreenUIManager.Show();
 
-        yield return new WaitForSeconds(3);
+        yield return new WaitForSeconds(UISettings.GameUISettings.LOADING_SCREEN_TIP_DISPLAY_TIME);
         yield return StartCoroutine(GameManager.instance.scenesManager.ChangeScene(gameLevels[level].levelScene));
 
 
@@ -60,6 +60,7 @@ public class LevelManager : MonoBehaviour
             {
                 yield return new WaitForFixedUpdate();
             }
+            CursorHider.ShowCursor();
         }
     }
 }

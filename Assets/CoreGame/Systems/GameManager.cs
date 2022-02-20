@@ -94,6 +94,7 @@ public class GameManager : MonoBehaviour
 
     private IEnumerator LoadGame(int level)
     {
+        CursorHider.HideCursor();
         uiManager.levelTransitionUIManager.FadeOut();
         while (uiManager.levelTransitionUIManager.IsFadingOut())
         {
@@ -112,6 +113,7 @@ public class GameManager : MonoBehaviour
         {
             yield return new WaitForFixedUpdate();
         }
+        CursorHider.ShowCursor();
     }
     public void CloseGame()
     {
