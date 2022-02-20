@@ -152,10 +152,8 @@ public class GameManager : MonoBehaviour
 
         if (changeGameStateInput)
         {
-            /*
             inputManager.DisableGameStateInput(lastGameState);
             inputManager.EnableGameStateInput(gameState);
-            */
         }
 
         uiManager.LoadGameStateUI(gameState);

@@ -636,6 +636,76 @@ public partial class @PlayerInput : IInputActionCollection2, IDisposable
                     ""isPartOfComposite"": false
                 }
             ]
+        },
+        {
+            ""name"": ""LoadingScreen"",
+            ""id"": ""7cb78911-6361-4d40-9343-79a446310313"",
+            ""actions"": [
+                {
+                    ""name"": ""NextTip"",
+                    ""type"": ""Button"",
+                    ""id"": ""1865ac57-1ad8-4425-9acc-a0959189e77c"",
+                    ""expectedControlType"": ""Button"",
+                    ""processors"": """",
+                    ""interactions"": """",
+                    ""initialStateCheck"": false
+                },
+                {
+                    ""name"": ""PreviousTip"",
+                    ""type"": ""Button"",
+                    ""id"": ""f8ab6b48-9142-4c1b-9a10-d81cf961bf5d"",
+                    ""expectedControlType"": ""Button"",
+                    ""processors"": """",
+                    ""interactions"": """",
+                    ""initialStateCheck"": false
+                }
+            ],
+            ""bindings"": [
+                {
+                    ""name"": """",
+                    ""id"": ""2bdb07b1-af17-4ffa-a492-bf814ecd29cb"",
+                    ""path"": ""<Keyboard>/d"",
+                    ""interactions"": """",
+                    ""processors"": """",
+                    ""groups"": ""Keyboard&Mouse"",
+                    ""action"": ""NextTip"",
+                    ""isComposite"": false,
+                    ""isPartOfComposite"": false
+                },
+                {
+                    ""name"": """",
+                    ""id"": ""c9a0d043-b17c-432f-b28d-42c0139ce812"",
+                    ""path"": ""<Gamepad>/dpad/right"",
+                    ""interactions"": """",
+                    ""processors"": """",
+                    ""groups"": ""Gamepad"",
+                    ""action"": ""NextTip"",
+                    ""isComposite"": false,
+                    ""isPartOfComposite"": false
+                },
+                {
+                    ""name"": """",
+                    ""id"": ""617475cf-7040-455d-8bee-ee4b5dca2bff"",
+                    ""path"": ""<Keyboard>/a"",
+                    ""interactions"": """",
+                    ""processors"": """",
+                    ""groups"": ""Keyboard&Mouse"",
+                    ""action"": ""PreviousTip"",
+                    ""isComposite"": false,
+                    ""isPartOfComposite"": false
+                },
+                {
+                    ""name"": """",
+                    ""id"": ""b254ac99-567f-4ce0-8d46-b26ed4ac2da8"",
+                    ""path"": ""<Gamepad>/leftStick/left"",
+                    ""interactions"": """",
+                    ""processors"": """",
+                    ""groups"": ""Gamepad"",
+                    ""action"": ""PreviousTip"",
+                    ""isComposite"": false,
+                    ""isPartOfComposite"": false
+                }
+            ]
         }
     ],
     ""controlSchemes"": [
@@ -687,6 +757,10 @@ public partial class @PlayerInput : IInputActionCollection2, IDisposable
         // Pause
         m_Pause = asset.FindActionMap("Pause", throwIfNotFound: true);
         m_Pause_Pause = m_Pause.FindAction("Pause", throwIfNotFound: true);
+        // LoadingScreen
+        m_LoadingScreen = asset.FindActionMap("LoadingScreen", throwIfNotFound: true);
+        m_LoadingScreen_NextTip = m_LoadingScreen.FindAction("NextTip", throwIfNotFound: true);
+        m_LoadingScreen_PreviousTip = m_LoadingScreen.FindAction("PreviousTip", throwIfNotFound: true);
     }
 
     public void Dispose()
@@ -921,6 +995,47 @@ public partial class @PlayerInput : IInputActionCollection2, IDisposable
         }
     }
     public PauseActions @Pause => new PauseActions(this);
+
+    // LoadingScreen
+    private readonly InputActionMap m_LoadingScreen;
+    private ILoadingScreenActions m_LoadingScreenActionsCallbackInterface;
+    private readonly InputAction m_LoadingScreen_NextTip;
+    private readonly InputAction m_LoadingScreen_PreviousTip;
+    public struct LoadingScreenActions
+    {
+        private @PlayerInput m_Wrapper;
+        public LoadingScreenActions(@PlayerInput wrapper) { m_Wrapper = wrapper; }
+        public InputAction @NextTip => m_Wrapper.m_LoadingScreen_NextTip;
+        public InputAction @PreviousTip => m_Wrapper.m_LoadingScreen_PreviousTip;
+        public InputActionMap Get() { return m_Wrapper.m_LoadingScreen; }
+        public void Enable() { Get().Enable(); }
+        public void Disable() { Get().Disable(); }
+        public bool enabled => Get().enabled;
+        public static implicit operator InputActionMap(LoadingScreenActions set) { return set.Get(); }
+        public void SetCallbacks(ILoadingScreenActions instance)
+        {
+            if (m_Wrapper.m_LoadingScreenActionsCallbackInterface != null)
+            {
+                @NextTip.started -= m_Wrapper.m_LoadingScreenActionsCallbackInterface.OnNextTip;
+                @NextTip.performed -= m_Wrapper.m_LoadingScreenActionsCallbackInterface.OnNextTip;
+                @NextTip.canceled -= m_Wrapper.m_LoadingScreenActionsCallbackInterface.OnNextTip;
+                @PreviousTip.started -= m_Wrapper.m_LoadingScreenActionsCallbackInterface.OnPreviousTip;
+                @PreviousTip.performed -= m_Wrapper.m_LoadingScreenActionsCallbackInterface.OnPreviousTip;
+                @PreviousTip.canceled -= m_Wrapper.m_LoadingScreenActionsCallbackInterface.OnPreviousTip;
+            }
+            m_Wrapper.m_LoadingScreenActionsCallbackInterface = instance;
+            if (instance != null)
+            {
+                @NextTip.started += instance.OnNextTip;
+                @NextTip.performed += instance.OnNextTip;
+                @NextTip.canceled += instance.OnNextTip;
+                @PreviousTip.started += instance.OnPreviousTip;
+                @PreviousTip.performed += instance.OnPreviousTip;
+                @PreviousTip.canceled += instance.OnPreviousTip;
+            }
+        }
+    }
+    public LoadingScreenActions @LoadingScreen => new LoadingScreenActions(this);
     private int m_KeyboardMouseSchemeIndex = -1;
     public InputControlScheme KeyboardMouseScheme
     {
@@ -960,5 +1075,10 @@ public partial class @PlayerInput : IInputActionCollection2, IDisposable
     public interface IPauseActions
     {
         void OnPause(InputAction.CallbackContext context);
+    }
+    public interface ILoadingScreenActions
+    {
+        void OnNextTip(InputAction.CallbackContext context);
+        void OnPreviousTip(InputAction.CallbackContext context);
     }
 }

@@ -58,7 +58,6 @@ public class LoadingScreenUIManager : UIElement
         if (currentTime >= timeBetweenTips)
         {
             ShowNextTip();
-            currentTime = 0f;
         }
     }
 
@@ -79,10 +78,10 @@ public class LoadingScreenUIManager : UIElement
     {
         int lastTip = currentTip;
 
-        ++currentTip;
-        if (currentTip == loadingScreenTips.Count)
+        --currentTip;
+        if (currentTip == -1)
         {
-            currentTip = 0;
+            currentTip = loadingScreenTips.Count - 1;
         }
 
         ShowTip(lastTip, currentTip);
@@ -98,5 +97,7 @@ public class LoadingScreenUIManager : UIElement
         loadingScreenTips[currentTip].gameObject.SetActive(true);
         tipsShowTweens[currentTip].Rewind();
         tipsShowTweens[currentTip].Play();
+
+        currentTime = 0f;
     }
 }

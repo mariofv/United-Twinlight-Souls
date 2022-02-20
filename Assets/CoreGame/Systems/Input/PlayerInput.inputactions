@@ -614,6 +614,76 @@
                     "isPartOfComposite": false
                 }
             ]
+        },
+        {
+            "name": "LoadingScreen",
+            "id": "7cb78911-6361-4d40-9343-79a446310313",
+            "actions": [
+                {
+                    "name": "NextTip",
+                    "type": "Button",
+                    "id": "1865ac57-1ad8-4425-9acc-a0959189e77c",
+                    "expectedControlType": "Button",
+                    "processors": "",
+                    "interactions": "",
+                    "initialStateCheck": false
+                },
+                {
+                    "name": "PreviousTip",
+                    "type": "Button",
+                    "id": "f8ab6b48-9142-4c1b-9a10-d81cf961bf5d",
+                    "expectedControlType": "Button",
+                    "processors": "",
+                    "interactions": "",
+                    "initialStateCheck": false
+                }
+            ],
+            "bindings": [
+                {
+                    "name": "",
+                    "id": "2bdb07b1-af17-4ffa-a492-bf814ecd29cb",
+                    "path": "<Keyboard>/d",
+                    "interactions": "",
+                    "processors": "",
+                    "groups": "Keyboard&Mouse",
+                    "action": "NextTip",
+                    "isComposite": false,
+                    "isPartOfComposite": false
+                },
+                {
+                    "name": "",
+                    "id": "c9a0d043-b17c-432f-b28d-42c0139ce812",
+                    "path": "<Gamepad>/dpad/right",
+                    "interactions": "",
+                    "processors": "",
+                    "groups": "Gamepad",
+                    "action": "NextTip",
+                    "isComposite": false,
+                    "isPartOfComposite": false
+                },
+                {
+                    "name": "",
+                    "id": "617475cf-7040-455d-8bee-ee4b5dca2bff",
+                    "path": "<Keyboard>/a",
+                    "interactions": "",
+                    "processors": "",
+                    "groups": "Keyboard&Mouse",
+                    "action": "PreviousTip",
+                    "isComposite": false,
+                    "isPartOfComposite": false
+                },
+                {
+                    "name": "",
+                    "id": "b254ac99-567f-4ce0-8d46-b26ed4ac2da8",
+                    "path": "<Gamepad>/leftStick/left",
+                    "interactions": "",
+                    "processors": "",
+                    "groups": "Gamepad",
+                    "action": "PreviousTip",
+                    "isComposite": false,
+                    "isPartOfComposite": false
+                }
+            ]
         }
     ],
     "controlSchemes": [

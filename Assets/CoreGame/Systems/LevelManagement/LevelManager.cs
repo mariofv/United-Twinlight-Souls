@@ -33,7 +33,7 @@ public class LevelManager : MonoBehaviour
             }
         }
 
-        GameManager.instance.EnterGameState(GameManager.GameState.LOADING_LEVEL, changeGameStateInput: false);
+        GameManager.instance.EnterGameState(GameManager.GameState.LOADING_LEVEL, changeGameStateInput: true);
 
         GameManager.instance.uiManager.loadingScreenUIManager.Show();
 
@@ -49,7 +49,7 @@ public class LevelManager : MonoBehaviour
         GameManager.instance.player.TeleportPlayer(currentLevel.startPosition.position);
 
 
-        GameManager.instance.EnterGameState(GameManager.GameState.COMBAT, changeGameStateInput: false);
+        GameManager.instance.EnterGameState(GameManager.GameState.COMBAT, changeGameStateInput: true);
 
         GameManager.instance.uiManager.loadingScreenUIManager.Hide();
 
