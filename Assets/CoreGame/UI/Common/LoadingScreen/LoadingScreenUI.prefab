@@ -649,8 +649,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 966b0b0fc1fc05f4a8fe73af1c90069a, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  loadingScreenContainer: {fileID: 7776317075922584498}
-  displayTime: 0.5
+  uiElementCanvasGroup: {fileID: 7776317075922584498}
 --- !u!1 &5882122956823953534
 GameObject:
   m_ObjectHideFlags: 0

@@ -48,9 +48,10 @@ public class LevelManager : MonoBehaviour
         GameManager.instance.cameraManager.SetCurrentCameraRail(currentLevel.levelCameraRail);
         GameManager.instance.player.TeleportPlayer(currentLevel.startPosition.position);
 
-        GameManager.instance.uiManager.loadingScreenUIManager.Hide();
 
         GameManager.instance.EnterGameState(GameManager.GameState.COMBAT, changeGameStateInput: false);
+
+        GameManager.instance.uiManager.loadingScreenUIManager.Hide();
 
         if (fade)
         {

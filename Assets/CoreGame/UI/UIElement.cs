@@ -1,14 +1,15 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using Tweening;
 
 public class UIElement : MonoBehaviour
 {
     [SerializeField] protected CanvasGroup uiElementCanvasGroup;
-    /*
+    
     protected List<TweeningAnimation> showTweens = new List<TweeningAnimation>();
     protected List<TweeningAnimation> hideTweens = new List<TweeningAnimation>();
-    */
+    
     protected virtual void Start()
     {
         CreateShowTweens();
@@ -20,7 +21,6 @@ public class UIElement : MonoBehaviour
     protected virtual void CreateShowTweens() { }
     public void Show(bool instant = false)
     {
-        /*
         uiElementCanvasGroup.gameObject.SetActive(true);
 
         for (int i = 0; i < hideTweens.Count; ++i)
@@ -36,14 +36,12 @@ public class UIElement : MonoBehaviour
 
         ShowSpecialized(instant);
         UpdateData();
-        */
     }
     public virtual void ShowSpecialized(bool instant) { }
 
     protected virtual void CreateHideTweens() { }
     public void Hide(bool instant = false)
     {
-        /*
         for (int i = 0; i < showTweens.Count; ++i)
         {
             showTweens[i].Rewind();
@@ -56,7 +54,6 @@ public class UIElement : MonoBehaviour
         }
 
         HideSpecialized(instant);
-        */
     }
     public virtual void HideSpecialized(bool instant) { }
 }

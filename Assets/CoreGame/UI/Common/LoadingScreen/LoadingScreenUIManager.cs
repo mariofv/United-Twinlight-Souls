@@ -1,67 +1,22 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using Tweening;
 
-public class LoadingScreenUIManager : MonoBehaviour
+public class LoadingScreenUIManager : UIElement
 {
-    [SerializeField] private CanvasGroup loadingScreenContainer;
-    [SerializeField] private float displayTime;
-
-    private bool showing = false;
-    private bool hiding = false;
-    private float currentTime = 0f;
-
-    // Start is called before the first frame update
-    void Start()
+    protected override void CreateShowTweens()
     {
-        
+        TweeningAnimation fadeAnimation = uiElementCanvasGroup.TweenFade(UISettings.GameUISettings.DISPLAY_TIME, 0f, 1f).Unscaled().DontKillOnEnd();
+        showTweens.Add(fadeAnimation); ;
     }
 
-    // Update is called once per frame
-    void Update()
+    protected override void CreateHideTweens()
     {
-        if (showing)
-        {
-            currentTime += Time.unscaledTime;
-            float progress = Mathf.Min(1f, currentTime / displayTime);
-            loadingScreenContainer.alpha = progress;
+        TweeningAnimation fadeAnimation = uiElementCanvasGroup.TweenFade(UISettings.GameUISettings.DISPLAY_TIME, 1f, 0f).Unscaled().DontKillOnEnd();
+        hideTweens.Add(fadeAnimation);
 
-            if (progress == 1f)
-            {
-                showing = false;
-            }
-        }
-
-        if (hiding)
-        {
-            currentTime += Time.unscaledTime;
-            float progress = Mathf.Min(1f, currentTime / displayTime);
-            loadingScreenContainer.alpha = 1f- progress;
-
-            if (progress == 1f)
-            {
-                hiding = false;
-                loadingScreenContainer.gameObject.SetActive(false);
-            }
-        }
+        TweeningAnimation disableAnimation = uiElementCanvasGroup.gameObject.TweenDisable(UISettings.GameUISettings.DISPLAY_TIME).Unscaled().DontKillOnEnd();
+        hideTweens.Add(disableAnimation);
     }
-
-    public void Show()
-    {
-        loadingScreenContainer.gameObject.SetActive(true);
-
-        showing = true;
-        hiding = false;
-
-        currentTime = 0f;
-    }
-
-    public void Hide()
-    {
-        showing = false;
-        hiding = true;
-
-        currentTime = 0f;
-    }
-
 }
