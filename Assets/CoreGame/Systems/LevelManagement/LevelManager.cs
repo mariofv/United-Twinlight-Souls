@@ -22,12 +22,25 @@ public class LevelManager : MonoBehaviour
         
     }
 
-    public IEnumerator LoadLevel(int level)
+    public IEnumerator LoadLevel(int level, bool fade = true)
     {
+        if (fade)
+        {
+            GameManager.instance.uiManager.levelTransitionUIManager.FadeOut();
+            while (GameManager.instance.uiManager.levelTransitionUIManager.IsFadingOut())
+            {
+                yield return new WaitForFixedUpdate();
+            }
+        }
+
         GameManager.instance.EnterGameState(GameManager.GameState.LOADING_LEVEL, changeGameStateInput: false);
 
+        GameManager.instance.uiManager.loadingScreenUIManager.Show();
+
+        yield return new WaitForSeconds(3);
         yield return StartCoroutine(GameManager.instance.scenesManager.ChangeScene(gameLevels[level].levelScene));
-        
+
+
         currentLevelIndex = level;
         currentLevel = GameObject.FindGameObjectWithTag(TagManager.LEVEL).GetComponent<Level>();
 
@@ -35,6 +48,17 @@ public class LevelManager : MonoBehaviour
         GameManager.instance.cameraManager.SetCurrentCameraRail(currentLevel.levelCameraRail);
         GameManager.instance.player.TeleportPlayer(currentLevel.startPosition.position);
 
+        GameManager.instance.uiManager.loadingScreenUIManager.Hide();
+
         GameManager.instance.EnterGameState(GameManager.GameState.COMBAT, changeGameStateInput: false);
+
+        if (fade)
+        {
+            GameManager.instance.uiManager.levelTransitionUIManager.FadeIn();
+            while (GameManager.instance.uiManager.levelTransitionUIManager.IsFadingIn())
+            {
+                yield return new WaitForFixedUpdate();
+            }
+        }
     }
 }

@@ -17,6 +17,7 @@ public class UIManagerEditor : Editor
         EditorGUI.BeginChangeCheck();
 
         EditorGUILayout.PropertyField(serializedObject.FindProperty("levelTransitionUIManager"));
+        EditorGUILayout.PropertyField(serializedObject.FindProperty("loadingScreenUIManager"));
 
         EditorGUILayout.LabelField("Main Menu UI");
         SceneAsset newMainMenuUIScene = EditorGUILayout.ObjectField("Main Menu UI Scene", oldMainMenuUIScene, typeof(SceneAsset), false) as SceneAsset;

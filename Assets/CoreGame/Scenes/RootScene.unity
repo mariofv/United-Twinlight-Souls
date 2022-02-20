@@ -235,6 +235,10 @@ PrefabInstance:
       value: 
       objectReference: {fileID: 1620495043}
     - target: {fileID: 2673386968378463884, guid: 9aa138b6efb0c244098e2e3efd8c2ead, type: 3}
+      propertyPath: loadingScreenUIManager
+      value: 
+      objectReference: {fileID: 113004872291428989}
+    - target: {fileID: 2673386968378463884, guid: 9aa138b6efb0c244098e2e3efd8c2ead, type: 3}
       propertyPath: levelTransitionUIManager
       value: 
       objectReference: {fileID: 2142983749}
@@ -424,6 +428,10 @@ PrefabInstance:
       propertyPath: m_AdditionalShaderChannelsFlag
       value: 25
       objectReference: {fileID: 0}
+    - target: {fileID: 1835256767375635288, guid: 9cf61782db9609c43b7d5d0a2bf99c53, type: 3}
+      propertyPath: m_IsActive
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 2803099388969536056, guid: 9cf61782db9609c43b7d5d0a2bf99c53, type: 3}
       propertyPath: m_IsActive
       value: 1
@@ -550,3 +558,14 @@ PrefabInstance:
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 9cf61782db9609c43b7d5d0a2bf99c53, type: 3}
+--- !u!114 &113004872291428989 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 1869875735009321367, guid: 9cf61782db9609c43b7d5d0a2bf99c53, type: 3}
+  m_PrefabInstance: {fileID: 113004872291428988}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 966b0b0fc1fc05f4a8fe73af1c90069a, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 

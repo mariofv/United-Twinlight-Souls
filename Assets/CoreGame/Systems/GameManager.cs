@@ -105,7 +105,7 @@ public class GameManager : MonoBehaviour
 
         uiManager.gameUIManager.HideAll();
 
-        yield return StartCoroutine(levelManager.LoadLevel(level));
+        yield return StartCoroutine(levelManager.LoadLevel(level, fade:false));
 
         uiManager.levelTransitionUIManager.FadeIn();
         while (uiManager.levelTransitionUIManager.IsFadingIn())

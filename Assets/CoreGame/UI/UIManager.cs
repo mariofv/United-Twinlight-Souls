@@ -5,6 +5,7 @@ using UnityEngine;
 public class UIManager : MonoBehaviour
 {
     public LevelTransitionUIManager levelTransitionUIManager;
+    public LoadingScreenUIManager loadingScreenUIManager;
 
     [Header("Game UI")]
     public string gameUIScene;
