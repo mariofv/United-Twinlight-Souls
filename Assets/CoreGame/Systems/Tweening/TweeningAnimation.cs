@@ -1,4 +1,5 @@
 using UnityEngine;
+using UnityEngine.UI;
 using System;
 
 namespace Tweening
@@ -147,13 +148,24 @@ namespace Tweening
     //---------------------------------------------------------------------------------
     public class FadeTweeningAnimation : TweeningAnimation
     {
+        public Image image;
         public CanvasGroup canvasGroup;
         public float fromValue;
         public float toValue;
 
         protected override void UpdateSpecific(float progress)
         {
-            canvasGroup.alpha = Mathf.Lerp(fromValue, toValue, progress);
+            if (canvasGroup != null)
+            {
+                canvasGroup.alpha = Mathf.Lerp(fromValue, toValue, progress);
+            }
+
+            if (image!= null)
+            {
+                Color newColor = image.color;
+                newColor.a = Mathf.Lerp(fromValue, toValue, progress);
+                image.color = newColor;
+            }
         }
     }
     //---------------------------------------------------------------------------------

@@ -1,6 +1,7 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.UI;
 using Tweening;
 
 public static class TweeningComponentExtension
@@ -18,5 +19,10 @@ public static class TweeningComponentExtension
     public static TweeningAnimation TweenFade(this CanvasGroup canvasGroup, float time, float fromValue, float toValue)
     {
         return TweeningEngine.Fade(time, canvasGroup, fromValue, toValue);
+    }
+
+    public static TweeningAnimation TweenFade(this Image image, float time, float fromValue, float toValue)
+    {
+        return TweeningEngine.Fade(time, image, fromValue, toValue);
     }
 }

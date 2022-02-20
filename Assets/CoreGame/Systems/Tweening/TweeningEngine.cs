@@ -100,5 +100,17 @@ namespace Tweening
 
             return fadeTweeningAnimation;
         }
+
+        public static FadeTweeningAnimation Fade(float targetTime, Image image, float fromValue, float toValue)
+        {
+            FadeTweeningAnimation fadeTweeningAnimation = instance.fadeTweeningAnimations.GetElement();
+            fadeTweeningAnimation.image = image;
+            fadeTweeningAnimation.fromValue = fromValue;
+            fadeTweeningAnimation.toValue = toValue;
+
+            fadeTweeningAnimation.Run(targetTime);
+
+            return fadeTweeningAnimation;
+        }
     }
 }
