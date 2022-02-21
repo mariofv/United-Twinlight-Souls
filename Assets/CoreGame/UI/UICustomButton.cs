@@ -10,8 +10,6 @@ public class UICustomButton : MonoBehaviour
     [SerializeField] private GameObject buttonGameObject;
     [SerializeField] private float blurSpeed;
 
-    private bool selected = false;
-
     // Start is called before the first frame update
     void Start()
     {

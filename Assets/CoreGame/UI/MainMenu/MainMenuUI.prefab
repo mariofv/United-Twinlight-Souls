@@ -113,10 +113,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: c4aeab38dc651f04a9bc32edc83c3845, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  cameraPositions:
-  - {x: 84.382, y: 10.673, z: 75.043}
-  cameraRotations:
-  - {x: 0.30711234, y: 0.32940927, z: -0.89168453, w: -0.045499742}
+  mainMenuScreens:
+  - screenCameraTransform: {fileID: 6733303589176308210}
+    screenUIManager: {fileID: 515683361377901665}
 --- !u!1001 &2505017789942218787
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -219,3 +218,14 @@ RectTransform:
   m_CorrespondingSourceObject: {fileID: 9201667234676421073, guid: 18f0e28858b68be45912296484217bfa, type: 3}
   m_PrefabInstance: {fileID: 2505017789942218787}
   m_PrefabAsset: {fileID: 0}
+--- !u!114 &515683361377901665 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 2732434969049177154, guid: 18f0e28858b68be45912296484217bfa, type: 3}
+  m_PrefabInstance: {fileID: 2505017789942218787}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 1e5c9187f77694e419efbb83807477a3, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 

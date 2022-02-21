@@ -4,18 +4,32 @@ using UnityEngine;
 
 public class MainMenuUIManager : MonoBehaviour
 {
-    [SerializeField] private List<Transform> cameraTransforms;
+    [System.Serializable]
+    private struct MainMenuScreen
+    {
+        public Transform screenCameraTransform;
+        public UIElement screenUIManager;
+    }
+
+    [SerializeField] private List<MainMenuScreen> mainMenuScreens;
 
     // Start is called before the first frame update
     void Start()
     {
-        GameManager.instance.cameraManager.mainCamera.transform.position = cameraTransforms[0].position;
-        GameManager.instance.cameraManager.mainCamera.transform.rotation = cameraTransforms[0].rotation;
+        OpenMainMenuScreen(0);
     }
 
     // Update is called once per frame
     void Update()
     {
         
+    }
+
+    public void OpenMainMenuScreen(int screenIndex)
+    {
+        GameManager.instance.cameraManager.mainCamera.transform.position = mainMenuScreens[screenIndex].screenCameraTransform.position;
+        GameManager.instance.cameraManager.mainCamera.transform.rotation = mainMenuScreens[screenIndex].screenCameraTransform.rotation;
+
+        mainMenuScreens[screenIndex].screenUIManager.Show();
     }
 }

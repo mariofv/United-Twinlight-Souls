@@ -468,6 +468,10 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: 1777231118968565406, guid: 6436a6ca61b36c348a2d366c69f8f4aa, type: 3}
+      propertyPath: m_IsActive
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 3495341498011008240, guid: 6436a6ca61b36c348a2d366c69f8f4aa, type: 3}
       propertyPath: m_Pivot.x
       value: 0
@@ -558,6 +562,10 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 3495341498011008244, guid: 6436a6ca61b36c348a2d366c69f8f4aa, type: 3}
       propertyPath: cameraTransforms.Array.data[0]
+      value: 
+      objectReference: {fileID: 828953435}
+    - target: {fileID: 3495341498011008244, guid: 6436a6ca61b36c348a2d366c69f8f4aa, type: 3}
+      propertyPath: mainMenuScreens.Array.data[0].screenCameraTransform
       value: 
       objectReference: {fileID: 828953435}
     - target: {fileID: 3495341498011008251, guid: 6436a6ca61b36c348a2d366c69f8f4aa, type: 3}
