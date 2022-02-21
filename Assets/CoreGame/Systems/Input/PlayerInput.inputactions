@@ -684,6 +684,34 @@
                     "isPartOfComposite": false
                 }
             ]
+        },
+        {
+            "name": "Debug",
+            "id": "5d53297e-2b26-463e-a780-2d1a0ae64d13",
+            "actions": [
+                {
+                    "name": "OpenScenesDebugMenu",
+                    "type": "Button",
+                    "id": "bf268b67-b790-4f17-b509-7d850c4eaada",
+                    "expectedControlType": "Button",
+                    "processors": "",
+                    "interactions": "",
+                    "initialStateCheck": false
+                }
+            ],
+            "bindings": [
+                {
+                    "name": "",
+                    "id": "060528d3-e9d5-4832-a171-fa5b22fddcd4",
+                    "path": "<Keyboard>/f1",
+                    "interactions": "",
+                    "processors": "",
+                    "groups": "Keyboard&Mouse",
+                    "action": "OpenScenesDebugMenu",
+                    "isComposite": false,
+                    "isPartOfComposite": false
+                }
+            ]
         }
     ],
     "controlSchemes": [

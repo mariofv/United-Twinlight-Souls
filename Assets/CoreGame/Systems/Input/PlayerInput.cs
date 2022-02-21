@@ -706,6 +706,34 @@ public partial class @PlayerInput : IInputActionCollection2, IDisposable
                     ""isPartOfComposite"": false
                 }
             ]
+        },
+        {
+            ""name"": ""Debug"",
+            ""id"": ""5d53297e-2b26-463e-a780-2d1a0ae64d13"",
+            ""actions"": [
+                {
+                    ""name"": ""OpenScenesDebugMenu"",
+                    ""type"": ""Button"",
+                    ""id"": ""bf268b67-b790-4f17-b509-7d850c4eaada"",
+                    ""expectedControlType"": ""Button"",
+                    ""processors"": """",
+                    ""interactions"": """",
+                    ""initialStateCheck"": false
+                }
+            ],
+            ""bindings"": [
+                {
+                    ""name"": """",
+                    ""id"": ""060528d3-e9d5-4832-a171-fa5b22fddcd4"",
+                    ""path"": ""<Keyboard>/f1"",
+                    ""interactions"": """",
+                    ""processors"": """",
+                    ""groups"": ""Keyboard&Mouse"",
+                    ""action"": ""OpenScenesDebugMenu"",
+                    ""isComposite"": false,
+                    ""isPartOfComposite"": false
+                }
+            ]
         }
     ],
     ""controlSchemes"": [
@@ -761,6 +789,9 @@ public partial class @PlayerInput : IInputActionCollection2, IDisposable
         m_LoadingScreen = asset.FindActionMap("LoadingScreen", throwIfNotFound: true);
         m_LoadingScreen_NextTip = m_LoadingScreen.FindAction("NextTip", throwIfNotFound: true);
         m_LoadingScreen_PreviousTip = m_LoadingScreen.FindAction("PreviousTip", throwIfNotFound: true);
+        // Debug
+        m_Debug = asset.FindActionMap("Debug", throwIfNotFound: true);
+        m_Debug_OpenScenesDebugMenu = m_Debug.FindAction("OpenScenesDebugMenu", throwIfNotFound: true);
     }
 
     public void Dispose()
@@ -1036,6 +1067,39 @@ public partial class @PlayerInput : IInputActionCollection2, IDisposable
         }
     }
     public LoadingScreenActions @LoadingScreen => new LoadingScreenActions(this);
+
+    // Debug
+    private readonly InputActionMap m_Debug;
+    private IDebugActions m_DebugActionsCallbackInterface;
+    private readonly InputAction m_Debug_OpenScenesDebugMenu;
+    public struct DebugActions
+    {
+        private @PlayerInput m_Wrapper;
+        public DebugActions(@PlayerInput wrapper) { m_Wrapper = wrapper; }
+        public InputAction @OpenScenesDebugMenu => m_Wrapper.m_Debug_OpenScenesDebugMenu;
+        public InputActionMap Get() { return m_Wrapper.m_Debug; }
+        public void Enable() { Get().Enable(); }
+        public void Disable() { Get().Disable(); }
+        public bool enabled => Get().enabled;
+        public static implicit operator InputActionMap(DebugActions set) { return set.Get(); }
+        public void SetCallbacks(IDebugActions instance)
+        {
+            if (m_Wrapper.m_DebugActionsCallbackInterface != null)
+            {
+                @OpenScenesDebugMenu.started -= m_Wrapper.m_DebugActionsCallbackInterface.OnOpenScenesDebugMenu;
+                @OpenScenesDebugMenu.performed -= m_Wrapper.m_DebugActionsCallbackInterface.OnOpenScenesDebugMenu;
+                @OpenScenesDebugMenu.canceled -= m_Wrapper.m_DebugActionsCallbackInterface.OnOpenScenesDebugMenu;
+            }
+            m_Wrapper.m_DebugActionsCallbackInterface = instance;
+            if (instance != null)
+            {
+                @OpenScenesDebugMenu.started += instance.OnOpenScenesDebugMenu;
+                @OpenScenesDebugMenu.performed += instance.OnOpenScenesDebugMenu;
+                @OpenScenesDebugMenu.canceled += instance.OnOpenScenesDebugMenu;
+            }
+        }
+    }
+    public DebugActions @Debug => new DebugActions(this);
     private int m_KeyboardMouseSchemeIndex = -1;
     public InputControlScheme KeyboardMouseScheme
     {
@@ -1080,5 +1144,9 @@ public partial class @PlayerInput : IInputActionCollection2, IDisposable
     {
         void OnNextTip(InputAction.CallbackContext context);
         void OnPreviousTip(InputAction.CallbackContext context);
+    }
+    public interface IDebugActions
+    {
+        void OnOpenScenesDebugMenu(InputAction.CallbackContext context);
     }
 }

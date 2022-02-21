@@ -24,8 +24,10 @@ public class InputManager : MonoBehaviour
         playerInput.LoadingScreen.PreviousTip.started += ctx => OnPreviousTipInput(ctx);
         playerInput.LoadingScreen.NextTip.started += ctx => OnNextTipInput(ctx);
 
+
         if (Debug.isDebugBuild)
         {
+            playerInput.Debug.OpenScenesDebugMenu.performed += ctx => GameManager.instance.debugManager.OnOpenScenesDebugMenu(ctx);
         }
     }
 
