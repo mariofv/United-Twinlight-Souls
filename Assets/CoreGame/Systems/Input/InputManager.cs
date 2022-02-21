@@ -7,6 +7,7 @@ public class InputManager : MonoBehaviour
 {
     [Header("Components")]
     private PlayerInput playerInput;
+
     private float currentRumbleDuration = 0f;
     private float rumbleDuration = 0f;
     private bool rumbling = false;
@@ -14,6 +15,8 @@ public class InputManager : MonoBehaviour
     void Awake()
     {
         playerInput = new PlayerInput();
+
+        playerInput.MainMenu.AnyKey.performed += ctx => GameManager.instance.uiManager.mainMenuUIManager.OnAnyKeyPressed(ctx);
 
         playerInput.Combat.Movement.performed += ctx => OnMovementInput(ctx);
         playerInput.Combat.Movement.canceled += ctx => OnMovementInput(ctx);
@@ -83,6 +86,7 @@ public class InputManager : MonoBehaviour
         switch (gameState)
         {
             case GameManager.GameState.MAIN_MENU:
+                playerInput.MainMenu.Disable();
                 break;
             case GameManager.GameState.COMBAT:
                 playerInput.Combat.Disable();
@@ -106,6 +110,7 @@ public class InputManager : MonoBehaviour
         switch (gameState)
         {
             case GameManager.GameState.MAIN_MENU:
+                playerInput.MainMenu.Enable();
                 break;
             case GameManager.GameState.COMBAT:
                 playerInput.Combat.Enable();
@@ -129,6 +134,7 @@ public class InputManager : MonoBehaviour
         playerInput.Combat.Disable();
         playerInput.Pause.Disable();
         playerInput.LoadingScreen.Disable();
+        playerInput.MainMenu.Disable();
     }
 
     public void OnMovementInput(InputAction.CallbackContext context)

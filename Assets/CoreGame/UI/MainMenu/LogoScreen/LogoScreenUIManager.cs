@@ -1,6 +1,7 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.InputSystem;
 using UnityEngine.UI;
 using UnityEngine.EventSystems;
 using Tweening;
@@ -25,5 +26,10 @@ public class LogoScreenUIManager : UIElement
     {
         TweeningAnimation fadeAnimation = uiElementCanvasGroup.TweenFade(UISettings.GameUISettings.DISPLAY_TIME, 1f, 0f);
         hideTweens.Add(fadeAnimation);
+    }
+
+    public void OnAnyKeyPressed()
+    {
+        GameManager.instance.uiManager.mainMenuUIManager.NextScreen();
     }
 }

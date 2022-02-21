@@ -734,6 +734,34 @@ public partial class @PlayerInput : IInputActionCollection2, IDisposable
                     ""isPartOfComposite"": false
                 }
             ]
+        },
+        {
+            ""name"": ""MainMenu"",
+            ""id"": ""6dc747a7-8b3f-4341-8631-2d477241a33c"",
+            ""actions"": [
+                {
+                    ""name"": ""AnyKey"",
+                    ""type"": ""Button"",
+                    ""id"": ""a746e4b6-db3f-4a00-81db-20038b07298e"",
+                    ""expectedControlType"": ""Button"",
+                    ""processors"": """",
+                    ""interactions"": """",
+                    ""initialStateCheck"": false
+                }
+            ],
+            ""bindings"": [
+                {
+                    ""name"": """",
+                    ""id"": ""14cdb2cc-2d43-4238-a8e5-7c55c6804c1a"",
+                    ""path"": ""<Keyboard>/anyKey"",
+                    ""interactions"": """",
+                    ""processors"": """",
+                    ""groups"": ""Keyboard&Mouse"",
+                    ""action"": ""AnyKey"",
+                    ""isComposite"": false,
+                    ""isPartOfComposite"": false
+                }
+            ]
         }
     ],
     ""controlSchemes"": [
@@ -792,6 +820,9 @@ public partial class @PlayerInput : IInputActionCollection2, IDisposable
         // Debug
         m_Debug = asset.FindActionMap("Debug", throwIfNotFound: true);
         m_Debug_OpenScenesDebugMenu = m_Debug.FindAction("OpenScenesDebugMenu", throwIfNotFound: true);
+        // MainMenu
+        m_MainMenu = asset.FindActionMap("MainMenu", throwIfNotFound: true);
+        m_MainMenu_AnyKey = m_MainMenu.FindAction("AnyKey", throwIfNotFound: true);
     }
 
     public void Dispose()
@@ -1100,6 +1131,39 @@ public partial class @PlayerInput : IInputActionCollection2, IDisposable
         }
     }
     public DebugActions @Debug => new DebugActions(this);
+
+    // MainMenu
+    private readonly InputActionMap m_MainMenu;
+    private IMainMenuActions m_MainMenuActionsCallbackInterface;
+    private readonly InputAction m_MainMenu_AnyKey;
+    public struct MainMenuActions
+    {
+        private @PlayerInput m_Wrapper;
+        public MainMenuActions(@PlayerInput wrapper) { m_Wrapper = wrapper; }
+        public InputAction @AnyKey => m_Wrapper.m_MainMenu_AnyKey;
+        public InputActionMap Get() { return m_Wrapper.m_MainMenu; }
+        public void Enable() { Get().Enable(); }
+        public void Disable() { Get().Disable(); }
+        public bool enabled => Get().enabled;
+        public static implicit operator InputActionMap(MainMenuActions set) { return set.Get(); }
+        public void SetCallbacks(IMainMenuActions instance)
+        {
+            if (m_Wrapper.m_MainMenuActionsCallbackInterface != null)
+            {
+                @AnyKey.started -= m_Wrapper.m_MainMenuActionsCallbackInterface.OnAnyKey;
+                @AnyKey.performed -= m_Wrapper.m_MainMenuActionsCallbackInterface.OnAnyKey;
+                @AnyKey.canceled -= m_Wrapper.m_MainMenuActionsCallbackInterface.OnAnyKey;
+            }
+            m_Wrapper.m_MainMenuActionsCallbackInterface = instance;
+            if (instance != null)
+            {
+                @AnyKey.started += instance.OnAnyKey;
+                @AnyKey.performed += instance.OnAnyKey;
+                @AnyKey.canceled += instance.OnAnyKey;
+            }
+        }
+    }
+    public MainMenuActions @MainMenu => new MainMenuActions(this);
     private int m_KeyboardMouseSchemeIndex = -1;
     public InputControlScheme KeyboardMouseScheme
     {
@@ -1148,5 +1212,9 @@ public partial class @PlayerInput : IInputActionCollection2, IDisposable
     public interface IDebugActions
     {
         void OnOpenScenesDebugMenu(InputAction.CallbackContext context);
+    }
+    public interface IMainMenuActions
+    {
+        void OnAnyKey(InputAction.CallbackContext context);
     }
 }
