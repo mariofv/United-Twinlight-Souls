@@ -25,5 +25,11 @@ public class UICustomButton : MonoBehaviour
             newColor.a = (Mathf.Sin(Time.time * blurSpeed) + 1) * 0.25f;
             buttonBlur.color = newColor;
         }
+        else
+        {
+            Color newColor = buttonBlur.color;
+            newColor.a = 0f;
+            buttonBlur.color = newColor;
+        }
     }
 }
