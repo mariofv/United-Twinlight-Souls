@@ -227,6 +227,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: LogoScreen
       objectReference: {fileID: 0}
+    - target: {fileID: 7251607511243244482, guid: 18f0e28858b68be45912296484217bfa, type: 3}
+      propertyPath: m_Alpha
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 9201667234676421073, guid: 18f0e28858b68be45912296484217bfa, type: 3}
       propertyPath: m_Pivot.x
       value: 0.5

@@ -8,11 +8,13 @@ public class AudioManager : MonoBehaviour
 
     public enum UISound
     {
-        CLICK
+        CLICK,
+        SELECT
     }
 
     [Header("UI Sounds")]
     [SerializeField] private AudioSource uiClickSound;
+    [SerializeField] private AudioSource uiSelectSound;
 
     // Start is called before the first frame update
     void Start()
@@ -38,6 +40,10 @@ public class AudioManager : MonoBehaviour
         {
             case UISound.CLICK:
                 uiClickSound.Play();
+                break;
+
+            case UISound.SELECT:
+                uiSelectSound.Play();
                 break;
         }
     }

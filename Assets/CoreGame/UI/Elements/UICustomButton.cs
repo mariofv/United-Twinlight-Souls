@@ -6,6 +6,7 @@ using UnityEngine.EventSystems;
 
 public class UICustomButton : MonoBehaviour
 {
+    [SerializeField] private UISelectableSound buttonSelectableSoundManager;
     [SerializeField] private Image buttonBlur;
     [SerializeField] private GameObject buttonGameObject;
     [SerializeField] private float blurSpeed;
@@ -31,5 +32,12 @@ public class UICustomButton : MonoBehaviour
             newColor.a = 0f;
             buttonBlur.color = newColor;
         }
+    }
+
+    public void SelectWithoutSound()
+    {
+        buttonSelectableSoundManager.enabled = false;
+        EventSystem.current.SetSelectedGameObject(buttonGameObject);
+        buttonSelectableSoundManager.enabled = true;
     }
 }

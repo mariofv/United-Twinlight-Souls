@@ -30,7 +30,6 @@ public class InputManager : MonoBehaviour
         playerInput.LoadingScreen.PreviousTip.started += ctx => OnPreviousTipInput(ctx);
         playerInput.LoadingScreen.NextTip.started += ctx => OnNextTipInput(ctx);
 
-
         if (Debug.isDebugBuild)
         {
             playerInput.Debug.OpenScenesDebugMenu.performed += ctx => GameManager.instance.debugManager.OnOpenScenesDebugMenu(ctx);
@@ -119,6 +118,7 @@ public class InputManager : MonoBehaviour
                 break;
             case GameManager.GameState.COMBAT:
                 playerInput.Combat.Enable();
+                playerInput.UI.Enable();
                 break;
             case GameManager.GameState.CINEMATIC:
                 //playerInput.Cinematic.Enable();
@@ -172,5 +172,10 @@ public class InputManager : MonoBehaviour
     public void OnNextTipInput(InputAction.CallbackContext context)
     {
         GameManager.instance.uiManager.loadingScreenUIManager.ShowNextTip();
+    }
+
+    public void OnNavigationUI(InputAction.CallbackContext context)
+    {
+        Debug.Log("ASODlajsdS");
     }
 }

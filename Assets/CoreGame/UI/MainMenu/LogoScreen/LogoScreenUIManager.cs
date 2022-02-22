@@ -11,11 +11,13 @@ public class LogoScreenUIManager : MainMenuScreenUIManager
     [SerializeField] private Image logoImage;
 
     [Header("Logo")]
+    [SerializeField] private UICustomButton pressAnyButtonCustomButton;
     [SerializeField] private Button pressAnyButtonButton;
     [SerializeField] private CanvasGroup pressAnyButtonContainer;
 
     [Header("Logo menu")]
     [SerializeField] private CanvasGroup logoMenuContainer;
+    [SerializeField] private UICustomButton playCustomButton;
     [SerializeField] private Button playButton;
     [SerializeField] private Button controlsButton;
     [SerializeField] private Button systemButton;
@@ -42,7 +44,7 @@ public class LogoScreenUIManager : MainMenuScreenUIManager
 
     public override void ShowSpecialized(bool instant)
     {
-        EventSystem.current.SetSelectedGameObject(pressAnyButtonButton.gameObject);
+        pressAnyButtonCustomButton.SelectWithoutSound();
     }
 
     protected override void CreateHideTweens()
@@ -60,7 +62,7 @@ public class LogoScreenUIManager : MainMenuScreenUIManager
         logoMenuContainer.TweenFade(UISettings.GameUISettings.DISPLAY_TIME, 0f, 1f);
 
         GameManager.instance.audioManager.PlayUISound(AudioManager.UISound.CLICK);
-        EventSystem.current.SetSelectedGameObject(playButton.gameObject);
+        playCustomButton.SelectWithoutSound();
 
         GameManager.instance.inputManager.RestoreSubmitAction();
         isLogoMenuOpened = true;
