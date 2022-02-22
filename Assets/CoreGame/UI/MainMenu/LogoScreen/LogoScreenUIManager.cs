@@ -6,7 +6,7 @@ using UnityEngine.UI;
 using UnityEngine.EventSystems;
 using Tweening;
 
-public class LogoScreenUIManager : UIElement
+public class LogoScreenUIManager : MainMenuScreenUIManager
 {
     [SerializeField] private Image logoImage;
     [SerializeField] private Button pressAnyButtonButton;
@@ -28,8 +28,8 @@ public class LogoScreenUIManager : UIElement
         hideTweens.Add(fadeAnimation);
     }
 
-    public void OnAnyKeyPressed()
+    public override void OnAnyKeyPressed()
     {
-        GameManager.instance.uiManager.mainMenuUIManager.NextScreen();
+        GameManager.instance.uiManager.mainMenuUIManager.OpenMainMenuScreen(MainMenuScreenId.MAIN_MENU);
     }
 }

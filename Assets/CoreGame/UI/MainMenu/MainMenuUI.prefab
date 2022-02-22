@@ -113,9 +113,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: c4aeab38dc651f04a9bc32edc83c3845, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  mainMenuScreens:
-  - screenCameraTransform: {fileID: 6733303589176308210}
-    screenUIManager: {fileID: 515683361377901665}
+  mainMenuScreensManagers:
+  - {fileID: 515683361377901665}
 --- !u!1001 &2505017789942218787
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -123,6 +122,10 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 3495341498011008240}
     m_Modifications:
+    - target: {fileID: 2732434969049177154, guid: 18f0e28858b68be45912296484217bfa, type: 3}
+      propertyPath: mainMenuScreenId
+      value: 1
+      objectReference: {fileID: 0}
     - target: {fileID: 4985680325971615415, guid: 18f0e28858b68be45912296484217bfa, type: 3}
       propertyPath: m_Name
       value: LogoScreen

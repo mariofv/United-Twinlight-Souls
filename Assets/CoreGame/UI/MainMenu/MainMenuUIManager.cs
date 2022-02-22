@@ -5,20 +5,24 @@ using UnityEngine.InputSystem;
 
 public class MainMenuUIManager : MonoBehaviour
 {
-    [System.Serializable]
-    private struct MainMenuScreen
-    {
-        public Transform screenCameraTransform;
-        public UIElement screenUIManager;
-    }
+    [SerializeField] private List<MainMenuScreenUIManager> mainMenuScreensManagers;
+    private Dictionary<MainMenuScreenUIManager.MainMenuScreenId, MainMenuScreenUIManager> mainMenuScreens;
 
-    [SerializeField] private List<MainMenuScreen> mainMenuScreens;
-    int currentMainMenuScreen;
+    private MainMenuScreenUIManager.MainMenuScreenId currentMainMenuScrenId = MainMenuScreenUIManager.MainMenuScreenId.NONE;
+
+    private void Awake()
+    {
+        mainMenuScreens = new Dictionary<MainMenuScreenUIManager.MainMenuScreenId, MainMenuScreenUIManager>();
+        for (int i = 0; i < mainMenuScreensManagers.Count; ++i)
+        {
+            mainMenuScreens.Add(mainMenuScreensManagers[i].mainMenuScreenId, mainMenuScreensManagers[i]);
+        }
+    }
 
     // Start is called before the first frame update
     void Start()
     {
-        OpenMainMenuScreen(0);
+        OpenMainMenuScreen(MainMenuScreenUIManager.MainMenuScreenId.LOGO);
     }
 
     // Update is called once per frame
@@ -27,43 +31,28 @@ public class MainMenuUIManager : MonoBehaviour
         
     }
 
-    public void NextScreen()
+    public void OpenMainMenuScreen(MainMenuScreenUIManager.MainMenuScreenId mainMenuScreenId)
     {
-        if (currentMainMenuScreen + 1 < mainMenuScreens.Count)
+        if (currentMainMenuScrenId != MainMenuScreenUIManager.MainMenuScreenId.NONE)
         {
-            CloseMainMenuScren(currentMainMenuScreen);
-            ++currentMainMenuScreen;
-
-            OpenMainMenuScreen(currentMainMenuScreen);
+            CloseMainMenuScreen(currentMainMenuScrenId);
         }
+
+        currentMainMenuScrenId = mainMenuScreenId;
+
+        GameManager.instance.cameraManager.mainCamera.transform.position = mainMenuScreens[mainMenuScreenId].cameraTransform.position;
+        GameManager.instance.cameraManager.mainCamera.transform.rotation = mainMenuScreens[mainMenuScreenId].cameraTransform.rotation;
+
+        mainMenuScreens[mainMenuScreenId].Show();
     }
 
-    public void PreviousScreen()
+    public void CloseMainMenuScreen(MainMenuScreenUIManager.MainMenuScreenId mainMenuScreenId)
     {
-        if (currentMainMenuScreen - 1 >= 0)
-        {
-            CloseMainMenuScren(currentMainMenuScreen);
-            --currentMainMenuScreen;
-
-            OpenMainMenuScreen(currentMainMenuScreen);
-        }
-    }
-
-    private void OpenMainMenuScreen(int screenIndex)
-    {
-        GameManager.instance.cameraManager.mainCamera.transform.position = mainMenuScreens[screenIndex].screenCameraTransform.position;
-        GameManager.instance.cameraManager.mainCamera.transform.rotation = mainMenuScreens[screenIndex].screenCameraTransform.rotation;
-
-        mainMenuScreens[screenIndex].screenUIManager.Show();
-    }
-
-    public void CloseMainMenuScren(int screenIndex)
-    {
-        mainMenuScreens[screenIndex].screenUIManager.Hide();
+        mainMenuScreens[mainMenuScreenId].Hide();
     }
 
     public void OnAnyKeyPressed(InputAction.CallbackContext context)
     {
-        ((LogoScreenUIManager)mainMenuScreens[0].screenUIManager).OnAnyKeyPressed();
+        mainMenuScreens[currentMainMenuScrenId].OnAnyKeyPressed();
     }
 }
