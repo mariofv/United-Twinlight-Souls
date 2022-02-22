@@ -6,6 +6,14 @@ public class AudioManager : MonoBehaviour
 {
     [SerializeField] private AudioSource levelMusicSource;
 
+    public enum UISound
+    {
+        CLICK
+    }
+
+    [Header("UI Sounds")]
+    [SerializeField] private AudioSource uiClickSound;
+
     // Start is called before the first frame update
     void Start()
     {
@@ -22,5 +30,15 @@ public class AudioManager : MonoBehaviour
     {
         levelMusicSource.clip = levelMusicClip;
         levelMusicSource.Play();
+    }
+
+    public void PlayUISound(UISound uiSound)
+    {
+        switch (uiSound)
+        {
+            case UISound.CLICK:
+                uiClickSound.Play();
+                break;
+        }
     }
 }

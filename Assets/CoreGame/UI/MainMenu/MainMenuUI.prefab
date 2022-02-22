@@ -223,10 +223,6 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 3495341498011008240}
     m_Modifications:
-    - target: {fileID: 2732434969049177154, guid: 18f0e28858b68be45912296484217bfa, type: 3}
-      propertyPath: mainMenuScreenId
-      value: 1
-      objectReference: {fileID: 0}
     - target: {fileID: 4985680325971615415, guid: 18f0e28858b68be45912296484217bfa, type: 3}
       propertyPath: m_Name
       value: LogoScreen

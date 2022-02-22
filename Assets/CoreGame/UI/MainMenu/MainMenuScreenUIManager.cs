@@ -8,7 +8,6 @@ public abstract class MainMenuScreenUIManager : UIElement
     {
         NONE,
         LOGO,
-        MAIN_MENU,
         SELECT_CHARACTER,
         SELECT_LEVEL,
         CONTROLS,
