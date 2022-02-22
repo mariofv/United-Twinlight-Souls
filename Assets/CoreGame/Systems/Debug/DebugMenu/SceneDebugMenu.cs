@@ -35,27 +35,29 @@ public class SceneDebugMenu : DebugMenu
 
         GUILayout.BeginVertical("box", GUILayout.ExpandWidth(true));
         GUILayout.Label("Change Current Level");
+
+        int loadedLevel = -1;
+        for (int i = 0; i < 3; ++i)
+        {
+            if (GUILayout.Button("Load Level " + (i + 1)))
+            {
+                loadedLevel = i;
+            }
+        }
+
+        if (loadedLevel != -1)
+        {
+            if (GameManager.instance.GetCurrentGameState() == GameManager.GameState.MAIN_MENU)
+            {
+                StartCoroutine(GameManager.instance.LoadGame(loadedLevel));
+            }
+            else
+            {
+                StartCoroutine(GameManager.instance.levelManager.LoadLevel(loadedLevel));
+            }
+        }
+
         GUILayout.EndVertical();
-
-        if (GUILayout.Button(new GUIContent("Set camera order default")))
-        {
-            Camera.main.transparencySortMode = TransparencySortMode.Default;
-
-        }
-        if (GUILayout.Button(new GUIContent("Set camera order perspective")))
-        {
-            Camera.main.transparencySortMode = TransparencySortMode.Perspective;
-
-        }
-        if (GUILayout.Button(new GUIContent("Set camera order ortographic")))
-        {
-            Camera.main.transparencySortMode = TransparencySortMode.Orthographic;
-
-        }
-        if (GUILayout.Button(new GUIContent("Set camera order ortographic")))
-        {
-            Camera.main.transparencySortMode = TransparencySortMode.CustomAxis;
-
-        }
+        GUILayout.EndVertical();
     }
 }

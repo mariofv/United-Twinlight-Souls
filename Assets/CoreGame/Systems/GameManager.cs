@@ -92,7 +92,7 @@ public class GameManager : MonoBehaviour
         StartCoroutine(LoadGame(0));
     }
 
-    private IEnumerator LoadGame(int level)
+    public IEnumerator LoadGame(int level)
     {
         CursorHider.HideCursor();
         uiManager.levelTransitionUIManager.FadeOut();

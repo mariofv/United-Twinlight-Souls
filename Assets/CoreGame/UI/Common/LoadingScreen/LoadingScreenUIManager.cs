@@ -13,6 +13,8 @@ public class LoadingScreenUIManager : UIElement
     private List<TweeningAnimation> tipsShowTweens;
     private List<TweeningAnimation> tipsHideTweens;
 
+    private bool displayingTips = false;
+
     protected override void CreateShowTweens()
     {
         TweeningAnimation fadeAnimation = uiElementCanvasGroup.TweenFade(UISettings.GameUISettings.DISPLAY_TIME, 0f, 1f).Unscaled().DontKillOnEnd();
@@ -47,12 +49,30 @@ public class LoadingScreenUIManager : UIElement
 
     public override void ShowSpecialized(bool instant)
     {
-        loadingScreenTips[0].gameObject.SetActive(true);
-        tipsShowTweens[0].Play();
+        currentTime = 0;
+        currentTip = 0;
+        displayingTips = true;
+
+        loadingScreenTips[currentTip].gameObject.SetActive(true);
+        tipsShowTweens[currentTip].Play();
+    }
+
+    public override void HideSpecialized(bool instant)
+    {
+        for (int i = 0; i < loadingScreenTips.Count; ++i)
+        {
+            loadingScreenTips[i].gameObject.SetActive(false);
+        }
+        displayingTips = false;
     }
 
     private void Update()
     {
+        if (!displayingTips)
+        {
+            return;
+        }
+
         currentTime += Time.deltaTime;
         if (currentTime >= UISettings.GameUISettings.LOADING_SCREEN_TIP_DISPLAY_TIME)
         {
