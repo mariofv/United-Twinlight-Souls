@@ -11,7 +11,8 @@ public abstract class MainMenuScreenUIManager : UIElement
         SELECT_CHARACTER,
         SELECT_LEVEL,
         CONTROLS,
-        SETTINGS
+        SETTINGS,
+        CREDITS
     }
 
     public MainMenuScreenId mainMenuScreenId;

@@ -10,12 +10,29 @@ public class LogoScreenUIManager : MainMenuScreenUIManager
 {
     [SerializeField] private Image logoImage;
 
+    [Header("Logo")]
     [SerializeField] private Button pressAnyButtonButton;
     [SerializeField] private CanvasGroup pressAnyButtonContainer;
 
+    [Header("Logo menu")]
     [SerializeField] private CanvasGroup logoMenuContainer;
+    [SerializeField] private Button playButton;
+    [SerializeField] private Button controlsButton;
+    [SerializeField] private Button systemButton;
+    [SerializeField] private Button creditsButton;
+    [SerializeField] private Button exitButton;
 
     private bool isLogoMenuOpened = false;
+
+    private void Awake()
+    {
+        pressAnyButtonButton.onClick.AddListener(OnAnyKeyButtonPressed);
+        playButton.onClick.AddListener(OnPlayButtonClicked);
+        controlsButton.onClick.AddListener(OnControlsButtonClicked);
+        systemButton.onClick.AddListener(OnSystemButtonClicked);
+        creditsButton.onClick.AddListener(OnCreditsButtonClicked);
+        exitButton.onClick.AddListener(OnExitButtonClicked);
+    }
 
     protected override void CreateShowTweens()
     {
@@ -43,15 +60,52 @@ public class LogoScreenUIManager : MainMenuScreenUIManager
         logoMenuContainer.TweenFade(UISettings.GameUISettings.DISPLAY_TIME, 0f, 1f);
 
         GameManager.instance.audioManager.PlayUISound(AudioManager.UISound.CLICK);
+        EventSystem.current.SetSelectedGameObject(playButton.gameObject);
 
+        GameManager.instance.inputManager.RestoreSubmitAction();
         isLogoMenuOpened = true;
     }
 
     public override void OnAnyKeyPressed()
     {
+        pressAnyButtonButton.onClick.Invoke();
+    }
+
+    public void OnAnyKeyButtonPressed()
+    {
         if (!isLogoMenuOpened)
         {
             OpenLogoMenu();
         }
+    }
+
+    public void OnPlayButtonClicked()
+    {
+        GameManager.instance.audioManager.PlayUISound(AudioManager.UISound.CLICK);
+        GameManager.instance.uiManager.mainMenuUIManager.OpenMainMenuScreen(MainMenuScreenId.SELECT_CHARACTER);
+    }
+
+    public void OnControlsButtonClicked()
+    {
+        GameManager.instance.audioManager.PlayUISound(AudioManager.UISound.CLICK);
+        GameManager.instance.uiManager.mainMenuUIManager.OpenMainMenuScreen(MainMenuScreenId.CONTROLS);
+    }
+
+    public void OnSystemButtonClicked()
+    {
+        GameManager.instance.audioManager.PlayUISound(AudioManager.UISound.CLICK);
+        GameManager.instance.uiManager.mainMenuUIManager.OpenMainMenuScreen(MainMenuScreenId.SETTINGS);
+    }
+
+    public void OnCreditsButtonClicked()
+    {
+        GameManager.instance.audioManager.PlayUISound(AudioManager.UISound.CLICK);
+        GameManager.instance.uiManager.mainMenuUIManager.OpenMainMenuScreen(MainMenuScreenId.CREDITS);
+    }
+
+    public void OnExitButtonClicked()
+    {
+        GameManager.instance.audioManager.PlayUISound(AudioManager.UISound.CLICK);
+        GameManager.instance.CloseGame();
     }
 }

@@ -2,15 +2,18 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.InputSystem;
+using UnityEngine.InputSystem.UI;
 
 public class InputManager : MonoBehaviour
 {
     [Header("Components")]
     private PlayerInput playerInput;
+    [SerializeField] private InputSystemUIInputModule uiInputModule;
 
     private float currentRumbleDuration = 0f;
     private float rumbleDuration = 0f;
     private bool rumbling = false;
+
 
     void Awake()
     {
@@ -87,6 +90,7 @@ public class InputManager : MonoBehaviour
         {
             case GameManager.GameState.MAIN_MENU:
                 playerInput.MainMenu.Disable();
+                RestoreSubmitAction();
                 break;
             case GameManager.GameState.COMBAT:
                 playerInput.Combat.Disable();
@@ -111,6 +115,7 @@ public class InputManager : MonoBehaviour
         {
             case GameManager.GameState.MAIN_MENU:
                 playerInput.MainMenu.Enable();
+                SetSubmitActionToAnyKey();
                 break;
             case GameManager.GameState.COMBAT:
                 playerInput.Combat.Enable();
@@ -135,6 +140,18 @@ public class InputManager : MonoBehaviour
         playerInput.Pause.Disable();
         playerInput.LoadingScreen.Disable();
         playerInput.MainMenu.Disable();
+    }
+
+    public void RestoreSubmitAction()
+    {
+        playerInput.UI.Enable();
+        uiInputModule.submit = InputActionReference.Create(playerInput.UI.Submit);
+    }
+
+    public void SetSubmitActionToAnyKey()
+    {
+        playerInput.UI.Disable();
+        uiInputModule.submit = InputActionReference.Create(playerInput.MainMenu.AnyKey);
     }
 
     public void OnMovementInput(InputAction.CallbackContext context)
