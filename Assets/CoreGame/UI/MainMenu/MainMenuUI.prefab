@@ -216,6 +216,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   mainMenuScreensManagers:
   - {fileID: 515683361377901665}
+  - {fileID: 4992040554592037523}
+  baraldTransform: {fileID: 0}
 --- !u!1001 &2505017789942218787
 PrefabInstance:
   m_ObjectHideFlags: 0

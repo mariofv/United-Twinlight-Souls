@@ -74,6 +74,11 @@ public class PlayerManager : MonoBehaviour
         characterTransform.position = position;
     }
 
+    public void OrientatePlayer(Quaternion rotation)
+    {
+        characterTransform.rotation = rotation;
+    }
+
     public Vector3 GetPosition()
     {
         return transform.position;

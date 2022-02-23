@@ -10,6 +10,8 @@ public class MainMenuUIManager : MonoBehaviour
 
     private MainMenuScreenUIManager.MainMenuScreenId currentMainMenuScrenId = MainMenuScreenUIManager.MainMenuScreenId.NONE;
 
+    [SerializeField] private Transform baraldTransform;
+
     private void Awake()
     {
         mainMenuScreens = new Dictionary<MainMenuScreenUIManager.MainMenuScreenId, MainMenuScreenUIManager>();
@@ -22,6 +24,9 @@ public class MainMenuUIManager : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
+        GameManager.instance.player.TeleportPlayer(baraldTransform.position);
+        GameManager.instance.player.OrientatePlayer(baraldTransform.rotation);
+
         OpenMainMenuScreen(MainMenuScreenUIManager.MainMenuScreenId.LOGO);
     }
 
