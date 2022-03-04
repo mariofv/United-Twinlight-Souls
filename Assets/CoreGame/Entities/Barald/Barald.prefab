@@ -9,7 +9,10 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 163847903933024333}
-  - component: {fileID: 5814452665316528148}
+  - component: {fileID: 5175488316392308158}
+  - component: {fileID: 937895936696378117}
+  - component: {fileID: 3749913235640488592}
+  - component: {fileID: 5795132419189483490}
   - component: {fileID: 6540250780167808272}
   m_Layer: 0
   m_Name: Barald
@@ -33,7 +36,7 @@ Transform:
   m_Father: {fileID: 0}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!114 &5814452665316528148
+--- !u!114 &5175488316392308158
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -42,15 +45,55 @@ MonoBehaviour:
   m_GameObject: {fileID: 163847903933024330}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 684cffb2720e17d44880fef300fc4949, type: 3}
+  m_Script: {fileID: 11500000, guid: c0fcfe229ef4e97489d69203fcdb9918, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  characterManager: {fileID: 937895936696378117}
+  characterHUD: {fileID: 0}
+--- !u!114 &937895936696378117
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 163847903933024330}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 64edacd50d0fffe46ba7f77c1f472539, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  characterMovementManager: {fileID: 3749913235640488592}
+  characterVisualsManager: {fileID: 5795132419189483490}
+--- !u!114 &3749913235640488592
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 163847903933024330}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: e05050ded7c2a9b4e9c7014cc888262b, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  characterController: {fileID: 6540250780167808272}
   characterTransform: {fileID: 163847903933024333}
-  characterAnimator: {fileID: 5993322870105679182}
   movementSpeed: 7.5
   gravity: 10
   jumpSpeed: 5
-  characterController: {fileID: 6540250780167808272}
+--- !u!114 &5795132419189483490
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 163847903933024330}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 11958fd33adb1c8458a15c3a4db4b3a5, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  characterAnimator: {fileID: 5993322870105679182}
 --- !u!143 &6540250780167808272
 CharacterController:
   m_ObjectHideFlags: 0

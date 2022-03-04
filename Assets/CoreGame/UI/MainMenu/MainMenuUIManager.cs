@@ -24,8 +24,8 @@ public class MainMenuUIManager : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
-        GameManager.instance.player.TeleportPlayer(baraldTransform.position);
-        GameManager.instance.player.OrientatePlayer(baraldTransform.rotation);
+        GameManager.instance.player.Character().TeleportPlayer(baraldTransform.position);
+        GameManager.instance.player.Character().OrientatePlayer(baraldTransform.rotation);
 
         OpenMainMenuScreen(MainMenuScreenUIManager.MainMenuScreenId.LOGO);
     }

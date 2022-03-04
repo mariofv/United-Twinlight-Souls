@@ -156,12 +156,12 @@ public class InputManager : MonoBehaviour
 
     public void OnMovementInput(InputAction.CallbackContext context)
     {
-       GameManager.instance.player.Move(context.ReadValue<Vector2>());
+       GameManager.instance.player.Character().Move(context.ReadValue<Vector2>());
     }
 
     public void OnJumpInput(InputAction.CallbackContext context)
     {
-        GameManager.instance.player.Jump();
+        GameManager.instance.player.Character().Jump();
     }
 
     public void OnPreviousTipInput(InputAction.CallbackContext context)

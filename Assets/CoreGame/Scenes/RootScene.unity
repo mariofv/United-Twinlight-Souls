@@ -166,13 +166,13 @@ PrefabInstance:
   m_SourcePrefab: {fileID: 100100000, guid: 4622866028b83bf4a82cdcec90573ed3, type: 3}
 --- !u!114 &498207193 stripped
 MonoBehaviour:
-  m_CorrespondingSourceObject: {fileID: 5814452665316528148, guid: 4622866028b83bf4a82cdcec90573ed3, type: 3}
+  m_CorrespondingSourceObject: {fileID: 5175488316392308158, guid: 4622866028b83bf4a82cdcec90573ed3, type: 3}
   m_PrefabInstance: {fileID: 498207192}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 0}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 684cffb2720e17d44880fef300fc4949, type: 3}
+  m_Script: {fileID: 11500000, guid: c0fcfe229ef4e97489d69203fcdb9918, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
 --- !u!1001 &1328481190
@@ -242,14 +242,14 @@ PrefabInstance:
       propertyPath: levelTransitionUIManager
       value: 
       objectReference: {fileID: 2142983749}
-    - target: {fileID: 3392300983510991871, guid: 9aa138b6efb0c244098e2e3efd8c2ead, type: 3}
-      propertyPath: player
-      value: 
-      objectReference: {fileID: 498207193}
     - target: {fileID: 3617190044042717582, guid: 9aa138b6efb0c244098e2e3efd8c2ead, type: 3}
       propertyPath: uiInputModule
       value: 
       objectReference: {fileID: 1858461488}
+    - target: {fileID: 7463979648709599497, guid: 9aa138b6efb0c244098e2e3efd8c2ead, type: 3}
+      propertyPath: barald
+      value: 
+      objectReference: {fileID: 498207193}
     - target: {fileID: 8117803836337092732, guid: 9aa138b6efb0c244098e2e3efd8c2ead, type: 3}
       propertyPath: m_Name
       value: GameManager
