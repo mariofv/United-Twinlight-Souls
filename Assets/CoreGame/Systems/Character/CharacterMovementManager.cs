@@ -15,11 +15,23 @@ public class CharacterMovementManager : CharacterSubManager
     private float verticalVelocity = 0f;
     private bool isAirborne = false;
     private bool jumping = false;
-    private float previousVerticalPosition;
+
+    private bool movementEnabled = true;
 
     // Update is called once per frame
     void Update()
     {
+        if (!movementEnabled)
+        {
+            return;
+        }
+
+        if (IsMoving())
+        {
+            characterTransform.rotation = Quaternion.LookRotation(movementVector);
+        }
+        characterController.Move(Time.deltaTime * movementSpeed * movementVector);
+
         isAirborne = !characterController.isGrounded;
 
         if (!isAirborne && verticalVelocity < 0f)
@@ -27,17 +39,7 @@ public class CharacterMovementManager : CharacterSubManager
             verticalVelocity = 0f;
             jumping = false;
         }
-
-        if (IsMoving())
-        {
-            characterTransform.rotation = Quaternion.LookRotation(movementVector);
-        }
-
-        characterController.Move(Time.deltaTime * movementSpeed * movementVector);
-
         verticalVelocity -= gravity * Time.deltaTime;
-
-        previousVerticalPosition = characterTransform.position.y;
         characterController.Move(Time.deltaTime * verticalVelocity * Vector3.up);
     }
 
@@ -83,5 +85,17 @@ public class CharacterMovementManager : CharacterSubManager
     public bool IsMoving()
     {
         return movementVector != Vector3.zero;
+    }
+
+    public void EnableMovement()
+    {
+        movementEnabled = true;
+        characterController.enabled = true;
+    }
+
+    public void DisableMovement()
+    {
+        movementEnabled = false;
+        characterController.enabled = false;
     }
 }

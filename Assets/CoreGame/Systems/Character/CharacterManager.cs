@@ -40,4 +40,14 @@ public class CharacterManager : MonoBehaviour
     {
         characterMovementManager.OrientatePlayer(orientation);
     }
+
+    public void EnableMovement()
+    {
+        characterMovementManager.EnableMovement();
+    }
+
+    public void DisableMovement()
+    {
+        characterMovementManager.DisableMovement();
+    }
 }

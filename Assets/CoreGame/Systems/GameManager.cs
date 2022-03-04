@@ -69,6 +69,7 @@ public class GameManager : MonoBehaviour
             ResumeGame();
         }
 
+        player.Character().DisableMovement();
         uiManager.levelTransitionUIManager.FadeOut();
         while (uiManager.levelTransitionUIManager.IsFadingOut())
         {
@@ -114,6 +115,7 @@ public class GameManager : MonoBehaviour
             yield return new WaitForFixedUpdate();
         }
         CursorHider.ShowCursor();
+        player.Character().EnableMovement();
     }
     public void CloseGame()
     {
@@ -147,6 +149,7 @@ public class GameManager : MonoBehaviour
     public void EnterGameState(GameState state, bool changeGameStateInput = true)
     {
         bool unloadInstant = true;
+
         uiManager.UnloadGameStateUI(gameState, instant: unloadInstant);
 
         lastGameState = gameState;
