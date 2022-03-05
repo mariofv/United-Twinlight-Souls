@@ -26,6 +26,7 @@ namespace Tweening
             {
                 if (!tweeningAnimations[i].IsAlive())
                 {
+                    tweeningAnimations[i].Reset();
                     return tweeningAnimations[i];
                 }
             }

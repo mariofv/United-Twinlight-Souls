@@ -5,6 +5,8 @@ using Tweening;
 
 public class SelectCharacterScreenUIManager : MainMenuScreenUIManager
 {
+    [SerializeField] private CharacterSelectionCursor characterSelectionCursor;
+
     protected override void CreateShowTweens()
     {
         TweeningAnimation fadeAnimation = uiElementCanvasGroup.TweenFade(UISettings.GameUISettings.DISPLAY_TIME, 0f, 1f).DontKillOnEnd();
@@ -15,5 +17,10 @@ public class SelectCharacterScreenUIManager : MainMenuScreenUIManager
     {
         TweeningAnimation fadeAnimation = uiElementCanvasGroup.TweenFade(UISettings.GameUISettings.DISPLAY_TIME, 1f, 0f).DontKillOnEnd();
         hideTweens.Add(fadeAnimation);
+    }
+
+    private void MoveCursorToBarald()
+    {
+        characterSelectionCursor.SelectBarald();
     }
 }

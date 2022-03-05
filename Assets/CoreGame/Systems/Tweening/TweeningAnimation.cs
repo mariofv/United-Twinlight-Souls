@@ -121,6 +121,8 @@ namespace Tweening
             isAlive = false;
         }
 
+        public virtual void Reset() { }
+
         public TweeningAnimation DontKillOnEnd()
         {
             isKilledOnEnd = false;
@@ -160,12 +162,18 @@ namespace Tweening
                 canvasGroup.alpha = Mathf.Lerp(fromValue, toValue, progress);
             }
 
-            if (image!= null)
+            if (image != null)
             {
                 Color newColor = image.color;
                 newColor.a = Mathf.Lerp(fromValue, toValue, progress);
                 image.color = newColor;
             }
+        }
+
+        public override void Reset()
+        {
+            image = null;
+            canvasGroup = null;
         }
     }
     //---------------------------------------------------------------------------------
