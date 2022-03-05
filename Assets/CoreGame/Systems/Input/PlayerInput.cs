@@ -719,6 +719,15 @@ public partial class @PlayerInput : IInputActionCollection2, IDisposable
                     ""processors"": """",
                     ""interactions"": """",
                     ""initialStateCheck"": false
+                },
+                {
+                    ""name"": ""OpenCharacterDebugMenu"",
+                    ""type"": ""Button"",
+                    ""id"": ""4c50249d-f2cf-4c8b-b50b-35f53fdd76c5"",
+                    ""expectedControlType"": ""Button"",
+                    ""processors"": """",
+                    ""interactions"": """",
+                    ""initialStateCheck"": false
                 }
             ],
             ""bindings"": [
@@ -730,6 +739,17 @@ public partial class @PlayerInput : IInputActionCollection2, IDisposable
                     ""processors"": """",
                     ""groups"": ""Keyboard&Mouse"",
                     ""action"": ""OpenScenesDebugMenu"",
+                    ""isComposite"": false,
+                    ""isPartOfComposite"": false
+                },
+                {
+                    ""name"": """",
+                    ""id"": ""cf5333a2-72e6-4961-8278-77444b3e3f53"",
+                    ""path"": ""<Keyboard>/f2"",
+                    ""interactions"": """",
+                    ""processors"": """",
+                    ""groups"": ""Keyboard&Mouse"",
+                    ""action"": ""OpenCharacterDebugMenu"",
                     ""isComposite"": false,
                     ""isPartOfComposite"": false
                 }
@@ -1040,6 +1060,7 @@ public partial class @PlayerInput : IInputActionCollection2, IDisposable
         // Debug
         m_Debug = asset.FindActionMap("Debug", throwIfNotFound: true);
         m_Debug_OpenScenesDebugMenu = m_Debug.FindAction("OpenScenesDebugMenu", throwIfNotFound: true);
+        m_Debug_OpenCharacterDebugMenu = m_Debug.FindAction("OpenCharacterDebugMenu", throwIfNotFound: true);
         // MainMenu
         m_MainMenu = asset.FindActionMap("MainMenu", throwIfNotFound: true);
         m_MainMenu_AnyKey = m_MainMenu.FindAction("AnyKey", throwIfNotFound: true);
@@ -1323,11 +1344,13 @@ public partial class @PlayerInput : IInputActionCollection2, IDisposable
     private readonly InputActionMap m_Debug;
     private IDebugActions m_DebugActionsCallbackInterface;
     private readonly InputAction m_Debug_OpenScenesDebugMenu;
+    private readonly InputAction m_Debug_OpenCharacterDebugMenu;
     public struct DebugActions
     {
         private @PlayerInput m_Wrapper;
         public DebugActions(@PlayerInput wrapper) { m_Wrapper = wrapper; }
         public InputAction @OpenScenesDebugMenu => m_Wrapper.m_Debug_OpenScenesDebugMenu;
+        public InputAction @OpenCharacterDebugMenu => m_Wrapper.m_Debug_OpenCharacterDebugMenu;
         public InputActionMap Get() { return m_Wrapper.m_Debug; }
         public void Enable() { Get().Enable(); }
         public void Disable() { Get().Disable(); }
@@ -1340,6 +1363,9 @@ public partial class @PlayerInput : IInputActionCollection2, IDisposable
                 @OpenScenesDebugMenu.started -= m_Wrapper.m_DebugActionsCallbackInterface.OnOpenScenesDebugMenu;
                 @OpenScenesDebugMenu.performed -= m_Wrapper.m_DebugActionsCallbackInterface.OnOpenScenesDebugMenu;
                 @OpenScenesDebugMenu.canceled -= m_Wrapper.m_DebugActionsCallbackInterface.OnOpenScenesDebugMenu;
+                @OpenCharacterDebugMenu.started -= m_Wrapper.m_DebugActionsCallbackInterface.OnOpenCharacterDebugMenu;
+                @OpenCharacterDebugMenu.performed -= m_Wrapper.m_DebugActionsCallbackInterface.OnOpenCharacterDebugMenu;
+                @OpenCharacterDebugMenu.canceled -= m_Wrapper.m_DebugActionsCallbackInterface.OnOpenCharacterDebugMenu;
             }
             m_Wrapper.m_DebugActionsCallbackInterface = instance;
             if (instance != null)
@@ -1347,6 +1373,9 @@ public partial class @PlayerInput : IInputActionCollection2, IDisposable
                 @OpenScenesDebugMenu.started += instance.OnOpenScenesDebugMenu;
                 @OpenScenesDebugMenu.performed += instance.OnOpenScenesDebugMenu;
                 @OpenScenesDebugMenu.canceled += instance.OnOpenScenesDebugMenu;
+                @OpenCharacterDebugMenu.started += instance.OnOpenCharacterDebugMenu;
+                @OpenCharacterDebugMenu.performed += instance.OnOpenCharacterDebugMenu;
+                @OpenCharacterDebugMenu.canceled += instance.OnOpenCharacterDebugMenu;
             }
         }
     }
@@ -1432,6 +1461,7 @@ public partial class @PlayerInput : IInputActionCollection2, IDisposable
     public interface IDebugActions
     {
         void OnOpenScenesDebugMenu(InputAction.CallbackContext context);
+        void OnOpenCharacterDebugMenu(InputAction.CallbackContext context);
     }
     public interface IMainMenuActions
     {

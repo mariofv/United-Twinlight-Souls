@@ -697,6 +697,15 @@
                     "processors": "",
                     "interactions": "",
                     "initialStateCheck": false
+                },
+                {
+                    "name": "OpenCharacterDebugMenu",
+                    "type": "Button",
+                    "id": "4c50249d-f2cf-4c8b-b50b-35f53fdd76c5",
+                    "expectedControlType": "Button",
+                    "processors": "",
+                    "interactions": "",
+                    "initialStateCheck": false
                 }
             ],
             "bindings": [
@@ -708,6 +717,17 @@
                     "processors": "",
                     "groups": "Keyboard&Mouse",
                     "action": "OpenScenesDebugMenu",
+                    "isComposite": false,
+                    "isPartOfComposite": false
+                },
+                {
+                    "name": "",
+                    "id": "cf5333a2-72e6-4961-8278-77444b3e3f53",
+                    "path": "<Keyboard>/f2",
+                    "interactions": "",
+                    "processors": "",
+                    "groups": "Keyboard&Mouse",
+                    "action": "OpenCharacterDebugMenu",
                     "isComposite": false,
                     "isPartOfComposite": false
                 }

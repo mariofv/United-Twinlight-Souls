@@ -7,6 +7,7 @@ public class DebugMenu : MonoBehaviour
     public enum DebugMenuId
     {
         SCENES = 0,
+        CHARACTERS = 1,
     }
 
     // Start is called before the first frame update

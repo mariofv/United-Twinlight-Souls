@@ -26,4 +26,9 @@ public class DebugManager : MonoBehaviour
     {
         debugMenuManager.OpenDebugMenu(DebugMenu.DebugMenuId.SCENES);
     }
+
+    public void OnOpenCharacterDebugMenu(InputAction.CallbackContext context)
+    {
+        debugMenuManager.OpenDebugMenu(DebugMenu.DebugMenuId.CHARACTERS);
+    }
 }

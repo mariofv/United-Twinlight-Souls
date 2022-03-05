@@ -6,17 +6,6 @@ using UnityEngine.SceneManagement;
 
 public class SceneDebugMenu : DebugMenu
 {
-    // Start is called before the first frame update
-    void Start()
-    {
-
-    }
-
-    // Update is called once per frame
-    void Update()
-    {
-
-    }
     void OnGUI()
     {
         GUILayout.Window((int)DebugMenu.DebugMenuId.SCENES, new Rect(10, 10, 400, 300), WindowFunction, "Scenes Debug Menu");
