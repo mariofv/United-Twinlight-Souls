@@ -10,37 +10,44 @@ public class CharacterMovementManager : CharacterSubManager
     [SerializeField] private float movementSpeed;
     [SerializeField] private float gravity;
     [SerializeField] private float jumpSpeed;
+    [SerializeField] private float groundedCheckDistance;
+    [SerializeField] private LayerMask terrainMask;
 
     private Vector3 movementVector;
-    private float verticalVelocity = 0f;
-    private bool isAirborne = false;
-    private bool jumping = false;
 
-    private bool movementEnabled = true;
+    private float verticalVelocity = 0f;
+    private bool isGrounded = false;
+    private bool isFalling = false;
+    private bool isJumping = false;
+
+    private bool isSignificantVerticalMovement = false;
+    private const float FALLING_EPSILON = 0.025f;
+    private float previousVerticalPosition;
 
     // Update is called once per frame
     void Update()
     {
-        if (!movementEnabled)
-        {
-            return;
-        }
-
         if (IsMoving())
         {
             characterTransform.rotation = Quaternion.LookRotation(movementVector);
         }
         characterController.Move(Time.deltaTime * movementSpeed * movementVector);
 
-        isAirborne = !characterController.isGrounded;
 
-        if (!isAirborne && verticalVelocity < 0f)
+        isGrounded = IsGrounded();
+        isFalling = verticalVelocity < 0f;
+        if (!isGrounded)
+        {
+            verticalVelocity -= gravity * Time.deltaTime;
+        }
+        else if (isFalling)
         {
             verticalVelocity = 0f;
-            jumping = false;
+            isJumping = false;
         }
-        verticalVelocity -= gravity * Time.deltaTime;
+        previousVerticalPosition = characterTransform.position.y;
         characterController.Move(Time.deltaTime * verticalVelocity * Vector3.up);
+        isSignificantVerticalMovement = Mathf.Abs(previousVerticalPosition - characterTransform.position.y) > FALLING_EPSILON;
     }
 
     public void Move(Vector2 inputedMovement)
@@ -54,12 +61,14 @@ public class CharacterMovementManager : CharacterSubManager
     public void Jump()
     {
         verticalVelocity = jumpSpeed;
-        jumping = true;
+        isJumping = true;
     }
 
     public void Teleport(Vector3 position)
     {
+        characterController.enabled = false;
         characterTransform.position = position;
+        characterController.enabled = true;
     }
 
     public void Orientate(Quaternion rotation)
@@ -79,7 +88,7 @@ public class CharacterMovementManager : CharacterSubManager
 
     public bool IsAirbone()
     {
-        return isAirborne && jumping;
+        return (!isGrounded && isSignificantVerticalMovement) || isJumping;
     }
 
     public bool IsMoving()
@@ -87,15 +96,15 @@ public class CharacterMovementManager : CharacterSubManager
         return movementVector != Vector3.zero;
     }
 
-    public void EnableMovement()
+    private bool IsGrounded()
     {
-        movementEnabled = true;
-        characterController.enabled = true;
-    }
+        bool collision = Physics.Raycast(
+            characterTransform.position,
+            Vector3.down,
+            groundedCheckDistance,
+            terrainMask.value
+        );
 
-    public void DisableMovement()
-    {
-        movementEnabled = false;
-        characterController.enabled = false;
+        return collision;
     }
 }

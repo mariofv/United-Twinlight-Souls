@@ -12,6 +12,8 @@ public class CharacterManager : MonoBehaviour
     {
         characterMovementManager.Link(this);
         characterVisualsManager.Link(this);
+
+        DisableMovement();
     }
 
     // Update is called once per frame
@@ -43,11 +45,11 @@ public class CharacterManager : MonoBehaviour
 
     public void EnableMovement()
     {
-        characterMovementManager.EnableMovement();
+        characterMovementManager.enabled = true;
     }
 
     public void DisableMovement()
     {
-        characterMovementManager.DisableMovement();
+        characterMovementManager.enabled = false;
     }
 }

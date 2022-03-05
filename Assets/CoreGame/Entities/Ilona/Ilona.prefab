@@ -30,7 +30,7 @@ Transform:
   m_GameObject: {fileID: 4913848581889118377}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: 0, y: 0, z: 0}
-  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_LocalScale: {x: 1.5, y: 1.5, z: 1.5}
   m_Children:
   - {fileID: 2825622905725158894}
   m_Father: {fileID: 0}
@@ -80,7 +80,11 @@ MonoBehaviour:
   characterTransform: {fileID: 6030303048562382595}
   movementSpeed: 7.5
   gravity: 10
-  jumpSpeed: 5
+  jumpSpeed: 6
+  groundedCheckDistance: 0.1
+  terrainMask:
+    serializedVersion: 2
+    m_Bits: 64
 --- !u!114 &6891792521040977022
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -110,7 +114,7 @@ CharacterController:
   m_SlopeLimit: 45
   m_StepOffset: 0.3
   m_SkinWidth: 0.08
-  m_MinMoveDistance: 0.001
+  m_MinMoveDistance: 0
   m_Center: {x: 0, y: 1, z: 0}
 --- !u!1 &9132285193278314178
 GameObject:
