@@ -11,6 +11,7 @@ public class MainMenuUIManager : MonoBehaviour
     private MainMenuScreenUIManager.MainMenuScreenId currentMainMenuScrenId = MainMenuScreenUIManager.MainMenuScreenId.NONE;
 
     [SerializeField] private Transform baraldTransform;
+    [SerializeField] private Transform ilonaTransform;
 
     private void Awake()
     {
@@ -26,6 +27,9 @@ public class MainMenuUIManager : MonoBehaviour
     {
         GameManager.instance.player.GetBarald().Teleport(baraldTransform.position);
         GameManager.instance.player.GetBarald().Orientate(baraldTransform.rotation);
+
+        GameManager.instance.player.GetIlona().Teleport(ilonaTransform.position);
+        GameManager.instance.player.GetIlona().Orientate(ilonaTransform.rotation);
 
         OpenMainMenuScreen(MainMenuScreenUIManager.MainMenuScreenId.LOGO);
     }
