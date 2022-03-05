@@ -20,6 +20,8 @@ public class InputManager : MonoBehaviour
         playerInput = new PlayerInput();
 
         playerInput.MainMenu.AnyKey.performed += ctx => GameManager.instance.uiManager.mainMenuUIManager.OnAnyKeyPressed(ctx);
+        playerInput.MainMenu.RightNavigation.performed += ctx => GameManager.instance.uiManager.mainMenuUIManager.OnRightPressed(ctx);
+        playerInput.MainMenu.LeftNavigation.performed += ctx => GameManager.instance.uiManager.mainMenuUIManager.OnLeftPressed(ctx);
 
         playerInput.Combat.Movement.performed += ctx => OnMovementInput(ctx);
         playerInput.Combat.Movement.canceled += ctx => OnMovementInput(ctx);

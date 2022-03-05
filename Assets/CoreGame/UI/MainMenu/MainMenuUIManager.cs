@@ -64,4 +64,14 @@ public class MainMenuUIManager : MonoBehaviour
     {
         mainMenuScreens[currentMainMenuScrenId].OnAnyKeyPressed();
     }
+
+    public void OnRightPressed(InputAction.CallbackContext context)
+    {
+        mainMenuScreens[currentMainMenuScrenId].OnRightPressed();
+    }
+
+    public void OnLeftPressed(InputAction.CallbackContext context)
+    {
+        mainMenuScreens[currentMainMenuScrenId].OnLeftPressed();
+    }
 }

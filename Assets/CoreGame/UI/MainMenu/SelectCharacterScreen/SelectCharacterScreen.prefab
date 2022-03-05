@@ -326,7 +326,7 @@ MonoBehaviour:
   uiElementCanvasGroup: {fileID: 2954672742929462275}
   mainMenuScreenId: 2
   cameraTransform: {fileID: 0}
-  characterSelectionCursor: {fileID: 0}
+  characterSelectionCursor: {fileID: 1601458044799447175}
 --- !u!1 &7011188452381593536
 GameObject:
   m_ObjectHideFlags: 0
@@ -424,3 +424,14 @@ RectTransform:
   m_CorrespondingSourceObject: {fileID: 7081987035243520291, guid: 6c07c7b067c947143a9c5542d12532fb, type: 3}
   m_PrefabInstance: {fileID: 1705173376456128325}
   m_PrefabAsset: {fileID: 0}
+--- !u!114 &1601458044799447175 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 112726044828010434, guid: 6c07c7b067c947143a9c5542d12532fb, type: 3}
+  m_PrefabInstance: {fileID: 1705173376456128325}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 7377f2ca9348d13409ce5236478673d5, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 

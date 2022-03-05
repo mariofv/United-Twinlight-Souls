@@ -767,6 +767,24 @@ public partial class @PlayerInput : IInputActionCollection2, IDisposable
                     ""processors"": """",
                     ""interactions"": """",
                     ""initialStateCheck"": false
+                },
+                {
+                    ""name"": ""LeftNavigation"",
+                    ""type"": ""Button"",
+                    ""id"": ""14045c6b-02c6-441b-b69d-897032d3be32"",
+                    ""expectedControlType"": ""Button"",
+                    ""processors"": """",
+                    ""interactions"": """",
+                    ""initialStateCheck"": false
+                },
+                {
+                    ""name"": ""RightNavigation"",
+                    ""type"": ""Button"",
+                    ""id"": ""9925e5bf-4161-4e9e-9249-2a2f395ded90"",
+                    ""expectedControlType"": ""Button"",
+                    ""processors"": """",
+                    ""interactions"": """",
+                    ""initialStateCheck"": false
                 }
             ],
             ""bindings"": [
@@ -1000,6 +1018,72 @@ public partial class @PlayerInput : IInputActionCollection2, IDisposable
                     ""action"": ""AnyKey"",
                     ""isComposite"": false,
                     ""isPartOfComposite"": false
+                },
+                {
+                    ""name"": """",
+                    ""id"": ""8d231265-72f5-46c1-8b0d-75ce46b6bb4d"",
+                    ""path"": ""<Keyboard>/a"",
+                    ""interactions"": """",
+                    ""processors"": """",
+                    ""groups"": ""Keyboard&Mouse"",
+                    ""action"": ""LeftNavigation"",
+                    ""isComposite"": false,
+                    ""isPartOfComposite"": false
+                },
+                {
+                    ""name"": """",
+                    ""id"": ""5333409e-90aa-4e18-82e2-39055e9b0d2e"",
+                    ""path"": ""<Keyboard>/leftArrow"",
+                    ""interactions"": """",
+                    ""processors"": """",
+                    ""groups"": ""Keyboard&Mouse"",
+                    ""action"": ""LeftNavigation"",
+                    ""isComposite"": false,
+                    ""isPartOfComposite"": false
+                },
+                {
+                    ""name"": """",
+                    ""id"": ""b8448545-c8de-4d01-a4c2-08da173106c2"",
+                    ""path"": ""<Gamepad>/dpad/left"",
+                    ""interactions"": """",
+                    ""processors"": """",
+                    ""groups"": ""Gamepad"",
+                    ""action"": ""LeftNavigation"",
+                    ""isComposite"": false,
+                    ""isPartOfComposite"": false
+                },
+                {
+                    ""name"": """",
+                    ""id"": ""096c2b48-f119-45f3-a2ff-2960442bee05"",
+                    ""path"": ""<Keyboard>/d"",
+                    ""interactions"": """",
+                    ""processors"": """",
+                    ""groups"": ""Keyboard&Mouse"",
+                    ""action"": ""RightNavigation"",
+                    ""isComposite"": false,
+                    ""isPartOfComposite"": false
+                },
+                {
+                    ""name"": """",
+                    ""id"": ""9794b27d-bae5-4e16-9b05-378ed41c8bd1"",
+                    ""path"": ""<Keyboard>/rightArrow"",
+                    ""interactions"": """",
+                    ""processors"": """",
+                    ""groups"": ""Keyboard&Mouse"",
+                    ""action"": ""RightNavigation"",
+                    ""isComposite"": false,
+                    ""isPartOfComposite"": false
+                },
+                {
+                    ""name"": """",
+                    ""id"": ""d914e16f-9b00-492b-9563-d89c928ab7ad"",
+                    ""path"": ""<Gamepad>/dpad/right"",
+                    ""interactions"": """",
+                    ""processors"": """",
+                    ""groups"": ""Gamepad"",
+                    ""action"": ""RightNavigation"",
+                    ""isComposite"": false,
+                    ""isPartOfComposite"": false
                 }
             ]
         }
@@ -1064,6 +1148,8 @@ public partial class @PlayerInput : IInputActionCollection2, IDisposable
         // MainMenu
         m_MainMenu = asset.FindActionMap("MainMenu", throwIfNotFound: true);
         m_MainMenu_AnyKey = m_MainMenu.FindAction("AnyKey", throwIfNotFound: true);
+        m_MainMenu_LeftNavigation = m_MainMenu.FindAction("LeftNavigation", throwIfNotFound: true);
+        m_MainMenu_RightNavigation = m_MainMenu.FindAction("RightNavigation", throwIfNotFound: true);
     }
 
     public void Dispose()
@@ -1385,11 +1471,15 @@ public partial class @PlayerInput : IInputActionCollection2, IDisposable
     private readonly InputActionMap m_MainMenu;
     private IMainMenuActions m_MainMenuActionsCallbackInterface;
     private readonly InputAction m_MainMenu_AnyKey;
+    private readonly InputAction m_MainMenu_LeftNavigation;
+    private readonly InputAction m_MainMenu_RightNavigation;
     public struct MainMenuActions
     {
         private @PlayerInput m_Wrapper;
         public MainMenuActions(@PlayerInput wrapper) { m_Wrapper = wrapper; }
         public InputAction @AnyKey => m_Wrapper.m_MainMenu_AnyKey;
+        public InputAction @LeftNavigation => m_Wrapper.m_MainMenu_LeftNavigation;
+        public InputAction @RightNavigation => m_Wrapper.m_MainMenu_RightNavigation;
         public InputActionMap Get() { return m_Wrapper.m_MainMenu; }
         public void Enable() { Get().Enable(); }
         public void Disable() { Get().Disable(); }
@@ -1402,6 +1492,12 @@ public partial class @PlayerInput : IInputActionCollection2, IDisposable
                 @AnyKey.started -= m_Wrapper.m_MainMenuActionsCallbackInterface.OnAnyKey;
                 @AnyKey.performed -= m_Wrapper.m_MainMenuActionsCallbackInterface.OnAnyKey;
                 @AnyKey.canceled -= m_Wrapper.m_MainMenuActionsCallbackInterface.OnAnyKey;
+                @LeftNavigation.started -= m_Wrapper.m_MainMenuActionsCallbackInterface.OnLeftNavigation;
+                @LeftNavigation.performed -= m_Wrapper.m_MainMenuActionsCallbackInterface.OnLeftNavigation;
+                @LeftNavigation.canceled -= m_Wrapper.m_MainMenuActionsCallbackInterface.OnLeftNavigation;
+                @RightNavigation.started -= m_Wrapper.m_MainMenuActionsCallbackInterface.OnRightNavigation;
+                @RightNavigation.performed -= m_Wrapper.m_MainMenuActionsCallbackInterface.OnRightNavigation;
+                @RightNavigation.canceled -= m_Wrapper.m_MainMenuActionsCallbackInterface.OnRightNavigation;
             }
             m_Wrapper.m_MainMenuActionsCallbackInterface = instance;
             if (instance != null)
@@ -1409,6 +1505,12 @@ public partial class @PlayerInput : IInputActionCollection2, IDisposable
                 @AnyKey.started += instance.OnAnyKey;
                 @AnyKey.performed += instance.OnAnyKey;
                 @AnyKey.canceled += instance.OnAnyKey;
+                @LeftNavigation.started += instance.OnLeftNavigation;
+                @LeftNavigation.performed += instance.OnLeftNavigation;
+                @LeftNavigation.canceled += instance.OnLeftNavigation;
+                @RightNavigation.started += instance.OnRightNavigation;
+                @RightNavigation.performed += instance.OnRightNavigation;
+                @RightNavigation.canceled += instance.OnRightNavigation;
             }
         }
     }
@@ -1466,5 +1568,7 @@ public partial class @PlayerInput : IInputActionCollection2, IDisposable
     public interface IMainMenuActions
     {
         void OnAnyKey(InputAction.CallbackContext context);
+        void OnLeftNavigation(InputAction.CallbackContext context);
+        void OnRightNavigation(InputAction.CallbackContext context);
     }
 }

@@ -6,6 +6,7 @@ using Tweening;
 public class SelectCharacterScreenUIManager : MainMenuScreenUIManager
 {
     [SerializeField] private CharacterSelectionCursor characterSelectionCursor;
+    private bool baraldSelected = true;
 
     protected override void CreateShowTweens()
     {
@@ -22,5 +23,39 @@ public class SelectCharacterScreenUIManager : MainMenuScreenUIManager
     private void MoveCursorToBarald()
     {
         characterSelectionCursor.SelectBarald();
+    }
+
+    private void MoveCursorToIlona()
+    {
+        characterSelectionCursor.SelectIlona();
+    }
+
+    private void MoveCursor()
+    {
+        baraldSelected = !baraldSelected;
+        if (baraldSelected)
+        {
+            MoveCursorToBarald();
+        }
+        else
+        {
+            MoveCursorToIlona();
+        }
+    }
+
+    public override void OnLeftPressed()
+    {
+        if (baraldSelected)
+        {
+            MoveCursor();
+        }
+    }
+
+    public override void OnRightPressed()
+    {
+        if (!baraldSelected)
+        {
+            MoveCursor();
+        }
     }
 }
