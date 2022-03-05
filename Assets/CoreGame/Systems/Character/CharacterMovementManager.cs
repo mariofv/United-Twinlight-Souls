@@ -31,22 +31,12 @@ public class CharacterMovementManager : CharacterSubManager
         {
             characterTransform.rotation = Quaternion.LookRotation(movementVector);
         }
-        characterController.Move(Time.deltaTime * movementSpeed * movementVector);
 
+        Vector3 horizontalMovement = ComputeHorizontalMovement();
+        Vector3 verticalMovement = ComputeVerticalMovement();
 
-        isGrounded = IsGrounded();
-        isFalling = verticalVelocity < 0f;
-        if (!isGrounded)
-        {
-            verticalVelocity -= gravity * Time.deltaTime;
-        }
-        else if (isFalling)
-        {
-            verticalVelocity = 0f;
-            isJumping = false;
-        }
         previousVerticalPosition = characterTransform.position.y;
-        characterController.Move(Time.deltaTime * verticalVelocity * Vector3.up);
+        characterController.Move(Time.deltaTime * (horizontalMovement + verticalMovement));
         isSignificantVerticalMovement = Mathf.Abs(previousVerticalPosition - characterTransform.position.y) > FALLING_EPSILON;
     }
 
@@ -60,6 +50,11 @@ public class CharacterMovementManager : CharacterSubManager
 
     public void Jump()
     {
+        if (isJumping)
+        {
+            return;
+        }
+
         verticalVelocity = jumpSpeed;
         isJumping = true;
     }
@@ -74,6 +69,35 @@ public class CharacterMovementManager : CharacterSubManager
     public void Orientate(Quaternion rotation)
     {
         characterTransform.rotation = rotation;
+    }
+
+    private Vector3 ComputeHorizontalMovement()
+    {
+        return movementSpeed * movementVector;
+    }
+
+    private Vector3 ComputeVerticalMovement()
+    {
+        isGrounded = IsGrounded();
+        isFalling = verticalVelocity < 0f;
+        if (!isGrounded)
+        {
+            verticalVelocity -= gravity * Time.deltaTime;
+        }
+        else
+        {
+            if (isFalling)
+            {
+                verticalVelocity = 0f;
+                isJumping = false;
+            }
+            else
+            {
+                verticalVelocity -= gravity * Time.deltaTime;
+            }
+        }
+
+        return verticalVelocity * Vector3.up;
     }
 
     public Vector3 GetPosition()
