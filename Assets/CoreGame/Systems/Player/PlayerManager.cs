@@ -9,11 +9,6 @@ public class PlayerManager : MonoBehaviour
 
     private CharacterManager controlledCharacterManager;
 
-    public void Awake()
-    {
-        ControllBarald();
-    }
-
     public void ControllBarald()
     {
         ChangeControlledCharacter(barald);
@@ -24,8 +19,34 @@ public class PlayerManager : MonoBehaviour
         controlledCharacterManager = character.characterManager;
     }
 
+    public void DeselectCurrentCharacter()
+    {
+        if (controlledCharacterManager == null)
+        {
+            return;
+        }
+
+        controlledCharacterManager.DisableMovement();
+        controlledCharacterManager = null;
+    }
+
+    public bool HasCharacterSelected()
+    {
+        return controlledCharacterManager != null;
+    }
+
     public CharacterManager Character()
     {
         return controlledCharacterManager;
+    }
+
+    public CharacterManager GetBarald()
+    {
+        return barald.characterManager;
+    }
+
+    public CharacterManager GetFurra()
+    {
+        return furra.characterManager;
     }
 }

@@ -57,12 +57,12 @@ public class CharacterMovementManager : CharacterSubManager
         jumping = true;
     }
 
-    public void TeleportPlayer(Vector3 position)
+    public void Teleport(Vector3 position)
     {
         characterTransform.position = position;
     }
 
-    public void OrientatePlayer(Quaternion rotation)
+    public void Orientate(Quaternion rotation)
     {
         characterTransform.rotation = rotation;
     }

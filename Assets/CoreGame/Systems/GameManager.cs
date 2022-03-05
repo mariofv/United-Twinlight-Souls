@@ -69,13 +69,13 @@ public class GameManager : MonoBehaviour
             ResumeGame();
         }
 
-        player.Character().DisableMovement();
         uiManager.levelTransitionUIManager.FadeOut();
         while (uiManager.levelTransitionUIManager.IsFadingOut())
         {
             yield return new WaitForFixedUpdate();
         }
 
+        player.DeselectCurrentCharacter();
         EnterGameState(GameState.MAIN_MENU);
 
         StartCoroutine(uiManager.UnLoadGameUI());
@@ -100,6 +100,11 @@ public class GameManager : MonoBehaviour
         while (uiManager.levelTransitionUIManager.IsFadingOut())
         {
             yield return new WaitForFixedUpdate();
+        }
+
+        if (!player.HasCharacterSelected())
+        {
+            player.ControllBarald();
         }
 
         yield return StartCoroutine(uiManager.UnLoadMainMenuUI());

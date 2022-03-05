@@ -31,14 +31,14 @@ public class CharacterManager : MonoBehaviour
         characterMovementManager.Jump();
     }
 
-    public void TeleportPlayer(Vector3 position)
+    public void Teleport(Vector3 position)
     {
-        characterMovementManager.TeleportPlayer(position);
+        characterMovementManager.Teleport(position);
     }
 
-    public void OrientatePlayer(Quaternion orientation)
+    public void Orientate(Quaternion orientation)
     {
-        characterMovementManager.OrientatePlayer(orientation);
+        characterMovementManager.Orientate(orientation);
     }
 
     public void EnableMovement()
