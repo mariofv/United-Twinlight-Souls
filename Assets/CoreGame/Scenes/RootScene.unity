@@ -247,6 +247,14 @@ PrefabInstance:
       value: 
       objectReference: {fileID: 1858461488}
     - target: {fileID: 7463979648709599497, guid: 9aa138b6efb0c244098e2e3efd8c2ead, type: 3}
+      propertyPath: furra
+      value: 
+      objectReference: {fileID: 1328783690}
+    - target: {fileID: 7463979648709599497, guid: 9aa138b6efb0c244098e2e3efd8c2ead, type: 3}
+      propertyPath: ilona
+      value: 
+      objectReference: {fileID: 1328783690}
+    - target: {fileID: 7463979648709599497, guid: 9aa138b6efb0c244098e2e3efd8c2ead, type: 3}
       propertyPath: barald
       value: 
       objectReference: {fileID: 498207193}
@@ -260,6 +268,50 @@ PrefabInstance:
       objectReference: {fileID: 1620495044}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 9aa138b6efb0c244098e2e3efd8c2ead, type: 3}
+--- !u!1001 &1328783689
+PrefabInstance:
+  m_ObjectHideFlags: 0
+  serializedVersion: 2
+  m_Modification:
+    m_TransformParent: {fileID: 0}
+    m_Modifications:
+    - target: {fileID: 4913848581889118377, guid: 8bf3f32bd915a684c82dcb9a32172f06, type: 3}
+      propertyPath: m_Name
+      value: Ilona
+      objectReference: {fileID: 0}
+    - target: {fileID: 6030303048562382595, guid: 8bf3f32bd915a684c82dcb9a32172f06, type: 3}
+      propertyPath: m_RootOrder
+      value: 3
+      objectReference: {fileID: 0}
+    - target: {fileID: 6030303048562382595, guid: 8bf3f32bd915a684c82dcb9a32172f06, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 6030303048562382595, guid: 8bf3f32bd915a684c82dcb9a32172f06, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 6030303048562382595, guid: 8bf3f32bd915a684c82dcb9a32172f06, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 7409871948940402645, guid: 8bf3f32bd915a684c82dcb9a32172f06, type: 3}
+      propertyPath: m_Name
+      value: Ilona
+      objectReference: {fileID: 0}
+    m_RemovedComponents: []
+  m_SourcePrefab: {fileID: 100100000, guid: 8bf3f32bd915a684c82dcb9a32172f06, type: 3}
+--- !u!114 &1328783690 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 3440084620261187769, guid: 8bf3f32bd915a684c82dcb9a32172f06, type: 3}
+  m_PrefabInstance: {fileID: 1328783689}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: c0fcfe229ef4e97489d69203fcdb9918, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1001 &1620495042
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -400,7 +452,7 @@ Transform:
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 0}
-  m_RootOrder: 4
+  m_RootOrder: 5
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!114 &2142983749 stripped
 MonoBehaviour:
@@ -478,7 +530,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 8800306701045421198, guid: 9cf61782db9609c43b7d5d0a2bf99c53, type: 3}
       propertyPath: m_RootOrder
-      value: 3
+      value: 4
       objectReference: {fileID: 0}
     - target: {fileID: 8800306701045421198, guid: 9cf61782db9609c43b7d5d0a2bf99c53, type: 3}
       propertyPath: m_AnchorMax.x

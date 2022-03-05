@@ -104,7 +104,7 @@ public class GameManager : MonoBehaviour
 
         if (!player.HasCharacterSelected())
         {
-            player.ControllBarald();
+            player.ControlIlona();
         }
 
         yield return StartCoroutine(uiManager.UnLoadMainMenuUI());

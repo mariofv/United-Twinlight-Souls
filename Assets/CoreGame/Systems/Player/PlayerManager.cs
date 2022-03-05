@@ -5,13 +5,18 @@ using UnityEngine;
 public class PlayerManager : MonoBehaviour
 {
     [SerializeField] private Character barald;
-    [SerializeField] private Character furra;
+    [SerializeField] private Character ilona;
 
     private CharacterManager controlledCharacterManager;
 
-    public void ControllBarald()
+    public void ControlBarald()
     {
         ChangeControlledCharacter(barald);
+    }
+
+    public void ControlIlona()
+    {
+        ChangeControlledCharacter(ilona);
     }
 
     public void ChangeControlledCharacter(Character character)
@@ -45,8 +50,8 @@ public class PlayerManager : MonoBehaviour
         return barald.characterManager;
     }
 
-    public CharacterManager GetFurra()
+    public CharacterManager GetIlona()
     {
-        return furra.characterManager;
+        return ilona.characterManager;
     }
 }
