@@ -785,6 +785,24 @@ public partial class @PlayerInput : IInputActionCollection2, IDisposable
                     ""processors"": """",
                     ""interactions"": """",
                     ""initialStateCheck"": false
+                },
+                {
+                    ""name"": ""Confirm"",
+                    ""type"": ""Button"",
+                    ""id"": ""967edfbe-73df-4550-9fab-6e5c65c5caa7"",
+                    ""expectedControlType"": ""Button"",
+                    ""processors"": """",
+                    ""interactions"": """",
+                    ""initialStateCheck"": false
+                },
+                {
+                    ""name"": ""Cancel"",
+                    ""type"": ""Button"",
+                    ""id"": ""d6bc76e8-336f-42b3-b7c6-e65ca5efaa6d"",
+                    ""expectedControlType"": ""Button"",
+                    ""processors"": """",
+                    ""interactions"": """",
+                    ""initialStateCheck"": false
                 }
             ],
             ""bindings"": [
@@ -1084,6 +1102,83 @@ public partial class @PlayerInput : IInputActionCollection2, IDisposable
                     ""action"": ""RightNavigation"",
                     ""isComposite"": false,
                     ""isPartOfComposite"": false
+                },
+                {
+                    ""name"": """",
+                    ""id"": ""4f23760f-cdbb-4159-9ee3-13625d9db2d8"",
+                    ""path"": ""<Keyboard>/enter"",
+                    ""interactions"": """",
+                    ""processors"": """",
+                    ""groups"": ""Keyboard&Mouse"",
+                    ""action"": ""Confirm"",
+                    ""isComposite"": false,
+                    ""isPartOfComposite"": false
+                },
+                {
+                    ""name"": """",
+                    ""id"": ""74dd9b71-e665-4d07-85db-d290203ff454"",
+                    ""path"": ""<Keyboard>/space"",
+                    ""interactions"": """",
+                    ""processors"": """",
+                    ""groups"": ""Keyboard&Mouse"",
+                    ""action"": ""Confirm"",
+                    ""isComposite"": false,
+                    ""isPartOfComposite"": false
+                },
+                {
+                    ""name"": """",
+                    ""id"": ""b9f151b8-36a1-4d7d-9c7a-43eb469b507f"",
+                    ""path"": ""<Keyboard>/e"",
+                    ""interactions"": """",
+                    ""processors"": """",
+                    ""groups"": ""Keyboard&Mouse"",
+                    ""action"": ""Confirm"",
+                    ""isComposite"": false,
+                    ""isPartOfComposite"": false
+                },
+                {
+                    ""name"": """",
+                    ""id"": ""e2dd6137-5dce-45d5-80d6-e9261dd0d044"",
+                    ""path"": ""<Gamepad>/buttonSouth"",
+                    ""interactions"": """",
+                    ""processors"": """",
+                    ""groups"": ""Gamepad"",
+                    ""action"": ""Confirm"",
+                    ""isComposite"": false,
+                    ""isPartOfComposite"": false
+                },
+                {
+                    ""name"": """",
+                    ""id"": ""10ee9780-7319-48c5-b48e-d51cf9e5f34e"",
+                    ""path"": ""<Keyboard>/escape"",
+                    ""interactions"": """",
+                    ""processors"": """",
+                    ""groups"": ""Keyboard&Mouse"",
+                    ""action"": ""Cancel"",
+                    ""isComposite"": false,
+                    ""isPartOfComposite"": false
+                },
+                {
+                    ""name"": """",
+                    ""id"": ""dc3e33b9-718a-43c1-96b8-289f6d2fd5c5"",
+                    ""path"": ""<Keyboard>/q"",
+                    ""interactions"": """",
+                    ""processors"": """",
+                    ""groups"": ""Keyboard&Mouse"",
+                    ""action"": ""Cancel"",
+                    ""isComposite"": false,
+                    ""isPartOfComposite"": false
+                },
+                {
+                    ""name"": """",
+                    ""id"": ""b40dbda4-b23b-48c8-a9b1-450b0a1005b9"",
+                    ""path"": ""<Gamepad>/buttonEast"",
+                    ""interactions"": """",
+                    ""processors"": """",
+                    ""groups"": ""Gamepad"",
+                    ""action"": ""Cancel"",
+                    ""isComposite"": false,
+                    ""isPartOfComposite"": false
                 }
             ]
         }
@@ -1150,6 +1245,8 @@ public partial class @PlayerInput : IInputActionCollection2, IDisposable
         m_MainMenu_AnyKey = m_MainMenu.FindAction("AnyKey", throwIfNotFound: true);
         m_MainMenu_LeftNavigation = m_MainMenu.FindAction("LeftNavigation", throwIfNotFound: true);
         m_MainMenu_RightNavigation = m_MainMenu.FindAction("RightNavigation", throwIfNotFound: true);
+        m_MainMenu_Confirm = m_MainMenu.FindAction("Confirm", throwIfNotFound: true);
+        m_MainMenu_Cancel = m_MainMenu.FindAction("Cancel", throwIfNotFound: true);
     }
 
     public void Dispose()
@@ -1473,6 +1570,8 @@ public partial class @PlayerInput : IInputActionCollection2, IDisposable
     private readonly InputAction m_MainMenu_AnyKey;
     private readonly InputAction m_MainMenu_LeftNavigation;
     private readonly InputAction m_MainMenu_RightNavigation;
+    private readonly InputAction m_MainMenu_Confirm;
+    private readonly InputAction m_MainMenu_Cancel;
     public struct MainMenuActions
     {
         private @PlayerInput m_Wrapper;
@@ -1480,6 +1579,8 @@ public partial class @PlayerInput : IInputActionCollection2, IDisposable
         public InputAction @AnyKey => m_Wrapper.m_MainMenu_AnyKey;
         public InputAction @LeftNavigation => m_Wrapper.m_MainMenu_LeftNavigation;
         public InputAction @RightNavigation => m_Wrapper.m_MainMenu_RightNavigation;
+        public InputAction @Confirm => m_Wrapper.m_MainMenu_Confirm;
+        public InputAction @Cancel => m_Wrapper.m_MainMenu_Cancel;
         public InputActionMap Get() { return m_Wrapper.m_MainMenu; }
         public void Enable() { Get().Enable(); }
         public void Disable() { Get().Disable(); }
@@ -1498,6 +1599,12 @@ public partial class @PlayerInput : IInputActionCollection2, IDisposable
                 @RightNavigation.started -= m_Wrapper.m_MainMenuActionsCallbackInterface.OnRightNavigation;
                 @RightNavigation.performed -= m_Wrapper.m_MainMenuActionsCallbackInterface.OnRightNavigation;
                 @RightNavigation.canceled -= m_Wrapper.m_MainMenuActionsCallbackInterface.OnRightNavigation;
+                @Confirm.started -= m_Wrapper.m_MainMenuActionsCallbackInterface.OnConfirm;
+                @Confirm.performed -= m_Wrapper.m_MainMenuActionsCallbackInterface.OnConfirm;
+                @Confirm.canceled -= m_Wrapper.m_MainMenuActionsCallbackInterface.OnConfirm;
+                @Cancel.started -= m_Wrapper.m_MainMenuActionsCallbackInterface.OnCancel;
+                @Cancel.performed -= m_Wrapper.m_MainMenuActionsCallbackInterface.OnCancel;
+                @Cancel.canceled -= m_Wrapper.m_MainMenuActionsCallbackInterface.OnCancel;
             }
             m_Wrapper.m_MainMenuActionsCallbackInterface = instance;
             if (instance != null)
@@ -1511,6 +1618,12 @@ public partial class @PlayerInput : IInputActionCollection2, IDisposable
                 @RightNavigation.started += instance.OnRightNavigation;
                 @RightNavigation.performed += instance.OnRightNavigation;
                 @RightNavigation.canceled += instance.OnRightNavigation;
+                @Confirm.started += instance.OnConfirm;
+                @Confirm.performed += instance.OnConfirm;
+                @Confirm.canceled += instance.OnConfirm;
+                @Cancel.started += instance.OnCancel;
+                @Cancel.performed += instance.OnCancel;
+                @Cancel.canceled += instance.OnCancel;
             }
         }
     }
@@ -1570,5 +1683,7 @@ public partial class @PlayerInput : IInputActionCollection2, IDisposable
         void OnAnyKey(InputAction.CallbackContext context);
         void OnLeftNavigation(InputAction.CallbackContext context);
         void OnRightNavigation(InputAction.CallbackContext context);
+        void OnConfirm(InputAction.CallbackContext context);
+        void OnCancel(InputAction.CallbackContext context);
     }
 }

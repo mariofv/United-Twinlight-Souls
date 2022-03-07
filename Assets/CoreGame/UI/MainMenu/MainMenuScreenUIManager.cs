@@ -21,4 +21,6 @@ public abstract class MainMenuScreenUIManager : UIElement
     public virtual void OnAnyKeyPressed() { }
     public virtual void OnRightPressed() { }
     public virtual void OnLeftPressed() { }
+    public virtual void OnConfirmPressed() { }
+    public virtual void OnCancelPressed() { }
 }

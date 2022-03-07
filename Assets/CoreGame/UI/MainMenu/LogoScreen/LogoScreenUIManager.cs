@@ -36,16 +36,18 @@ public class LogoScreenUIManager : MainMenuScreenUIManager
         exitButton.onClick.AddListener(OnExitButtonClicked);
     }
 
-    protected override void CreateShowTweens()
-    {
-        TweeningAnimation fadeAnimation = uiElementCanvasGroup.TweenFade(UISettings.MainMenuUISettings.LOGO_DISPLAY_TIME, 0f, 1f).DontKillOnEnd();
-        showTweens.Add(fadeAnimation);
-    }
-
     public override void ShowSpecialized(bool instant)
     {
         uiElementCanvasGroup.gameObject.SetActive(true);
-        pressAnyButtonCustomButton.SelectWithoutSound();
+        if (!isLogoMenuOpened)
+        {
+            uiElementCanvasGroup.TweenFade(UISettings.MainMenuUISettings.LOGO_DISPLAY_TIME, 0f, 1f);
+            pressAnyButtonCustomButton.SelectWithoutSound();
+        }
+        else
+        {
+            OpenLogoMenu();
+        }
     }
 
     protected override void CreateHideTweens()

@@ -49,7 +49,7 @@ public class GameManager : MonoBehaviour
 
         if ((Debug.isDebugBuild || Application.isEditor) && !debugManager.loadMainMenu)
         {
-            InitGame();
+            InitGame(0);
         }
         else
         {
@@ -88,12 +88,12 @@ public class GameManager : MonoBehaviour
         }
     }
 
-    public void InitGame()
+    public void InitGame(int level)
     {
-        StartCoroutine(LoadGame(0));
+        StartCoroutine(LoadGame(level));
     }
 
-    public IEnumerator LoadGame(int level)
+    private IEnumerator LoadGame(int level)
     {
         CursorHider.HideCursor();
         uiManager.levelTransitionUIManager.FadeOut();

@@ -66,4 +66,22 @@ public class SelectCharacterScreenUIManager : MainMenuScreenUIManager
             MoveCursor();
         }
     }
+
+    public override void OnConfirmPressed()
+    {
+        if (baraldSelected)
+        {
+            GameManager.instance.player.ControlBarald();
+        }
+        else
+        {
+            GameManager.instance.player.ControlIlona();
+        }
+        GameManager.instance.InitGame(0);
+    }
+
+    public override void OnCancelPressed()
+    {
+        GameManager.instance.uiManager.mainMenuUIManager.OpenMainMenuScreen(MainMenuScreenId.LOGO);
+    }
 }

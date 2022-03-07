@@ -74,4 +74,14 @@ public class MainMenuUIManager : MonoBehaviour
     {
         mainMenuScreens[currentMainMenuScrenId].OnLeftPressed();
     }
+
+    public void OnConfirmPressed(InputAction.CallbackContext context)
+    {
+        mainMenuScreens[currentMainMenuScrenId].OnConfirmPressed();
+    }
+
+    public void OnCancelPressed(InputAction.CallbackContext context)
+    {
+        mainMenuScreens[currentMainMenuScrenId].OnCancelPressed();
+    }
 }

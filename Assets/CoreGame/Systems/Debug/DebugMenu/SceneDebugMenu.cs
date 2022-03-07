@@ -38,7 +38,7 @@ public class SceneDebugMenu : DebugMenu
         {
             if (GameManager.instance.GetCurrentGameState() == GameManager.GameState.MAIN_MENU)
             {
-                StartCoroutine(GameManager.instance.LoadGame(loadedLevel));
+                GameManager.instance.InitGame(loadedLevel);
             }
             else
             {
