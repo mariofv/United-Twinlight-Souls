@@ -8,6 +8,11 @@ public class SelectCharacterScreenUIManager : MainMenuScreenUIManager
     [SerializeField] private CharacterSelectionCursor characterSelectionCursor;
     private bool baraldSelected = true;
 
+    public override void ShowSpecialized(bool instant)
+    {
+        uiElementCanvasGroup.gameObject.SetActive(true);
+    }
+
     protected override void CreateShowTweens()
     {
         TweeningAnimation fadeAnimation = uiElementCanvasGroup.TweenFade(UISettings.GameUISettings.DISPLAY_TIME, 0f, 1f).DontKillOnEnd();
@@ -18,6 +23,9 @@ public class SelectCharacterScreenUIManager : MainMenuScreenUIManager
     {
         TweeningAnimation fadeAnimation = uiElementCanvasGroup.TweenFade(UISettings.GameUISettings.DISPLAY_TIME, 1f, 0f).DontKillOnEnd();
         hideTweens.Add(fadeAnimation);
+
+        TweeningAnimation disableGameObjectAnimation = uiElementCanvasGroup.gameObject.TweenDisable(UISettings.GameUISettings.DISPLAY_TIME).DontKillOnEnd();
+        hideTweens.Add(disableGameObjectAnimation);
     }
 
     private void MoveCursorToBarald()

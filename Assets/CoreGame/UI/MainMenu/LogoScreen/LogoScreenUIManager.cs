@@ -44,6 +44,7 @@ public class LogoScreenUIManager : MainMenuScreenUIManager
 
     public override void ShowSpecialized(bool instant)
     {
+        uiElementCanvasGroup.gameObject.SetActive(true);
         pressAnyButtonCustomButton.SelectWithoutSound();
     }
 
@@ -51,6 +52,9 @@ public class LogoScreenUIManager : MainMenuScreenUIManager
     {
         TweeningAnimation fadeAnimation = uiElementCanvasGroup.TweenFade(UISettings.GameUISettings.DISPLAY_TIME, 1f, 0f).DontKillOnEnd();
         hideTweens.Add(fadeAnimation);
+
+        TweeningAnimation disableGameObjectAnimation = uiElementCanvasGroup.gameObject.TweenDisable(UISettings.GameUISettings.DISPLAY_TIME).DontKillOnEnd();
+        hideTweens.Add(disableGameObjectAnimation);
     }
 
     private void OpenLogoMenu()
