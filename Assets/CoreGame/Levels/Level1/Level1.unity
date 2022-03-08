@@ -122,7 +122,7 @@ NavMeshSettings:
     preserveTilesOutsideBounds: 0
     debug:
       m_Flags: 0
-  m_NavMeshData: {fileID: 0}
+  m_NavMeshData: {fileID: 23800000, guid: e373670b0674c62499740568038327f5, type: 2}
 --- !u!1001 &307449032
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -130,6 +130,14 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: 952491297180939724, guid: 27dc600c2f73d1a45b60d0a617da363a, type: 3}
+      propertyPath: m_StaticEditorFlags
+      value: 8
+      objectReference: {fileID: 0}
+    - target: {fileID: 1600767683026048025, guid: 27dc600c2f73d1a45b60d0a617da363a, type: 3}
+      propertyPath: m_Enabled
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 7344729640217933742, guid: 27dc600c2f73d1a45b60d0a617da363a, type: 3}
       propertyPath: m_Name
       value: Level1
@@ -177,6 +185,10 @@ PrefabInstance:
     - target: {fileID: 7344729640217933743, guid: 27dc600c2f73d1a45b60d0a617da363a, type: 3}
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 7344729640791530865, guid: 27dc600c2f73d1a45b60d0a617da363a, type: 3}
+      propertyPath: m_IsActive
+      value: 1
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 27dc600c2f73d1a45b60d0a617da363a, type: 3}
