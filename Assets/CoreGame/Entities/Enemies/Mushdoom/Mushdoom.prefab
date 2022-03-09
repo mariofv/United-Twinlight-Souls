@@ -68,6 +68,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   enemyNavMeshAgent: {fileID: 2495240014041701043}
+  enemyAnimator: {fileID: 5341458217088628165}
 --- !u!1 &7787922066271699357
 GameObject:
   m_ObjectHideFlags: 0
@@ -154,6 +155,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: Mushdoom
       objectReference: {fileID: 0}
+    - target: {fileID: 5866666021909216657, guid: 80f776a5d64b74e47a4a31f114251631, type: 3}
+      propertyPath: m_Controller
+      value: 
+      objectReference: {fileID: 9100000, guid: 2b6bd0507cf647d48b59e75cab8720fa, type: 2}
     - target: {fileID: 6655294822189703219, guid: 80f776a5d64b74e47a4a31f114251631, type: 3}
       propertyPath: m_Materials.Array.data[0]
       value: 
@@ -163,5 +168,10 @@ PrefabInstance:
 --- !u!4 &2071804426830835647 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: -8679921383154817045, guid: 80f776a5d64b74e47a4a31f114251631, type: 3}
+  m_PrefabInstance: {fileID: 1966452749069977684}
+  m_PrefabAsset: {fileID: 0}
+--- !u!95 &5341458217088628165 stripped
+Animator:
+  m_CorrespondingSourceObject: {fileID: 5866666021909216657, guid: 80f776a5d64b74e47a4a31f114251631, type: 3}
   m_PrefabInstance: {fileID: 1966452749069977684}
   m_PrefabAsset: {fileID: 0}

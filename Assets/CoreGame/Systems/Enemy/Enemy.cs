@@ -6,6 +6,7 @@ using UnityEngine.AI;
 public class Enemy : MonoBehaviour
 {
     [SerializeField] private NavMeshAgent enemyNavMeshAgent;
+    [SerializeField] private Animator enemyAnimator;
 
     private bool isAlive = false;
 
@@ -23,6 +24,8 @@ public class Enemy : MonoBehaviour
             return;
         }
         enemyNavMeshAgent.SetDestination(GameManager.instance.player.Character().characterMovementManager.GetPosition());
+
+        enemyAnimator.SetBool("moving", enemyNavMeshAgent.velocity != Vector3.zero);
     }
 
     public void Reanimate()
