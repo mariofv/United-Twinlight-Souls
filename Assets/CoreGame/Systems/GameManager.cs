@@ -50,7 +50,7 @@ public class GameManager : MonoBehaviour
 
         if ((Debug.isDebugBuild || Application.isEditor) && !debugManager.loadMainMenu)
         {
-            InitGame(0);
+            InitGame(0, false);
         }
         else
         {
@@ -91,12 +91,12 @@ public class GameManager : MonoBehaviour
         }
     }
 
-    public void InitGame(int level)
+    public void InitGame(int level, bool waitLoadingScreenTime = true)
     {
-        StartCoroutine(LoadGame(level));
+        StartCoroutine(LoadGame(level, waitLoadingScreenTime));
     }
 
-    private IEnumerator LoadGame(int level)
+    private IEnumerator LoadGame(int level, bool waitLoadingScreenTime)
     {
         CursorHider.HideCursor();
         uiManager.levelTransitionUIManager.FadeOut();
@@ -115,7 +115,7 @@ public class GameManager : MonoBehaviour
 
         uiManager.gameUIManager.HideAll();
 
-        yield return StartCoroutine(levelManager.LoadLevel(level, fade:false));
+        yield return StartCoroutine(levelManager.LoadLevel(level, waitLoadingScreenTime: waitLoadingScreenTime, fade:false));
 
         enemyManager.InitializedEnemyPools();
 

@@ -22,7 +22,7 @@ public class LevelManager : MonoBehaviour
         
     }
 
-    public IEnumerator LoadLevel(int level, bool fade = true)
+    public IEnumerator LoadLevel(int level, bool waitLoadingScreenTime, bool fade = true)
     {
         if (fade)
         {
@@ -37,7 +37,10 @@ public class LevelManager : MonoBehaviour
 
         GameManager.instance.uiManager.loadingScreenUIManager.Show();
 
-        yield return new WaitForSeconds(UISettings.GameUISettings.LOADING_SCREEN_TIP_DISPLAY_TIME);
+        if (waitLoadingScreenTime)
+        {
+            yield return new WaitForSeconds(UISettings.GameUISettings.LOADING_SCREEN_TIP_DISPLAY_TIME);
+        }
         yield return StartCoroutine(GameManager.instance.scenesManager.ChangeScene(gameLevels[level].levelScene));
 
 

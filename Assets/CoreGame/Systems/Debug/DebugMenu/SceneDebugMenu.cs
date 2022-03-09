@@ -42,7 +42,7 @@ public class SceneDebugMenu : DebugMenu
             }
             else
             {
-                StartCoroutine(GameManager.instance.levelManager.LoadLevel(loadedLevel));
+                StartCoroutine(GameManager.instance.levelManager.LoadLevel(loadedLevel, waitLoadingScreenTime: false));
             }
         }
 
