@@ -3,12 +3,29 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.AI;
 
-public class EnemyAI : MonoBehaviour
+public abstract class EnemyAI : MonoBehaviour
 {
     [SerializeField] protected NavMeshAgent enemyNavMeshAgent;
     [SerializeField] protected PlayerDetectionCollider playerDetectionCollider;
 
     protected Enemy enemy;
+
+    private float currentTime = 0f;
+    protected float deltaTimeAI;
+    private const float AI_UPDATE_TIME = 0.1f;
+
+    private void Update()
+    {
+        currentTime += Time.deltaTime;
+        if (currentTime >= AI_UPDATE_TIME)
+        {
+            deltaTimeAI = currentTime;
+            UpdateAI();
+            currentTime = 0f;
+        }
+    }
+
+    protected abstract void UpdateAI();
 
     public void Link(Enemy enemy)
     {

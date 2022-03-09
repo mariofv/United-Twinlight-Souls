@@ -8,17 +8,25 @@ public static class NavMeshHelper
     public static Vector3 FindAvailableSpawnPosition()
     {
         Vector3 playerPosition = GameManager.instance.player.GetControlledCharacter().characterMovementManager.GetPosition();
-        Vector2 randomOffset = Random.insideUnitCircle * 5f;
-        Vector3 randomPoint = playerPosition + new Vector3(randomOffset.x, 0f, randomOffset.y);
+        return GetNearPosition(playerPosition, 5f);
+    }
 
+    public static Vector3 GetNearPosition(Vector3 position, float distance)
+    {
+        Vector2 randomOffset;
+        Vector3 randomPoint;
         NavMeshHit navMeshHit;
-        if (NavMesh.SamplePosition(randomPoint, out navMeshHit, 2f, NavMesh.AllAreas))
+        for (int i = 0; i < 30; ++i)
         {
-            return navMeshHit.position;
+            randomOffset = Random.insideUnitCircle * distance;
+            randomPoint = position + new Vector3(randomOffset.x, 0f, randomOffset.y);
+
+            if (NavMesh.SamplePosition(randomPoint, out navMeshHit, 2f, NavMesh.AllAreas))
+            {
+                return navMeshHit.position;
+            }
         }
-        else
-        {
-            throw new UnityException("Cannot spawn enemy because there is no suitable point near player!");
-        }
+        
+        throw new UnityException("Cannot spawn enemy because there is no suitable point near player!");
     }
 }
