@@ -8,7 +8,8 @@ public class MushdoomAI : EnemyAI
     {
         IDLE,
         CHASING_PLAYER,
-        ATTACKING_PLAYER
+        SPIN_ATTACK,
+        SPORE_ATTACK
     }
 
     private MushdoomState currentState;
@@ -32,8 +33,11 @@ public class MushdoomAI : EnemyAI
                 UpdateChasingPlayerState();
                 break;
 
-            case MushdoomState.ATTACKING_PLAYER:
+            case MushdoomState.SPIN_ATTACK:
                 UpdateAttackingState();
+                break;
+
+            case MushdoomState.SPORE_ATTACK:
                 break;
         }
     }
