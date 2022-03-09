@@ -706,6 +706,15 @@
                     "processors": "",
                     "interactions": "",
                     "initialStateCheck": false
+                },
+                {
+                    "name": "OpenEnemyDebugMenu",
+                    "type": "Button",
+                    "id": "ff4d5e15-3054-4965-952a-e7c68ff8c49d",
+                    "expectedControlType": "Button",
+                    "processors": "",
+                    "interactions": "",
+                    "initialStateCheck": false
                 }
             ],
             "bindings": [
@@ -728,6 +737,17 @@
                     "processors": "",
                     "groups": "Keyboard&Mouse",
                     "action": "OpenCharacterDebugMenu",
+                    "isComposite": false,
+                    "isPartOfComposite": false
+                },
+                {
+                    "name": "",
+                    "id": "20882b19-3db3-4992-b1b4-c6c5edc26c2c",
+                    "path": "<Keyboard>/f3",
+                    "interactions": "",
+                    "processors": "",
+                    "groups": "Keyboard&Mouse",
+                    "action": "OpenEnemyDebugMenu",
                     "isComposite": false,
                     "isPartOfComposite": false
                 }

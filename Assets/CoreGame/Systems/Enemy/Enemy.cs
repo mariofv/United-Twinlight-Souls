@@ -5,8 +5,9 @@ using UnityEngine.AI;
 
 public class Enemy : MonoBehaviour
 {
-
     [SerializeField] private NavMeshAgent enemyNavMeshAgent;
+
+    private bool isAlive = false;
 
     // Start is called before the first frame update
     void Start()
@@ -17,7 +18,16 @@ public class Enemy : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
+        if (!isAlive)
+        {
+            return;
+        }
         enemyNavMeshAgent.SetDestination(GameManager.instance.player.Character().characterMovementManager.GetPosition());
+    }
+
+    public void Reanimate()
+    {
+        isAlive = true;
     }
 
     public void Teleport(Vector3 position)
@@ -27,6 +37,6 @@ public class Enemy : MonoBehaviour
 
     public bool IsAlive()
     {
-        return false;
+        return isAlive;
     }
 }

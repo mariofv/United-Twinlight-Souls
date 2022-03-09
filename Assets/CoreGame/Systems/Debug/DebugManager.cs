@@ -31,4 +31,9 @@ public class DebugManager : MonoBehaviour
     {
         debugMenuManager.OpenDebugMenu(DebugMenu.DebugMenuId.CHARACTERS);
     }
+
+    public void OnOpenEnemyDebugMenu(InputAction.CallbackContext context)
+    {
+        debugMenuManager.OpenDebugMenu(DebugMenu.DebugMenuId.ENEMIES);
+    }
 }

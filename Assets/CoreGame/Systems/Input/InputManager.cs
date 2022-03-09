@@ -38,6 +38,7 @@ public class InputManager : MonoBehaviour
         {
             playerInput.Debug.OpenScenesDebugMenu.performed += ctx => GameManager.instance.debugManager.OnOpenScenesDebugMenu(ctx);
             playerInput.Debug.OpenCharacterDebugMenu.performed += ctx => GameManager.instance.debugManager.OnOpenCharacterDebugMenu(ctx);
+            playerInput.Debug.OpenEnemyDebugMenu.performed += ctx => GameManager.instance.debugManager.OnOpenEnemyDebugMenu(ctx);
         }
     }
 

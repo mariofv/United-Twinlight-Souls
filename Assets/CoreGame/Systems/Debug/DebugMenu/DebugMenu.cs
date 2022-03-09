@@ -8,6 +8,7 @@ public class DebugMenu : MonoBehaviour
     {
         SCENES = 0,
         CHARACTERS = 1,
+        ENEMIES = 2,
     }
 
     // Start is called before the first frame update

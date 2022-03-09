@@ -15,21 +15,22 @@ public class EnemyManager : MonoBehaviour
         
     }
 
-    public void SpawnEnemy(EnemyAsset enemyAsset)
+    public void SpawnEnemy(EnemyAsset.EnemyId enemyId)
     {
-        SpawnEnemy(enemyAsset, FindAvailableSpawnPosition());
+        SpawnEnemy(enemyId, FindAvailableSpawnPosition());
     }
 
-    public void SpawnEnemy(EnemyAsset enemyAsset, Vector3 spawnPosition)
+    public void SpawnEnemy(EnemyAsset.EnemyId enemyId, Vector3 spawnPosition)
     {
-        Enemy spawnedEnemy = SpawnEnemyFromPool(enemyAsset);
+        Enemy spawnedEnemy = SpawnEnemyFromPool(enemyId);
 
         spawnedEnemy.Teleport(spawnPosition);
+        spawnedEnemy.Reanimate();
     }
 
-    private Enemy SpawnEnemyFromPool(EnemyAsset enemyAsset)
+    private Enemy SpawnEnemyFromPool(EnemyAsset.EnemyId enemyId)
     {
-        switch (enemyAsset.enemyId)
+        switch (enemyId)
         {
             case EnemyAsset.EnemyId.MUSHDOOM:
                 return mushdoomPool.GetEnemyInstance();
