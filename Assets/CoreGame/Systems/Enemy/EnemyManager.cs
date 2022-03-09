@@ -24,7 +24,7 @@ public class EnemyManager : MonoBehaviour
     {
         Enemy spawnedEnemy = SpawnEnemyFromPool(enemyId);
 
-        spawnedEnemy.Teleport(spawnPosition);
+        spawnedEnemy.SpawnInNavMesh(spawnPosition);
         spawnedEnemy.Reanimate();
     }
 

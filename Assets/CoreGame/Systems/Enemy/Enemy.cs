@@ -27,9 +27,16 @@ public class Enemy : MonoBehaviour
         gameObject.SetActive(true);
     }
 
-    public void Teleport(Vector3 position)
+    public void Kill()
+    {
+        enemyNavMeshAgent.enabled = false;
+        gameObject.SetActive(false);
+    }
+
+    public void SpawnInNavMesh(Vector3 position)
     {
         enemyNavMeshAgent.Warp(position);
+        enemyNavMeshAgent.enabled = true;
     }
 
     public bool IsAlive()
