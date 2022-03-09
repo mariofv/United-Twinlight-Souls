@@ -791,6 +791,8 @@ MonoBehaviour:
   uiElementCanvasGroup: {fileID: 6210434710943301455}
   baraldPortrait: {fileID: 6664861715081262547}
   ilonaPortrait: {fileID: 1166282064628210135}
+  healthBarFill: {fileID: 4764490192703234151}
+  lightBarFill: {fileID: 7222938687769391184}
 --- !u!1 &8851675417622412455
 GameObject:
   m_ObjectHideFlags: 0
