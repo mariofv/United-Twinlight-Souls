@@ -49,9 +49,11 @@ public class EnemyManager : MonoBehaviour
     private Vector3 FindAvailableSpawnPosition()
     {
         Vector3 playerPosition = GameManager.instance.player.Character().characterMovementManager.GetPosition();
+        Vector2 randomOffset = Random.insideUnitCircle * 5f;
+        Vector3 randomPoint = playerPosition + new Vector3(randomOffset.x, 0f, randomOffset.y);
 
         NavMeshHit navMeshHit;
-        if (NavMesh.SamplePosition(playerPosition, out navMeshHit, 5f, NavMesh.AllAreas))
+        if (NavMesh.SamplePosition(randomPoint, out navMeshHit, 2f, NavMesh.AllAreas))
         {
             return navMeshHit.position;
         }
