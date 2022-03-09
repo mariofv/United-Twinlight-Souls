@@ -118,7 +118,7 @@ public class MushdoomAI : EnemyAI
 
     private void OnPlayerDetected()
     {
-        if (currentState == MushdoomState.IDLE || currentState == MushdoomState.WANDERING)
+        if (IsInPassiveState())
         {
             TransitionToChasingState();
         }
@@ -126,10 +126,25 @@ public class MushdoomAI : EnemyAI
 
     private void OnPlayerLost()
     {
-        if (currentState == MushdoomState.CHASING_PLAYER)
+        if (IsInCombatState())
         {
             TransitionToIdleState();
         }
+    }
+
+    private bool IsInPassiveState()
+    {
+        return
+            currentState == MushdoomState.IDLE
+            || currentState == MushdoomState.WANDERING;
+    }
+
+    private bool IsInCombatState()
+    {
+        return
+            currentState == MushdoomState.CHASING_PLAYER
+            || currentState == MushdoomState.SPIN_ATTACK
+            || currentState == MushdoomState.SPORE_ATTACK;
     }
 
     private void OnDrawGizmosSelected()
