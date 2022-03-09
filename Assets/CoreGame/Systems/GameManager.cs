@@ -37,6 +37,7 @@ public class GameManager : MonoBehaviour
     public AudioManager audioManager;
     public CameraManager cameraManager;
     public DebugManager debugManager;
+    public EnemyManager enemyManager;
     public InputManager inputManager;
     public LevelManager levelManager;
     public ScenesManager scenesManager;
