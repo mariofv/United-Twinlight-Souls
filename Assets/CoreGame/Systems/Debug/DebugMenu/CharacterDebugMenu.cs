@@ -16,17 +16,19 @@ public class CharacterDebugMenu : DebugMenu
         GUILayout.BeginHorizontal("box", GUILayout.ExpandWidth(true));
         if (GUILayout.Button("Control Barald"))
         {
-            GameManager.instance.player.Character().DisableMovement();
-            GameManager.instance.player.GetBarald().Teleport(GameManager.instance.player.Character().characterMovementManager.GetPosition());
+            GameManager.instance.player.GetControlledCharacter().DisableMovement();
+            GameManager.instance.player.GetBarald().Teleport(GameManager.instance.player.GetControlledCharacter().characterMovementManager.GetPosition());
             GameManager.instance.player.ControlBarald();
-            GameManager.instance.player.Character().EnableMovement();
+            GameManager.instance.player.GetControlledCharacter().EnableMovement();
+            GameManager.instance.uiManager.gameUIManager.hudUI.SelectBaraldPortrait();
         }
         if (GUILayout.Button("Control Ilona"))
         {
-            GameManager.instance.player.Character().DisableMovement();
-            GameManager.instance.player.GetIlona().Teleport(GameManager.instance.player.Character().characterMovementManager.GetPosition());
+            GameManager.instance.player.GetControlledCharacter().DisableMovement();
+            GameManager.instance.player.GetIlona().Teleport(GameManager.instance.player.GetControlledCharacter().characterMovementManager.GetPosition());
             GameManager.instance.player.ControlIlona();
-            GameManager.instance.player.Character().EnableMovement();
+            GameManager.instance.player.GetControlledCharacter().EnableMovement();
+            GameManager.instance.uiManager.gameUIManager.hudUI.SelectIlonaPortrait();
         }
         GUILayout.EndHorizontal();
 

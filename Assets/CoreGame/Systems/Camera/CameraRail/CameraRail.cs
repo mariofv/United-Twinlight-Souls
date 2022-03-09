@@ -10,7 +10,7 @@ public class CameraRail : MonoBehaviour
 
     public void GetCurrentCameraMotion(out Vector3 cameraPosition, out Vector3 cameraFocus)
     {
-        float currentProgressInLevel = levelPathLine.GetProgress(GameManager.instance.player.Character().characterMovementManager.GetPosition());
+        float currentProgressInLevel = levelPathLine.GetProgress(GameManager.instance.player.GetControlledCharacter().characterMovementManager.GetPosition());
         cameraFocus = cameraFocusLine.GetPoint(currentProgressInLevel);
         cameraPosition = cameraPositionLine.GetPoint(currentProgressInLevel);
     }

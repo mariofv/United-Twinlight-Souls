@@ -5,29 +5,29 @@ using UnityEngine;
 public class HUDUI : UIElement
 {
     [SerializeField] private GameObject baraldPortrait;
-    [SerializeField] private GameObject illonaPortrait;
+    [SerializeField] private GameObject ilonaPortrait;
 
-    // Start is called before the first frame update
-    void Start()
+    public override void ShowSpecialized(bool instant)
     {
-        
-    }
-
-    // Update is called once per frame
-    void Update()
-    {
-        
+        if (GameManager.instance.player.GetControlledCharacterId() == Character.CharacterId.BARALD)
+        {
+            SelectBaraldPortrait();
+        }
+        else if (GameManager.instance.player.GetControlledCharacterId() == Character.CharacterId.ILONA)
+        {
+            SelectIlonaPortrait();
+        }
     }
 
     public void SelectBaraldPortrait()
     {
         baraldPortrait.SetActive(true);
-        illonaPortrait.SetActive(false);
+        ilonaPortrait.SetActive(false);
     }
 
     public void SelectIlonaPortrait()
     {
         baraldPortrait.SetActive(false);
-        illonaPortrait.SetActive(true);
+        ilonaPortrait.SetActive(true);
     }
 }

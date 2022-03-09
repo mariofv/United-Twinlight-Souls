@@ -789,8 +789,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   uiElementCanvasGroup: {fileID: 6210434710943301455}
-  baraldPortrait: {fileID: 0}
-  illonaPortrait: {fileID: 0}
+  baraldPortrait: {fileID: 6664861715081262547}
+  ilonaPortrait: {fileID: 1166282064628210135}
 --- !u!1 &8851675417622412455
 GameObject:
   m_ObjectHideFlags: 0

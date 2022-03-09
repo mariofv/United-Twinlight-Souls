@@ -5,9 +5,9 @@ using UnityEngine;
 public class GameUIManager : MonoBehaviour
 {
     public PauseUI pauseUI;
+    public HUDUI hudUI;
 
     /*
-    public HUDUI hudUI;
     public DamageIndicatorUI damageIndicatorUI;
     public DialogUI dialogUI;
     */
@@ -19,15 +19,13 @@ public class GameUIManager : MonoBehaviour
 
     public void ShowCombatUI(bool instant = false)
     {
-        /*
         hudUI.Show(instant);
-        */
     }
 
     public void HideCombatUI(bool instant = false)
     {
-        /*
         hudUI.Hide(instant);
+        /*
         skillsUI.Hide(instant);
         */
     }

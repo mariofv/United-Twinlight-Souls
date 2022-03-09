@@ -4,6 +4,8 @@ using UnityEngine;
 
 public class PlayerManager : MonoBehaviour
 {
+    public Character.CharacterId controlledCharacterId;
+
     [SerializeField] private Character barald;
     [SerializeField] private Character ilona;
 
@@ -12,11 +14,13 @@ public class PlayerManager : MonoBehaviour
     public void ControlBarald()
     {
         ChangeControlledCharacter(barald);
+        controlledCharacterId = Character.CharacterId.BARALD;
     }
 
     public void ControlIlona()
     {
         ChangeControlledCharacter(ilona);
+        controlledCharacterId = Character.CharacterId.ILONA;
     }
 
     public void ChangeControlledCharacter(Character character)
@@ -33,16 +37,22 @@ public class PlayerManager : MonoBehaviour
 
         controlledCharacterManager.DisableMovement();
         controlledCharacterManager = null;
+        controlledCharacterId = Character.CharacterId.NONE;
     }
 
     public bool HasCharacterSelected()
     {
-        return controlledCharacterManager != null;
+        return controlledCharacterId != Character.CharacterId.NONE;
     }
 
-    public CharacterManager Character()
+    public CharacterManager GetControlledCharacter()
     {
         return controlledCharacterManager;
+    }
+
+    public Character.CharacterId GetControlledCharacterId()
+    {
+        return controlledCharacterId;
     }
 
     public CharacterManager GetBarald()

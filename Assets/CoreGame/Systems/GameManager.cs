@@ -125,7 +125,7 @@ public class GameManager : MonoBehaviour
             yield return new WaitForFixedUpdate();
         }
         CursorHider.ShowCursor();
-        player.Character().EnableMovement();
+        player.GetControlledCharacter().EnableMovement();
     }
     public void CloseGame()
     {

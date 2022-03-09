@@ -4,6 +4,14 @@ using UnityEngine;
 
 public class Character : MonoBehaviour
 {
+    public enum CharacterId
+    {
+        NONE,
+        BARALD, 
+        ILONA
+    }
+
+    public CharacterId characterId;
     public CharacterManager characterManager;
     public GameObject characterHUD;
 }
