@@ -9,8 +9,9 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 5573131479200031395}
-  - component: {fileID: 2495240014041701043}
   - component: {fileID: -9143078670046894971}
+  - component: {fileID: 7328849868028900900}
+  - component: {fileID: 2495240014041701043}
   m_Layer: 0
   m_Name: Mushdoom
   m_TagString: Untagged
@@ -33,6 +34,33 @@ Transform:
   m_Father: {fileID: 0}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &-9143078670046894971
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 7235629318229511698}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: ba4bd0683a6ee944b893fa213ffe7c8e, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  enemyAI: {fileID: 7328849868028900900}
+  enemyAnimator: {fileID: 5341458217088628165}
+--- !u!114 &7328849868028900900
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 7235629318229511698}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 429fe0e1f1711e349a4249b8d78420fa, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  enemyNavMeshAgent: {fileID: 2495240014041701043}
 --- !u!195 &2495240014041701043
 NavMeshAgent:
   m_ObjectHideFlags: 0
@@ -55,20 +83,6 @@ NavMeshAgent:
   m_BaseOffset: 0
   m_WalkableMask: 4294967295
   m_ObstacleAvoidanceType: 4
---- !u!114 &-9143078670046894971
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 7235629318229511698}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: ba4bd0683a6ee944b893fa213ffe7c8e, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  enemyNavMeshAgent: {fileID: 2495240014041701043}
-  enemyAnimator: {fileID: 5341458217088628165}
 --- !u!1 &7787922066271699357
 GameObject:
   m_ObjectHideFlags: 0
