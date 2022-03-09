@@ -8,8 +8,6 @@ public class Enemy : MonoBehaviour
     [SerializeField] private NavMeshAgent enemyNavMeshAgent;
     [SerializeField] private Animator enemyAnimator;
 
-    private bool isAlive = false;
-
     // Start is called before the first frame update
     void Start()
     {
@@ -19,10 +17,6 @@ public class Enemy : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        if (!isAlive)
-        {
-            return;
-        }
         enemyNavMeshAgent.SetDestination(GameManager.instance.player.Character().characterMovementManager.GetPosition());
 
         enemyAnimator.SetBool("moving", enemyNavMeshAgent.velocity != Vector3.zero);
@@ -30,7 +24,7 @@ public class Enemy : MonoBehaviour
 
     public void Reanimate()
     {
-        isAlive = true;
+        gameObject.SetActive(true);
     }
 
     public void Teleport(Vector3 position)
@@ -40,6 +34,6 @@ public class Enemy : MonoBehaviour
 
     public bool IsAlive()
     {
-        return isAlive;
+        return gameObject.activeSelf;
     }
 }

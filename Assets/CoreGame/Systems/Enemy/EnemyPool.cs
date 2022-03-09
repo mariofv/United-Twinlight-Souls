@@ -61,6 +61,8 @@ public class EnemyPool : MonoBehaviour
         for (int i = 0; i < batchSize; ++i)
         {
             GameObject newEnemyInstanceGameObject = GameObject.Instantiate(poolEnemyAsset.enemyPrefab, transform);
+            newEnemyInstanceGameObject.SetActive(false);
+
             Enemy newEnemyInstance = newEnemyInstanceGameObject.GetComponent<Enemy>();
 
             instantiatedEnemies.Add(newEnemyInstance);
