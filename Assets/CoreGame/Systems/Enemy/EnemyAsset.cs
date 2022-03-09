@@ -14,4 +14,5 @@ public class EnemyAsset : ScriptableObject
     }
 
     public EnemyId enemyId;
+    public GameObject enemyPrefab;
 }

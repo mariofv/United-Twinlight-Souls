@@ -82,6 +82,8 @@ public class GameManager : MonoBehaviour
         StartCoroutine(uiManager.UnLoadGameUI());
         StartCoroutine(uiManager.LoadMainMenuUI());
 
+        enemyManager.EmptyEnemyPools();
+
         uiManager.levelTransitionUIManager.FadeIn();
         while (uiManager.levelTransitionUIManager.IsFadingIn())
         {
@@ -114,6 +116,8 @@ public class GameManager : MonoBehaviour
         uiManager.gameUIManager.HideAll();
 
         yield return StartCoroutine(levelManager.LoadLevel(level, fade:false));
+
+        enemyManager.InitializedEnemyPools();
 
         uiManager.levelTransitionUIManager.FadeIn();
         while (uiManager.levelTransitionUIManager.IsFadingIn())

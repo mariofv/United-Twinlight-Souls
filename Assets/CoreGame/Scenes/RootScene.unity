@@ -182,6 +182,10 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: 143941921297689008, guid: 9aa138b6efb0c244098e2e3efd8c2ead, type: 3}
+      propertyPath: poolEnemyAsset
+      value: 
+      objectReference: {fileID: 11400000, guid: 2619fee2a4814b340ab2cc16ef046138, type: 2}
     - target: {fileID: 262807725005965494, guid: 9aa138b6efb0c244098e2e3efd8c2ead, type: 3}
       propertyPath: loadMainMenu
       value: 1
@@ -246,6 +250,10 @@ PrefabInstance:
       propertyPath: uiInputModule
       value: 
       objectReference: {fileID: 1858461488}
+    - target: {fileID: 5354487625839802888, guid: 9aa138b6efb0c244098e2e3efd8c2ead, type: 3}
+      propertyPath: poolEnemyAsset
+      value: 
+      objectReference: {fileID: 11400000, guid: 2619fee2a4814b340ab2cc16ef046138, type: 2}
     - target: {fileID: 7463979648709599497, guid: 9aa138b6efb0c244098e2e3efd8c2ead, type: 3}
       propertyPath: furra
       value: 

@@ -197,6 +197,96 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   currentCameraRail: {fileID: 0}
   mainCamera: {fileID: 0}
+--- !u!1 &1573103672166890768
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 8341043214281372204}
+  - component: {fileID: 7062951268815536604}
+  m_Layer: 0
+  m_Name: MushdoomPool
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &8341043214281372204
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1573103672166890768}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_Children: []
+  m_Father: {fileID: 4955617364895449083}
+  m_RootOrder: 0
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &7062951268815536604
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1573103672166890768}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 860a158abe8dcdb4ea47079108de2be3, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  poolEnemyAsset: {fileID: 11400000, guid: 2619fee2a4814b340ab2cc16ef046138, type: 2}
+  batchSize: 10
+--- !u!1 &2272820232149158386
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 4211139403351343217}
+  - component: {fileID: 143941921297689008}
+  m_Layer: 0
+  m_Name: BitterPool
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &4211139403351343217
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2272820232149158386}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_Children: []
+  m_Father: {fileID: 4955617364895449083}
+  m_RootOrder: 1
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &143941921297689008
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2272820232149158386}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 860a158abe8dcdb4ea47079108de2be3, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  poolEnemyAsset: {fileID: 0}
+  batchSize: 10
 --- !u!1 &2878320120165515915
 GameObject:
   m_ObjectHideFlags: 0
@@ -224,7 +314,10 @@ Transform:
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
-  m_Children: []
+  m_Children:
+  - {fileID: 8341043214281372204}
+  - {fileID: 4211139403351343217}
+  - {fileID: 5476577904062953261}
   m_Father: {fileID: 524553839652415316}
   m_RootOrder: 3
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
@@ -240,6 +333,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 386561975da1f03418fd1daaef43e9a7, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  mushdoomPool: {fileID: 7062951268815536604}
+  bitterPool: {fileID: 143941921297689008}
+  necroplantPool: {fileID: 5354487625839802888}
 --- !u!1 &2883212932835270503
 GameObject:
   m_ObjectHideFlags: 0
@@ -332,6 +428,51 @@ MonoBehaviour:
   levelMusicSource: {fileID: 0}
   uiClickSound: {fileID: 5679178920399448529}
   uiSelectSound: {fileID: 196282045309794290}
+--- !u!1 &4993572173261510614
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 5476577904062953261}
+  - component: {fileID: 5354487625839802888}
+  m_Layer: 0
+  m_Name: NecroplantPool
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &5476577904062953261
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 4993572173261510614}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_Children: []
+  m_Father: {fileID: 4955617364895449083}
+  m_RootOrder: 2
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &5354487625839802888
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 4993572173261510614}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 860a158abe8dcdb4ea47079108de2be3, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  poolEnemyAsset: {fileID: 0}
+  batchSize: 10
 --- !u!1 &5034906767157585825
 GameObject:
   m_ObjectHideFlags: 0
@@ -676,6 +817,11 @@ PrefabInstance:
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 43ddee9a373874d4e9fe6e9a7b4d7f92, type: 3}
+--- !u!4 &2641060136946361557 stripped
+Transform:
+  m_CorrespondingSourceObject: {fileID: 7085176663602725412, guid: 43ddee9a373874d4e9fe6e9a7b4d7f92, type: 3}
+  m_PrefabInstance: {fileID: 5113121119708931825}
+  m_PrefabAsset: {fileID: 0}
 --- !u!82 &196282045309794290 stripped
 AudioSource:
   m_CorrespondingSourceObject: {fileID: 4921345788488339715, guid: 43ddee9a373874d4e9fe6e9a7b4d7f92, type: 3}
@@ -684,10 +830,5 @@ AudioSource:
 --- !u!82 &5679178920399448529 stripped
 AudioSource:
   m_CorrespondingSourceObject: {fileID: 586888185968578336, guid: 43ddee9a373874d4e9fe6e9a7b4d7f92, type: 3}
-  m_PrefabInstance: {fileID: 5113121119708931825}
-  m_PrefabAsset: {fileID: 0}
---- !u!4 &2641060136946361557 stripped
-Transform:
-  m_CorrespondingSourceObject: {fileID: 7085176663602725412, guid: 43ddee9a373874d4e9fe6e9a7b4d7f92, type: 3}
   m_PrefabInstance: {fileID: 5113121119708931825}
   m_PrefabAsset: {fileID: 0}

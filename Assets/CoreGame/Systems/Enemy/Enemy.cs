@@ -19,4 +19,14 @@ public class Enemy : MonoBehaviour
     {
         enemyNavMeshAgent.SetDestination(GameManager.instance.player.Character().characterMovementManager.GetPosition());
     }
+
+    public void Teleport(Vector3 position)
+    {
+        enemyNavMeshAgent.Warp(position);
+    }
+
+    public bool IsAlive()
+    {
+        return false;
+    }
 }

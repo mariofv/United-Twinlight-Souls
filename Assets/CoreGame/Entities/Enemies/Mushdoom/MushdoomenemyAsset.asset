@@ -10,6 +10,7 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: d117ee69af6fc8e4ca2ed4965ae42928, type: 3}
-  m_Name: MushdoomenemyAsset
+  m_Name: MushdoomEnemyAsset
   m_EditorClassIdentifier: 
   enemyId: 0
+  enemyPrefab: {fileID: 7235629318229511698, guid: e33063d961ecb2d4a81e45ead0b5f721, type: 3}
