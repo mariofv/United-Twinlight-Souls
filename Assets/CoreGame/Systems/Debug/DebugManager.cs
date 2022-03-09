@@ -6,6 +6,7 @@ using UnityEngine.InputSystem;
 public class DebugManager : MonoBehaviour
 {
     public bool loadMainMenu = false;
+    public bool showEnemyDebugInfo = false;
 
     [Header("Debug menus")]
     [SerializeField] private DebugMenuManager debugMenuManager;

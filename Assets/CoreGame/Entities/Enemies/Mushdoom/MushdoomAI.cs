@@ -14,8 +14,6 @@ public class MushdoomAI : EnemyAI
         SPORE_ATTACK
     }
 
-    [SerializeField] private bool showDebugInfo;
-
     [Header("Idle State")]
     [SerializeField] private float minIdleTime;
     [SerializeField] private float maxIdleTime;
@@ -131,7 +129,7 @@ public class MushdoomAI : EnemyAI
 
     private void OnDrawGizmosSelected()
     {
-        if (!showDebugInfo)
+        if (!GameManager.instance.debugManager.showEnemyDebugInfo)
         {
             return;
         }
