@@ -6,18 +6,13 @@ using UnityEngine.AI;
 public class EnemyAI : MonoBehaviour
 {
     [SerializeField] protected NavMeshAgent enemyNavMeshAgent;
+    [SerializeField] protected PlayerDetectionCollider playerDetectionCollider;
 
     protected Enemy enemy;
 
     public void Link(Enemy enemy)
     {
         this.enemy = enemy;
-    }
-
-    // Update is called once per frame
-    void Update()
-    {
-        enemyNavMeshAgent.SetDestination(GameManager.instance.player.GetControlledCharacter().characterMovementManager.GetPosition());
     }
 
     public void SpawnInNavMesh(Vector3 position)
