@@ -19,6 +19,7 @@ public class MushdoomAI : EnemyAI
     [SerializeField] private float maxIdleTime;
 
     [Header("Wandering State")]
+    [SerializeField] private float maxWanderingTime;
     [SerializeField] private float nextWanderingPositionDistance;
 
     private float chasingPlayerStopDistance;
@@ -66,6 +67,7 @@ public class MushdoomAI : EnemyAI
     {
         enemyNavMeshAgent.ResetPath();
         idleTime = Random.Range(minIdleTime, maxIdleTime);
+
         aiTimer = 0f;
         currentState = MushdoomState.IDLE;
     }
@@ -84,12 +86,15 @@ public class MushdoomAI : EnemyAI
         nextWanderingDestination = NavMeshHelper.GetNearPosition(transform.position, nextWanderingPositionDistance);
         enemyNavMeshAgent.stoppingDistance = 0f;
         enemyNavMeshAgent.SetDestination(nextWanderingDestination);
+
+        aiTimer = 0f;
         currentState = MushdoomState.WANDERING;
     }
 
     private void UpdateWanderingState()
     {
-        if (Vector3.SqrMagnitude(transform.position - nextWanderingDestination) <= 0.5f)
+        aiTimer += deltaTimeAI;
+        if (Vector3.SqrMagnitude(transform.position - nextWanderingDestination) <= 0.5f || aiTimer >= maxWanderingTime)
         {
             TransitionToIdleState();
         }

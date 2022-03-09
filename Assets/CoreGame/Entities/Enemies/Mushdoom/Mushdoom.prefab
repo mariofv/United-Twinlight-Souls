@@ -63,9 +63,9 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   enemyNavMeshAgent: {fileID: 2495240014041701043}
   playerDetectionCollider: {fileID: 7197625323676599336}
-  showDebugInfo: 0
   minIdleTime: 3
   maxIdleTime: 7.5
+  maxWanderingTime: 3
   nextWanderingPositionDistance: 7.5
 --- !u!195 &2495240014041701043
 NavMeshAgent:
