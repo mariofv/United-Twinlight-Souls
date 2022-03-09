@@ -5,12 +5,14 @@ using UnityEngine;
 public class CharacterManager : MonoBehaviour
 {
     public CharacterMovementManager characterMovementManager;
+    public CharacterStatsManager characterStatsManager;
     public CharacterVisualsManager characterVisualsManager;
 
     // Start is called before the first frame update
     void Start()
     {
         characterMovementManager.Link(this);
+        characterStatsManager.Link(this);
         characterVisualsManager.Link(this);
 
         DisableMovement();

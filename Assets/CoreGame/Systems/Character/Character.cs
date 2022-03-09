@@ -13,5 +13,4 @@ public class Character : MonoBehaviour
 
     public CharacterId characterId;
     public CharacterManager characterManager;
-    public GameObject characterHUD;
 }

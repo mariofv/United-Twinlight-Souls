@@ -32,6 +32,15 @@ public class CharacterDebugMenu : DebugMenu
         }
         GUILayout.EndHorizontal();
 
+
+        GUILayout.BeginHorizontal("box", GUILayout.ExpandWidth(true));
+        if (GUILayout.Button("Hurt (10)"))
+        {
+            GameManager.instance.player.GetControlledCharacter().characterStatsManager.Hurt(10);
+        }
+        GUILayout.EndHorizontal();
+        
+        
         GUILayout.EndVertical();
     }
 }
