@@ -36,6 +36,7 @@ public class MushdoomAI : EnemyAI
     private MushdoomState currentState;
 
     private float aiTimer = 0f;
+    private bool playerInSight = false;
 
     void Awake()
     {
@@ -135,16 +136,34 @@ public class MushdoomAI : EnemyAI
     private void TransitionToSpinAttack()
     {
         enemy.TriggerAnimation("spinAttack");
+        currentState = MushdoomState.SPIN_ATTACK;
     }
 
     private void UpdateSporeAttackState()
     {
-
     }
+    
+    public void OnSpinAttackEnd()
+    {
+        if (currentState != MushdoomState.SPIN_ATTACK)
+        {
+            throw new UnityException("OnSpinAttackEnd was captured but Mushdoom was in " + currentState + " state!");
+        }
 
+        if (!playerInSight)
+        {
+            TransitionToIdleState();
+        }
+        else
+        {
+            TransitionToChasingState();
+        }
+    }
+    
     private void TransitionToSporeAttack()
     {
         enemy.TriggerAnimation("sporeAttack");
+        currentState = MushdoomState.SPORE_ATTACK;
     }
 
     private void UpdateSpinAttackState()
@@ -152,8 +171,26 @@ public class MushdoomAI : EnemyAI
 
     }
 
+    public void OnSporeAttackEnd()
+    {
+        if (currentState != MushdoomState.SPORE_ATTACK)
+        {
+            throw new UnityException("OnSporeAttackEnd was captured but Mushdoom was in " + currentState + " state!");
+        }
+
+        if (!playerInSight)
+        {
+            TransitionToIdleState();
+        }
+        else
+        {
+            TransitionToChasingState();
+        }
+    }
+
     private void OnPlayerDetected()
     {
+        playerInSight = true;
         if (IsInPassiveState())
         {
             TransitionToChasingState();
@@ -162,7 +199,8 @@ public class MushdoomAI : EnemyAI
 
     private void OnPlayerLost()
     {
-        if (IsInCombatState())
+        playerInSight = false;
+        if (IsInChasingState())
         {
             TransitionToIdleState();
         }
@@ -175,12 +213,9 @@ public class MushdoomAI : EnemyAI
             || currentState == MushdoomState.WANDERING;
     }
 
-    private bool IsInCombatState()
+    private bool IsInChasingState()
     {
-        return
-            currentState == MushdoomState.CHASING_PLAYER
-            || currentState == MushdoomState.SPIN_ATTACK
-            || currentState == MushdoomState.SPORE_ATTACK;
+        return currentState == MushdoomState.CHASING_PLAYER;
     }
 
     private void OnDrawGizmosSelected()
