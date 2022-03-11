@@ -67,6 +67,8 @@ MonoBehaviour:
   maxIdleTime: 7.5
   maxWanderingTime: 3
   nextWanderingPositionDistance: 7.5
+  spinAttackProbability: 0.5
+  sporeAttackProbability: 0.5
 --- !u!195 &2495240014041701043
 NavMeshAgent:
   m_ObjectHideFlags: 0

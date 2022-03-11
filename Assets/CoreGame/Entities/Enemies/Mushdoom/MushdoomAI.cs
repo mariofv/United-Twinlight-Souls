@@ -17,18 +17,25 @@ public class MushdoomAI : EnemyAI
     [Header("Idle State")]
     [SerializeField] private float minIdleTime;
     [SerializeField] private float maxIdleTime;
+    private float idleTime;
 
     [Header("Wandering State")]
     [SerializeField] private float maxWanderingTime;
     [SerializeField] private float nextWanderingPositionDistance;
+    private Vector3 nextWanderingDestination;
 
+    [Header("Chasing State")]
     private float chasingPlayerStopDistance;
+
+    [Header("Spin Attack State")]
+    [SerializeField] private float spinAttackProbability;
+    
+    [Header("Spore Attack State")]
+    [SerializeField] private float sporeAttackProbability;
 
     private MushdoomState currentState;
 
-    private Vector3 nextWanderingDestination;
     private float aiTimer = 0f;
-    private float idleTime;
 
     void Awake()
     {
@@ -55,10 +62,11 @@ public class MushdoomAI : EnemyAI
                 break;
 
             case MushdoomState.SPIN_ATTACK:
-                UpdateAttackingState();
+                UpdateSpinAttackState();
                 break;
 
             case MushdoomState.SPORE_ATTACK:
+                UpdateSporeAttackState();
                 break;
         }
     }
@@ -108,10 +116,38 @@ public class MushdoomAI : EnemyAI
 
     private void UpdateChasingPlayerState()
     {
-        enemyNavMeshAgent.SetDestination(GameManager.instance.player.GetControlledCharacter().characterMovementManager.GetPosition());
+        Vector3 playerPosition = GameManager.instance.player.GetControlledCharacter().characterMovementManager.GetPosition();
+        enemyNavMeshAgent.SetDestination(playerPosition);
+        if ((transform.position - playerPosition).sqrMagnitude <= (enemyNavMeshAgent.stoppingDistance * enemyNavMeshAgent.stoppingDistance))
+        {
+            float randomValue = Random.Range(0f, 1f);
+            if (randomValue <= spinAttackProbability)
+            {
+                TransitionToSpinAttack();
+            }
+            else if (spinAttackProbability < randomValue && randomValue <= spinAttackProbability + sporeAttackProbability)
+            {
+                TransitionToSporeAttack();
+            }
+        }
     }
 
-    private void UpdateAttackingState()
+    private void TransitionToSpinAttack()
+    {
+        enemy.TriggerAnimation("spinAttack");
+    }
+
+    private void UpdateSporeAttackState()
+    {
+
+    }
+
+    private void TransitionToSporeAttack()
+    {
+        enemy.TriggerAnimation("sporeAttack");
+    }
+
+    private void UpdateSpinAttackState()
     {
 
     }

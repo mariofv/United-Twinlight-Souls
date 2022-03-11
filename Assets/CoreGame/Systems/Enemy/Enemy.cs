@@ -38,4 +38,9 @@ public class Enemy : MonoBehaviour
     {
         return gameObject.activeSelf;
     }
+
+    public void TriggerAnimation(string triggerName)
+    {
+        enemyAnimator.SetTrigger(triggerName);
+    }
 }
