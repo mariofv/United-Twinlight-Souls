@@ -50,6 +50,22 @@ public class PlayerManager : MonoBehaviour
         return controlledCharacterManager;
     }
 
+    public CharacterManager GetNotControlledCharacter()
+    {
+        if (controlledCharacterId == Character.CharacterId.BARALD)
+        {
+            return ilona.characterManager;
+        }
+        else if (controlledCharacterId == Character.CharacterId.ILONA)
+        {
+            return barald.characterManager;
+        }
+        else
+        {
+            throw new UnityException("Cannot get non controlled character");
+        }
+    }
+
     public Character.CharacterId GetControlledCharacterId()
     {
         return controlledCharacterId;

@@ -49,6 +49,7 @@ public class LevelManager : MonoBehaviour
 
         GameManager.instance.audioManager.SetCurrentLevelMusic(gameLevels[level].levelMusic);
         GameManager.instance.cameraManager.SetCurrentCameraRail(currentLevel.levelCameraRail);
+        GameManager.instance.player.GetNotControlledCharacter().Teleport(GetCurrentLevelVoidPosition());
         GameManager.instance.player.GetControlledCharacter().Teleport(currentLevel.startPosition.position);
 
         GameManager.instance.EnterGameState(GameManager.GameState.COMBAT, changeGameStateInput: true);
@@ -64,5 +65,15 @@ public class LevelManager : MonoBehaviour
             }
             CursorHider.ShowCursor();
         }
+    }
+
+    public Vector3 GetCurrentLevelStartPosition()
+    {
+        return currentLevel.startPosition.position;
+    }
+
+    public Vector3 GetCurrentLevelVoidPosition()
+    {
+        return Vector3.zero;
     }
 }
