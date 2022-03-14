@@ -29,6 +29,8 @@ public class MushdoomAI : EnemyAI
 
     [Header("Spin Attack State")]
     [SerializeField] private float spinAttackProbability;
+    [SerializeField] private int spinAttackDamage;
+    [SerializeField] private List<MushdoomSpinAttackCollider> spinAttackColliders;
     
     [Header("Spore Attack State")]
     [SerializeField] private float sporeAttackProbability;
@@ -44,6 +46,11 @@ public class MushdoomAI : EnemyAI
         playerDetectionCollider.onPlayerLost.AddListener(OnPlayerLost);
 
         chasingPlayerStopDistance = enemyNavMeshAgent.stoppingDistance;
+
+        for (int i = 0; i < spinAttackColliders.Count; ++i)
+        {
+            spinAttackColliders[i].SetDamage(spinAttackDamage);
+        }
     }
 
     protected override void UpdateAI()
@@ -137,6 +144,11 @@ public class MushdoomAI : EnemyAI
     {
         enemy.TriggerAnimation("spinAttack");
         currentState = MushdoomState.SPIN_ATTACK;
+
+        for (int i = 0; i < spinAttackColliders.Count; ++i)
+        {
+            spinAttackColliders[i].SetColliderActive(true);
+        }
     }
 
     private void UpdateSporeAttackState()
@@ -148,6 +160,11 @@ public class MushdoomAI : EnemyAI
         if (currentState != MushdoomState.SPIN_ATTACK)
         {
             throw new UnityException("OnSpinAttackEnd was captured but Mushdoom was in " + currentState + " state!");
+        }
+
+        for (int i = 0; i < spinAttackColliders.Count; ++i)
+        {
+            spinAttackColliders[i].SetColliderActive(false);
         }
 
         if (!playerInSight)

@@ -4,6 +4,7 @@ using UnityEngine;
 
 public class Enemy : MonoBehaviour
 {
+    [SerializeField] private EnemyStats enemyStats;
     [SerializeField] private EnemyAI enemyAI;
     [SerializeField] private Animator enemyAnimator;
 
