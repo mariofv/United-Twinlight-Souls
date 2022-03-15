@@ -4,7 +4,9 @@ using UnityEngine;
 
 public class Level : MonoBehaviour
 {
+    public Transform spawnedEntitiesHolder;
     public Transform startPosition;
+    public Transform voidPosition;
     public CameraRail levelCameraRail;
 
     private void Start()

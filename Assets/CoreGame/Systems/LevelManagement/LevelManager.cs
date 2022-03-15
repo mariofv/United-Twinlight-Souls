@@ -74,6 +74,11 @@ public class LevelManager : MonoBehaviour
 
     public Vector3 GetCurrentLevelVoidPosition()
     {
-        return Vector3.zero;
+        return currentLevel.voidPosition.position;
+    }
+
+    public Transform GetCurrentLevelSpawnedEntitiesHolder()
+    {
+        return currentLevel.spawnedEntitiesHolder;
     }
 }
