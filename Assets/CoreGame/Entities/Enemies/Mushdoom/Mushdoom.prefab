@@ -69,13 +69,17 @@ MonoBehaviour:
   maxIdleTime: 7.5
   maxWanderingTime: 3
   nextWanderingPositionDistance: 7.5
-  spinAttackProbability: 0.5
-  spinAttackDamage: 5
   spinAttackColliders:
   - {fileID: 8070111052618590729}
   - {fileID: 1696371848485714619}
+  spinAttackProbability: 0.5
+  spinAttackDamage: 5
+  sporeAttack: {fileID: 7598528133483516662}
   sporeAttackProbability: 0.5
-  sporeAttack: {fileID: 0}
+  sporeAttackDuration: 5
+  sporeAttackRadius: 5
+  sporeAttackTick: 0.5
+  sporeAttackTickDamage: 2
 --- !u!195 &2495240014041701043
 NavMeshAgent:
   m_ObjectHideFlags: 0
@@ -141,34 +145,6 @@ PrefabInstance:
       value: 2
       objectReference: {fileID: 0}
     - target: {fileID: 705473957923060016, guid: 147a98509d762524a87f0d9af5e22c06, type: 3}
-      propertyPath: m_LocalPosition.x
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 705473957923060016, guid: 147a98509d762524a87f0d9af5e22c06, type: 3}
-      propertyPath: m_LocalPosition.y
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 705473957923060016, guid: 147a98509d762524a87f0d9af5e22c06, type: 3}
-      propertyPath: m_LocalPosition.z
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 705473957923060016, guid: 147a98509d762524a87f0d9af5e22c06, type: 3}
-      propertyPath: m_LocalRotation.w
-      value: 1
-      objectReference: {fileID: 0}
-    - target: {fileID: 705473957923060016, guid: 147a98509d762524a87f0d9af5e22c06, type: 3}
-      propertyPath: m_LocalRotation.x
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 705473957923060016, guid: 147a98509d762524a87f0d9af5e22c06, type: 3}
-      propertyPath: m_LocalRotation.y
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 705473957923060016, guid: 147a98509d762524a87f0d9af5e22c06, type: 3}
-      propertyPath: m_LocalRotation.z
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 705473957923060016, guid: 147a98509d762524a87f0d9af5e22c06, type: 3}
       propertyPath: m_LocalEulerAnglesHint.x
       value: 0
       objectReference: {fileID: 0}
@@ -180,9 +156,29 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 1136645954816055820, guid: 147a98509d762524a87f0d9af5e22c06, type: 3}
+      propertyPath: looping
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 1136645954816055820, guid: 147a98509d762524a87f0d9af5e22c06, type: 3}
+      propertyPath: moveWithTransform
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 1136645954816055820, guid: 147a98509d762524a87f0d9af5e22c06, type: 3}
+      propertyPath: ShapeModule.radius.value
+      value: 1
+      objectReference: {fileID: 0}
     - target: {fileID: 2099915890314227933, guid: 147a98509d762524a87f0d9af5e22c06, type: 3}
       propertyPath: m_Name
       value: MushdoomSporeAttack
+      objectReference: {fileID: 0}
+    - target: {fileID: 7363937359859279734, guid: 147a98509d762524a87f0d9af5e22c06, type: 3}
+      propertyPath: m_Enabled
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 7363937359859279734, guid: 147a98509d762524a87f0d9af5e22c06, type: 3}
+      propertyPath: m_IsTrigger
+      value: 1
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 147a98509d762524a87f0d9af5e22c06, type: 3}
@@ -191,6 +187,17 @@ Transform:
   m_CorrespondingSourceObject: {fileID: 705473957923060016, guid: 147a98509d762524a87f0d9af5e22c06, type: 3}
   m_PrefabInstance: {fileID: 296684390940633960}
   m_PrefabAsset: {fileID: 0}
+--- !u!114 &7598528133483516662 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 7885079424053524894, guid: 147a98509d762524a87f0d9af5e22c06, type: 3}
+  m_PrefabInstance: {fileID: 296684390940633960}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: f453aa9c40cbf894baa70795319550ff, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1001 &1966452749069977684
 PrefabInstance:
   m_ObjectHideFlags: 0

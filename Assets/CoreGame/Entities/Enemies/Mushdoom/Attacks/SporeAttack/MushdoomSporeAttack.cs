@@ -1,10 +1,14 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.Events;
 
 public class MushdoomSporeAttack : MonoBehaviour
 {
     [SerializeField] private SphereCollider sporeAttackVolume;
+    [SerializeField] private ParticleSystem sporesParticleSystem;
+
+    public UnityEvent onAttackEnd;
 
     private float currentTime = 0f;
     private float duration;
@@ -30,7 +34,7 @@ public class MushdoomSporeAttack : MonoBehaviour
     {
         this.duration = duration;
         sporeAttackVolume.radius = radius;
-    
+
         this.damage = damage;
         this.damageTick = damageTick;
     }
@@ -40,11 +44,14 @@ public class MushdoomSporeAttack : MonoBehaviour
         transform.position = position;
         currentTime = 0f;
         sporeAttackVolume.enabled = true;
+        sporesParticleSystem.Play();
     }
 
     public void Despawn()
     {
         sporeAttackVolume.enabled = false;
+        sporesParticleSystem.Stop();
+        onAttackEnd.Invoke();
     }
 
     private void OnTriggerEnter(Collider other)
@@ -59,8 +66,8 @@ public class MushdoomSporeAttack : MonoBehaviour
     {
         if (other.CompareTag(TagManager.PLAYER))
         {
-            currentTime += Time.fixedDeltaTime;
-            if (currentTime >= damageTick)
+            currentTickTime += Time.fixedDeltaTime;
+            if (currentTickTime >= damageTick)
             {
                 currentTickTime = 0f;
                 GameManager.instance.player.GetControlledCharacter().characterStatsManager.Hurt(damage);

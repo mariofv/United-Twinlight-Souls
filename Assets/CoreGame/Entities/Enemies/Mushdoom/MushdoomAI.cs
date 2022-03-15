@@ -42,6 +42,8 @@ public class MushdoomAI : EnemyAI
     [SerializeField] private float sporeAttackTick;
     [SerializeField] private int sporeAttackTickDamage;
 
+    private bool isSporeAttackActive = false;
+
     private MushdoomState currentState;
 
     private float aiTimer = 0f;
@@ -59,6 +61,7 @@ public class MushdoomAI : EnemyAI
             spinAttackColliders[i].SetDamage(spinAttackDamage);
         }
 
+        sporeAttack.onAttackEnd.AddListener(OnSporteAttackVolumeEnd);
         sporeAttack.SetParameters(sporeAttackDuration, sporeAttackRadius, sporeAttackTickDamage, sporeAttackTick);
     }
 
@@ -137,13 +140,20 @@ public class MushdoomAI : EnemyAI
         if ((transform.position - playerPosition).sqrMagnitude <= (enemyNavMeshAgent.stoppingDistance * enemyNavMeshAgent.stoppingDistance))
         {
             float randomValue = Random.Range(0f, 1f);
-            if (randomValue <= spinAttackProbability)
+            if (!isSporeAttackActive)
+            {
+                if (randomValue <= spinAttackProbability)
+                {
+                    TransitionToSpinAttack();
+                }
+                else if (spinAttackProbability < randomValue && randomValue <= spinAttackProbability + sporeAttackProbability)
+                {
+                    TransitionToSporeAttack();
+                }
+            }
+            else
             {
                 TransitionToSpinAttack();
-            }
-            else if (spinAttackProbability < randomValue && randomValue <= spinAttackProbability + sporeAttackProbability)
-            {
-                TransitionToSporeAttack();
             }
         }
     }
@@ -189,8 +199,11 @@ public class MushdoomAI : EnemyAI
     {
         enemy.TriggerAnimation("sporeAttack");
         currentState = MushdoomState.SPORE_ATTACK;
+    }
 
-        sporeAttack.Spawn(transform.position);
+    private void OnSporteAttackVolumeEnd()
+    {
+        isSporeAttackActive = false;
     }
 
     public void OnSporeAttackEnd()
@@ -199,6 +212,9 @@ public class MushdoomAI : EnemyAI
         {
             throw new UnityException("OnSporeAttackEnd was captured but Mushdoom was in " + currentState + " state!");
         }
+
+        sporeAttack.Spawn(transform.position + Vector3.up);
+        isSporeAttackActive = true;
 
         if (!playerInSight)
         {
