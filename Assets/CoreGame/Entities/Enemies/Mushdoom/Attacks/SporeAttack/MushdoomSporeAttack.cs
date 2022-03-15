@@ -7,6 +7,7 @@ public class MushdoomSporeAttack : MonoBehaviour
 {
     [SerializeField] private SphereCollider sporeAttackVolume;
     [SerializeField] private ParticleSystem sporesParticleSystem;
+    [SerializeField] private ParticleSystem cloudParticleSystem;
 
     public UnityEvent onAttackEnd;
 
@@ -45,12 +46,14 @@ public class MushdoomSporeAttack : MonoBehaviour
         currentTime = 0f;
         sporeAttackVolume.enabled = true;
         sporesParticleSystem.Play();
+        cloudParticleSystem.Play();
     }
 
     public void Despawn()
     {
         sporeAttackVolume.enabled = false;
         sporesParticleSystem.Stop();
+        cloudParticleSystem.Stop();
         onAttackEnd.Invoke();
     }
 
