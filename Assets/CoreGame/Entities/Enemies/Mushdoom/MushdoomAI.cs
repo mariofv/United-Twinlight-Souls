@@ -211,6 +211,12 @@ public class MushdoomAI : EnemyAI
         currentState = MushdoomState.SPORE_ATTACK;
     }
 
+    public void OnSporteAttackVolumeStart()
+    {
+        sporeAttack.Spawn(transform.position + Vector3.up);
+        isSporeAttackActive = true;
+    }
+
     private void OnSporteAttackVolumeEnd()
     {
         isSporeAttackActive = false;
@@ -222,9 +228,6 @@ public class MushdoomAI : EnemyAI
         {
             throw new UnityException("OnSporeAttackEnd was captured but Mushdoom was in " + currentState + " state!");
         }
-
-        sporeAttack.Spawn(transform.position + Vector3.up);
-        isSporeAttackActive = true;
 
         if (!playerInSight)
         {
