@@ -65,6 +65,16 @@ public class MushdoomAI : EnemyAI
         sporeAttack.SetParameters(sporeAttackDuration, sporeAttackRadius, sporeAttackTickDamage, sporeAttackTick);
     }
 
+    public override void Reanimate()
+    {
+        aiTimer = 0f;
+        playerInSight = false;
+
+        isSporeAttackActive = false;
+
+        currentState = MushdoomState.IDLE;
+    }
+
     protected override void UpdateAI()
     {
         switch (currentState)

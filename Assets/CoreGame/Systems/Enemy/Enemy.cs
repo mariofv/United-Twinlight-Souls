@@ -21,6 +21,7 @@ public class Enemy : MonoBehaviour
 
     public void Reanimate()
     {
+        enemyAI.Reanimate();
         gameObject.SetActive(true);
     }
 

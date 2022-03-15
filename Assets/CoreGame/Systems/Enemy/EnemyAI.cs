@@ -26,6 +26,7 @@ public abstract class EnemyAI : MonoBehaviour
     }
 
     protected abstract void UpdateAI();
+    public abstract void Reanimate();
 
     public void Link(Enemy enemy)
     {
