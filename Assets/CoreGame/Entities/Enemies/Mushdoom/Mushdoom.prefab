@@ -32,6 +32,7 @@ Transform:
   m_Children:
   - {fileID: 7229052623647668539}
   - {fileID: 5192919389224434711}
+  - {fileID: 996509593236509272}
   m_Father: {fileID: 0}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
@@ -74,6 +75,7 @@ MonoBehaviour:
   - {fileID: 8070111052618590729}
   - {fileID: 1696371848485714619}
   sporeAttackProbability: 0.5
+  sporeAttack: {fileID: 0}
 --- !u!195 &2495240014041701043
 NavMeshAgent:
   m_ObjectHideFlags: 0
@@ -127,6 +129,68 @@ Transform:
   m_Father: {fileID: 5573131479200031395}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!1001 &296684390940633960
+PrefabInstance:
+  m_ObjectHideFlags: 0
+  serializedVersion: 2
+  m_Modification:
+    m_TransformParent: {fileID: 5573131479200031395}
+    m_Modifications:
+    - target: {fileID: 705473957923060016, guid: 147a98509d762524a87f0d9af5e22c06, type: 3}
+      propertyPath: m_RootOrder
+      value: 2
+      objectReference: {fileID: 0}
+    - target: {fileID: 705473957923060016, guid: 147a98509d762524a87f0d9af5e22c06, type: 3}
+      propertyPath: m_LocalPosition.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 705473957923060016, guid: 147a98509d762524a87f0d9af5e22c06, type: 3}
+      propertyPath: m_LocalPosition.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 705473957923060016, guid: 147a98509d762524a87f0d9af5e22c06, type: 3}
+      propertyPath: m_LocalPosition.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 705473957923060016, guid: 147a98509d762524a87f0d9af5e22c06, type: 3}
+      propertyPath: m_LocalRotation.w
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 705473957923060016, guid: 147a98509d762524a87f0d9af5e22c06, type: 3}
+      propertyPath: m_LocalRotation.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 705473957923060016, guid: 147a98509d762524a87f0d9af5e22c06, type: 3}
+      propertyPath: m_LocalRotation.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 705473957923060016, guid: 147a98509d762524a87f0d9af5e22c06, type: 3}
+      propertyPath: m_LocalRotation.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 705473957923060016, guid: 147a98509d762524a87f0d9af5e22c06, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 705473957923060016, guid: 147a98509d762524a87f0d9af5e22c06, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 705473957923060016, guid: 147a98509d762524a87f0d9af5e22c06, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 2099915890314227933, guid: 147a98509d762524a87f0d9af5e22c06, type: 3}
+      propertyPath: m_Name
+      value: MushdoomSporeAttack
+      objectReference: {fileID: 0}
+    m_RemovedComponents: []
+  m_SourcePrefab: {fileID: 100100000, guid: 147a98509d762524a87f0d9af5e22c06, type: 3}
+--- !u!4 &996509593236509272 stripped
+Transform:
+  m_CorrespondingSourceObject: {fileID: 705473957923060016, guid: 147a98509d762524a87f0d9af5e22c06, type: 3}
+  m_PrefabInstance: {fileID: 296684390940633960}
+  m_PrefabAsset: {fileID: 0}
 --- !u!1001 &1966452749069977684
 PrefabInstance:
   m_ObjectHideFlags: 0

@@ -28,12 +28,19 @@ public class MushdoomAI : EnemyAI
     private float chasingPlayerStopDistance;
 
     [Header("Spin Attack State")]
+    [SerializeField] private List<MushdoomSpinAttackCollider> spinAttackColliders;
     [SerializeField] private float spinAttackProbability;
     [SerializeField] private int spinAttackDamage;
-    [SerializeField] private List<MushdoomSpinAttackCollider> spinAttackColliders;
     
     [Header("Spore Attack State")]
+    [SerializeField] private MushdoomSporeAttack sporeAttack;
     [SerializeField] private float sporeAttackProbability;
+
+    [SerializeField] private float sporeAttackDuration;
+    [SerializeField] private float sporeAttackRadius;
+    
+    [SerializeField] private float sporeAttackTick;
+    [SerializeField] private int sporeAttackTickDamage;
 
     private MushdoomState currentState;
 
@@ -51,6 +58,8 @@ public class MushdoomAI : EnemyAI
         {
             spinAttackColliders[i].SetDamage(spinAttackDamage);
         }
+
+        sporeAttack.SetParameters(sporeAttackDuration, sporeAttackRadius, sporeAttackTickDamage, sporeAttackTick);
     }
 
     protected override void UpdateAI()
@@ -70,7 +79,6 @@ public class MushdoomAI : EnemyAI
                 break;
 
             case MushdoomState.SPIN_ATTACK:
-                UpdateSpinAttackState();
                 break;
 
             case MushdoomState.SPORE_ATTACK:
@@ -181,11 +189,8 @@ public class MushdoomAI : EnemyAI
     {
         enemy.TriggerAnimation("sporeAttack");
         currentState = MushdoomState.SPORE_ATTACK;
-    }
 
-    private void UpdateSpinAttackState()
-    {
-
+        sporeAttack.Spawn(transform.position);
     }
 
     public void OnSporeAttackEnd()
