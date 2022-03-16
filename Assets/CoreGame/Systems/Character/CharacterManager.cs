@@ -4,6 +4,7 @@ using UnityEngine;
 
 public class CharacterManager : MonoBehaviour
 {
+    public CharacterCombatManager characterCombatManager;
     public CharacterMovementManager characterMovementManager;
     public CharacterStatsManager characterStatsManager;
     public CharacterVisualsManager characterVisualsManager;
@@ -11,6 +12,7 @@ public class CharacterManager : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
+        characterCombatManager.Link(this);
         characterMovementManager.Link(this);
         characterStatsManager.Link(this);
         characterVisualsManager.Link(this);
@@ -37,7 +39,7 @@ public class CharacterManager : MonoBehaviour
 
     public void LightAttack()
     {
-        characterVisualsManager.TriggerLightAttack();
+        characterCombatManager.LightAttack();
     }
 
     public void Teleport(Vector3 position)
