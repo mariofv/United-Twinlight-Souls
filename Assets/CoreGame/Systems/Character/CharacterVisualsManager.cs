@@ -23,4 +23,9 @@ public class CharacterVisualsManager : CharacterSubManager
     {
         characterAnimator.SetBool("moving", moving);
     }
+
+    public void TriggerLightAttack()
+    {
+        characterAnimator.SetTrigger("attack");
+    }
 }

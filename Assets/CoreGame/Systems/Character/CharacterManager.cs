@@ -35,6 +35,11 @@ public class CharacterManager : MonoBehaviour
         characterMovementManager.Jump();
     }
 
+    public void LightAttack()
+    {
+        characterVisualsManager.TriggerLightAttack();
+    }
+
     public void Teleport(Vector3 position)
     {
         characterMovementManager.Teleport(position);
