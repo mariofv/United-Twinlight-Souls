@@ -10,7 +10,7 @@ public class CharacterCombatManager : CharacterSubManager
     // Start is called before the first frame update
     void Start()
     {
-        
+        characterManager.characterAnimationEventsManager.onLightAttackEnd.AddListener(EndLightAttack);
     }
 
     // Update is called once per frame
@@ -36,11 +36,21 @@ public class CharacterCombatManager : CharacterSubManager
             return true;
         }
 
-        return true;
+        return false;
     }
 
     private void ExecuteLightAttack(int chainIndex)
     {
+        if (!isInLightAttackChain)
+        {
+            isInLightAttackChain = true;
+        }
         characterManager.characterVisualsManager.TriggerLightAttack();
+    }
+
+    private void EndLightAttack()
+    {
+        isInLightAttackChain = false;
+        currentLightAttackChain = -1;
     }
 }

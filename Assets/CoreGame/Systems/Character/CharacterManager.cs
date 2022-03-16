@@ -4,19 +4,24 @@ using UnityEngine;
 
 public class CharacterManager : MonoBehaviour
 {
+    public CharacterAnimationEventsManager characterAnimationEventsManager;
     public CharacterCombatManager characterCombatManager;
     public CharacterMovementManager characterMovementManager;
     public CharacterStatsManager characterStatsManager;
     public CharacterVisualsManager characterVisualsManager;
 
-    // Start is called before the first frame update
-    void Start()
+    void Awake()
     {
+        characterAnimationEventsManager.Link(this);
         characterCombatManager.Link(this);
         characterMovementManager.Link(this);
         characterStatsManager.Link(this);
         characterVisualsManager.Link(this);
+    }
 
+    // Start is called before the first frame update
+    private void Start()
+    {
         DisableMovement();
     }
 

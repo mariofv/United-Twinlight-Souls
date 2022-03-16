@@ -64,6 +64,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 64edacd50d0fffe46ba7f77c1f472539, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  characterAnimationEventsManager: {fileID: 8970631606939379925}
   characterCombatManager: {fileID: 5603003234516706130}
   characterMovementManager: {fileID: 3749913235640488592}
   characterStatsManager: {fileID: 5577634193418974252}
@@ -237,6 +238,11 @@ PrefabInstance:
       objectReference: {fileID: 9100000, guid: ba2f407e79a9bfa4e8be3d9859dc9a4a, type: 2}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: a1bf4f573a328cf409c426b19c3c9f41, type: 3}
+--- !u!1 &1046932008507417998 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 919132149155446097, guid: a1bf4f573a328cf409c426b19c3c9f41, type: 3}
+  m_PrefabInstance: {fileID: 163847902121105631}
+  m_PrefabAsset: {fileID: 0}
 --- !u!4 &417888850298437428 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: -8679921383154817045, guid: a1bf4f573a328cf409c426b19c3c9f41, type: 3}
@@ -247,3 +253,18 @@ Animator:
   m_CorrespondingSourceObject: {fileID: 5866666021909216657, guid: a1bf4f573a328cf409c426b19c3c9f41, type: 3}
   m_PrefabInstance: {fileID: 163847902121105631}
   m_PrefabAsset: {fileID: 0}
+--- !u!114 &8970631606939379925
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1046932008507417998}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: a2508e1dece548e4da57b4fa6a9643c8, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  onLightAttackEnd:
+    m_PersistentCalls:
+      m_Calls: []

@@ -64,6 +64,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 64edacd50d0fffe46ba7f77c1f472539, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  characterAnimationEventsManager: {fileID: 692153948191747085}
   characterCombatManager: {fileID: 3980906460473043069}
   characterMovementManager: {fileID: 168567079618534877}
   characterStatsManager: {fileID: 8178449551800392154}
@@ -982,3 +983,18 @@ Animator:
   m_HasTransformHierarchy: 1
   m_AllowConstantClipSamplingOptimization: 1
   m_KeepAnimatorControllerStateOnDisable: 0
+--- !u!114 &692153948191747085
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 7409871948940402645}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: a2508e1dece548e4da57b4fa6a9643c8, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  onLightAttackEnd:
+    m_PersistentCalls:
+      m_Calls: []
