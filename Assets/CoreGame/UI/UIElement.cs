@@ -13,7 +13,16 @@ public class UIElement : MonoBehaviour
     protected virtual void Start()
     {
         CreateShowTweens();
+        for (int i = 0; i < showTweens.Count; ++i)
+        {
+            showTweens[i].Pause();
+        }
+
         CreateHideTweens();
+        for (int i = 0; i < hideTweens.Count; ++i)
+        {
+            hideTweens[i].Pause();
+        }
     }
 
     public virtual void UpdateData() { }

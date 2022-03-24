@@ -6,6 +6,7 @@ namespace Tweening
 {
     public abstract class TweeningAnimation
     {
+        public float progress = 0f;
         private Guid animationGUID;
 
         private float targetTime = 0f;
@@ -71,7 +72,6 @@ namespace Tweening
                 return;
             }
 
-            float progress;
             if (isInstantRun)
             {
                 progress = 1f;
@@ -133,6 +133,13 @@ namespace Tweening
         {
             return isAlive;
         }
+
+        public override string ToString()
+        {
+            return "GUID: " + animationGUID.ToString() + " || Progress: " + progress + " || GameObject: "+ ToStringSpecific();
+        }
+
+        protected abstract string ToStringSpecific();
     }
     //---------------------------------------------------------------------------------
     public class DisableGameObjectTweeningAnimation : TweeningAnimation
@@ -145,6 +152,11 @@ namespace Tweening
             {
                 gameObject.SetActive(false);
             }
+        }
+
+        protected override string ToStringSpecific()
+        {
+            return gameObject.name;
         }
     }
     //---------------------------------------------------------------------------------
@@ -175,6 +187,21 @@ namespace Tweening
             image = null;
             canvasGroup = null;
         }
+
+        protected override string ToStringSpecific()
+        {
+            string returnString = "";
+            if (image != null)
+            {
+                returnString += image.gameObject.name;
+            }
+            else if (canvasGroup != null)
+            {
+                returnString += canvasGroup.gameObject.name;
+            }
+
+            return returnString + " || From: " + fromValue + " || To: " + toValue;
+        }
     }
     //---------------------------------------------------------------------------------
     public class SlideTweeningAnimation : TweeningAnimation
@@ -186,6 +213,11 @@ namespace Tweening
         protected override void UpdateSpecific(float progress)
         {
             rectTransform.position = Vector2.Lerp(initPosition, targetPosition, progress);
+        }
+
+        protected override string ToStringSpecific()
+        {
+            return rectTransform.gameObject.name + " || From: " + initPosition + " || To: " + targetPosition;
         }
     }
     //---------------------------------------------------------------------------------
