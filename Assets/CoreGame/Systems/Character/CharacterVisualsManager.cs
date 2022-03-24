@@ -28,4 +28,12 @@ public class CharacterVisualsManager : CharacterSubManager
     {
         characterAnimator.SetTrigger("attack");
     }
+
+    public float GetCurrentAnimationProgress()
+    {
+        AnimatorStateInfo currentAnimatorState = characterAnimator.GetCurrentAnimatorStateInfo(0);
+        float currentAnimationProgress = currentAnimatorState.normalizedTime % 1;
+
+        return currentAnimationProgress;
+    }
 }

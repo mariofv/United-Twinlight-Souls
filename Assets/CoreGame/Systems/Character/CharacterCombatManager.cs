@@ -4,6 +4,7 @@ using UnityEngine;
 
 public class CharacterCombatManager : CharacterSubManager
 {
+    [SerializeField] private List<LightAttack> lightAttacks;
     private bool isInLightAttackChain = false;
     private int currentLightAttackChain = -1;
 
@@ -25,6 +26,12 @@ public class CharacterCombatManager : CharacterSubManager
         {
             return;
         }
+
+        if (currentLightAttackChain >= 0)
+        {
+            EndCurrentLightAttack();
+        }
+
         ++currentLightAttackChain;
         ExecuteLightAttack(currentLightAttackChain);
     }
@@ -36,7 +43,14 @@ public class CharacterCombatManager : CharacterSubManager
             return true;
         }
 
-        return false;
+        if (currentLightAttackChain == lightAttacks.Count - 1)
+        {
+            return false;
+        }
+
+        float currentLightAttackAnimationProgress = characterManager.characterVisualsManager.GetCurrentAnimationProgress();
+
+        return currentLightAttackAnimationProgress >= lightAttacks[currentLightAttackChain].minimunProgressToChain;
     }
 
     private void ExecuteLightAttack(int chainIndex)
@@ -45,11 +59,29 @@ public class CharacterCombatManager : CharacterSubManager
         {
             isInLightAttackChain = true;
         }
+
         characterManager.characterVisualsManager.TriggerLightAttack();
+        lightAttacks[currentLightAttackChain].gameObject.SetActive(true);
     }
 
+    private void EndCurrentLightAttack()
+    {
+        if (currentLightAttackChain >= lightAttacks.Count || currentLightAttackChain < 0)
+        {
+            throw new UnityException("Trying to do light attack with an incorrect index (" + currentLightAttackChain + ")!");
+        }
+
+        lightAttacks[currentLightAttackChain].gameObject.SetActive(false);
+    }
+    
     private void EndLightAttack()
     {
+        if (!isInLightAttackChain)
+        {
+            return;
+        }
+
+        EndCurrentLightAttack();
         isInLightAttackChain = false;
         currentLightAttackChain = -1;
     }
