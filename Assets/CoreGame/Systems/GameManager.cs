@@ -80,7 +80,7 @@ public class GameManager : MonoBehaviour
         EnterGameState(GameState.MAIN_MENU);
 
         StartCoroutine(uiManager.UnLoadGameUI());
-        StartCoroutine(uiManager.LoadMainMenuUI());
+        yield return StartCoroutine(uiManager.LoadMainMenuUI());
 
         enemyManager.EmptyEnemyPools();
 
