@@ -8,8 +8,8 @@ public class Enemy : MonoBehaviour
     [SerializeField] private Animator enemyAnimator;
 
     [Header("Enemy Stats")]
-    [SerializeField] private float maxHealth;
-    [SerializeField] private float currentHealth;
+    [SerializeField] private int maxHealth;
+    [SerializeField] private int currentHealth;
 
     void Awake()
     {
@@ -22,10 +22,14 @@ public class Enemy : MonoBehaviour
         enemyAnimator.SetBool("moving", enemyAI.IsAgentMoving());
     }
 
-    public void Hurt(float damage)
+    public void Hurt(int damage)
     {
-        currentHealth = Mathf.Max(0f, currentHealth - damage);
-        if (currentHealth == 0f)
+        Vector3 enemyPosition = transform.position;
+        Vector3 attackerPosition = GameManager.instance.player.GetControlledCharacter().characterMovementManager.GetPosition();
+        GameManager.instance.uiManager.gameUIManager.damageIndicatorUI.ShowDamageIndicator(damage, attackerPosition, enemyPosition);
+
+        currentHealth = Mathf.Max(0, currentHealth - damage);
+        if (currentHealth == 0)
         {
             Kill();
         }
