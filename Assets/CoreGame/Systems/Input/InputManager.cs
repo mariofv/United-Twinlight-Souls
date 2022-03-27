@@ -163,16 +163,24 @@ public class InputManager : MonoBehaviour
 
     public void OnMovementInput(InputAction.CallbackContext context)
     {
-       GameManager.instance.player.GetControlledCharacter().Move(context.ReadValue<Vector2>());
+        GameManager.instance.player.GetControlledCharacter().characterInputManager.movementVector = context.ReadValue<Vector2>();
     }
 
     public void OnJumpInput(InputAction.CallbackContext context)
     {
+        if (!GameManager.instance.player.GetControlledCharacter().characterInputManager.IsInputAcceptedInCurrentState(CharacterInputManager.CharacterInputAction.JUMP))
+        {
+            return;
+        }
         GameManager.instance.player.GetControlledCharacter().Jump();
     }
 
     public void OnLightAttackInput(InputAction.CallbackContext context)
     {
+        if (!GameManager.instance.player.GetControlledCharacter().characterInputManager.IsInputAcceptedInCurrentState(CharacterInputManager.CharacterInputAction.ATTACK))
+        {
+            return;
+        }
         GameManager.instance.player.GetControlledCharacter().LightAttack();
     }
 

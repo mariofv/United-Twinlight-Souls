@@ -22,11 +22,6 @@ public class CharacterCombatManager : CharacterSubManager
 
     public void LightAttack()
     {
-        if (!CanExecuteLightAttack())
-        {
-            return;
-        }
-
         if (currentLightAttackChain >= 0)
         {
             EndCurrentLightAttack();
@@ -36,7 +31,7 @@ public class CharacterCombatManager : CharacterSubManager
         ExecuteLightAttack(currentLightAttackChain);
     }
 
-    private bool CanExecuteLightAttack()
+    public bool CanExecuteLightAttack()
     {
         if (!isInLightAttackChain)
         {
@@ -60,6 +55,7 @@ public class CharacterCombatManager : CharacterSubManager
             isInLightAttackChain = true;
         }
 
+        characterManager.characterMovementManager.SetInputedMovement(Vector3.zero);
         characterManager.characterVisualsManager.TriggerLightAttack();
         lightAttacks[currentLightAttackChain].gameObject.SetActive(true);
     }
@@ -84,5 +80,6 @@ public class CharacterCombatManager : CharacterSubManager
         EndCurrentLightAttack();
         isInLightAttackChain = false;
         currentLightAttackChain = -1;
+        characterManager.SetCharacterState(CharacterManager.CharacterState.IDLE);
     }
 }

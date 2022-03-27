@@ -4,16 +4,29 @@ using UnityEngine;
 
 public class CharacterManager : MonoBehaviour
 {
+    public enum CharacterState
+    {
+        IDLE,
+        MOVING,
+        JUMPING,
+        ATTACKING,
+        INTERACTING
+    }
+
     public CharacterAnimationEventsManager characterAnimationEventsManager;
     public CharacterCombatManager characterCombatManager;
+    public CharacterInputManager characterInputManager;
     public CharacterMovementManager characterMovementManager;
     public CharacterStatsManager characterStatsManager;
     public CharacterVisualsManager characterVisualsManager;
+
+    private CharacterState currentState;
 
     void Awake()
     {
         characterAnimationEventsManager.Link(this);
         characterCombatManager.Link(this);
+        characterInputManager.Link(this);
         characterMovementManager.Link(this);
         characterStatsManager.Link(this);
         characterVisualsManager.Link(this);
@@ -33,8 +46,23 @@ public class CharacterManager : MonoBehaviour
 
     public void Move(Vector2 inputedMovement)
     {
-        characterMovementManager.Move(inputedMovement);
+        Vector2 normalizedInputedMovement = inputedMovement.normalized;
+
+        characterMovementManager.SetInputedMovement(normalizedInputedMovement);
         characterVisualsManager.SetMoving(characterMovementManager.IsMoving());
+
+        if (characterMovementManager.IsJumping())
+        {
+            SetCharacterState(CharacterState.JUMPING);
+        }
+        else if (characterMovementManager.IsMoving())
+        {
+            SetCharacterState(CharacterState.MOVING);
+        }
+        else
+        {
+            SetCharacterState(CharacterState.IDLE);
+        }
     }
 
     public void Jump()
@@ -44,7 +72,13 @@ public class CharacterManager : MonoBehaviour
 
     public void LightAttack()
     {
+        if (!characterCombatManager.CanExecuteLightAttack())
+        {
+            return;
+        }
+
         characterCombatManager.LightAttack();
+        SetCharacterState(CharacterState.ATTACKING);
     }
 
     public void Teleport(Vector3 position)
@@ -65,5 +99,15 @@ public class CharacterManager : MonoBehaviour
     public void DisableMovement()
     {
         characterMovementManager.enabled = false;
+    }
+
+    public void SetCharacterState(CharacterState characterState)
+    {
+        currentState = characterState;
+    }
+
+    public CharacterState GetCharacterState()
+    {
+        return currentState;
     }
 }

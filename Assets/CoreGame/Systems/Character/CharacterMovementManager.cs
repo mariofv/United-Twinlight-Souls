@@ -14,6 +14,7 @@ public class CharacterMovementManager : CharacterSubManager
     [SerializeField] private LayerMask terrainMask;
 
     private Vector3 movementVector;
+    private bool isMoving = false;
 
     private float verticalVelocity = 0f;
     private bool isGrounded = false;
@@ -40,12 +41,13 @@ public class CharacterMovementManager : CharacterSubManager
         isSignificantVerticalMovement = Mathf.Abs(previousVerticalPosition - characterTransform.position.y) > FALLING_EPSILON;
     }
 
-    public void Move(Vector2 inputedMovement)
+    public void SetInputedMovement(Vector2 inputedMovement)
     {
         Vector3 movementRight = GameManager.instance.cameraManager.GetCurrentProjectedRight().normalized * inputedMovement.x;
         Vector3 movementFront = GameManager.instance.cameraManager.GetCurrentProjectedFront().normalized * inputedMovement.y;
 
         movementVector = movementRight + movementFront;
+        isMoving = movementVector != Vector3.zero;
     }
 
     public void Jump()
@@ -117,7 +119,12 @@ public class CharacterMovementManager : CharacterSubManager
 
     public bool IsMoving()
     {
-        return movementVector != Vector3.zero;
+        return isMoving;
+    }
+
+    public bool IsJumping()
+    {
+        return isJumping;
     }
 
     private bool IsGrounded()
