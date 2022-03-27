@@ -92,6 +92,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   loadMainMenu: 0
+  showEnemyDebugInfo: 0
   debugMenuManager: {fileID: 4414744503822182132}
 --- !u!114 &4414744503822182132
 MonoBehaviour:
@@ -199,6 +200,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   currentCameraRail: {fileID: 0}
+  currentVirtualCamera: {fileID: 0}
   mainCamera: {fileID: 0}
 --- !u!1 &1573103672166890768
 GameObject:
@@ -382,6 +384,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 684cffb2720e17d44880fef300fc4949, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  controlledCharacterId: 0
   barald: {fileID: 0}
   ilona: {fileID: 0}
 --- !u!1 &4818122329415268177
