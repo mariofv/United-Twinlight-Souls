@@ -8,6 +8,7 @@ TagManager:
   - MainMenuUI
   - Level
   - LevelCollider
+  - Enemy
   layers:
   - Default
   - TransparentFX

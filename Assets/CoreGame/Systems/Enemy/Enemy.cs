@@ -4,13 +4,16 @@ using UnityEngine;
 
 public class Enemy : MonoBehaviour
 {
-    [SerializeField] private EnemyStats enemyStats;
     [SerializeField] private EnemyAI enemyAI;
     [SerializeField] private Animator enemyAnimator;
 
+    [Header("Enemy Stats")]
+    [SerializeField] private float maxHealth;
+    [SerializeField] private float currentHealth;
+
     void Awake()
     {
-        enemyAI.Link(this);        
+        enemyAI.Link(this);
     }
 
     // Update is called once per frame
@@ -19,9 +22,19 @@ public class Enemy : MonoBehaviour
         enemyAnimator.SetBool("moving", enemyAI.IsAgentMoving());
     }
 
+    public void Hurt(float damage)
+    {
+        currentHealth = Mathf.Max(0f, currentHealth - damage);
+        if (currentHealth == 0f)
+        {
+            Kill();
+        }
+    }
+
     public void Reanimate()
     {
         enemyAI.Reanimate();
+        currentHealth = maxHealth;
         gameObject.SetActive(true);
     }
 

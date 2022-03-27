@@ -13,7 +13,7 @@ public class LightAttack : MonoBehaviour
         if (other.CompareTag(TagManager.ENEMY))
         {
             Enemy collidedEnemy = other.GetComponent<Enemy>();
-            //TODO: Hurt enemy here
+            collidedEnemy.Hurt(damage);
         }
     }
 }
