@@ -10,6 +10,10 @@ public class CameraManager : MonoBehaviour
     private Vector3 currentProjectedFront;
     private Vector3 currentProjectedRight;
 
+    [Header("MainMenu Cameras")]
+    [SerializeField] private CinemachineVirtualCamera logoCamera;
+    [SerializeField] private CinemachineVirtualCamera characterSelectionCamera;
+
     [Header("Level Camera")]
     [SerializeField] private CinemachineVirtualCamera levelVirtualCamera;
     [SerializeField] private Transform levelCameraLookAt;
@@ -47,6 +51,46 @@ public class CameraManager : MonoBehaviour
     public Vector3 GetCurrentProjectedRight()
     {
         return currentProjectedRight;
+    }
+
+    public void LoadLevelCamera()
+    {
+        UnloadAllCameras();
+        levelVirtualCamera.enabled = true;
+    }
+
+    public void LoadMainMenuCamera(MainMenuScreenUIManager.MainMenuScreenId mainMenuScreen)
+    {
+        UnloadAllCameras();
+        switch (mainMenuScreen)
+        {
+            case MainMenuScreenUIManager.MainMenuScreenId.NONE:
+                break;
+            case MainMenuScreenUIManager.MainMenuScreenId.LOGO:
+                logoCamera.enabled = true;
+                break;
+
+            case MainMenuScreenUIManager.MainMenuScreenId.SELECT_CHARACTER:
+                characterSelectionCamera.enabled = true;
+                break;
+
+            case MainMenuScreenUIManager.MainMenuScreenId.SELECT_LEVEL:
+                break;
+            case MainMenuScreenUIManager.MainMenuScreenId.CONTROLS:
+                break;
+            case MainMenuScreenUIManager.MainMenuScreenId.SETTINGS:
+                break;
+            case MainMenuScreenUIManager.MainMenuScreenId.CREDITS:
+                break;
+        }
+    }
+
+    private void UnloadAllCameras()
+    {
+        logoCamera.enabled = false;
+        characterSelectionCamera.enabled = false;
+
+        levelVirtualCamera.enabled = false;
     }
 
     public void SetCurrentCameraRail(CameraRail newCameraRail)

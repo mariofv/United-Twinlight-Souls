@@ -49,8 +49,7 @@ public class MainMenuUIManager : MonoBehaviour
 
         currentMainMenuScrenId = mainMenuScreenId;
 
-        GameManager.instance.cameraManager.mainCamera.transform.position = mainMenuScreens[mainMenuScreenId].cameraTransform.position;
-        GameManager.instance.cameraManager.mainCamera.transform.rotation = mainMenuScreens[mainMenuScreenId].cameraTransform.rotation;
+        GameManager.instance.cameraManager.LoadMainMenuCamera(mainMenuScreenId);
 
         mainMenuScreens[mainMenuScreenId].Show();
     }

@@ -16,7 +16,6 @@ public abstract class MainMenuScreenUIManager : UIElement
     }
 
     public MainMenuScreenId mainMenuScreenId;
-    public Transform cameraTransform;
 
     public virtual void OnAnyKeyPressed() { }
     public virtual void OnRightPressed() { }
