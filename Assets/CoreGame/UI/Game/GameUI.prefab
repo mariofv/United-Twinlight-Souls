@@ -259,6 +259,14 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 1502874892400887104}
     m_Modifications:
+    - target: {fileID: 4778481666048069933, guid: c296d65be8e8115409803b3ad20ecb95, type: 3}
+      propertyPath: m_Name
+      value: PauseContainer
+      objectReference: {fileID: 0}
+    - target: {fileID: 4778481666048069933, guid: c296d65be8e8115409803b3ad20ecb95, type: 3}
+      propertyPath: m_IsActive
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 8709734748987067360, guid: c296d65be8e8115409803b3ad20ecb95, type: 3}
       propertyPath: m_Pivot.x
       value: 0.5

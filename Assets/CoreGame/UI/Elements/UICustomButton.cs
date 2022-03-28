@@ -23,7 +23,7 @@ public class UICustomButton : MonoBehaviour
         if (EventSystem.current.currentSelectedGameObject == buttonGameObject)
         {
             Color newColor = buttonBlur.color;
-            newColor.a = (Mathf.Sin(Time.time * blurSpeed) + 1) * 0.25f;
+            newColor.a = (Mathf.Sin(Time.unscaledTime * blurSpeed) + 1) * 0.25f;
             buttonBlur.color = newColor;
         }
         else

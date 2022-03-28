@@ -105,7 +105,6 @@ public class InputManager : MonoBehaviour
                 //playerInput.Cinematic.Disable();
                 break;
             case GameManager.GameState.PAUSE:
-                playerInput.Pause.Disable();
                 break;
             case GameManager.GameState.NONE:
                 break;
@@ -125,7 +124,6 @@ public class InputManager : MonoBehaviour
                 break;
             case GameManager.GameState.COMBAT:
                 playerInput.Combat.Enable();
-                playerInput.UI.Enable();
                 break;
             case GameManager.GameState.CINEMATIC:
                 //playerInput.Cinematic.Enable();
@@ -147,6 +145,18 @@ public class InputManager : MonoBehaviour
         playerInput.Pause.Disable();
         playerInput.LoadingScreen.Disable();
         playerInput.MainMenu.Disable();
+    }
+
+    public void EnablePauseInput(bool enable)
+    {
+        if (enable)
+        {
+            playerInput.Pause.Enable();
+        }
+        else
+        {
+            playerInput.Pause.Disable();
+        }
     }
 
     public void RestoreSubmitAction()

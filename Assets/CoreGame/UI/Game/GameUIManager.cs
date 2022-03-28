@@ -29,4 +29,14 @@ public class GameUIManager : MonoBehaviour
         skillsUI.Hide(instant);
         */
     }
+
+    public void ShowPauseUI(bool instant = false)
+    {
+        pauseUI.Show(instant);
+    }
+
+    public void HidePauseUI(bool instant = false)
+    {
+        pauseUI.Hide(instant);
+    }
 }

@@ -83,7 +83,7 @@ public class GameManager : MonoBehaviour
         yield return StartCoroutine(uiManager.LoadMainMenuUI());
 
         enemyManager.EmptyEnemyPools();
-        //cameraManager.LoadMainMenuCamera(MainMenuScreenUIManager.MainMenuScreenId.LOGO);
+        inputManager.EnablePauseInput(false);
 
         uiManager.levelTransitionUIManager.FadeIn();
         while (uiManager.levelTransitionUIManager.IsFadingIn())
@@ -119,6 +119,7 @@ public class GameManager : MonoBehaviour
         yield return StartCoroutine(levelManager.LoadLevel(level, waitLoadingScreenTime: waitLoadingScreenTime, fade:false));
 
         enemyManager.InitializedEnemyPools();
+        inputManager.EnablePauseInput(true);
         cameraManager.LoadLevelCamera();
 
         uiManager.levelTransitionUIManager.FadeIn();
