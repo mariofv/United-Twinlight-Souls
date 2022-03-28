@@ -5,6 +5,7 @@ using UnityEngine;
 public class AudioManager : MonoBehaviour
 {
     [SerializeField] private AudioSource levelMusicSource;
+    [SerializeField] private AudioClip mainMenuMusic;
 
     public enum UISound
     {
@@ -16,16 +17,9 @@ public class AudioManager : MonoBehaviour
     [SerializeField] private AudioSource uiClickSound;
     [SerializeField] private AudioSource uiSelectSound;
 
-    // Start is called before the first frame update
-    void Start()
+    public void PlayMainMenuMusic()
     {
-        
-    }
-
-    // Update is called once per frame
-    void Update()
-    {
-        
+        SetCurrentLevelMusic(mainMenuMusic);
     }
 
     public void SetCurrentLevelMusic(AudioClip levelMusicClip)

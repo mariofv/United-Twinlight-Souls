@@ -82,8 +82,10 @@ public class GameManager : MonoBehaviour
         StartCoroutine(uiManager.UnLoadGameUI());
         yield return StartCoroutine(uiManager.LoadMainMenuUI());
 
-        enemyManager.EmptyEnemyPools();
+        audioManager.PlayMainMenuMusic();
         inputManager.EnablePauseInput(false);
+
+        enemyManager.EmptyEnemyPools();
 
         uiManager.levelTransitionUIManager.FadeIn();
         while (uiManager.levelTransitionUIManager.IsFadingIn())

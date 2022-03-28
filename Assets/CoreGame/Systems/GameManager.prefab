@@ -435,6 +435,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   levelMusicSource: {fileID: 0}
+  mainMenuMusic: {fileID: 8300000, guid: a4a2050839368bf48ba30fa1fcd47fdc, type: 3}
   uiClickSound: {fileID: 5679178920399448529}
   uiSelectSound: {fileID: 196282045309794290}
 --- !u!1 &4993572173261510614
