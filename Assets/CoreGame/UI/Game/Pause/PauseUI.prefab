@@ -27,10 +27,10 @@ RectTransform:
   m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:
+  - {fileID: 4162866733736309276}
   - {fileID: 2488690627819766237}
   - {fileID: 1098260268286176081}
   - {fileID: 3189748404674887705}
-  - {fileID: 4162866733736309276}
   m_Father: {fileID: 5478072604787197055}
   m_RootOrder: 1
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
@@ -338,6 +338,34 @@ PrefabInstance:
       propertyPath: m_SpriteState.m_HighlightedSprite
       value: 
       objectReference: {fileID: 21300000, guid: e23cf058b9bf4744cb64fb74d387ea90, type: 3}
+    - target: {fileID: 6920754367488047869, guid: ec3a2b7e6a7fb8940ad23e45af4748aa, type: 3}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.size
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 6920754367488047869, guid: ec3a2b7e6a7fb8940ad23e45af4748aa, type: 3}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_Mode
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 6920754367488047869, guid: ec3a2b7e6a7fb8940ad23e45af4748aa, type: 3}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_Target
+      value: 
+      objectReference: {fileID: 3984187266092773144}
+    - target: {fileID: 6920754367488047869, guid: ec3a2b7e6a7fb8940ad23e45af4748aa, type: 3}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_CallState
+      value: 2
+      objectReference: {fileID: 0}
+    - target: {fileID: 6920754367488047869, guid: ec3a2b7e6a7fb8940ad23e45af4748aa, type: 3}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_MethodName
+      value: OnSystemsButtonClicked
+      objectReference: {fileID: 0}
+    - target: {fileID: 6920754367488047869, guid: ec3a2b7e6a7fb8940ad23e45af4748aa, type: 3}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_TargetAssemblyTypeName
+      value: PauseUI, Assembly-CSharp
+      objectReference: {fileID: 0}
+    - target: {fileID: 6920754367488047869, guid: ec3a2b7e6a7fb8940ad23e45af4748aa, type: 3}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_Arguments.m_ObjectArgumentAssemblyTypeName
+      value: UnityEngine.Object, UnityEngine
+      objectReference: {fileID: 0}
     - target: {fileID: 8444454539851547288, guid: ec3a2b7e6a7fb8940ad23e45af4748aa, type: 3}
       propertyPath: m_Name
       value: SystemButton
@@ -352,7 +380,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 8616542233021797736, guid: ec3a2b7e6a7fb8940ad23e45af4748aa, type: 3}
       propertyPath: m_RootOrder
-      value: 3
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 8616542233021797736, guid: ec3a2b7e6a7fb8940ad23e45af4748aa, type: 3}
       propertyPath: m_AnchorMax.x
@@ -567,6 +595,34 @@ PrefabInstance:
       propertyPath: m_SpriteState.m_HighlightedSprite
       value: 
       objectReference: {fileID: 21300000, guid: ee80ba584df31b645b1734c78bc469eb, type: 3}
+    - target: {fileID: 6920754367488047869, guid: ec3a2b7e6a7fb8940ad23e45af4748aa, type: 3}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.size
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 6920754367488047869, guid: ec3a2b7e6a7fb8940ad23e45af4748aa, type: 3}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_Mode
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 6920754367488047869, guid: ec3a2b7e6a7fb8940ad23e45af4748aa, type: 3}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_Target
+      value: 
+      objectReference: {fileID: 3984187266092773144}
+    - target: {fileID: 6920754367488047869, guid: ec3a2b7e6a7fb8940ad23e45af4748aa, type: 3}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_CallState
+      value: 2
+      objectReference: {fileID: 0}
+    - target: {fileID: 6920754367488047869, guid: ec3a2b7e6a7fb8940ad23e45af4748aa, type: 3}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_MethodName
+      value: OnLevelSelectionButtonClicked
+      objectReference: {fileID: 0}
+    - target: {fileID: 6920754367488047869, guid: ec3a2b7e6a7fb8940ad23e45af4748aa, type: 3}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_TargetAssemblyTypeName
+      value: PauseUI, Assembly-CSharp
+      objectReference: {fileID: 0}
+    - target: {fileID: 6920754367488047869, guid: ec3a2b7e6a7fb8940ad23e45af4748aa, type: 3}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_Arguments.m_ObjectArgumentAssemblyTypeName
+      value: UnityEngine.Object, UnityEngine
+      objectReference: {fileID: 0}
     - target: {fileID: 8444454539851547288, guid: ec3a2b7e6a7fb8940ad23e45af4748aa, type: 3}
       propertyPath: m_Name
       value: LevelSelectionButton
@@ -581,7 +637,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 8616542233021797736, guid: ec3a2b7e6a7fb8940ad23e45af4748aa, type: 3}
       propertyPath: m_RootOrder
-      value: 0
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 8616542233021797736, guid: ec3a2b7e6a7fb8940ad23e45af4748aa, type: 3}
       propertyPath: m_AnchorMax.x
@@ -796,6 +852,34 @@ PrefabInstance:
       propertyPath: m_SpriteState.m_HighlightedSprite
       value: 
       objectReference: {fileID: 21300000, guid: e5ef0e54b74014f48a5059136e044ef4, type: 3}
+    - target: {fileID: 6920754367488047869, guid: ec3a2b7e6a7fb8940ad23e45af4748aa, type: 3}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.size
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 6920754367488047869, guid: ec3a2b7e6a7fb8940ad23e45af4748aa, type: 3}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_Mode
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 6920754367488047869, guid: ec3a2b7e6a7fb8940ad23e45af4748aa, type: 3}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_Target
+      value: 
+      objectReference: {fileID: 3984187266092773144}
+    - target: {fileID: 6920754367488047869, guid: ec3a2b7e6a7fb8940ad23e45af4748aa, type: 3}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_CallState
+      value: 2
+      objectReference: {fileID: 0}
+    - target: {fileID: 6920754367488047869, guid: ec3a2b7e6a7fb8940ad23e45af4748aa, type: 3}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_MethodName
+      value: OnResumeButtonClicked
+      objectReference: {fileID: 0}
+    - target: {fileID: 6920754367488047869, guid: ec3a2b7e6a7fb8940ad23e45af4748aa, type: 3}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_TargetAssemblyTypeName
+      value: PauseUI, Assembly-CSharp
+      objectReference: {fileID: 0}
+    - target: {fileID: 6920754367488047869, guid: ec3a2b7e6a7fb8940ad23e45af4748aa, type: 3}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_Arguments.m_ObjectArgumentAssemblyTypeName
+      value: UnityEngine.Object, UnityEngine
+      objectReference: {fileID: 0}
     - target: {fileID: 8444454539851547288, guid: ec3a2b7e6a7fb8940ad23e45af4748aa, type: 3}
       propertyPath: m_Name
       value: ResumeButton
@@ -810,7 +894,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 8616542233021797736, guid: ec3a2b7e6a7fb8940ad23e45af4748aa, type: 3}
       propertyPath: m_RootOrder
-      value: 2
+      value: 3
       objectReference: {fileID: 0}
     - target: {fileID: 8616542233021797736, guid: ec3a2b7e6a7fb8940ad23e45af4748aa, type: 3}
       propertyPath: m_AnchorMax.x
@@ -1036,6 +1120,34 @@ PrefabInstance:
       propertyPath: m_SpriteState.m_HighlightedSprite
       value: 
       objectReference: {fileID: 21300000, guid: 777a7a75e528a1b44b5aad953ee49921, type: 3}
+    - target: {fileID: 6920754367488047869, guid: ec3a2b7e6a7fb8940ad23e45af4748aa, type: 3}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.size
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 6920754367488047869, guid: ec3a2b7e6a7fb8940ad23e45af4748aa, type: 3}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_Mode
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 6920754367488047869, guid: ec3a2b7e6a7fb8940ad23e45af4748aa, type: 3}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_Target
+      value: 
+      objectReference: {fileID: 3984187266092773144}
+    - target: {fileID: 6920754367488047869, guid: ec3a2b7e6a7fb8940ad23e45af4748aa, type: 3}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_CallState
+      value: 2
+      objectReference: {fileID: 0}
+    - target: {fileID: 6920754367488047869, guid: ec3a2b7e6a7fb8940ad23e45af4748aa, type: 3}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_MethodName
+      value: OnMainMenuButtonClicked
+      objectReference: {fileID: 0}
+    - target: {fileID: 6920754367488047869, guid: ec3a2b7e6a7fb8940ad23e45af4748aa, type: 3}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_TargetAssemblyTypeName
+      value: PauseUI, Assembly-CSharp
+      objectReference: {fileID: 0}
+    - target: {fileID: 6920754367488047869, guid: ec3a2b7e6a7fb8940ad23e45af4748aa, type: 3}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_Arguments.m_ObjectArgumentAssemblyTypeName
+      value: UnityEngine.Object, UnityEngine
+      objectReference: {fileID: 0}
     - target: {fileID: 8444454539851547288, guid: ec3a2b7e6a7fb8940ad23e45af4748aa, type: 3}
       propertyPath: m_Name
       value: MainMenuButton
@@ -1050,7 +1162,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 8616542233021797736, guid: ec3a2b7e6a7fb8940ad23e45af4748aa, type: 3}
       propertyPath: m_RootOrder
-      value: 1
+      value: 2
       objectReference: {fileID: 0}
     - target: {fileID: 8616542233021797736, guid: ec3a2b7e6a7fb8940ad23e45af4748aa, type: 3}
       propertyPath: m_AnchorMax.x

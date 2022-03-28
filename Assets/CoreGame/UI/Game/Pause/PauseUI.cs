@@ -26,4 +26,26 @@ public class PauseUI : UIElement
         TweeningAnimation disableGameObjectAnimation = uiElementCanvasGroup.gameObject.TweenDisable(UISettings.GameUISettings.DISPLAY_TIME).DontKillOnEnd().Unscaled();
         hideTweens.Add(disableGameObjectAnimation);
     }
+
+    public void OnResumeButtonClicked()
+    {
+        GameManager.instance.audioManager.PlayUISound(AudioManager.UISound.CLICK);
+        GameManager.instance.ResumeGame();
+    }
+
+    public void OnSystemsButtonClicked()
+    {
+        GameManager.instance.audioManager.PlayUISound(AudioManager.UISound.CLICK);
+    }
+
+    public void OnLevelSelectionButtonClicked()
+    {
+        GameManager.instance.audioManager.PlayUISound(AudioManager.UISound.CLICK);
+    }
+
+    public void OnMainMenuButtonClicked()
+    {
+        GameManager.instance.audioManager.PlayUISound(AudioManager.UISound.CLICK);
+        GameManager.instance.InitMainMenu();
+    }
 }
