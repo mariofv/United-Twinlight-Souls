@@ -15,8 +15,11 @@ public class CharacterVisualsManager : CharacterSubManager
     // Update is called once per frame
     void Update()
     {
-        characterAnimator.SetBool("isAirborne", characterManager.characterMovementManager.IsAirbone());
-        characterAnimator.SetFloat("verticalVelocity", characterManager.characterMovementManager.GetVerticalVelocity());
+        if (characterManager.IsMovementEnabled())
+        {
+            characterAnimator.SetBool("isAirborne", characterManager.characterMovementManager.IsAirbone());
+            characterAnimator.SetFloat("verticalVelocity", characterManager.characterMovementManager.GetVerticalVelocity());
+        }
     }
 
     public void SetMoving(bool moving)
@@ -35,5 +38,12 @@ public class CharacterVisualsManager : CharacterSubManager
         float currentAnimationProgress = currentAnimatorState.normalizedTime % 1;
 
         return currentAnimationProgress;
+    }
+
+    public void ResetVisuals()
+    {
+        characterAnimator.SetBool("isAirborne", false);
+        characterAnimator.SetBool("moving", false);
+        characterAnimator.SetFloat("verticalVelocity", 0f);
     }
 }

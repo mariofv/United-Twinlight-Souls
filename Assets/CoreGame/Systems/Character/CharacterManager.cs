@@ -91,6 +91,11 @@ public class CharacterManager : MonoBehaviour
         characterMovementManager.Orientate(orientation);
     }
 
+    public bool IsMovementEnabled()
+    {
+        return characterMovementManager.enabled;
+    }
+
     public void EnableMovement()
     {
         characterMovementManager.enabled = true;
@@ -99,6 +104,11 @@ public class CharacterManager : MonoBehaviour
     public void DisableMovement()
     {
         characterMovementManager.enabled = false;
+    }
+
+    public void ResetVisuals()
+    {
+        characterVisualsManager.ResetVisuals();
     }
 
     public void SetCharacterState(CharacterState characterState)

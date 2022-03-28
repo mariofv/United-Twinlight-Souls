@@ -36,6 +36,7 @@ public class PlayerManager : MonoBehaviour
         }
 
         controlledCharacterManager.DisableMovement();
+        controlledCharacterManager.ResetVisuals();
         controlledCharacterManager = null;
         controlledCharacterId = Character.CharacterId.NONE;
     }
