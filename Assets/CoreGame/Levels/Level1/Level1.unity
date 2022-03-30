@@ -146,6 +146,10 @@ PrefabInstance:
       propertyPath: m_Enabled
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 3779890796154547021, guid: 27dc600c2f73d1a45b60d0a617da363a, type: 3}
+      propertyPath: m_Mesh
+      value: 
+      objectReference: {fileID: -6700404223686200120, guid: cff782d1b9919224ca4fd616bbe19ef3, type: 3}
     - target: {fileID: 7344729640217933742, guid: 27dc600c2f73d1a45b60d0a617da363a, type: 3}
       propertyPath: m_Name
       value: Level1
@@ -202,6 +206,10 @@ PrefabInstance:
       propertyPath: m_IsActive
       value: 1
       objectReference: {fileID: 0}
+    - target: {fileID: 8872135796426919923, guid: 27dc600c2f73d1a45b60d0a617da363a, type: 3}
+      propertyPath: m_Mesh
+      value: 
+      objectReference: {fileID: -4149786178179857449, guid: cff782d1b9919224ca4fd616bbe19ef3, type: 3}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 27dc600c2f73d1a45b60d0a617da363a, type: 3}
 --- !u!1 &2093909055

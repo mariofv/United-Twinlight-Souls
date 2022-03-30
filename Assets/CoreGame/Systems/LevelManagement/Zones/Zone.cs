@@ -7,6 +7,7 @@ public class Zone : MonoBehaviour
 {
     public ZoneCamera zoneCamera;
     public Transform zoneCombatAreaTransform;
+    public ZoneExitBarrier zoneExitBarrier;
 
     public void StartZone()
     {
