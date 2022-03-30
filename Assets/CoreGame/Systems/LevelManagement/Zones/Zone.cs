@@ -17,9 +17,4 @@ public class Zone : MonoBehaviour
     {
 
     }
-
-    public CinemachineVirtualCamera GetZoneVirtualCamera()
-    {
-        return zoneCamera.zoneVirtualCamera;
-    }
 }

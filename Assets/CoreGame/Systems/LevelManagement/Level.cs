@@ -16,7 +16,7 @@ public class Level : MonoBehaviour
 
     public CinemachineVirtualCamera GetCurrentZoneCamera()
     {
-        return levelZones[currentZone].GetZoneVirtualCamera();
+        return levelZones[currentZone].zoneCamera.zoneVirtualCamera;
     }
 
     public void AdvanceZone()

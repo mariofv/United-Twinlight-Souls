@@ -21,10 +21,15 @@ public class ZoneCamera : MonoBehaviour
         if (GameManager.instance.GetCurrentGameState() == GameManager.GameState.COMBAT)
         {
             float pathProgress = zoneCameraRail.GetRailProgress();
-            zoneCameraLookAt.position = zoneCameraRail.GetFocusPosition(pathProgress);
-            levelTrackedDolly.m_PathPosition = pathProgress;
-
-            GameManager.instance.cameraManager.UpdateCameraVectors();
+            UpdateZoneCamera(pathProgress);
         }
+    }
+
+    private void UpdateZoneCamera(float progress)
+    {
+        zoneCameraLookAt.position = zoneCameraRail.GetFocusPosition(progress);
+        levelTrackedDolly.m_PathPosition = progress;
+
+        GameManager.instance.cameraManager.UpdateCameraVectors();
     }
 }

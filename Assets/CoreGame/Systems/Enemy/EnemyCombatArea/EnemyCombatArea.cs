@@ -1,6 +1,7 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using Cinemachine;
 
 public class EnemyCombatArea : MonoBehaviour
 {
@@ -10,6 +11,7 @@ public class EnemyCombatArea : MonoBehaviour
         public List<EnemySpawnPoint> waveSpawnPoints;
     }
 
+    [SerializeField] private CinemachineVirtualCamera combatAreaCamera;
     [SerializeField] private List<CombatAreaWave> combatAreaWaves;
 
     private bool started = false;
@@ -32,6 +34,7 @@ public class EnemyCombatArea : MonoBehaviour
     {
         started = true;
         currentWave = 0;
+        GameManager.instance.cameraManager.LoadCamera(combatAreaCamera);
         StartCurrentWave();
     }
 
