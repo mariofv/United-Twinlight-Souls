@@ -30,6 +30,7 @@ public class EnemyCombatArea : MonoBehaviour
 
     private void StartCombatArea()
     {
+        started = true;
         currentWave = 0;
         StartCurrentWave();
     }
@@ -57,7 +58,7 @@ public class EnemyCombatArea : MonoBehaviour
         {
             EndCombatArea();
         }
-        else if (currentWave > combatAreaWaves.Count)
+        else if (currentWave < combatAreaWaves.Count)
         {
             StartCurrentWave();
         }
