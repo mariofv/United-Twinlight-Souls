@@ -25,7 +25,6 @@ public class EnemyManager : MonoBehaviour
         Enemy spawnedEnemy = SpawnEnemyFromPool(enemyId);
 
         spawnedEnemy.Spawn(spawnPosition);
-        spawnedEnemy.Reanimate();
 
         return spawnedEnemy;
     }

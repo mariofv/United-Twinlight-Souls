@@ -61,6 +61,7 @@ public class Enemy : MonoBehaviour
     public void Spawn(Vector3 position)
     {
         enemyAI.SpawnInNavMesh(position);
+        Reanimate();
     }
 
     public bool IsAlive()
