@@ -20,12 +20,14 @@ public class EnemyManager : MonoBehaviour
         SpawnEnemy(enemyId, NavMeshHelper.FindAvailableSpawnPosition());
     }
 
-    public void SpawnEnemy(EnemyAsset.EnemyId enemyId, Vector3 spawnPosition)
+    public Enemy SpawnEnemy(EnemyAsset.EnemyId enemyId, Vector3 spawnPosition)
     {
         Enemy spawnedEnemy = SpawnEnemyFromPool(enemyId);
 
         spawnedEnemy.Spawn(spawnPosition);
         spawnedEnemy.Reanimate();
+
+        return spawnedEnemy;
     }
 
     private Enemy SpawnEnemyFromPool(EnemyAsset.EnemyId enemyId)

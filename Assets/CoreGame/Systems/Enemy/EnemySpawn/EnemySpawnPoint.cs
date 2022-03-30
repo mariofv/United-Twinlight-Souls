@@ -16,8 +16,8 @@ public class EnemySpawnPoint : MonoBehaviour
         }
     }
 
-    public void Spawn()
+    public Enemy Spawn()
     {
-        GameManager.instance.enemyManager.SpawnEnemy(enemyId, transform.position);
+        return GameManager.instance.enemyManager.SpawnEnemy(enemyId, transform.position);
     }
 }

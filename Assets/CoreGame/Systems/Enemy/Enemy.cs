@@ -1,6 +1,7 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.Events;
 
 public class Enemy : MonoBehaviour
 {
@@ -10,6 +11,8 @@ public class Enemy : MonoBehaviour
     [Header("Enemy Stats")]
     [SerializeField] private int maxHealth;
     [SerializeField] private int currentHealth;
+
+    public UnityEvent onSpawnedEnemyDead;
 
     void Awake()
     {
@@ -46,6 +49,7 @@ public class Enemy : MonoBehaviour
     {
         enemyAI.DisableNavMeshAgent();
         gameObject.SetActive(false);
+        onSpawnedEnemyDead.Invoke();
     }
 
     public void Spawn(Vector3 position)
