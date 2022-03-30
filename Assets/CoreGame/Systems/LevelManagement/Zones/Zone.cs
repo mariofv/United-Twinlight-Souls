@@ -6,6 +6,7 @@ using Cinemachine;
 public class Zone : MonoBehaviour
 {
     public ZoneCamera zoneCamera;
+    public Transform zoneCombatAreaTransform;
 
     public void StartZone()
     {

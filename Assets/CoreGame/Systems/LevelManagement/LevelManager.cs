@@ -59,6 +59,16 @@ public class LevelManager : MonoBehaviour
         currentLevel.AdvanceZone();
     }
 
+    public int GetCurrentLevelNumberOfZones()
+    {
+        return currentLevel.levelZones.Count;
+    }
+
+    public Vector3 GetCurrentZoneCombatAreaPosition(int zoneIndex)
+    {
+        return currentLevel.levelZones[zoneIndex].zoneCombatAreaTransform.position;
+    }
+
     public Vector3 GetCurrentLevelStartPosition()
     {
         return currentLevel.startPosition.position;

@@ -47,6 +47,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   zoneCamera: {fileID: 9144089369301292694}
+  zoneCombatAreaTransform: {fileID: 6028420341630065216}
 --- !u!1 &7353830792808815448
 GameObject:
   m_ObjectHideFlags: 0

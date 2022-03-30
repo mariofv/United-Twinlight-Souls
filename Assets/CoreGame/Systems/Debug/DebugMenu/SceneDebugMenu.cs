@@ -45,8 +45,29 @@ public class SceneDebugMenu : DebugMenu
                 StartCoroutine(GameManager.instance.levelManager.LoadLevel(loadedLevel, waitLoadingScreenTime: false));
             }
         }
-
         GUILayout.EndVertical();
+
+
+        GUILayout.BeginVertical("box", GUILayout.ExpandWidth(true));
+        GUILayout.Label("Teleport to combat area");
+
+        int loadedZone = -1;
+        for (int i = 0; i < GameManager.instance.levelManager.GetCurrentLevelNumberOfZones(); ++i)
+        {
+            if (GUILayout.Button("Combat area " + (i + 1)))
+            {
+                loadedZone = i;
+            }
+        }
+
+        if (loadedZone != -1)
+        {
+            Vector3 zonePosition = GameManager.instance.levelManager.GetCurrentZoneCombatAreaPosition(loadedZone);
+            GameManager.instance.player.GetControlledCharacter().Teleport(zonePosition + Vector3.up * 2);
+        }
+        GUILayout.EndVertical();
+
+
         GUILayout.EndVertical();
     }
 }
