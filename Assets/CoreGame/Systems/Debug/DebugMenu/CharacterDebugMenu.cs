@@ -18,7 +18,7 @@ public class CharacterDebugMenu : DebugMenu
         {
             GameManager.instance.player.GetControlledCharacter().DisableMovement();
             GameManager.instance.player.GetBarald().Teleport(GameManager.instance.player.GetControlledCharacter().characterMovementManager.GetPosition());
-            GameManager.instance.player.GetIlona().Teleport(GameManager.instance.levelManager.GetCurrentLevelVoidPosition());
+            GameManager.instance.player.GetIlona().Teleport(GameManager.instance.levelManager.GetCurrentLevel().voidPosition.position);
             GameManager.instance.player.ControlBarald();
             GameManager.instance.player.GetControlledCharacter().EnableMovement();
             GameManager.instance.uiManager.gameUIManager.hudUI.SelectBaraldPortrait();
@@ -27,7 +27,7 @@ public class CharacterDebugMenu : DebugMenu
         {
             GameManager.instance.player.GetControlledCharacter().DisableMovement();
             GameManager.instance.player.GetIlona().Teleport(GameManager.instance.player.GetControlledCharacter().characterMovementManager.GetPosition());
-            GameManager.instance.player.GetBarald().Teleport(GameManager.instance.levelManager.GetCurrentLevelVoidPosition());
+            GameManager.instance.player.GetBarald().Teleport(GameManager.instance.levelManager.GetCurrentLevel().voidPosition.position);
             GameManager.instance.player.ControlIlona();
             GameManager.instance.player.GetControlledCharacter().EnableMovement();
             GameManager.instance.uiManager.gameUIManager.hudUI.SelectIlonaPortrait();

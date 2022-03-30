@@ -11,12 +11,22 @@ public class Level : MonoBehaviour
     public Transform voidPosition;
     
     [Header("Zones")]
-    public List<Zone> levelZones;
+    [SerializeField] private List<Zone> levelZones;
     private int currentZone = 0;
 
     public CinemachineVirtualCamera GetCurrentZoneCamera()
     {
         return levelZones[currentZone].zoneCamera.zoneVirtualCamera;
+    }
+
+    public int GetNumberOfZones()
+    {
+        return levelZones.Count;
+    }
+
+    public Vector3 GetZonePosition(int zoneIndex)
+    {
+        return levelZones[zoneIndex].zoneCombatAreaTransform.position;
     }
 
     public void AdvanceZone()

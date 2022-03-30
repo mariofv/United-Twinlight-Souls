@@ -52,7 +52,7 @@ public class SceneDebugMenu : DebugMenu
         GUILayout.Label("Teleport to combat area");
 
         int loadedZone = -1;
-        for (int i = 0; i < GameManager.instance.levelManager.GetCurrentLevelNumberOfZones(); ++i)
+        for (int i = 0; i < GameManager.instance.levelManager.GetCurrentLevel().GetNumberOfZones(); ++i)
         {
             if (GUILayout.Button("Combat area " + (i + 1)))
             {
@@ -62,7 +62,7 @@ public class SceneDebugMenu : DebugMenu
 
         if (loadedZone != -1)
         {
-            Vector3 zonePosition = GameManager.instance.levelManager.GetCurrentZoneCombatAreaPosition(loadedZone);
+            Vector3 zonePosition = GameManager.instance.levelManager.GetCurrentLevel().GetZonePosition(loadedZone);
             GameManager.instance.player.GetControlledCharacter().Teleport(zonePosition + Vector3.up * 2);
         }
         GUILayout.EndVertical();

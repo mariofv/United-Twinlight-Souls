@@ -35,7 +35,7 @@ public class LevelManager : MonoBehaviour
         currentLevel = GameObject.FindGameObjectWithTag(TagManager.LEVEL).GetComponent<Level>();
 
         GameManager.instance.audioManager.SetCurrentLevelMusic(gameLevels[level].levelMusic);
-        GameManager.instance.player.GetNotControlledCharacter().Teleport(GetCurrentLevelVoidPosition());
+        GameManager.instance.player.GetNotControlledCharacter().Teleport(currentLevel.voidPosition.position);
         GameManager.instance.player.GetControlledCharacter().Teleport(currentLevel.startPosition.position);
         GameManager.instance.cameraManager.LoadCamera(currentLevel.GetCurrentZoneCamera());
 
@@ -54,33 +54,8 @@ public class LevelManager : MonoBehaviour
         }
     }
 
-    public void AdvanceCurrentLevelZone()
+    public Level GetCurrentLevel()
     {
-        currentLevel.AdvanceZone();
-    }
-
-    public int GetCurrentLevelNumberOfZones()
-    {
-        return currentLevel.levelZones.Count;
-    }
-
-    public Vector3 GetCurrentZoneCombatAreaPosition(int zoneIndex)
-    {
-        return currentLevel.levelZones[zoneIndex].zoneCombatAreaTransform.position;
-    }
-
-    public Vector3 GetCurrentLevelStartPosition()
-    {
-        return currentLevel.startPosition.position;
-    }
-
-    public Vector3 GetCurrentLevelVoidPosition()
-    {
-        return currentLevel.voidPosition.position;
-    }
-
-    public Transform GetCurrentLevelSpawnedEntitiesHolder()
-    {
-        return currentLevel.spawnedEntitiesHolder;
+        return currentLevel;
     }
 }
