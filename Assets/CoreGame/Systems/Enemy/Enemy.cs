@@ -27,6 +27,11 @@ public class Enemy : MonoBehaviour
 
     public void Hurt(int damage)
     {
+        if (GameManager.instance.debugManager.godMode)
+        {
+            damage = 9999;
+        }
+
         Vector3 enemyPosition = transform.position;
         Vector3 attackerPosition = GameManager.instance.player.GetControlledCharacter().characterMovementManager.GetPosition();
         GameManager.instance.uiManager.gameUIManager.damageIndicatorUI.ShowDamageIndicator(damage, attackerPosition, enemyPosition);
