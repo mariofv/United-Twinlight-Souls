@@ -8,6 +8,7 @@ public class DebugManager : MonoBehaviour
     public bool loadMainMenu = false;
     public bool showEnemyDebugInfo = false;
     public bool godMode = false;
+    public bool flashMode = false;
 
     [Header("Debug menus")]
     [SerializeField] private DebugMenuManager debugMenuManager;

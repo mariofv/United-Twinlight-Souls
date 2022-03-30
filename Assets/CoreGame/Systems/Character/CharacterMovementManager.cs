@@ -78,7 +78,7 @@ public class CharacterMovementManager : CharacterSubManager
         float movementMultiplier = 1f;
         if (Debug.isDebugBuild || Application.isEditor)
         {
-            if (GameManager.instance.debugManager.godMode)
+            if (GameManager.instance.debugManager.flashMode)
             {
                 movementMultiplier = 5f;
             }

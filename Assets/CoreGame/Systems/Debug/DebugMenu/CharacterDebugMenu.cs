@@ -38,6 +38,7 @@ public class CharacterDebugMenu : DebugMenu
         GUILayout.BeginHorizontal("box", GUILayout.ExpandWidth(true));
         
         GameManager.instance.debugManager.godMode = GUILayout.Toggle(GameManager.instance.debugManager.godMode, "God Mode");
+        GameManager.instance.debugManager.flashMode = GUILayout.Toggle(GameManager.instance.debugManager.flashMode, "FlashMode");
         if (GUILayout.Button("Hurt (10)"))
         {
             GameManager.instance.player.GetControlledCharacter().characterStatsManager.Hurt(10);
