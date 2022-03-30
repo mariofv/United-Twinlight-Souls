@@ -4,18 +4,23 @@ using UnityEngine;
 
 public class Level : MonoBehaviour
 {
+    [Header("Special Transforms")]
     public Transform spawnedEntitiesHolder;
     public Transform startPosition;
     public Transform voidPosition;
-    public CameraRail levelCameraRail;
+    
+    [Header("Zones")]
+    public List<Zone> levelZones;
+    private int currentZone = 0;
 
-    private void Start()
+    public CameraRail GetCurrentZoneCameraRail()
     {
+        return levelZones[currentZone].cameraRail;
     }
 
-    // Update is called once per frame
-    void Update()
+    public void AdvanceZone()
     {
-        
+        ++currentZone;
+        GameManager.instance.cameraManager.SetCurrentCameraRail(GetCurrentZoneCameraRail());
     }
 }

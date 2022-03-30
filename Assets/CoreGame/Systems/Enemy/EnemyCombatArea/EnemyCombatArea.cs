@@ -36,7 +36,7 @@ public class EnemyCombatArea : MonoBehaviour
 
     private void EndCombatArea()
     {
-
+        GameManager.instance.levelManager.AdvanceCurrentLevelZone();
     }
 
     private void StartCurrentWave()

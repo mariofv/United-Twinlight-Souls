@@ -35,7 +35,7 @@ public class LevelManager : MonoBehaviour
         currentLevel = GameObject.FindGameObjectWithTag(TagManager.LEVEL).GetComponent<Level>();
 
         GameManager.instance.audioManager.SetCurrentLevelMusic(gameLevels[level].levelMusic);
-        GameManager.instance.cameraManager.SetCurrentCameraRail(currentLevel.levelCameraRail);
+        GameManager.instance.cameraManager.SetCurrentCameraRail(currentLevel.GetCurrentZoneCameraRail());
         GameManager.instance.player.GetNotControlledCharacter().Teleport(GetCurrentLevelVoidPosition());
         GameManager.instance.player.GetControlledCharacter().Teleport(currentLevel.startPosition.position);
 
@@ -52,6 +52,11 @@ public class LevelManager : MonoBehaviour
             }
             CursorHider.ShowCursor();
         }
+    }
+
+    public void AdvanceCurrentLevelZone()
+    {
+        currentLevel.AdvanceZone();
     }
 
     public Vector3 GetCurrentLevelStartPosition()
