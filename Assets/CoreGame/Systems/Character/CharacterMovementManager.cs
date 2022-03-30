@@ -75,7 +75,16 @@ public class CharacterMovementManager : CharacterSubManager
 
     private Vector3 ComputeHorizontalMovement()
     {
-        return movementSpeed * movementVector;
+        float movementMultiplier = 1f;
+        if (Debug.isDebugBuild || Application.isEditor)
+        {
+            if (GameManager.instance.debugManager.godMode)
+            {
+                movementMultiplier = 5f;
+            }
+        }
+
+        return movementMultiplier * movementSpeed * movementVector;
     }
 
     private Vector3 ComputeVerticalMovement()
