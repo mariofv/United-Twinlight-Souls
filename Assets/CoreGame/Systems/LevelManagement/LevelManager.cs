@@ -9,19 +9,6 @@ public class LevelManager : MonoBehaviour
     private int currentLevelIndex = -1;
     private Level currentLevel;
 
-
-    // Start is called before the first frame update
-    void Start()
-    {
-        
-    }
-
-    // Update is called once per frame
-    void Update()
-    {
-        
-    }
-
     public IEnumerator LoadLevel(int level, bool waitLoadingScreenTime, bool fade = true)
     {
         if (fade)

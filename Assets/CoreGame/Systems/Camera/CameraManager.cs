@@ -31,11 +31,8 @@ public class CameraManager : MonoBehaviour
     {
         if (GameManager.instance.GetCurrentGameState() == GameManager.GameState.COMBAT)
         {
-            float pathProgress;
-            Vector3 cameraFocus;
-
-            currentCameraRail.GetCurrentCameraMotion(out pathProgress, out cameraFocus);
-            levelCameraLookAt.position = cameraFocus;
+            float pathProgress = currentCameraRail.GetRailProgress();
+            levelCameraLookAt.position = currentCameraRail.GetFocusPosition(pathProgress);
             levelTrackedDolly.m_PathPosition = pathProgress;
 
             currentProjectedFront = Vector3.ProjectOnPlane(mainCamera.transform.forward, Vector3.up);
