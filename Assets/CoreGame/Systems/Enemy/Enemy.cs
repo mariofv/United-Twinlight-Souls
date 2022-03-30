@@ -45,6 +45,7 @@ public class Enemy : MonoBehaviour
 
     public void Reanimate()
     {
+        onSpawnedEnemyDead.RemoveAllListeners();
         enemyAI.Reanimate();
         currentHealth = maxHealth;
         gameObject.SetActive(true);
