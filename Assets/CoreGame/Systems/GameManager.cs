@@ -122,7 +122,6 @@ public class GameManager : MonoBehaviour
         yield return StartCoroutine(levelManager.LoadLevel(level, waitLoadingScreenTime: waitLoadingScreenTime, fade:false));
 
         inputManager.EnablePauseInput(true);
-        cameraManager.LoadLevelCamera();
 
         uiManager.levelTransitionUIManager.FadeIn();
         while (uiManager.levelTransitionUIManager.IsFadingIn())

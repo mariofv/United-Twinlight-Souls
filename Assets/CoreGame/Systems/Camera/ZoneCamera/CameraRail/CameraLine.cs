@@ -4,11 +4,13 @@ using Cinemachine;
 
 public class CameraLine : MonoBehaviour
 {
-    [SerializeField] private Transform pointsParent;
+    private Transform pointsParent;
     public CinemachineSmoothPath cinemachinePath;
 
     private void Awake()
     {
+        pointsParent = transform.GetChild(0);
+
         cinemachinePath.m_Waypoints = new CinemachineSmoothPath.Waypoint[pointsParent.childCount];
         for (int i = 0; i < pointsParent.childCount; ++i)
         {

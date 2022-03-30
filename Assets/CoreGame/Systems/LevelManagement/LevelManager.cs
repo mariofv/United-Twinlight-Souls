@@ -35,9 +35,9 @@ public class LevelManager : MonoBehaviour
         currentLevel = GameObject.FindGameObjectWithTag(TagManager.LEVEL).GetComponent<Level>();
 
         GameManager.instance.audioManager.SetCurrentLevelMusic(gameLevels[level].levelMusic);
-        GameManager.instance.cameraManager.SetCurrentCameraRail(currentLevel.GetCurrentZoneCameraRail());
         GameManager.instance.player.GetNotControlledCharacter().Teleport(GetCurrentLevelVoidPosition());
         GameManager.instance.player.GetControlledCharacter().Teleport(currentLevel.startPosition.position);
+        GameManager.instance.cameraManager.LoadCamera(currentLevel.GetCurrentZoneCamera());
 
         GameManager.instance.EnterGameState(GameManager.GameState.COMBAT, changeGameStateInput: true);
 

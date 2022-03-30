@@ -1,10 +1,11 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using Cinemachine;
 
 public class Zone : MonoBehaviour
 {
-    public CameraRail cameraRail;
+    public ZoneCamera zoneCamera;
 
     public void StartZone()
     {
@@ -14,5 +15,10 @@ public class Zone : MonoBehaviour
     public void EndZone()
     {
 
+    }
+
+    public CinemachineVirtualCamera GetZoneVirtualCamera()
+    {
+        return zoneCamera.zoneVirtualCamera;
     }
 }

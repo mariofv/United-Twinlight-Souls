@@ -49,7 +49,7 @@ public class MainMenuUIManager : MonoBehaviour
 
         currentMainMenuScrenId = mainMenuScreenId;
 
-        GameManager.instance.cameraManager.LoadMainMenuCamera(mainMenuScreenId);
+        GameManager.instance.cameraManager.LoadCamera(mainMenuScreens[currentMainMenuScrenId].GetMainMenuScreenCamera());
 
         mainMenuScreens[mainMenuScreenId].Show();
     }

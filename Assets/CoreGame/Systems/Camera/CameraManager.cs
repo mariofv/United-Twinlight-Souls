@@ -6,38 +6,15 @@ using Cinemachine;
 public class CameraManager : MonoBehaviour
 {
     public Camera mainCamera;
+    private CinemachineVirtualCamera currentVirtualCamera;
 
     private Vector3 currentProjectedFront;
     private Vector3 currentProjectedRight;
 
-    [Header("MainMenu Cameras")]
-    [SerializeField] private CinemachineVirtualCamera logoCamera;
-    [SerializeField] private CinemachineVirtualCamera characterSelectionCamera;
-
-    [Header("Level Camera")]
-    [SerializeField] private CinemachineVirtualCamera levelVirtualCamera;
-    [SerializeField] private Transform levelCameraLookAt;
-    private CinemachineTrackedDolly levelTrackedDolly;
-    private CameraRail currentCameraRail;
-
-    private void Awake()
+    public void UpdateCameraVectors()
     {
-        levelTrackedDolly = levelVirtualCamera.GetCinemachineComponent<CinemachineTrackedDolly>();
-    }
-
-
-    // Update is called once per frame
-    void Update()
-    {
-        if (GameManager.instance.GetCurrentGameState() == GameManager.GameState.COMBAT)
-        {
-            float pathProgress = currentCameraRail.GetRailProgress();
-            levelCameraLookAt.position = currentCameraRail.GetFocusPosition(pathProgress);
-            levelTrackedDolly.m_PathPosition = pathProgress;
-
-            currentProjectedFront = Vector3.ProjectOnPlane(mainCamera.transform.forward, Vector3.up);
-            currentProjectedRight = Vector3.ProjectOnPlane(mainCamera.transform.right, Vector3.up);
-        }
+        currentProjectedFront = Vector3.ProjectOnPlane(mainCamera.transform.forward, Vector3.up);
+        currentProjectedRight = Vector3.ProjectOnPlane(mainCamera.transform.right, Vector3.up);
     }
 
     public Vector3 GetCurrentProjectedFront()
@@ -50,49 +27,23 @@ public class CameraManager : MonoBehaviour
         return currentProjectedRight;
     }
 
-    public void LoadLevelCamera()
+    public void LoadCamera(CinemachineVirtualCamera camera)
     {
-        UnloadAllCameras();
-        levelVirtualCamera.enabled = true;
-    }
-
-    public void LoadMainMenuCamera(MainMenuScreenUIManager.MainMenuScreenId mainMenuScreen)
-    {
-        UnloadAllCameras();
-        switch (mainMenuScreen)
+        if (currentVirtualCamera == camera)
         {
-            case MainMenuScreenUIManager.MainMenuScreenId.NONE:
-                break;
-            case MainMenuScreenUIManager.MainMenuScreenId.LOGO:
-                logoCamera.enabled = true;
-                break;
-
-            case MainMenuScreenUIManager.MainMenuScreenId.SELECT_CHARACTER:
-                characterSelectionCamera.enabled = true;
-                break;
-
-            case MainMenuScreenUIManager.MainMenuScreenId.SELECT_LEVEL:
-                break;
-            case MainMenuScreenUIManager.MainMenuScreenId.CONTROLS:
-                break;
-            case MainMenuScreenUIManager.MainMenuScreenId.SETTINGS:
-                break;
-            case MainMenuScreenUIManager.MainMenuScreenId.CREDITS:
-                break;
+            return;
         }
+
+        UnloadCurrentCamera();
+        currentVirtualCamera = camera;
+        currentVirtualCamera.enabled = true;
     }
 
-    private void UnloadAllCameras()
+    private void UnloadCurrentCamera()
     {
-        logoCamera.enabled = false;
-        characterSelectionCamera.enabled = false;
-
-        levelVirtualCamera.enabled = false;
-    }
-
-    public void SetCurrentCameraRail(CameraRail newCameraRail)
-    {
-        currentCameraRail = newCameraRail;
-        levelTrackedDolly.m_Path = currentCameraRail.GetCameraPositionPath();
+        if (currentVirtualCamera != null)
+        {
+            currentVirtualCamera.enabled = false;
+        }
     }
 }
