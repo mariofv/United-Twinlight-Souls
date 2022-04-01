@@ -119,7 +119,7 @@ public class GameManager : MonoBehaviour
         uiManager.gameUIManager.HideAll();
 
         enemyManager.InitializedEnemyPools();
-        yield return StartCoroutine(levelManager.LoadLevel(level, waitLoadingScreenTime: waitLoadingScreenTime, fade:false));
+        yield return StartCoroutine(levelManager.LoadLevelAsync(level, waitLoadingScreenTime: waitLoadingScreenTime, fade:false));
 
         inputManager.EnablePauseInput(true);
 

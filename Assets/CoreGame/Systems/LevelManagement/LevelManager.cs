@@ -9,7 +9,12 @@ public class LevelManager : MonoBehaviour
     private int currentLevelIndex = -1;
     private Level currentLevel;
 
-    public IEnumerator LoadLevel(int level, bool waitLoadingScreenTime, bool fade = true)
+    public void LoadLevel(int level, bool waitLoadingScreenTime, bool fade = true)
+    {
+        StartCoroutine(LoadLevelAsync(level, waitLoadingScreenTime, fade));
+    }
+
+    public IEnumerator LoadLevelAsync(int level, bool waitLoadingScreenTime, bool fade)
     {
         if (fade)
         {
