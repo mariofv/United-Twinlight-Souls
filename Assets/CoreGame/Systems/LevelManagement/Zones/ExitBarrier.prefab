@@ -127,6 +127,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 9e4c17ac9d6a92342ae7a1f0f357bbab, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  barrierCollider: {fileID: 6022566466398383856}
+  openingTime: 2
+  downDistance: 10
 --- !u!1 &3482169709999012772
 GameObject:
   m_ObjectHideFlags: 0

@@ -31,6 +31,7 @@ public class Level : MonoBehaviour
 
     public void AdvanceZone()
     {
+        levelZones[currentZone].zoneExitBarrier.Open();
         ++currentZone;
         GameManager.instance.cameraManager.LoadCamera(GetCurrentZoneCamera());
     }
