@@ -12,28 +12,17 @@ public class EnemyCombatArea : MonoBehaviour
     }
 
     [SerializeField] private CinemachineVirtualCamera combatAreaCamera;
+    [SerializeField] private BoxCollider combatAreaEnterGateCollider;
     [SerializeField] private List<CombatAreaWave> combatAreaWaves;
 
     private bool started = false;
     private int currentWave = 0;
     private int currentWaveEnemies = 0;
-
-    // Start is called before the first frame updat
-    void Start()
-    {
-        
-    }
-
-    // Update is called once per frame
-    void Update()
-    {
-        
-    }
-
     private void StartCombatArea()
     {
         started = true;
         currentWave = 0;
+        combatAreaEnterGateCollider.enabled = true;
         GameManager.instance.cameraManager.LoadCamera(combatAreaCamera);
         StartCurrentWave();
     }
