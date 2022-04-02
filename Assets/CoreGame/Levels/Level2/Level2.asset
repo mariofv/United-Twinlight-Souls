@@ -13,5 +13,5 @@ MonoBehaviour:
   m_Name: Level2
   m_EditorClassIdentifier: 
   levelName: Level 2
-  levelScene: Assets/CoreGame/Levels/Level1/Level1.unity
+  levelScene: Assets/CoreGame/Levels/Level2/Level2.unity
   levelMusic: {fileID: 8300000, guid: 7fed995d99ea05c4f8a454a035491dc9, type: 3}

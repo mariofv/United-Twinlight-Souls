@@ -94,6 +94,7 @@ MonoBehaviour:
   loadMainMenu: 0
   showEnemyDebugInfo: 0
   godMode: 0
+  flashMode: 0
   debugMenuManager: {fileID: 4414744503822182132}
 --- !u!114 &4414744503822182132
 MonoBehaviour:
@@ -723,6 +724,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   gameLevels:
   - {fileID: 11400000, guid: 1450fa87c76fc5c44aceceef0426fe76, type: 2}
+  - {fileID: 11400000, guid: a3f46976441b4de4d941525fb43de20a, type: 2}
 --- !u!1 &8560554668026509839
 GameObject:
   m_ObjectHideFlags: 0
