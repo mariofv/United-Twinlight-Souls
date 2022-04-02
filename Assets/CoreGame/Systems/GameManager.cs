@@ -50,7 +50,7 @@ public class GameManager : MonoBehaviour
 
         if ((Debug.isDebugBuild || Application.isEditor) && !debugManager.loadMainMenu)
         {
-            InitGame(0, false);
+            InitGame(1, false);
         }
         else
         {
