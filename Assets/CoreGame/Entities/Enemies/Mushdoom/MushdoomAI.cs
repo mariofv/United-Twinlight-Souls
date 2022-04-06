@@ -12,7 +12,8 @@ public class MushdoomAI : EnemyAI
         BATTLE_CRY,
         CHASING_PLAYER,
         SPIN_ATTACK,
-        SPORE_ATTACK
+        SPORE_ATTACK,
+        DYING
     }
 
     [Header("Idle State")]
@@ -101,6 +102,9 @@ public class MushdoomAI : EnemyAI
             case MushdoomState.SPORE_ATTACK:
                 UpdateSporeAttackState();
                 break;
+
+            default:
+                break;
         }
     }
 
@@ -150,6 +154,11 @@ public class MushdoomAI : EnemyAI
 
     public void OnBattleCryEnd()
     {
+        if (currentState != MushdoomState.BATTLE_CRY)
+        {
+            return;
+        }
+
         TransitionToChasingState();
     }
 
@@ -278,6 +287,23 @@ public class MushdoomAI : EnemyAI
         {
             TransitionToIdleState();
         }
+    }
+
+    public override void TransitionToDeath()
+    {
+        currentState = MushdoomState.DYING;
+        DisableNavMeshAgent();
+        enemy.TriggerAnimation("die");
+    }
+
+    public void OnDeathEnd()
+    {
+        if (currentState != MushdoomState.DYING)
+        {
+            throw new UnityException("OnDeathEnd called in state " + currentState);
+        }
+
+        enemy.Kill();
     }
 
     private bool IsInPassiveState()

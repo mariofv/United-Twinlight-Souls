@@ -7,10 +7,10 @@ public class MushdoomAnimationEventAdapter : MonoBehaviour
 {
     public UnityEvent onSporeAttackVolumeStart;
     public UnityEvent onSporeAttackEnd;
-
     public UnityEvent onSpinAttackEnd;
 
     public UnityEvent onBattleCryEnd;
+    public UnityEvent onDeathEnd;
 
     public void OnSporeAttackVolumeStart()
     {
@@ -30,5 +30,10 @@ public class MushdoomAnimationEventAdapter : MonoBehaviour
     public void OnBattleCryEnd()
     {
         onBattleCryEnd.Invoke();
+    }
+
+    public void OnDeathEnd()
+    {
+        onDeathEnd.Invoke();
     }
 }

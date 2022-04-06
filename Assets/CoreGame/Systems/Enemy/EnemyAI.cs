@@ -27,6 +27,7 @@ public abstract class EnemyAI : MonoBehaviour
 
     protected abstract void UpdateAI();
     public abstract void Reanimate();
+    public abstract void TransitionToDeath();
 
     public void Link(Enemy enemy)
     {
@@ -44,7 +45,7 @@ public abstract class EnemyAI : MonoBehaviour
         enemyNavMeshAgent.enabled = true;
     }
 
-    public void DisableNavMeshAgent()
+    protected void DisableNavMeshAgent()
     {
         enemyNavMeshAgent.enabled = false;
     }

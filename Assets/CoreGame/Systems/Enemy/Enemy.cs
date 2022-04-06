@@ -42,7 +42,7 @@ public class Enemy : MonoBehaviour
         currentHealth = Mathf.Max(0, currentHealth - damage);
         if (currentHealth == 0)
         {
-            Kill();
+            enemyAI.TransitionToDeath();
         }
     }
 
@@ -56,7 +56,6 @@ public class Enemy : MonoBehaviour
 
     public void Kill()
     {
-        enemyAI.DisableNavMeshAgent();
         gameObject.SetActive(false);
         onSpawnedEnemyDead.Invoke();
     }
