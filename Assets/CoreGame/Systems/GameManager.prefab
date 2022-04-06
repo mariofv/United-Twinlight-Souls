@@ -92,6 +92,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   loadMainMenu: 0
+  selectedLevel: 0
   showEnemyDebugInfo: 0
   godMode: 0
   flashMode: 0
@@ -478,7 +479,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 860a158abe8dcdb4ea47079108de2be3, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  poolEnemyAsset: {fileID: 0}
+  poolEnemyAsset: {fileID: 11400000, guid: bb0f490610f30b644ad160f81d3b6c6f, type: 2}
   batchSize: 10
 --- !u!1 &5034906767157585825
 GameObject:

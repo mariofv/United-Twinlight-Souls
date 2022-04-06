@@ -38,7 +38,7 @@ RenderSettings:
   m_ReflectionIntensity: 1
   m_CustomReflection: {fileID: 0}
   m_Sun: {fileID: 0}
-  m_IndirectSpecularColor: {r: 0.44657898, g: 0.4964133, b: 0.5748178, a: 1}
+  m_IndirectSpecularColor: {r: 0.37311953, g: 0.38074014, b: 0.3587274, a: 1}
   m_UseRadianceAmbientProbe: 0
 --- !u!157 &3
 LightmapSettings:
@@ -262,10 +262,6 @@ PrefabInstance:
       propertyPath: uiInputModule
       value: 
       objectReference: {fileID: 1858461488}
-    - target: {fileID: 5354487625839802888, guid: 9aa138b6efb0c244098e2e3efd8c2ead, type: 3}
-      propertyPath: poolEnemyAsset
-      value: 
-      objectReference: {fileID: 11400000, guid: 2619fee2a4814b340ab2cc16ef046138, type: 2}
     - target: {fileID: 7463979648709599497, guid: 9aa138b6efb0c244098e2e3efd8c2ead, type: 3}
       propertyPath: furra
       value: 
