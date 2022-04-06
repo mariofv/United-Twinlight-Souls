@@ -7,6 +7,7 @@ public class Enemy : MonoBehaviour
 {
     [SerializeField] private EnemyAI enemyAI;
     [SerializeField] private Animator enemyAnimator;
+    [SerializeField] private Collider enemyHurtBox;
 
     [Header("Enemy Stats")]
     [SerializeField] private int maxHealth;
@@ -40,9 +41,14 @@ public class Enemy : MonoBehaviour
         GameManager.instance.uiManager.gameUIManager.damageIndicatorUI.ShowDamageIndicator(damage, attackerPosition, enemyPosition);
 
         currentHealth = Mathf.Max(0, currentHealth - damage);
-        if (currentHealth == 0)
+        if (currentHealth <= 0)
         {
-            enemyAI.TransitionToDeath();
+            enemyHurtBox.enabled = false;
+            enemyAI.OnDeathStart();
+        }
+        else
+        {
+            enemyAI.OnHitStart();
         }
     }
 
@@ -51,6 +57,7 @@ public class Enemy : MonoBehaviour
         onSpawnedEnemyDead.RemoveAllListeners();
         enemyAI.Reanimate();
         currentHealth = maxHealth;
+        enemyHurtBox.enabled = true;
         gameObject.SetActive(true);
     }
 

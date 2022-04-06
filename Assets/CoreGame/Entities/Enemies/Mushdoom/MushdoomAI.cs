@@ -13,6 +13,7 @@ public class MushdoomAI : EnemyAI
         CHASING_PLAYER,
         SPIN_ATTACK,
         SPORE_ATTACK,
+        HIT,
         DYING
     }
 
@@ -159,7 +160,14 @@ public class MushdoomAI : EnemyAI
             return;
         }
 
-        TransitionToChasingState();
+        if (!playerInSight)
+        {
+            TransitionToIdleState();
+        }
+        else
+        {
+            TransitionToChasingState();
+        }
     }
 
     private void TransitionToChasingState()
@@ -289,7 +297,37 @@ public class MushdoomAI : EnemyAI
         }
     }
 
-    public override void TransitionToDeath()
+    public override void OnHitStart()
+    {
+        currentState = MushdoomState.HIT;
+        if (Random.Range(0f, 1f) < 0.5f)
+        {
+            enemy.TriggerAnimation("hitReaction1");
+        }
+        else
+        {
+            enemy.TriggerAnimation("hitReaction2");
+        }
+    }
+
+    public void OnHitEnd()
+    {
+        if (currentState != MushdoomState.HIT)
+        {
+            return;
+        }
+
+        if (!playerInSight)
+        {
+            TransitionToIdleState();
+        }
+        else
+        {
+            TransitionToChasingState();
+        }
+    }
+
+    public override void OnDeathStart()
     {
         currentState = MushdoomState.DYING;
         DisableNavMeshAgent();

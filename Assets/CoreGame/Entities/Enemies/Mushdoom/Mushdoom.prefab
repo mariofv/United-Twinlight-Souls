@@ -52,6 +52,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   enemyAI: {fileID: 7873632020264568125}
   enemyAnimator: {fileID: 5341458217088628165}
+  enemyHurtBox: {fileID: 5088390912031724254}
   maxHealth: 20
   currentHealth: 0
   onSpawnedEnemyDead:
@@ -751,6 +752,21 @@ MonoBehaviour:
       - m_Target: {fileID: 7873632020264568125}
         m_TargetAssemblyTypeName: MushdoomAI, Assembly-CSharp
         m_MethodName: OnBattleCryEnd
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
+  onHitEnd:
+    m_PersistentCalls:
+      m_Calls:
+      - m_Target: {fileID: 7873632020264568125}
+        m_TargetAssemblyTypeName: MushdoomAI, Assembly-CSharp
+        m_MethodName: OnHitEnd
         m_Mode: 1
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
