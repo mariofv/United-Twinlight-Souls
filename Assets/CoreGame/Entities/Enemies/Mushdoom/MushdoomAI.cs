@@ -9,6 +9,7 @@ public class MushdoomAI : EnemyAI
     {
         IDLE,
         WANDERING,
+        BATTLE_CRY,
         CHASING_PLAYER,
         SPIN_ATTACK,
         SPORE_ATTACK
@@ -23,6 +24,9 @@ public class MushdoomAI : EnemyAI
     [SerializeField] private float maxWanderingTime;
     [SerializeField] private float nextWanderingPositionDistance;
     private Vector3 nextWanderingDestination;
+
+    [Header("BattleCry State")]
+    private bool hasBattleCried = false;
 
     [Header("Chasing State")]
     private float chasingPlayerStopDistance;
@@ -69,9 +73,9 @@ public class MushdoomAI : EnemyAI
     {
         aiTimer = 0f;
         playerInSight = false;
+        hasBattleCried = false;
 
         isSporeAttackActive = false;
-
         currentState = MushdoomState.IDLE;
     }
 
@@ -135,6 +139,18 @@ public class MushdoomAI : EnemyAI
         {
             TransitionToIdleState();
         }
+    }
+
+    private void TransitionToBattleCryState()
+    {
+        hasBattleCried = true;
+        currentState = MushdoomState.BATTLE_CRY;
+        enemy.TriggerAnimation("battleCry");
+    }
+
+    public void OnBattleCryEnd()
+    {
+        TransitionToChasingState();
     }
 
     private void TransitionToChasingState()
@@ -244,7 +260,14 @@ public class MushdoomAI : EnemyAI
         playerInSight = true;
         if (IsInPassiveState())
         {
-            TransitionToChasingState();
+            if (hasBattleCried)
+            {
+                TransitionToChasingState();
+            }
+            else
+            {
+                TransitionToBattleCryState();
+            }
         }
     }
 
