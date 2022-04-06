@@ -38,6 +38,10 @@ public class Enemy : MonoBehaviour
 
         Vector3 enemyPosition = transform.position;
         Vector3 attackerPosition = GameManager.instance.player.GetControlledCharacter().characterMovementManager.GetPosition();
+        Vector3 attackDirection = (enemyPosition - attackerPosition).normalized;
+
+        transform.rotation = Quaternion.LookRotation(-attackDirection);
+
         GameManager.instance.uiManager.gameUIManager.damageIndicatorUI.ShowDamageIndicator(damage, attackerPosition, enemyPosition);
 
         currentHealth = Mathf.Max(0, currentHealth - damage);
