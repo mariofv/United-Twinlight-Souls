@@ -59,10 +59,10 @@ public class Enemy : MonoBehaviour
     public void Reanimate()
     {
         onSpawnedEnemyDead.RemoveAllListeners();
-        enemyAI.Reanimate();
         currentHealth = maxHealth;
-        enemyHurtBox.enabled = true;
+        SetInvincible(false);
         gameObject.SetActive(true);
+        enemyAI.Reanimate();
     }
 
     public void Kill()
@@ -78,7 +78,7 @@ public class Enemy : MonoBehaviour
 
         if (spawnAnimation)
         {
-            TriggerAnimation("spawn");
+            enemyAI.OnSpawnStart();
         }
     }
 
@@ -90,5 +90,10 @@ public class Enemy : MonoBehaviour
     public void TriggerAnimation(string triggerName)
     {
         enemyAnimator.SetTrigger(triggerName);
+    }
+
+    public void SetInvincible(bool isInvincible)
+    {
+        enemyHurtBox.enabled = !isInvincible;
     }
 }

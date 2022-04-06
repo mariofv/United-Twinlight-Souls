@@ -7,6 +7,7 @@ public class MushdoomAI : EnemyAI
 {
     private enum MushdoomState
     {
+        SPAWN,
         IDLE,
         WANDERING,
         BATTLE_CRY,
@@ -106,6 +107,31 @@ public class MushdoomAI : EnemyAI
 
             default:
                 break;
+        }
+    }
+
+    public override void OnSpawnStart()
+    {
+        currentState = MushdoomState.SPAWN;
+        enemy.TriggerAnimation("spawn");
+        enemy.SetInvincible(true);
+    }
+
+    public void OnSpawnEnd()
+    {
+        if (currentState != MushdoomState.SPAWN)
+        {
+            throw new UnityException("OnSpawnEnd was captured but Mushdoom was in " + currentState + " state!");
+        }
+
+        enemy.SetInvincible(false);
+        if (!playerInSight)
+        {
+            TransitionToIdleState();
+        }
+        else
+        {
+            TransitionToChasingState();
         }
     }
 
@@ -218,14 +244,14 @@ public class MushdoomAI : EnemyAI
     
     public void OnSpinAttackEnd()
     {
-        if (currentState != MushdoomState.SPIN_ATTACK)
-        {
-            throw new UnityException("OnSpinAttackEnd was captured but Mushdoom was in " + currentState + " state!");
-        }
-
         for (int i = 0; i < spinAttackColliders.Count; ++i)
         {
             spinAttackColliders[i].SetColliderActive(false);
+        }
+
+        if (currentState != MushdoomState.SPIN_ATTACK)
+        {
+            return;
         }
 
         if (!playerInSight)
@@ -259,7 +285,7 @@ public class MushdoomAI : EnemyAI
     {
         if (currentState != MushdoomState.SPORE_ATTACK)
         {
-            throw new UnityException("OnSporeAttackEnd was captured but Mushdoom was in " + currentState + " state!");
+            return;
         }
 
         if (!playerInSight)

@@ -27,6 +27,7 @@ public abstract class EnemyAI : MonoBehaviour
 
     protected abstract void UpdateAI();
     public abstract void Reanimate();
+    public abstract void OnSpawnStart();
     public abstract void OnDeathStart();
     public abstract void OnHitStart();
 

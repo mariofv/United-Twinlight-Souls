@@ -11,6 +11,7 @@ public class MushdoomAnimationEventAdapter : MonoBehaviour
 
     public UnityEvent onBattleCryEnd;
     public UnityEvent onHitEnd;
+    public UnityEvent onSpawnEnd;
     public UnityEvent onDeathEnd;
 
     public void OnSporeAttackVolumeStart()
@@ -36,6 +37,11 @@ public class MushdoomAnimationEventAdapter : MonoBehaviour
     public void OnHitEnd()
     {
         onHitEnd.Invoke();
+    }
+
+    public void OnSpawnEnd()
+    {
+        onSpawnEnd.Invoke();
     }
 
     public void OnDeathEnd()
