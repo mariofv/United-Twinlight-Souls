@@ -6,6 +6,7 @@ using UnityEngine.InputSystem;
 public class DebugManager : MonoBehaviour
 {
     public bool loadMainMenu = false;
+    public int selectedLevel = 0;
     public bool showEnemyDebugInfo = false;
     public bool godMode = false;
     public bool flashMode = false;
