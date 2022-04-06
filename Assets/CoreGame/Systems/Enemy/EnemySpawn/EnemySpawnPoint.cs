@@ -12,12 +12,12 @@ public class EnemySpawnPoint : MonoBehaviour
     {
         if (spawnFromStart)
         {
-            Spawn();
+            Spawn(spawnAnimation : false);
         }
     }
 
-    public Enemy Spawn()
+    public Enemy Spawn(bool spawnAnimation = true)
     {
-        return GameManager.instance.enemyManager.SpawnEnemy(enemyId, transform.position);
+        return GameManager.instance.enemyManager.SpawnEnemy(enemyId, transform.position, spawnAnimation);
     }
 }

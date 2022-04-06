@@ -15,16 +15,16 @@ public class EnemyManager : MonoBehaviour
         
     }
 
-    public void SpawnEnemy(EnemyAsset.EnemyId enemyId)
+    public void SpawnEnemy(EnemyAsset.EnemyId enemyId, bool spawnAnimation = true)
     {
-        SpawnEnemy(enemyId, NavMeshHelper.FindAvailableSpawnPosition());
+        SpawnEnemy(enemyId, NavMeshHelper.FindAvailableSpawnPosition(), spawnAnimation);
     }
 
-    public Enemy SpawnEnemy(EnemyAsset.EnemyId enemyId, Vector3 spawnPosition)
+    public Enemy SpawnEnemy(EnemyAsset.EnemyId enemyId, Vector3 spawnPosition, bool spawnAnimation = true)
     {
         Enemy spawnedEnemy = SpawnEnemyFromPool(enemyId);
 
-        spawnedEnemy.Spawn(spawnPosition);
+        spawnedEnemy.Spawn(spawnPosition, spawnAnimation);
 
         return spawnedEnemy;
     }

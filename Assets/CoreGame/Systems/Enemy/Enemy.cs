@@ -61,10 +61,15 @@ public class Enemy : MonoBehaviour
         onSpawnedEnemyDead.Invoke();
     }
 
-    public void Spawn(Vector3 position)
+    public void Spawn(Vector3 position, bool spawnAnimation)
     {
         enemyAI.SpawnInNavMesh(position);
         Reanimate();
+
+        if (spawnAnimation)
+        {
+            TriggerAnimation("spawn");
+        }
     }
 
     public bool IsAlive()
