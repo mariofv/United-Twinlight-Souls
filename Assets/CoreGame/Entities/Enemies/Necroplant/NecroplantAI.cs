@@ -28,7 +28,10 @@ public class NecroplantAI : EnemyAI
     private float spawnTime;
 
     [Header("Aiming State")]
+    [SerializeField] private Transform necroplantAimingBodyTransform;
+    [SerializeField] private float aimingRotationSpeed;
     [SerializeField] private float maxAimingTime;
+    private Transform targetedPlayerTransform;
 
     void Awake()
     {
@@ -50,6 +53,10 @@ public class NecroplantAI : EnemyAI
         {
             UpdateSpawnState();
         }
+        else if (currentState == NecroplantState.AIMING_PLAYER)
+        {
+            UpdateAimingPlayerState();
+        }
     }
 
     protected override void UpdateAI()
@@ -63,6 +70,7 @@ public class NecroplantAI : EnemyAI
             case NecroplantState.IDLE:
                 break;
             case NecroplantState.AIMING_PLAYER:
+                UpdateAimingAIPlayerState();
                 break;
             case NecroplantState.SIMPLE_ATTACK:
                 break;
@@ -120,6 +128,23 @@ public class NecroplantAI : EnemyAI
     {
         currentState = NecroplantState.AIMING_PLAYER;
         aiTimer = 0f;
+        targetedPlayerTransform = GameManager.instance.player.GetControlledCharacter().transform;
+    }
+
+    private void UpdateAimingPlayerState()
+    {
+        Vector3 lookDirection = targetedPlayerTransform.position - transform.position;
+        Quaternion lookRotation = Quaternion.LookRotation(lookDirection);
+        necroplantAimingBodyTransform.rotation = Quaternion.Slerp(necroplantAimingBodyTransform.rotation, lookRotation, Time.deltaTime * aimingRotationSpeed);
+    }
+
+    private void UpdateAimingAIPlayerState()
+    {
+        aiTimer += deltaTimeAI;
+        if (aiTimer >= maxAimingTime)
+        {
+
+        }
     }
 
     private void OnPlayerDetected()

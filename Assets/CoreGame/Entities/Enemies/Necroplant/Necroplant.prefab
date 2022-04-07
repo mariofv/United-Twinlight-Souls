@@ -105,6 +105,8 @@ MonoBehaviour:
   playerDetectionCollider: {fileID: 8149988738149529445}
   rootsAnimatorController: {fileID: 2315016635068904609}
   necroplantBodyTransform: {fileID: 7134990850573719221}
+  necroplantAimingBodyTransform: {fileID: 843159045261292854}
+  aimingRotationSpeed: 2
   maxAimingTime: 3
 --- !u!195 &6964258049126854866
 NavMeshAgent:
