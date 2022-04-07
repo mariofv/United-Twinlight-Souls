@@ -166,7 +166,7 @@ public class MushdoomAI : EnemyAI
     private void UpdateWanderingState()
     {
         aiTimer += deltaTimeAI;
-        if (Vector3.SqrMagnitude(transform.position - nextWanderingDestination) <= 0.5f || aiTimer >= maxWanderingTime)
+        if (aiTimer >= maxWanderingTime || Vector3.SqrMagnitude(transform.position - nextWanderingDestination) <= 0.5f )
         {
             TransitionToIdleState();
         }
