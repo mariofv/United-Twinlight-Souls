@@ -106,7 +106,7 @@ MonoBehaviour:
   rootsAnimatorController: {fileID: 2315016635068904609}
   necroplantBodyTransform: {fileID: 7134990850573719221}
   necroplantAimingBodyTransform: {fileID: 843159045261292854}
-  aimingRotationSpeed: 2
+  aimingRotationSpeed: 5
   maxAimingTime: 3
 --- !u!195 &6964258049126854866
 NavMeshAgent:

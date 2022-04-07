@@ -33,6 +33,7 @@ public class Enemy : MonoBehaviour
         Vector3 enemyPosition = transform.position;
         Vector3 attackerPosition = GameManager.instance.player.GetControlledCharacter().characterMovementManager.GetPosition();
         Vector3 attackDirection = (enemyPosition - attackerPosition).normalized;
+        attackDirection.y = 0f;
 
         transform.rotation = Quaternion.LookRotation(-attackDirection);
 

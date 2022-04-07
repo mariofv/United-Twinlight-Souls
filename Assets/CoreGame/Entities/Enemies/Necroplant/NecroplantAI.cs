@@ -134,6 +134,7 @@ public class NecroplantAI : EnemyAI
     private void UpdateAimingPlayerState()
     {
         Vector3 lookDirection = targetedPlayerTransform.position - transform.position;
+        lookDirection.y = 0f;
         Quaternion lookRotation = Quaternion.LookRotation(lookDirection);
         necroplantAimingBodyTransform.rotation = Quaternion.Slerp(necroplantAimingBodyTransform.rotation, lookRotation, Time.deltaTime * aimingRotationSpeed);
     }
