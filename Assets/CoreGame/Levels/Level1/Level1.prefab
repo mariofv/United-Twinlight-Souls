@@ -4490,7 +4490,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 5939197510693216338, guid: 40a160e447acfdc44aef452326aad274, type: 3}
       propertyPath: levelToTransition
-      value: 0
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 8067277099826181362, guid: 40a160e447acfdc44aef452326aad274, type: 3}
       propertyPath: m_Name
