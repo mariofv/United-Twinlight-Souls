@@ -259,7 +259,7 @@ GameObject:
   - component: {fileID: 4211139403351343217}
   - component: {fileID: 143941921297689008}
   m_Layer: 0
-  m_Name: BitterPool
+  m_Name: BiterPool
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -291,7 +291,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 860a158abe8dcdb4ea47079108de2be3, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  poolEnemyAsset: {fileID: 0}
+  poolEnemyAsset: {fileID: 11400000, guid: b6e7a348dca4d5d4c9e1d0b6524377ce, type: 2}
   batchSize: 10
 --- !u!1 &2878320120165515915
 GameObject:
@@ -340,7 +340,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   mushdoomPool: {fileID: 7062951268815536604}
-  bitterPool: {fileID: 143941921297689008}
+  biterPool: {fileID: 143941921297689008}
   necroplantPool: {fileID: 5354487625839802888}
 --- !u!1 &2883212932835270503
 GameObject:

@@ -9,7 +9,7 @@ public class EnemyAsset : ScriptableObject
     public enum EnemyId
     {
         MUSHDOOM,
-        BITTER,
+        BITER,
         NECROPLANT
     }
 

@@ -19,9 +19,9 @@ public class EnemyDebugMenu : DebugMenu
         {
             GameManager.instance.enemyManager.SpawnEnemy(EnemyAsset.EnemyId.MUSHDOOM);
         }
-        if (GUILayout.Button("Spawn Bitter"))
+        if (GUILayout.Button("Spawn Biter"))
         {
-            GameManager.instance.enemyManager.SpawnEnemy(EnemyAsset.EnemyId.BITTER);
+            GameManager.instance.enemyManager.SpawnEnemy(EnemyAsset.EnemyId.BITER);
         }
         if (GUILayout.Button("Spawn Necroplant"))
         {

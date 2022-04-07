@@ -6,7 +6,7 @@ using UnityEngine.AI;
 public class EnemyManager : MonoBehaviour
 {
     [SerializeField] private EnemyPool mushdoomPool;
-    [SerializeField] private EnemyPool bitterPool;
+    [SerializeField] private EnemyPool biterPool;
     [SerializeField] private EnemyPool necroplantPool;
 
     // Update is called once per frame
@@ -36,8 +36,8 @@ public class EnemyManager : MonoBehaviour
             case EnemyAsset.EnemyId.MUSHDOOM:
                 return mushdoomPool.GetEnemyInstance();
 
-            case EnemyAsset.EnemyId.BITTER:
-                return bitterPool.GetEnemyInstance();
+            case EnemyAsset.EnemyId.BITER:
+                return biterPool.GetEnemyInstance();
 
             case EnemyAsset.EnemyId.NECROPLANT:
                 return necroplantPool.GetEnemyInstance();
@@ -50,14 +50,14 @@ public class EnemyManager : MonoBehaviour
     public void InitializedEnemyPools()
     {
         mushdoomPool.InitPool();
-        bitterPool.InitPool();
+        biterPool.InitPool();
         necroplantPool.InitPool();
     }
 
     public void EmptyEnemyPools()
     {
         mushdoomPool.EmptyPool();
-        bitterPool.EmptyPool();
+        biterPool.EmptyPool();
         necroplantPool.EmptyPool();
     }
 }
