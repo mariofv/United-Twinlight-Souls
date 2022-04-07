@@ -86,7 +86,6 @@ MonoBehaviour:
   enemyHurtBox: {fileID: 2366371274375746240}
   maxHealth: 30
   currentHealth: 0
-  enemyCanMove: 0
   onSpawnedEnemyDead:
     m_PersistentCalls:
       m_Calls: []
@@ -524,6 +523,11 @@ PrefabInstance:
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: ff51a0e6f048cca4d828a70c137724ed, type: 3}
+--- !u!1 &69893770979880844 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 919132149155446097, guid: ff51a0e6f048cca4d828a70c137724ed, type: 3}
+  m_PrefabInstance: {fileID: 880798777496670941}
+  m_PrefabAsset: {fileID: 0}
 --- !u!4 &843159045261292854 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: -8679921383154817045, guid: ff51a0e6f048cca4d828a70c137724ed, type: 3}
@@ -539,6 +543,33 @@ Transform:
   m_CorrespondingSourceObject: {fileID: 8015753893941232744, guid: ff51a0e6f048cca4d828a70c137724ed, type: 3}
   m_PrefabInstance: {fileID: 880798777496670941}
   m_PrefabAsset: {fileID: 0}
+--- !u!114 &3888444189702083726
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 69893770979880844}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 0e84c5687ab684844a6e3da5916af83c, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  onDeathEnd:
+    m_PersistentCalls:
+      m_Calls:
+      - m_Target: {fileID: -8815463534888132488}
+        m_TargetAssemblyTypeName: NecroplantAI, Assembly-CSharp
+        m_MethodName: OnDeathEnd
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
 --- !u!1001 &3093409297885029251
 PrefabInstance:
   m_ObjectHideFlags: 0
