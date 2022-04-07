@@ -82,6 +82,11 @@ public class MushdoomAI : EnemyAI
         currentState = MushdoomState.IDLE;
     }
 
+    protected override void UpdateSpecific()
+    {
+        enemy.SetAnimatorBool("moving", IsAgentMoving());
+    }
+
     protected override void UpdateAI()
     {
         switch (currentState)

@@ -20,12 +20,6 @@ public class Enemy : MonoBehaviour
         enemyAI.Link(this);
     }
 
-    // Update is called once per frame
-    void Update()
-    {
-        enemyAnimator.SetBool("moving", enemyAI.IsAgentMoving());
-    }
-
     public void Hurt(int damage)
     {
         if (Debug.isDebugBuild || Application.isEditor)
@@ -87,6 +81,11 @@ public class Enemy : MonoBehaviour
         return gameObject.activeSelf;
     }
 
+    public void SetAnimatorBool(string boolName, bool value)
+    {
+        enemyAnimator.SetBool(boolName, value);
+    }
+    
     public void TriggerAnimation(string triggerName)
     {
         enemyAnimator.SetTrigger(triggerName);

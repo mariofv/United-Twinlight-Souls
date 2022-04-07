@@ -86,6 +86,7 @@ MonoBehaviour:
   enemyHurtBox: {fileID: 2366371274375746240}
   maxHealth: 30
   currentHealth: 0
+  enemyCanMove: 0
   onSpawnedEnemyDead:
     m_PersistentCalls:
       m_Calls: []
@@ -104,6 +105,7 @@ MonoBehaviour:
   enemyNavMeshAgent: {fileID: 6964258049126854866}
   playerDetectionCollider: {fileID: 8149988738149529445}
   rootsAnimatorController: {fileID: 2315016635068904609}
+  necroplantBodyTransform: {fileID: 7134990850573719221}
   maxAimingTime: 3
 --- !u!195 &6964258049126854866
 NavMeshAgent:
@@ -532,6 +534,11 @@ Animator:
   m_CorrespondingSourceObject: {fileID: 5866666021909216657, guid: ff51a0e6f048cca4d828a70c137724ed, type: 3}
   m_PrefabInstance: {fileID: 880798777496670941}
   m_PrefabAsset: {fileID: 0}
+--- !u!4 &7134990850573719221 stripped
+Transform:
+  m_CorrespondingSourceObject: {fileID: 8015753893941232744, guid: ff51a0e6f048cca4d828a70c137724ed, type: 3}
+  m_PrefabInstance: {fileID: 880798777496670941}
+  m_PrefabAsset: {fileID: 0}
 --- !u!1001 &3093409297885029251
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -706,6 +713,11 @@ PrefabInstance:
       objectReference: {fileID: 9100000, guid: 8ba4c30fda7b8b04e8c4389e7310e649, type: 2}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 35db4ab9436e78542a955a3b5b224cb2, type: 3}
+--- !u!1 &9046442083860837473 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 919132149155446097, guid: 35db4ab9436e78542a955a3b5b224cb2, type: 3}
+  m_PrefabInstance: {fileID: 8163340525007948080}
+  m_PrefabAsset: {fileID: 0}
 --- !u!4 &8557045492093759195 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: -8679921383154817045, guid: 35db4ab9436e78542a955a3b5b224cb2, type: 3}
@@ -716,3 +728,33 @@ Animator:
   m_CorrespondingSourceObject: {fileID: 5866666021909216657, guid: 35db4ab9436e78542a955a3b5b224cb2, type: 3}
   m_PrefabInstance: {fileID: 8163340525007948080}
   m_PrefabAsset: {fileID: 0}
+--- !u!114 &9058098478454190350
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 9046442083860837473}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 294e40f5d7c3e5c4391cc32a6029e5e6, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  onSpawnEnd:
+    m_PersistentCalls:
+      m_Calls:
+      - m_Target: {fileID: -8815463534888132488}
+        m_TargetAssemblyTypeName: NecroplantAI, Assembly-CSharp
+        m_MethodName: OnSpawnEnd
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
+  onTeleportOutEnd:
+    m_PersistentCalls:
+      m_Calls: []

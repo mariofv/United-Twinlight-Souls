@@ -23,9 +23,11 @@ public abstract class EnemyAI : MonoBehaviour
             UpdateAI();
             currentTime = 0f;
         }
+        UpdateSpecific();
     }
 
     protected abstract void UpdateAI();
+    protected virtual void UpdateSpecific() { }
     public abstract void Reanimate();
     public abstract void OnSpawnStart();
     public abstract void OnDeathStart();

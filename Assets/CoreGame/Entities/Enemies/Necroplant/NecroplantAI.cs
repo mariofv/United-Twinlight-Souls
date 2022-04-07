@@ -23,6 +23,10 @@ public class NecroplantAI : EnemyAI
     [Header("Components")]
     [SerializeField] private Animator rootsAnimatorController;
 
+    [Header("Spawn State")]
+    [SerializeField] private Transform necroplantBodyTransform;
+    private float spawnTime;
+
     [Header("Aiming State")]
     [SerializeField] private float maxAimingTime;
 
@@ -30,12 +34,22 @@ public class NecroplantAI : EnemyAI
     {
         playerDetectionCollider.onPlayerDetected.AddListener(OnPlayerDetected);
         playerDetectionCollider.onPlayerLost.AddListener(OnPlayerLost);
+
+        spawnTime = 1.63f;
     }
 
     public override void Reanimate()
     {
         aiTimer = 0f;
         currentState = NecroplantState.IDLE;
+    }
+
+    protected override void UpdateSpecific()
+    {
+        if (currentState == NecroplantState.SPAWN)
+        {
+            UpdateSpawnState();
+        }
     }
 
     protected override void UpdateAI()
@@ -64,8 +78,18 @@ public class NecroplantAI : EnemyAI
     public override void OnSpawnStart()
     {
         currentState = NecroplantState.SPAWN;
-        enemy.TriggerAnimation("spawn");
+        rootsAnimatorController.SetTrigger("spawn");
         enemy.SetInvincible(true);
+        necroplantBodyTransform.localScale = Vector3.zero;
+        aiTimer = 0f;
+    }
+
+    private void UpdateSpawnState()
+    {
+        aiTimer += Time.deltaTime;
+        float progress = Mathf.Min(1f, aiTimer / spawnTime);
+
+        necroplantBodyTransform.localScale = Vector3.one * progress;
     }
 
     public void OnSpawnEnd()
@@ -76,6 +100,7 @@ public class NecroplantAI : EnemyAI
         }
 
         enemy.SetInvincible(false);
+        necroplantBodyTransform.localScale = Vector3.one;
         if (!playerInSight)
         {
             TransitionToIdleState();
