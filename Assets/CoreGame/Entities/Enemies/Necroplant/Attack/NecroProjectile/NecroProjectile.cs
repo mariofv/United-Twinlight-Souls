@@ -19,6 +19,7 @@ public class NecroProjectile : MonoBehaviour
 
     public void Shoot(Vector3 direction)
     {
+        transform.rotation = Quaternion.LookRotation(direction);
         projectileDirection = direction;
         alive = true;
     }

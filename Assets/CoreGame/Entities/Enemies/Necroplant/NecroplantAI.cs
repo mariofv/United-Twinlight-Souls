@@ -154,6 +154,7 @@ public class NecroplantAI : EnemyAI
     private void TransitionToShootState()
     {
         Vector3 directionToPlayer = (targetedPlayerTransform.position - transform.position).normalized;
+        directionToPlayer.y = 0;
         necroplantNecroMuzzle.Shoot(directionToPlayer);
         if (!playerInSight)
         {
