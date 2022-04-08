@@ -33,6 +33,9 @@ public class NecroplantAI : EnemyAI
     [SerializeField] private float maxAimingTime;
     private Transform targetedPlayerTransform;
 
+    [Header("Shooting State")]
+    [SerializeField] private NecroMuzzle necroplantNecroMuzzle;
+
     void Awake()
     {
         playerDetectionCollider.onPlayerDetected.AddListener(OnPlayerDetected);
@@ -144,7 +147,21 @@ public class NecroplantAI : EnemyAI
         aiTimer += deltaTimeAI;
         if (aiTimer >= maxAimingTime)
         {
+            TransitionToShootState();
+        }
+    }
 
+    private void TransitionToShootState()
+    {
+        Vector3 directionToPlayer = (targetedPlayerTransform.position - transform.position).normalized;
+        necroplantNecroMuzzle.Shoot(directionToPlayer);
+        if (!playerInSight)
+        {
+            TransitionToIdleState();
+        }
+        else
+        {
+            TransitionToAimingState();
         }
     }
 
