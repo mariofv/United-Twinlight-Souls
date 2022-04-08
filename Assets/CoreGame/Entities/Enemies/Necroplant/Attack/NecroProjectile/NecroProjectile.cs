@@ -5,6 +5,7 @@ using UnityEngine;
 public class NecroProjectile : MonoBehaviour
 {
     [SerializeField] private float projectileSpeed;
+    [SerializeField] private int projectileDamage;
     private Vector3 projectileDirection;
     private bool alive = false;
 
@@ -22,5 +23,23 @@ public class NecroProjectile : MonoBehaviour
         transform.rotation = Quaternion.LookRotation(direction);
         projectileDirection = direction;
         alive = true;
+    }
+
+    private void DestroyProjectile()
+    {
+        Destroy(gameObject);
+    }
+
+    private void OnCollisionEnter(Collision collision)
+    {
+        if (collision.transform.CompareTag(TagManager.PLAYER))
+        {
+            GameManager.instance.player.GetControlledCharacter().characterStatsManager.Hurt(projectileDamage);
+            DestroyProjectile();
+        }
+        else if (collision.transform.CompareTag(TagManager.LEVEL_COLLIDER))
+        {
+            DestroyProjectile();
+        }
     }
 }
