@@ -10,5 +10,7 @@ public class NecroMuzzle : MonoBehaviour
     public void Shoot(Vector3 direction)
     {
         GameObject instantiatedProjectile = Instantiate(necroProjectilePrefab);
+        NecroProjectile instantiatedNecroProjectile = instantiatedProjectile.GetComponent<NecroProjectile>();
+        instantiatedNecroProjectile.Shoot(direction);
     }
 }
