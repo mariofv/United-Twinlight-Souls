@@ -4,10 +4,19 @@ using UnityEngine;
 
 public class NecroProjectile : MonoBehaviour
 {
+    [Header("Projectile")]
     [SerializeField] private float projectileSpeed;
     [SerializeField] private int projectileDamage;
+    [SerializeField] private List<ParticleSystem> projectileEffects;
+
+    [Header("Impact")]
+    [SerializeField] private float destroyingTime;
+    [SerializeField] private List<ParticleSystem> impactEffects;
+    private float currentTime = 0f;
+
     private Vector3 projectileDirection;
     private bool alive = false;
+    private bool destroyed = false;
 
     // Update is called once per frame
     void Update()
@@ -15,6 +24,15 @@ public class NecroProjectile : MonoBehaviour
         if (alive)
         {
             transform.position += Time.deltaTime * projectileSpeed * projectileDirection;
+        }
+
+        else if (destroyed)
+        {
+            currentTime += Time.deltaTime;
+            if (currentTime >= destroyingTime)
+            {
+                Destroy(gameObject);
+            }
         }
     }
 
@@ -27,7 +45,19 @@ public class NecroProjectile : MonoBehaviour
 
     private void DestroyProjectile()
     {
-        Destroy(gameObject);
+        for (int i = 0; i < projectileEffects.Count; ++i)
+        {
+            projectileEffects[i].Stop();
+            projectileEffects[i].Clear();
+        }
+
+        for (int i = 0; i < impactEffects.Count; ++i)
+        {
+            impactEffects[i].Play();
+        }
+
+        alive = false;
+        destroyed = true;
     }
 
     private void OnCollisionEnter(Collision collision)
