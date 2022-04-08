@@ -60,6 +60,10 @@ public class NecroplantAI : EnemyAI
         {
             UpdateAimingPlayerState();
         }
+        else if (currentState == NecroplantState.SIMPLE_ATTACK)
+        {
+            UpdateShootngState();
+        }
     }
 
     protected override void UpdateAI()
@@ -153,9 +157,28 @@ public class NecroplantAI : EnemyAI
 
     private void TransitionToShootState()
     {
+        currentState = NecroplantState.SIMPLE_ATTACK;
+        enemy.TriggerAnimation("shoot");
+    }
+
+    private void UpdateShootngState()
+    {
+        Vector3 lookDirection = targetedPlayerTransform.position - transform.position;
+        lookDirection.y = 0f;
+        Quaternion lookRotation = Quaternion.LookRotation(lookDirection);
+        necroplantAimingBodyTransform.rotation = Quaternion.Slerp(necroplantAimingBodyTransform.rotation, lookRotation, Time.deltaTime * aimingRotationSpeed);
+    }
+
+    public void OnShoot()
+    {
         Vector3 directionToPlayer = (targetedPlayerTransform.position - transform.position).normalized;
         directionToPlayer.y = 0;
+
         necroplantNecroMuzzle.Shoot(directionToPlayer);
+    }
+
+    public void OnShootingAnimationEnd()
+    {
         if (!playerInSight)
         {
             TransitionToIdleState();
