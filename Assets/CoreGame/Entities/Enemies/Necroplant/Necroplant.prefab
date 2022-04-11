@@ -109,6 +109,8 @@ MonoBehaviour:
   aimingRotationSpeed: 5
   maxAimingTime: 3
   necroplantNecroMuzzle: {fileID: 428472070579247194}
+  numberOfShootsBeforeSpecialAttack: 3
+  shotgunAttackAngle: 30
 --- !u!195 &6964258049126854866
 NavMeshAgent:
   m_ObjectHideFlags: 0

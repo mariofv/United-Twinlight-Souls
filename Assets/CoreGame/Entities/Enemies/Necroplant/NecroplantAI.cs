@@ -35,6 +35,9 @@ public class NecroplantAI : EnemyAI
 
     [Header("Shooting State")]
     [SerializeField] private NecroMuzzle necroplantNecroMuzzle;
+    [SerializeField] private int numberOfShootsBeforeSpecialAttack;
+    [SerializeField] private float shotgunAttackAngle;
+    private int currentNumberOfShoots = 0;
 
     void Awake()
     {
@@ -47,22 +50,33 @@ public class NecroplantAI : EnemyAI
     public override void Reanimate()
     {
         aiTimer = 0f;
+        currentNumberOfShoots = 0;
         currentState = NecroplantState.IDLE;
     }
 
     protected override void UpdateSpecific()
     {
-        if (currentState == NecroplantState.SPAWN)
+        switch (currentState)
         {
-            UpdateSpawnState();
-        }
-        else if (currentState == NecroplantState.AIMING_PLAYER)
-        {
-            UpdateAimingPlayerState();
-        }
-        else if (currentState == NecroplantState.SIMPLE_ATTACK)
-        {
-            UpdateShootngState();
+            case NecroplantState.SPAWN:
+                UpdateSpawnState();
+                break;
+            case NecroplantState.TELEPORT_OUT:
+                break;
+            case NecroplantState.IDLE:
+                break;
+            case NecroplantState.AIMING_PLAYER:
+                UpdateAimingPlayerState();
+                break;
+            case NecroplantState.SIMPLE_ATTACK:
+                break;
+            case NecroplantState.SHOTGUN_ATTACK:
+                break;
+            case NecroplantState.BARRAGE_ATTACK:
+                UpdateShootngState();
+                break;
+            case NecroplantState.DYING:
+                break;
         }
     }
 
@@ -151,14 +165,25 @@ public class NecroplantAI : EnemyAI
         aiTimer += deltaTimeAI;
         if (aiTimer >= maxAimingTime)
         {
-            TransitionToShootState();
+            if (currentNumberOfShoots < numberOfShootsBeforeSpecialAttack)
+            {
+                currentState = NecroplantState.SIMPLE_ATTACK;
+            }
+            else
+            {
+                float random = Random.Range(0f, 1f);
+                if (random < 0.5f)
+                {
+                    currentState = NecroplantState.SHOTGUN_ATTACK;
+                }
+                else
+                {
+                    currentState = NecroplantState.BARRAGE_ATTACK;
+                }
+                currentNumberOfShoots = 0;
+            }
+            enemy.TriggerAnimation("shoot");
         }
-    }
-
-    private void TransitionToShootState()
-    {
-        currentState = NecroplantState.SIMPLE_ATTACK;
-        enemy.TriggerAnimation("shoot");
     }
 
     private void UpdateShootngState()
@@ -174,18 +199,54 @@ public class NecroplantAI : EnemyAI
         Vector3 directionToPlayer = (targetedPlayerTransform.position - transform.position).normalized;
         directionToPlayer.y = 0;
 
-        necroplantNecroMuzzle.Shoot(directionToPlayer);
+        if (currentState == NecroplantState.SIMPLE_ATTACK || currentState == NecroplantState.BARRAGE_ATTACK)
+        {
+            necroplantNecroMuzzle.Shoot(directionToPlayer);
+            ++currentNumberOfShoots;
+        }
+        else if (currentState == NecroplantState.SHOTGUN_ATTACK)
+        {
+            necroplantNecroMuzzle.Shoot(directionToPlayer);
+
+            Vector3 coneLeftSide = Quaternion.Euler(0f, -shotgunAttackAngle, 0f) * directionToPlayer;
+            necroplantNecroMuzzle.Shoot(coneLeftSide);
+            
+            Vector3 coneRightSide = Quaternion.Euler(0f, shotgunAttackAngle, 0f) * directionToPlayer;
+            necroplantNecroMuzzle.Shoot(coneRightSide);
+        }
     }
 
     public void OnShootingAnimationEnd()
     {
-        if (!playerInSight)
+        if (currentState == NecroplantState.SIMPLE_ATTACK || currentState == NecroplantState.SHOTGUN_ATTACK)
         {
-            TransitionToIdleState();
+            if (!playerInSight)
+            {
+                TransitionToIdleState();
+            }
+            else
+            {
+                TransitionToAimingState();
+            }
         }
-        else
+        else if (currentState == NecroplantState.BARRAGE_ATTACK)
         {
-            TransitionToAimingState();
+            if (currentNumberOfShoots < 3)
+            {
+                enemy.TriggerAnimation("shoot");
+            }
+            else
+            {
+                currentNumberOfShoots = 0;
+                if (!playerInSight)
+                {
+                    TransitionToIdleState();
+                }
+                else
+                {
+                    TransitionToAimingState();
+                }
+            }
         }
     }
 
