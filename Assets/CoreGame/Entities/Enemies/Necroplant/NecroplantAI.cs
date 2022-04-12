@@ -39,7 +39,7 @@ public class NecroplantAI : EnemyAI
     [SerializeField] private float shotgunAttackAngle;
     private int currentNumberOfShoots = 0;
 
-    void Awake()
+    private void Awake()
     {
         playerDetectionCollider.onPlayerDetected.AddListener(OnPlayerDetected);
         playerDetectionCollider.onPlayerLost.AddListener(OnPlayerLost);
@@ -69,11 +69,13 @@ public class NecroplantAI : EnemyAI
                 UpdateAimingPlayerState();
                 break;
             case NecroplantState.SIMPLE_ATTACK:
+                UpdateShootingState();
                 break;
             case NecroplantState.SHOTGUN_ATTACK:
+                UpdateShootingState();
                 break;
             case NecroplantState.BARRAGE_ATTACK:
-                UpdateShootngState();
+                UpdateShootingState();
                 break;
             case NecroplantState.DYING:
                 break;
@@ -186,7 +188,7 @@ public class NecroplantAI : EnemyAI
         }
     }
 
-    private void UpdateShootngState()
+    private void UpdateShootingState()
     {
         Vector3 lookDirection = targetedPlayerTransform.position - transform.position;
         lookDirection.y = 0f;
@@ -210,7 +212,7 @@ public class NecroplantAI : EnemyAI
 
             Vector3 coneLeftSide = Quaternion.Euler(0f, -shotgunAttackAngle, 0f) * directionToPlayer;
             necroplantNecroMuzzle.Shoot(coneLeftSide);
-            
+
             Vector3 coneRightSide = Quaternion.Euler(0f, shotgunAttackAngle, 0f) * directionToPlayer;
             necroplantNecroMuzzle.Shoot(coneRightSide);
         }

@@ -14,7 +14,7 @@ GameObject:
   - component: {fileID: 2495240014041701043}
   - component: {fileID: 5088390912031724254}
   - component: {fileID: 7081512299627668480}
-  m_Layer: 0
+  m_Layer: 8
   m_Name: Mushdoom
   m_TagString: Enemy
   m_Icon: {fileID: 0}

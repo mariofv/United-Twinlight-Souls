@@ -14,7 +14,7 @@ GameObject:
   - component: {fileID: 1212558319760717560}
   - component: {fileID: 1505722094909129631}
   - component: {fileID: 2129813163563062930}
-  m_Layer: 0
+  m_Layer: 8
   m_Name: Biter
   m_TagString: Untagged
   m_Icon: {fileID: 0}

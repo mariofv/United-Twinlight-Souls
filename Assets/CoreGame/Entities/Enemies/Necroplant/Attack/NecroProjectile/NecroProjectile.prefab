@@ -12,7 +12,7 @@ GameObject:
   - component: {fileID: 862778911575967086}
   - component: {fileID: 7652571930210231235}
   - component: {fileID: 3350091688194891746}
-  m_Layer: 0
+  m_Layer: 7
   m_Name: NecroProjectile
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -49,6 +49,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: b166cb74fc46548449708055c5805d86, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  projectileParticleTransform: {fileID: 3745698837068043527}
   projectileSpeed: 15
   projectileDamage: 10
   projectileEffects:

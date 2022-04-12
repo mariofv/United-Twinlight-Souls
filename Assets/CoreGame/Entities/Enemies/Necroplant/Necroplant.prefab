@@ -46,7 +46,7 @@ GameObject:
   - component: {fileID: 6964258049126854866}
   - component: {fileID: 2366371274375746240}
   - component: {fileID: -1819815407819381477}
-  m_Layer: 0
+  m_Layer: 8
   m_Name: Necroplant
   m_TagString: Enemy
   m_Icon: {fileID: 0}
