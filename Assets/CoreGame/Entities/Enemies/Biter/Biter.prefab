@@ -16,7 +16,7 @@ GameObject:
   - component: {fileID: 2129813163563062930}
   m_Layer: 8
   m_Name: Biter
-  m_TagString: Untagged
+  m_TagString: Enemy
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -284,55 +284,55 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: -8046966843367431439, guid: d8a461834882bf84b95cf621b394fde1, type: 3}
       propertyPath: m_LocalEulerAnglesHint.x
-      value: -22.944445
+      value: 11.487956
       objectReference: {fileID: 0}
     - target: {fileID: -8046966843367431439, guid: d8a461834882bf84b95cf621b394fde1, type: 3}
       propertyPath: m_LocalEulerAnglesHint.y
-      value: -0.6047189
+      value: 45.37997
       objectReference: {fileID: 0}
     - target: {fileID: -8046966843367431439, guid: d8a461834882bf84b95cf621b394fde1, type: 3}
       propertyPath: m_LocalEulerAnglesHint.z
-      value: 1.2520411
+      value: 3.2545338
       objectReference: {fileID: 0}
     - target: {fileID: -7676884988338723446, guid: d8a461834882bf84b95cf621b394fde1, type: 3}
       propertyPath: m_LocalEulerAnglesHint.x
-      value: 19.855
+      value: -26.818647
       objectReference: {fileID: 0}
     - target: {fileID: -7676884988338723446, guid: d8a461834882bf84b95cf621b394fde1, type: 3}
       propertyPath: m_LocalEulerAnglesHint.y
-      value: -3.3124852
+      value: 2.1805944
       objectReference: {fileID: 0}
     - target: {fileID: -7676884988338723446, guid: d8a461834882bf84b95cf621b394fde1, type: 3}
       propertyPath: m_LocalEulerAnglesHint.z
-      value: -2.5093842
+      value: 4.5800576
       objectReference: {fileID: 0}
     - target: {fileID: -7555646113477688630, guid: d8a461834882bf84b95cf621b394fde1, type: 3}
       propertyPath: m_LocalEulerAnglesHint.x
-      value: -2.7352
+      value: -6.506535
       objectReference: {fileID: 0}
     - target: {fileID: -7328154414966347434, guid: d8a461834882bf84b95cf621b394fde1, type: 3}
       propertyPath: m_LocalEulerAnglesHint.x
-      value: -24.677746
+      value: 5.244172
       objectReference: {fileID: 0}
     - target: {fileID: -7328154414966347434, guid: d8a461834882bf84b95cf621b394fde1, type: 3}
       propertyPath: m_LocalEulerAnglesHint.y
-      value: -0.6216116
+      value: 45.012314
       objectReference: {fileID: 0}
     - target: {fileID: -7328154414966347434, guid: d8a461834882bf84b95cf621b394fde1, type: 3}
       propertyPath: m_LocalEulerAnglesHint.z
-      value: 1.2365481
+      value: 3.1648045
       objectReference: {fileID: 0}
     - target: {fileID: -1401318942173572139, guid: d8a461834882bf84b95cf621b394fde1, type: 3}
       propertyPath: m_LocalEulerAnglesHint.x
-      value: -1.8398585
+      value: -10.400864
       objectReference: {fileID: 0}
     - target: {fileID: -1401318942173572139, guid: d8a461834882bf84b95cf621b394fde1, type: 3}
       propertyPath: m_LocalEulerAnglesHint.y
-      value: -2.7529712
+      value: 48.149662
       objectReference: {fileID: 0}
     - target: {fileID: -1401318942173572139, guid: d8a461834882bf84b95cf621b394fde1, type: 3}
       propertyPath: m_LocalEulerAnglesHint.z
-      value: -1.1984812
+      value: -12.726822
       objectReference: {fileID: 0}
     - target: {fileID: 919132149155446097, guid: d8a461834882bf84b95cf621b394fde1, type: 3}
       propertyPath: m_Name
@@ -340,7 +340,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 5636000776834842619, guid: d8a461834882bf84b95cf621b394fde1, type: 3}
       propertyPath: m_LocalEulerAnglesHint.x
-      value: -0.9989395
+      value: -0.6803414
       objectReference: {fileID: 0}
     - target: {fileID: 7642884709108103277, guid: d8a461834882bf84b95cf621b394fde1, type: 3}
       propertyPath: m_LocalEulerAnglesHint.x
@@ -348,11 +348,11 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 7642884709108103277, guid: d8a461834882bf84b95cf621b394fde1, type: 3}
       propertyPath: m_LocalEulerAnglesHint.y
-      value: 6.563461e-29
+      value: 6.28831e-29
       objectReference: {fileID: 0}
     - target: {fileID: 7642884709108103277, guid: d8a461834882bf84b95cf621b394fde1, type: 3}
       propertyPath: m_LocalEulerAnglesHint.z
-      value: 6.9106236e-29
+      value: 6.620918e-29
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: d8a461834882bf84b95cf621b394fde1, type: 3}
@@ -385,3 +385,30 @@ Animator:
   m_HasTransformHierarchy: 1
   m_AllowConstantClipSamplingOptimization: 1
   m_KeepAnimatorControllerStateOnDisable: 0
+--- !u!114 &4234996259876851572
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 8818234915276194857}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 04bcbb19e90d3e446af2357fc31d3a8c, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  onDeathEnd:
+    m_PersistentCalls:
+      m_Calls:
+      - m_Target: {fileID: 6882562663937839086}
+        m_TargetAssemblyTypeName: BiterAI, Assembly-CSharp
+        m_MethodName: OnDeathEnd
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2

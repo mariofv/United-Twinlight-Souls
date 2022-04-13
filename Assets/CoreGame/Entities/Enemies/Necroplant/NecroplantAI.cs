@@ -58,6 +58,7 @@ public class NecroplantAI : EnemyAI
     public override void Reanimate()
     {
         aiTimer = 0f; 
+        playerInSight = false; 
         timeSinceLastBurrow = burrowingCooldown;
         currentNumberOfShoots = 0;
         currentState = NecroplantState.IDLE;
