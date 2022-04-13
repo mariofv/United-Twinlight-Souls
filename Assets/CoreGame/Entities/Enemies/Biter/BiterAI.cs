@@ -8,6 +8,7 @@ public class BiterAI : EnemyAI
     {
         SPAWN,
         IDLE,
+        HIT,
         DYING
     }
 
@@ -51,7 +52,7 @@ public class BiterAI : EnemyAI
         }
         else
         {
-            //TransitionToAimingState();
+            TransitionToChasingState();
         }
     }
 
@@ -60,8 +61,35 @@ public class BiterAI : EnemyAI
         currentState = BiterState.IDLE;
     }
 
+    private void TransitionToChasingState()
+    {
+        /*
+        currentState = MushdoomState.CHASING_PLAYER;
+        enemyNavMeshAgent.stoppingDistance = chasingPlayerStopDistance;
+        */
+    }
+
     public override void OnHitStart()
     {
+        currentState = BiterState.HIT;
+        enemy.TriggerAnimation("hitReaction");
+    }
+
+    public void OnHitEnd()
+    {
+        if (currentState != BiterState.HIT)
+        {
+            return;
+        }
+
+        if (!playerInSight)
+        {
+            TransitionToIdleState();
+        }
+        else
+        {
+            TransitionToChasingState();
+        }
     }
 
     public override void OnDeathStart()

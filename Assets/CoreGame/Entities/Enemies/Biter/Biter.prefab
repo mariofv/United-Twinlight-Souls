@@ -52,8 +52,8 @@ MonoBehaviour:
   enemyAI: {fileID: 6882562663937839086}
   enemyAnimator: {fileID: 409674665111195893}
   enemyHurtBox: {fileID: 1505722094909129631}
-  maxHealth: 0
-  currentHealth: 50
+  maxHealth: 50
+  currentHealth: 0
   onSpawnedEnemyDead:
     m_PersistentCalls:
       m_Calls: []
@@ -397,6 +397,21 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 04bcbb19e90d3e446af2357fc31d3a8c, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  onHitEnd:
+    m_PersistentCalls:
+      m_Calls:
+      - m_Target: {fileID: 6882562663937839086}
+        m_TargetAssemblyTypeName: BiterAI, Assembly-CSharp
+        m_MethodName: OnHitEnd
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
   onDeathEnd:
     m_PersistentCalls:
       m_Calls:
