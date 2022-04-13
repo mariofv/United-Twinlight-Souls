@@ -6,15 +6,15 @@ using UnityEngine.Events;
 public class NecroplantRootsAnimationEventAdapter : MonoBehaviour
 {
     public UnityEvent onSpawnEnd;
-    public UnityEvent onTeleportOutEnd;
+    public UnityEvent onBurrowEnd;
 
     public void OnSpawnEnd()
     {
         onSpawnEnd.Invoke();
     }
 
-    public void OnTeleportOutEnd()
+    public void OnBurrowEnd()
     {
-        onTeleportOutEnd.Invoke();
+        onBurrowEnd.Invoke();
     }
 }

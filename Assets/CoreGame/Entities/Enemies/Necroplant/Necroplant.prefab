@@ -111,6 +111,10 @@ MonoBehaviour:
   necroplantNecroMuzzle: {fileID: 428472070579247194}
   numberOfShootsBeforeSpecialAttack: 3
   shotgunAttackAngle: 30
+  distanceToBurrowAway: 5
+  playerDistanceToBorrow: 3
+  minAimingTimeToBurrow: 2
+  burrowingCooldown: 7.5
 --- !u!195 &6964258049126854866
 NavMeshAgent:
   m_ObjectHideFlags: 0
@@ -454,6 +458,10 @@ PrefabInstance:
       propertyPath: m_Controller
       value: 
       objectReference: {fileID: 9100000, guid: 0a6477ebfb003ef43ba284c909f6820d, type: 2}
+    - target: {fileID: 5866666021909216657, guid: ff51a0e6f048cca4d828a70c137724ed, type: 3}
+      propertyPath: m_ApplyRootMotion
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 6289926317473099298, guid: ff51a0e6f048cca4d828a70c137724ed, type: 3}
       propertyPath: m_LocalEulerAnglesHint.x
       value: -2.2828915e-18
@@ -873,6 +881,18 @@ MonoBehaviour:
           m_StringArgument: 
           m_BoolArgument: 0
         m_CallState: 2
-  onTeleportOutEnd:
+  onBurrowEnd:
     m_PersistentCalls:
-      m_Calls: []
+      m_Calls:
+      - m_Target: {fileID: -8815463534888132488}
+        m_TargetAssemblyTypeName: NecroplantAI, Assembly-CSharp
+        m_MethodName: OnBurrowEnd
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2

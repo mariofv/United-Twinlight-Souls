@@ -8,7 +8,12 @@ public static class NavMeshHelper
     public static Vector3 FindAvailableSpawnPosition()
     {
         Vector3 playerPosition = GameManager.instance.player.GetControlledCharacter().characterMovementManager.GetPosition();
-        return GetNearPosition(playerPosition, 5f);
+        return FindAvailableSpawnPosition(playerPosition, 5f);
+    }
+
+    public static Vector3 FindAvailableSpawnPosition(Vector3 position, float distance)
+    {
+        return GetNearPosition(position, distance);
     }
 
     public static Vector3 GetNearPosition(Vector3 position, float distance)

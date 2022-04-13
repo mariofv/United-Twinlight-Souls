@@ -39,6 +39,14 @@ public class NecroplantAI : EnemyAI
     [SerializeField] private float shotgunAttackAngle;
     private int currentNumberOfShoots = 0;
 
+    [Header("Burrowing State")]
+    [SerializeField] private float distanceToBurrowAway;
+    [SerializeField] private float playerDistanceToBorrow;
+    [SerializeField] private float minAimingTimeToBurrow;
+    [SerializeField] private float burrowingCooldown;
+    private Vector3 burrowTargetPosition;
+    private float timeSinceLastBurrow = 0f;
+
     private void Awake()
     {
         playerDetectionCollider.onPlayerDetected.AddListener(OnPlayerDetected);
@@ -49,19 +57,22 @@ public class NecroplantAI : EnemyAI
 
     public override void Reanimate()
     {
-        aiTimer = 0f;
+        aiTimer = 0f; 
+        timeSinceLastBurrow = burrowingCooldown;
         currentNumberOfShoots = 0;
         currentState = NecroplantState.IDLE;
     }
 
     protected override void UpdateSpecific()
     {
+        timeSinceLastBurrow += Time.deltaTime;
         switch (currentState)
         {
             case NecroplantState.SPAWN:
                 UpdateSpawnState();
                 break;
             case NecroplantState.TELEPORT_OUT:
+                UpdateBurrowState();
                 break;
             case NecroplantState.IDLE:
                 break;
@@ -165,6 +176,14 @@ public class NecroplantAI : EnemyAI
     private void UpdateAimingAIPlayerState()
     {
         aiTimer += deltaTimeAI;
+        if (aiTimer >= minAimingTimeToBurrow && timeSinceLastBurrow >= burrowingCooldown)
+        {
+            float sqrDistanceToPlayer = (targetedPlayerTransform.position - transform.position).sqrMagnitude;
+            if (sqrDistanceToPlayer < (playerDistanceToBorrow * playerDistanceToBorrow))
+            {
+                TransitionToBurrowState();
+            }
+        }
         if (aiTimer >= maxAimingTime)
         {
             if (currentNumberOfShoots < numberOfShootsBeforeSpecialAttack)
@@ -186,6 +205,37 @@ public class NecroplantAI : EnemyAI
             }
             enemy.TriggerAnimation("shoot");
         }
+    }
+
+    private void TransitionToBurrowState()
+    {
+        currentState = NecroplantState.TELEPORT_OUT;
+        rootsAnimatorController.SetTrigger("burrow");
+        enemy.SetInvincible(true);
+        aiTimer = 0f;
+        burrowTargetPosition = NavMeshHelper.FindAvailableSpawnPosition(transform.position, distanceToBurrowAway);
+
+    }
+
+    private void UpdateBurrowState()
+    {
+        aiTimer += Time.deltaTime;
+        float progress = Mathf.Min(1f, aiTimer / spawnTime);
+
+        necroplantBodyTransform.localScale = Vector3.one * (1f - progress);
+    }
+
+    public void OnBurrowEnd()
+    {
+        if (currentState != NecroplantState.TELEPORT_OUT)
+        {
+            throw new UnityException("OnBurrowEnd was captured but Necroplant was in " + currentState + " state!");
+        }
+
+        timeSinceLastBurrow = 0f;
+        necroplantBodyTransform.localScale = Vector3.zero;
+        enemyNavMeshAgent.Warp(burrowTargetPosition);
+        OnSpawnStart();
     }
 
     private void UpdateShootingState()
