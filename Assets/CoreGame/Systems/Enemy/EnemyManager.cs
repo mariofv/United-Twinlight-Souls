@@ -5,6 +5,7 @@ using UnityEngine.AI;
 
 public class EnemyManager : MonoBehaviour
 {
+    [SerializeField] private EnemySpawnVFXPool spawnVFXPool;
     [SerializeField] private EnemyPool mushdoomPool;
     [SerializeField] private EnemyPool biterPool;
     [SerializeField] private EnemyPool necroplantPool;
@@ -25,6 +26,10 @@ public class EnemyManager : MonoBehaviour
         Enemy spawnedEnemy = SpawnEnemyFromPool(enemyId);
 
         spawnedEnemy.Spawn(spawnPosition, spawnAnimation);
+
+        EnemySpawnVFX spawnVFX = spawnVFXPool.GetVFXInstance();
+        spawnVFX.transform.position = spawnPosition;
+        spawnVFX.PlayEffect();
 
         return spawnedEnemy;
     }
@@ -49,6 +54,7 @@ public class EnemyManager : MonoBehaviour
 
     public void InitializedEnemyPools()
     {
+        spawnVFXPool.InitPool();
         mushdoomPool.InitPool();
         biterPool.InitPool();
         necroplantPool.InitPool();
@@ -56,6 +62,7 @@ public class EnemyManager : MonoBehaviour
 
     public void EmptyEnemyPools()
     {
+        spawnVFXPool.EmptyPool();
         mushdoomPool.EmptyPool();
         biterPool.EmptyPool();
         necroplantPool.EmptyPool();
