@@ -8,6 +8,7 @@ public class BiterAI : EnemyAI
     {
         SPAWN,
         IDLE,
+        CHASING_PLAYER,
         HIT,
         DYING
     }
@@ -15,20 +16,66 @@ public class BiterAI : EnemyAI
     private BiterState currentState;
     private bool playerInSight = false;
 
+    [Header("Floating")]
+    [SerializeField] private Transform bodyTransform;
+    [SerializeField] private float floatingSpeed;
+    [SerializeField] private float floatingAmplitude;
+
+    [Header("Chasing State")]
+    private float originalHeight;
+    private float chasingPlayerStopDistance;
+
     private void Awake()
     {
         playerDetectionCollider.onPlayerDetected.AddListener(OnPlayerDetected);
         playerDetectionCollider.onPlayerLost.AddListener(OnPlayerLost);
+
+        chasingPlayerStopDistance = enemyNavMeshAgent.stoppingDistance;
     }
 
     public override void Reanimate()
     {
         playerInSight = false;
         currentState = BiterState.IDLE;
+        originalHeight = bodyTransform.position.y;
+    }
+
+    protected override void UpdateSpecific()
+    {
+        switch (currentState)
+        {
+            case BiterState.SPAWN:
+                break;
+            case BiterState.IDLE:
+                UpdateFloatingPosition();
+                break;
+            case BiterState.CHASING_PLAYER:
+                UpdateFloatingPosition();
+                break;
+            case BiterState.HIT:
+                UpdateFloatingPosition();
+                break;
+            case BiterState.DYING:
+                break;
+        }
     }
 
     protected override void UpdateAI()
     {
+        switch (currentState)
+        {
+            case BiterState.SPAWN:
+                break;
+            case BiterState.IDLE:
+                break;
+            case BiterState.CHASING_PLAYER:
+                UpdateChasingPlayerAIState();
+                break;
+            case BiterState.HIT:
+                break;
+            case BiterState.DYING:
+                break;
+        }
     }
 
     public override void OnSpawnStart()
@@ -63,9 +110,38 @@ public class BiterAI : EnemyAI
 
     private void TransitionToChasingState()
     {
-        /*
-        currentState = MushdoomState.CHASING_PLAYER;
+        currentState = BiterState.CHASING_PLAYER;
         enemyNavMeshAgent.stoppingDistance = chasingPlayerStopDistance;
+    }
+
+    private void UpdateFloatingPosition()
+    {
+        Vector3 newPosition = bodyTransform.position;
+        newPosition.y = originalHeight + Mathf.Sin(Time.time * floatingSpeed) * floatingAmplitude;
+
+        bodyTransform.position = newPosition;
+    }
+
+    private void UpdateChasingPlayerAIState()
+    {
+        Vector3 playerPosition = GameManager.instance.player.GetControlledCharacter().characterMovementManager.GetPosition();
+        enemyNavMeshAgent.SetDestination(playerPosition);
+        if ((transform.position - playerPosition).sqrMagnitude <= (enemyNavMeshAgent.stoppingDistance * enemyNavMeshAgent.stoppingDistance))
+        {
+            TransitionToBiteState();
+        }
+    }
+
+    private void TransitionToBiteState()
+    {
+        /*
+        enemy.TriggerAnimation("spinAttack");
+        currentState = MushdoomState.SPIN_ATTACK;
+
+        for (int i = 0; i < spinAttackColliders.Count; ++i)
+        {
+            spinAttackColliders[i].SetColliderActive(true);
+        }
         */
     }
 
@@ -111,20 +187,32 @@ public class BiterAI : EnemyAI
 
     private void OnPlayerDetected()
     {
-        //playerInSight = true;
-        //if (currentState == NecroplantState.IDLE)
-        //{
-        //    TransitionToAimingState();
-        //}
+        playerInSight = true;
+        if (IsInPassiveState())
+        {
+            TransitionToChasingState();
+        }
     }
 
     private void OnPlayerLost()
     {
-        //playerInSight = false;
-        //if (currentState == NecroplantState.AIMING_PLAYER)
-        //{
-        //    TransitionToIdleState();
-        //}
+        playerInSight = false;
+        if (IsInChasingState())
+        {
+            TransitionToIdleState();
+        }
+    }
+
+    private bool IsInPassiveState()
+    {
+        return
+            currentState == BiterState.IDLE;
+        //|| currentState == BiterState.WANDERING;
+    }
+
+    private bool IsInChasingState()
+    {
+        return currentState == BiterState.CHASING_PLAYER;
     }
 
 }
