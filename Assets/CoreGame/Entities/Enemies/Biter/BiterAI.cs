@@ -9,6 +9,7 @@ public class BiterAI : EnemyAI
         SPAWN,
         IDLE,
         CHASING_PLAYER,
+        BITING,
         HIT,
         DYING
     }
@@ -25,10 +26,16 @@ public class BiterAI : EnemyAI
     private float originalHeight;
     private float chasingPlayerStopDistance;
 
+    [Header("Biting State")]
+    [SerializeField] private int biteAttackDamage;
+    [SerializeField] private BiteAttackCollider biteAttackCollider;
+
     private void Awake()
     {
         playerDetectionCollider.onPlayerDetected.AddListener(OnPlayerDetected);
         playerDetectionCollider.onPlayerLost.AddListener(OnPlayerLost);
+
+        biteAttackCollider.SetDamage(biteAttackDamage);
 
         chasingPlayerStopDistance = enemyNavMeshAgent.stoppingDistance;
     }
@@ -134,15 +141,28 @@ public class BiterAI : EnemyAI
 
     private void TransitionToBiteState()
     {
-        /*
-        enemy.TriggerAnimation("spinAttack");
-        currentState = MushdoomState.SPIN_ATTACK;
+        enemy.TriggerAnimation("bite");
+        currentState = BiterState.BITING;
+        biteAttackCollider.SetColliderActive(true);
+    }
 
-        for (int i = 0; i < spinAttackColliders.Count; ++i)
+    public void OnBiteAttackEnd()
+    {
+        biteAttackCollider.SetColliderActive(false);
+
+        if (currentState != BiterState.BITING)
         {
-            spinAttackColliders[i].SetColliderActive(true);
+            return;
         }
-        */
+
+        if (!playerInSight)
+        {
+            TransitionToIdleState();
+        }
+        else
+        {
+            TransitionToChasingState();
+        }
     }
 
     public override void OnHitStart()

@@ -7,6 +7,7 @@ public class BiterAnimationEventAdapter : MonoBehaviour
 {
     public UnityEvent onHitEnd;
     public UnityEvent onDeathEnd;
+    public UnityEvent onBiteAttackEnd;
 
     public void OnHitEnd()
     {
@@ -16,5 +17,10 @@ public class BiterAnimationEventAdapter : MonoBehaviour
     public void OnDeathEnd()
     {
         onDeathEnd.Invoke();
+    }
+
+    public void OnBiteAttackEnd()
+    {
+        onBiteAttackEnd.Invoke();
     }
 }
