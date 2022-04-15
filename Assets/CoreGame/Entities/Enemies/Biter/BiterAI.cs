@@ -59,6 +59,9 @@ public class BiterAI : EnemyAI
             case BiterState.CHASING_PLAYER:
                 UpdateFloatingPosition();
                 break;
+            case BiterState.BITING:
+                UpdateFloatingPosition();
+                break;
             case BiterState.HIT:
                 UpdateFloatingPosition();
                 break;
