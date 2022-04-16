@@ -10,6 +10,7 @@ public class BiterAI : EnemyAI
         IDLE,
         CHASING_PLAYER,
         BITING,
+        EXPLODING,
         HIT,
         DYING
     }
@@ -30,12 +31,19 @@ public class BiterAI : EnemyAI
     [SerializeField] private int biteAttackDamage;
     [SerializeField] private BiteAttackCollider biteAttackCollider;
 
+    [Header("Explosion State")]
+    [SerializeField] [Range(0f, 1f)] private float explosionHealthThreshold;
+    [SerializeField] private int explosionAttackDamage;
+    [SerializeField] private BiterExplosionAttack biterExplosionAttack;
+
     private void Awake()
     {
         playerDetectionCollider.onPlayerDetected.AddListener(OnPlayerDetected);
         playerDetectionCollider.onPlayerLost.AddListener(OnPlayerLost);
 
         biteAttackCollider.SetDamage(biteAttackDamage);
+        biterExplosionAttack.SetDamage(explosionAttackDamage);
+        biterExplosionAttack.onExplosionEndEvent.AddListener(OnExplosionEnd);
 
         chasingPlayerStopDistance = enemyNavMeshAgent.stoppingDistance;
     }
@@ -138,7 +146,14 @@ public class BiterAI : EnemyAI
         enemyNavMeshAgent.SetDestination(playerPosition);
         if ((transform.position - playerPosition).sqrMagnitude <= (enemyNavMeshAgent.stoppingDistance * enemyNavMeshAgent.stoppingDistance))
         {
-            TransitionToBiteState();
+            if (enemy.GetCurrentHealthPercentage() <= explosionHealthThreshold)
+            {
+                TransitionToExplodingState();
+            }
+            else
+            {
+                TransitionToBiteState();
+            }
         }
     }
 
@@ -166,6 +181,19 @@ public class BiterAI : EnemyAI
         {
             TransitionToChasingState();
         }
+    }
+
+    private void TransitionToExplodingState()
+    {
+        enemy.SetInvincible(true);
+        enemy.TriggerAnimation("explode");
+        currentState = BiterState.EXPLODING;
+        biterExplosionAttack.OnExplosionStart();
+    }
+
+    private void OnExplosionEnd()
+    {
+        OnDeathStart();
     }
 
     public override void OnHitStart()

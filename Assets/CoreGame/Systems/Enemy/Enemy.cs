@@ -96,4 +96,9 @@ public class Enemy : MonoBehaviour
     {
         enemyHurtBox.enabled = !isInvincible;
     }
+
+    public float GetCurrentHealthPercentage()
+    {
+        return ((float)currentHealth) / maxHealth;
+    }
 }
