@@ -2,7 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class BiteAttackCollider : MonoBehaviour
+public class BiterBiteAttack : MonoBehaviour
 {
     [SerializeField] private BoxCollider attackHitbox;
     private int damage;

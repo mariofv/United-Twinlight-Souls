@@ -10,6 +10,7 @@ public class BiterAI : EnemyAI
         IDLE,
         CHASING_PLAYER,
         BITING,
+        DASHING,
         EXPLODING,
         HIT,
         DYING
@@ -31,7 +32,17 @@ public class BiterAI : EnemyAI
     [SerializeField] private float biteAttackCooldown;
     private float timeToNextBiteAttack;
     [SerializeField] private int biteAttackDamage;
-    [SerializeField] private BiteAttackCollider biteAttackCollider;
+    [SerializeField] private BiterBiteAttack biterBiteAttack;
+
+    [Header("Dashing State")]
+    [SerializeField] private float dashAttackCooldown;
+    private float timeToNextDashAttack;
+    [SerializeField] private int dashAttackDamage;
+    [SerializeField] private BiterDashAttack biterDashAttack;
+    [SerializeField] private float distanceToTriggerDashAttack;
+    [SerializeField] private float dashAttackSpeed;
+    private Vector3 dashAttackDirection;
+    private bool dashing = false;
 
     [Header("Explosion State")]
     [SerializeField] [Range(0f, 1f)] private float explosionHealthThreshold;
@@ -43,7 +54,8 @@ public class BiterAI : EnemyAI
         playerDetectionCollider.onPlayerDetected.AddListener(OnPlayerDetected);
         playerDetectionCollider.onPlayerLost.AddListener(OnPlayerLost);
 
-        biteAttackCollider.SetDamage(biteAttackDamage);
+        biterBiteAttack.SetDamage(biteAttackDamage);
+        biterDashAttack.SetDamage(dashAttackDamage);
         biterExplosionAttack.SetDamage(explosionAttackDamage);
         biterExplosionAttack.onExplosionEndEvent.AddListener(OnExplosionEnd);
 
@@ -57,6 +69,8 @@ public class BiterAI : EnemyAI
         originalHeight = bodyTransform.position.y;
 
         timeToNextBiteAttack = 0f;
+        timeToNextDashAttack = 0f;
+        dashing = false;
     }
 
     protected override void UpdateSpecific()
@@ -73,6 +87,10 @@ public class BiterAI : EnemyAI
                 break;
             case BiterState.BITING:
                 UpdateState();
+                break;
+            case BiterState.DASHING:
+                UpdateState();
+                UpdateDasingAttackState();
                 break;
             case BiterState.HIT:
                 UpdateState();
@@ -92,6 +110,8 @@ public class BiterAI : EnemyAI
                 break;
             case BiterState.CHASING_PLAYER:
                 UpdateChasingPlayerAIState();
+                break;
+            case BiterState.DASHING:
                 break;
             case BiterState.HIT:
                 break;
@@ -148,6 +168,10 @@ public class BiterAI : EnemyAI
         {
             timeToNextBiteAttack = Mathf.Max(0f, timeToNextBiteAttack - Time.deltaTime);
         }
+        if (timeToNextDashAttack > 0)
+        {
+            timeToNextDashAttack = Mathf.Max(0f, timeToNextDashAttack - Time.deltaTime);
+        }
     }
 
     private void UpdateFloatingPosition()
@@ -162,7 +186,15 @@ public class BiterAI : EnemyAI
     {
         Vector3 playerPosition = GameManager.instance.player.GetControlledCharacter().characterMovementManager.GetPosition();
         enemyNavMeshAgent.SetDestination(playerPosition);
-        if ((transform.position - playerPosition).sqrMagnitude <= (enemyNavMeshAgent.stoppingDistance * enemyNavMeshAgent.stoppingDistance))
+
+        float sqrDistanceToPlayer = (transform.position - playerPosition).sqrMagnitude;
+        if (sqrDistanceToPlayer <= (distanceToTriggerDashAttack * distanceToTriggerDashAttack) && timeToNextDashAttack == 0)
+        {
+            dashAttackDirection = (playerPosition - transform.position).normalized;
+            enemyNavMeshAgent.ResetPath();
+            TransitionToDashState();
+        }
+        else if (sqrDistanceToPlayer <= (enemyNavMeshAgent.stoppingDistance * enemyNavMeshAgent.stoppingDistance))
         {
             if (enemy.GetCurrentHealthPercentage() <= explosionHealthThreshold)
             {
@@ -182,15 +214,56 @@ public class BiterAI : EnemyAI
     {
         enemy.TriggerAnimation("bite");
         currentState = BiterState.BITING;
-        biteAttackCollider.SetColliderActive(true);
+        biterBiteAttack.SetColliderActive(true);
     }
 
     public void OnBiteAttackEnd()
     {
-        biteAttackCollider.SetColliderActive(false);
+        biterBiteAttack.SetColliderActive(false);
         timeToNextBiteAttack = biteAttackCooldown;
 
         if (currentState != BiterState.BITING)
+        {
+            return;
+        }
+
+        if (!playerInSight)
+        {
+            TransitionToIdleState();
+        }
+        else
+        {
+            TransitionToChasingState();
+        }
+    }
+
+    private void TransitionToDashState()
+    {
+        enemy.TriggerAnimation("dash");
+        currentState = BiterState.DASHING;
+    }
+
+    public void OnActualDashStart()
+    {
+        dashing = true;
+        biterDashAttack.SetColliderActive(true);
+    }
+
+    private void UpdateDasingAttackState()
+    {
+        if (dashing)
+        {
+            enemyNavMeshAgent.Move(dashAttackDirection * dashAttackSpeed * Time.deltaTime);
+        }
+    }
+
+    public void OnDashAttackEnd()
+    {
+        biterDashAttack.SetColliderActive(false);
+        timeToNextDashAttack = dashAttackCooldown;
+        dashing = false;
+
+        if (currentState != BiterState.DASHING)
         {
             return;
         }
