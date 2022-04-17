@@ -28,6 +28,8 @@ public class BiterAI : EnemyAI
     private float chasingPlayerStopDistance;
 
     [Header("Biting State")]
+    [SerializeField] private float biteAttackCooldown;
+    private float timeToNextBiteAttack;
     [SerializeField] private int biteAttackDamage;
     [SerializeField] private BiteAttackCollider biteAttackCollider;
 
@@ -53,6 +55,8 @@ public class BiterAI : EnemyAI
         playerInSight = false;
         currentState = BiterState.IDLE;
         originalHeight = bodyTransform.position.y;
+
+        timeToNextBiteAttack = 0f;
     }
 
     protected override void UpdateSpecific()
@@ -62,16 +66,16 @@ public class BiterAI : EnemyAI
             case BiterState.SPAWN:
                 break;
             case BiterState.IDLE:
-                UpdateFloatingPosition();
+                UpdateState();
                 break;
             case BiterState.CHASING_PLAYER:
-                UpdateFloatingPosition();
+                UpdateState();
                 break;
             case BiterState.BITING:
-                UpdateFloatingPosition();
+                UpdateState();
                 break;
             case BiterState.HIT:
-                UpdateFloatingPosition();
+                UpdateState();
                 break;
             case BiterState.DYING:
                 break;
@@ -132,6 +136,20 @@ public class BiterAI : EnemyAI
         enemyNavMeshAgent.stoppingDistance = chasingPlayerStopDistance;
     }
 
+    private void UpdateState()
+    {
+        UpdateCooldowns();
+        UpdateFloatingPosition();
+    }
+
+    private void UpdateCooldowns()
+    {
+        if (timeToNextBiteAttack > 0)
+        {
+            timeToNextBiteAttack = Mathf.Max(0f, timeToNextBiteAttack - Time.deltaTime);
+        }
+    }
+
     private void UpdateFloatingPosition()
     {
         Vector3 newPosition = bodyTransform.position;
@@ -152,7 +170,10 @@ public class BiterAI : EnemyAI
             }
             else
             {
-                TransitionToBiteState();
+                if (timeToNextBiteAttack == 0)
+                {
+                    TransitionToBiteState();
+                }
             }
         }
     }
@@ -167,6 +188,7 @@ public class BiterAI : EnemyAI
     public void OnBiteAttackEnd()
     {
         biteAttackCollider.SetColliderActive(false);
+        timeToNextBiteAttack = biteAttackCooldown;
 
         if (currentState != BiterState.BITING)
         {

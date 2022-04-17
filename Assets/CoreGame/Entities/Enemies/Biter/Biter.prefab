@@ -75,6 +75,7 @@ MonoBehaviour:
   bodyTransform: {fileID: 6299942019340187511}
   floatingSpeed: 5
   floatingAmplitude: 0.5
+  biteAttackCooldown: 1
   biteAttackDamage: 5
   biteAttackCollider: {fileID: 7405927980442522225}
   explosionHealthThreshold: 0.25
