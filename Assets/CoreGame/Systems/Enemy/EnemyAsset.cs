@@ -10,7 +10,8 @@ public class EnemyAsset : ScriptableObject
     {
         MUSHDOOM,
         BITER,
-        NECROPLANT
+        NECROPLANT,
+        BOSS
     }
 
     public EnemyId enemyId;
