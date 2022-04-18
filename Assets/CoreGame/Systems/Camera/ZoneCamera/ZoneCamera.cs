@@ -18,6 +18,11 @@ public class ZoneCamera : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
+        if (zoneCameraRail == null)
+        {
+            return;
+        }
+
         if (GameManager.instance.GetCurrentGameState() == GameManager.GameState.COMBAT)
         {
             float pathProgress = zoneCameraRail.GetRailProgress();
