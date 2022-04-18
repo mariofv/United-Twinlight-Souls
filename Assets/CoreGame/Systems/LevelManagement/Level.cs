@@ -6,7 +6,6 @@ using Cinemachine;
 public class Level : MonoBehaviour
 {
     [Header("Special Transforms")]
-    public Transform spawnedEntitiesHolder;
     public Transform startPosition;
     public Transform voidPosition;
     

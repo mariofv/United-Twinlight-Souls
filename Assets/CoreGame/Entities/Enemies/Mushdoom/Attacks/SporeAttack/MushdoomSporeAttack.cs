@@ -42,8 +42,6 @@ public class MushdoomSporeAttack : MonoBehaviour
 
     public void Spawn(Vector3 position)
     {
-        //TODO: Don't forget to delete this from that scene before changing level in order to avoid deleting them
-        transform.parent = GameManager.instance.levelManager.GetCurrentLevel().spawnedEntitiesHolder;
         transform.position = position;
         currentTime = 0f;
         sporeAttackVolume.enabled = true;
