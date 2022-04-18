@@ -47,25 +47,28 @@ public class SceneDebugMenu : DebugMenu
         }
         GUILayout.EndVertical();
 
-
-        GUILayout.BeginVertical("box", GUILayout.ExpandWidth(true));
-        GUILayout.Label("Teleport to combat area");
-
-        int loadedZone = -1;
-        for (int i = 0; i < GameManager.instance.levelManager.GetCurrentLevel().GetNumberOfZones(); ++i)
+        if (!GameManager.instance.levelManager.IsCurrentLevelBoss())
         {
-            if (GUILayout.Button("Combat area " + (i + 1)))
+            GUILayout.BeginVertical("box", GUILayout.ExpandWidth(true));
+            GUILayout.Label("Teleport to combat area");
+
+            int loadedZone = -1;
+            ZonedLevel currentLevel = GameManager.instance.levelManager.GetCurrentLevel() as ZonedLevel;
+            for (int i = 0; i < currentLevel.GetNumberOfZones(); ++i)
             {
-                loadedZone = i;
+                if (GUILayout.Button("Combat area " + (i + 1)))
+                {
+                    loadedZone = i;
+                }
             }
-        }
 
-        if (loadedZone != -1)
-        {
-            Vector3 zonePosition = GameManager.instance.levelManager.GetCurrentLevel().GetZonePosition(loadedZone);
-            GameManager.instance.player.GetControlledCharacter().Teleport(zonePosition + Vector3.up * 2);
+            if (loadedZone != -1)
+            {
+                Vector3 zonePosition = currentLevel.GetZonePosition(loadedZone);
+                GameManager.instance.player.GetControlledCharacter().Teleport(zonePosition + Vector3.up * 2);
+            }
+            GUILayout.EndVertical();
         }
-        GUILayout.EndVertical();
 
 
         GUILayout.EndVertical();

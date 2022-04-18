@@ -45,7 +45,7 @@ public class LevelManager : MonoBehaviour
         GameManager.instance.audioManager.SetCurrentLevelMusic(gameLevels[level].levelMusic);
         GameManager.instance.player.GetNotControlledCharacter().Teleport(currentLevel.voidPosition.position);
         GameManager.instance.player.GetControlledCharacter().Teleport(currentLevel.startPosition.position);
-        GameManager.instance.cameraManager.LoadCamera(currentLevel.GetCurrentZoneCamera());
+        GameManager.instance.cameraManager.LoadCamera(currentLevel.GetCurrentCamera());
 
         GameManager.instance.EnterGameState(GameManager.GameState.COMBAT, changeGameStateInput: true);
 
@@ -65,5 +65,10 @@ public class LevelManager : MonoBehaviour
     public Level GetCurrentLevel()
     {
         return currentLevel;
+    }
+
+    public bool IsCurrentLevelBoss()
+    {
+        return currentLevelIndex == 2;
     }
 }
