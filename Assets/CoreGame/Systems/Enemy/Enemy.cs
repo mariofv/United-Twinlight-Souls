@@ -63,6 +63,7 @@ public class Enemy : MonoBehaviour
     public void Kill()
     {
         gameObject.SetActive(false);
+        GameManager.instance.enemyManager.RemoveSpawnedEnemy(this);
         onSpawnedEnemyDead.Invoke();
     }
 

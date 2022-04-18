@@ -10,10 +10,11 @@ public class EnemyManager : MonoBehaviour
     [SerializeField] private EnemyPool biterPool;
     [SerializeField] private EnemyPool necroplantPool;
 
-    // Update is called once per frame
-    void Update()
+    private List<Enemy> spawnedEnemies;
+
+    void Awake()
     {
-        
+        spawnedEnemies = new List<Enemy>();
     }
 
     public void SpawnEnemy(EnemyAsset.EnemyId enemyId, bool spawnAnimation = true)
@@ -26,6 +27,7 @@ public class EnemyManager : MonoBehaviour
         Enemy spawnedEnemy = SpawnEnemyFromPool(enemyId);
 
         spawnedEnemy.Spawn(spawnPosition, spawnAnimation);
+        spawnedEnemies.Add(spawnedEnemy);
 
         EnemySpawnVFX spawnVFX = spawnVFXPool.GetVFXInstance();
         spawnVFX.transform.position = spawnPosition;
@@ -66,5 +68,20 @@ public class EnemyManager : MonoBehaviour
         mushdoomPool.EmptyPool();
         biterPool.EmptyPool();
         necroplantPool.EmptyPool();
+    }
+
+    public void RemoveSpawnedEnemy(Enemy enemyToBeRemoved)
+    {
+        spawnedEnemies.Remove(enemyToBeRemoved);
+    }
+
+    public void KillAllEnemies()
+    {
+        while (spawnedEnemies.Count != 0)
+        {
+            spawnedEnemies[0].Kill();
+        }
+
+        spawnedEnemies.Clear();
     }
 }

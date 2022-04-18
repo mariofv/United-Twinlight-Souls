@@ -13,8 +13,17 @@ public class EnemyDebugMenu : DebugMenu
     {
         GUILayout.BeginVertical("box", GUILayout.ExpandWidth(true));
 
+        GUILayout.BeginVertical("box", GUILayout.ExpandWidth(true));
         GameManager.instance.debugManager.showEnemyDebugInfo = GUILayout.Toggle(GameManager.instance.debugManager.showEnemyDebugInfo, "Show Enemy Debug Info");
 
+        if (GUILayout.Button("Kill All Enemies"))
+        {
+            GameManager.instance.enemyManager.KillAllEnemies();
+        }
+        GUILayout.EndVertical();
+
+
+        GUILayout.BeginVertical("box", GUILayout.ExpandWidth(true));
         if (GUILayout.Button("Spawn Mushdoom"))
         {
             GameManager.instance.enemyManager.SpawnEnemy(EnemyAsset.EnemyId.MUSHDOOM);
@@ -27,6 +36,7 @@ public class EnemyDebugMenu : DebugMenu
         {
             GameManager.instance.enemyManager.SpawnEnemy(EnemyAsset.EnemyId.NECROPLANT);
         }
+        GUILayout.EndVertical();
 
         GUILayout.EndVertical();
     }

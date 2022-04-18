@@ -33,6 +33,9 @@ public class LevelManager : MonoBehaviour
         {
             yield return new WaitForSeconds(UISettings.GameUISettings.LOADING_SCREEN_TIP_DISPLAY_TIME);
         }
+
+        GameManager.instance.enemyManager.KillAllEnemies();
+
         yield return StartCoroutine(GameManager.instance.scenesManager.ChangeScene(gameLevels[level].levelScene));
 
 
