@@ -5,16 +5,28 @@ using UnityEngine.Events;
 
 public class BossAnimationEventAdapter : MonoBehaviour
 {
-    public UnityEvent onSlamPreparationEnd;
+    public UnityEvent onBossSlamPreparationEnd;
     public UnityEvent onBossSlamEnd;
+    public UnityEvent onBossSlamRestEnd;
+    public UnityEvent onBossSlamRecoveryEnd;
 
-    public void OnSlamPreparationEnd()
+    public void OnBossSlamPreparationEnd()
     {
-        onSlamPreparationEnd.Invoke();
+        onBossSlamPreparationEnd.Invoke();
     }
 
     public void OnBossSlamEnd()
     {
         onBossSlamEnd.Invoke();
+    }
+
+    public void OnBossSlamRestEnd()
+    {
+        onBossSlamRestEnd.Invoke();
+    }
+
+    public void OnBossSlamRecoveryEnd()
+    {
+        onBossSlamRecoveryEnd.Invoke();
     }
 }
