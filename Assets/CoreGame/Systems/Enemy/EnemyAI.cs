@@ -10,18 +10,18 @@ public abstract class EnemyAI : MonoBehaviour
 
     protected Enemy enemy;
 
-    private float currentTime = 0f;
+    private float currentBaseTime = 0f;
     protected float deltaTimeAI;
     private const float AI_UPDATE_TIME = 0.1f;
 
     private void Update()
     {
-        currentTime += Time.deltaTime;
-        if (currentTime >= AI_UPDATE_TIME)
+        currentBaseTime += Time.deltaTime;
+        if (currentBaseTime >= AI_UPDATE_TIME)
         {
-            deltaTimeAI = currentTime;
+            deltaTimeAI = currentBaseTime;
             UpdateAI();
-            currentTime = 0f;
+            currentBaseTime = 0f;
         }
         UpdateSpecific();
     }

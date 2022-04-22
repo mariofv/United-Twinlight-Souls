@@ -8,7 +8,8 @@ public class BossAI : EnemyAI
     {
         IDLE_PHASE_1,
         SLAM_PREPARATION,
-        SLAM
+        SLAM,
+        SLAM_REST,
     }
 
     private BossState currentBossState = BossState.IDLE_PHASE_1;
@@ -29,6 +30,7 @@ public class BossAI : EnemyAI
 
     [Header("Slam")]
     [SerializeField] private float slamPreparationTime;
+    [SerializeField] private float slamRestTime;
 
     private void Awake()
     {
@@ -52,6 +54,10 @@ public class BossAI : EnemyAI
             case BossState.SLAM_PREPARATION:
                 RotateTowardsPlayer();
                 UpdateSlamPreparationState();
+                break;
+
+            case BossState.SLAM_REST:
+                UpdateSlamRestState();
                 break;
         }
     }
@@ -112,6 +118,30 @@ public class BossAI : EnemyAI
         currentBossState = BossState.SLAM;
         enemy.SetAnimatorSpeed(1f);
         enemy.TriggerAnimation("slam");
+    }
+
+    public void OnSlamEnd()
+    {
+        TransitionToSlamRestState();
+    }
+
+    private void TransitionToSlamRestState()
+    {
+        currentBossState = BossState.SLAM_REST;
+        currentTime = 0f;
+    }
+
+    private void UpdateSlamRestState()
+    {
+        currentTime += Time.deltaTime;
+        if (currentTime >= slamRestTime)
+        {
+            TransitionToSlamRecoveryState();
+        }
+    }
+
+    private void TransitionToSlamRecoveryState()
+    {
     }
 
     public override void OnDeathStart()
