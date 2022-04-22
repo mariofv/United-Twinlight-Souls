@@ -15,6 +15,7 @@ public class BossAI : EnemyAI
 
     [Header("Boss movement")]
     [SerializeField] private Transform bossTransform;
+    [SerializeField] private float maxRotationAngle;
     [SerializeField] private float rotationSpeed;
 
     private void Awake()
@@ -44,7 +45,9 @@ public class BossAI : EnemyAI
     {
         Vector3 lookDirection = playerTransform.position - transform.position;
         lookDirection.y = 0f;
-        Quaternion lookRotation = Quaternion.LookRotation(lookDirection);
+       
+        float lookAngle = Mathf.Clamp(Vector3.SignedAngle(bossTransform.forward, lookDirection, Vector3.up), -maxRotationAngle, maxRotationAngle);
+        Quaternion lookRotation = Quaternion.AngleAxis(lookAngle, Vector3.up);
         bossTransform.rotation = Quaternion.Slerp(bossTransform.rotation, lookRotation, Time.deltaTime * rotationSpeed);
     }
 

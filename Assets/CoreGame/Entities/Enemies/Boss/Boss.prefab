@@ -69,8 +69,10 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   enemyNavMeshAgent: {fileID: 5454076620399081758}
   playerDetectionCollider: {fileID: 0}
+  currentAngle: 0
   bossTransform: {fileID: 2681013852670020741}
-  rotationSpeed: 10
+  maxRotationAngle: 25
+  rotationSpeed: 5
 --- !u!195 &5454076620399081758
 NavMeshAgent:
   m_ObjectHideFlags: 0
