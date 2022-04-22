@@ -374,6 +374,10 @@ PrefabInstance:
       value: Level3Collider
       objectReference: {fileID: 0}
     - target: {fileID: 919132149155446097, guid: 9bd74491f0808a7468cc6bf2c16187df, type: 3}
+      propertyPath: m_Layer
+      value: 6
+      objectReference: {fileID: 0}
+    - target: {fileID: 919132149155446097, guid: 9bd74491f0808a7468cc6bf2c16187df, type: 3}
       propertyPath: m_TagString
       value: LevelCollider
       objectReference: {fileID: 0}
