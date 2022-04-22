@@ -11,6 +11,7 @@ public class BossAI : EnemyAI
         SLAM,
         SLAM_REST,
         SLAM_RECOVERY,
+        EARTHQUAKE,
     }
 
     private BossState currentBossState = BossState.IDLE_PHASE_1;
@@ -56,23 +57,14 @@ public class BossAI : EnemyAI
                 UpdateSlamPreparationState();
                 break;
 
-            case BossState.SLAM_REST:
+            case BossState.EARTHQUAKE:
+                RotateTowardsCenter();
                 break;
         }
     }
 
     protected override void UpdateAI()
     {
-    }
-
-    private void RotateTowardsPlayer()
-    {
-        Vector3 lookDirection = playerTransform.position - transform.position;
-        lookDirection.y = 0f;
-       
-        float lookAngle = Mathf.Clamp(Vector3.SignedAngle(bossTransform.forward, lookDirection, Vector3.up), -maxRotationAngle, maxRotationAngle);
-        Quaternion lookRotation = Quaternion.AngleAxis(lookAngle, Vector3.up);
-        bossTransform.rotation = Quaternion.Slerp(bossTransform.rotation, lookRotation, Time.deltaTime * rotationSpeed);
     }
 
     private void TransitionToIdlePhase1State()
@@ -87,7 +79,15 @@ public class BossAI : EnemyAI
         currentTime += Time.deltaTime;
         if (currentTime >= currentTimeBetweenAttacks)
         {
-            TransitionToSlamPreparationState();
+            float random = Random.Range(0f, 1f);
+            if (random >= 0.5f)
+            {
+                TransitionToSlamPreparationState();
+            }
+            else
+            {
+                TransitionToEarthquakeState();
+            }
         }
     }
 
@@ -145,6 +145,21 @@ public class BossAI : EnemyAI
         TransitionToIdlePhase1State();
     }
 
+    private void TransitionToEarthquakeState()
+    {
+        currentBossState = BossState.EARTHQUAKE;
+        enemy.TriggerAnimation("earthquake");
+    }
+
+    public void OnEarthquakeHit()
+    {
+    }
+
+    public void OnEarthquakeEnd()
+    {
+        TransitionToIdlePhase1State();
+    }
+
     public override void OnDeathStart()
     {
         throw new System.NotImplementedException();
@@ -170,4 +185,24 @@ public class BossAI : EnemyAI
         currentBossPhase = phase;
     }
 
+    private void RotateTowardsCenter()
+    {
+        Quaternion lookRotation = Quaternion.LookRotation(Vector3.forward);
+        RotateTowardsQuaternion(lookRotation);
+    }
+
+    private void RotateTowardsPlayer()
+    {
+        Vector3 lookDirection = playerTransform.position - transform.position;
+        lookDirection.y = 0f;
+
+        float lookAngle = Mathf.Clamp(Vector3.SignedAngle(bossTransform.forward, lookDirection, Vector3.up), -maxRotationAngle, maxRotationAngle);
+        Quaternion lookRotation = Quaternion.AngleAxis(lookAngle, Vector3.up);
+        RotateTowardsQuaternion(lookRotation);
+    }
+
+    private void RotateTowardsQuaternion(Quaternion rotation)
+    {
+        bossTransform.rotation = Quaternion.Slerp(bossTransform.rotation, rotation, Time.deltaTime * rotationSpeed);
+    }
 }

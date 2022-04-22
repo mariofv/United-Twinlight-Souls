@@ -5,10 +5,26 @@ using UnityEngine.Events;
 
 public class BossAnimationEventAdapter : MonoBehaviour
 {
-    public UnityEvent onBossSlamPreparationEnd;
-    public UnityEvent onBossSlamEnd;
-    public UnityEvent onBossSlamRestEnd;
-    public UnityEvent onBossSlamRecoveryEnd;
+    [SerializeField] private BossAI bossAI;
+
+    private UnityEvent onBossSlamPreparationEnd = new UnityEvent();
+    private UnityEvent onBossSlamEnd = new UnityEvent();
+    private UnityEvent onBossSlamRestEnd = new UnityEvent();
+    private UnityEvent onBossSlamRecoveryEnd = new UnityEvent();
+
+    private UnityEvent onEarthquakeHit = new UnityEvent();
+    private UnityEvent onEarthquakeEnd = new UnityEvent();
+
+    private void Awake()
+    {
+        onBossSlamPreparationEnd.AddListener(bossAI.OnSlamPreparationEnd);
+        onBossSlamEnd.AddListener(bossAI.OnSlamEnd);
+        onBossSlamRestEnd.AddListener(bossAI.OnSlamRestEnd);
+        onBossSlamRecoveryEnd.AddListener(bossAI.OnSlamRecoveryEnd);
+
+        onEarthquakeHit.AddListener(bossAI.OnEarthquakeHit);
+        onEarthquakeEnd.AddListener(bossAI.OnEarthquakeEnd);
+    }
 
     public void OnBossSlamPreparationEnd()
     {
@@ -28,5 +44,15 @@ public class BossAnimationEventAdapter : MonoBehaviour
     public void OnBossSlamRecoveryEnd()
     {
         onBossSlamRecoveryEnd.Invoke();
+    }
+
+    public void OnEarthquakeHit()
+    {
+        onEarthquakeHit.Invoke();
+    }
+
+    public void OnEarthquakeEnd()
+    {
+        onEarthquakeEnd.Invoke();
     }
 }
