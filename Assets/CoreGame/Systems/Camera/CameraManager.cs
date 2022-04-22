@@ -11,7 +11,15 @@ public class CameraManager : MonoBehaviour
     private Vector3 currentProjectedFront;
     private Vector3 currentProjectedRight;
 
-    public void UpdateCameraVectors()
+    private void Update()
+    {
+        if (GameManager.instance.GetCurrentGameState() == GameManager.GameState.COMBAT)
+        {
+            UpdateCameraVectors();
+        }
+    }
+
+    private void UpdateCameraVectors()
     {
         currentProjectedFront = Vector3.ProjectOnPlane(mainCamera.transform.forward, Vector3.up);
         currentProjectedRight = Vector3.ProjectOnPlane(mainCamera.transform.right, Vector3.up);

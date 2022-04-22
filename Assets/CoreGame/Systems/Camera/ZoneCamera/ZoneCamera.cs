@@ -34,7 +34,5 @@ public class ZoneCamera : MonoBehaviour
     {
         zoneCameraLookAt.position = zoneCameraRail.GetFocusPosition(progress);
         levelTrackedDolly.m_PathPosition = progress;
-
-        GameManager.instance.cameraManager.UpdateCameraVectors();
     }
 }

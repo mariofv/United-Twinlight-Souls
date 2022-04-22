@@ -11,13 +11,41 @@ public class BossAI : EnemyAI
 
     private BossState currentBossState = BossState.IDLE_PHASE_1;
     private int currentBossPhase = 0;
+    private Transform playerTransform;
+
+    [Header("Boss movement")]
+    [SerializeField] private Transform bossTransform;
+    [SerializeField] private float rotationSpeed;
 
     private void Awake()
     {
     }
 
+    private void Start()
+    {
+        playerTransform = GameManager.instance.player.GetControlledCharacter().transform;
+    }
+
+    protected override void UpdateSpecific()
+    {
+        switch (currentBossState)
+        {
+            case BossState.IDLE_PHASE_1:
+                RotateTowardsPlayer();
+                break;
+        }
+    }
+
     protected override void UpdateAI()
     {
+    }
+
+    private void RotateTowardsPlayer()
+    {
+        Vector3 lookDirection = playerTransform.position - transform.position;
+        lookDirection.y = 0f;
+        Quaternion lookRotation = Quaternion.LookRotation(lookDirection);
+        bossTransform.rotation = Quaternion.Slerp(bossTransform.rotation, lookRotation, Time.deltaTime * rotationSpeed);
     }
 
     public override void OnDeathStart()
