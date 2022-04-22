@@ -6,14 +6,14 @@ public class BossAI : EnemyAI
 {
     private enum BossState
     {
-        IDLE
+        IDLE_PHASE_1
     }
 
-    private BossState currentBossState;
+    private BossState currentBossState = BossState.IDLE_PHASE_1;
+    private int currentBossPhase = 0;
 
     private void Awake()
     {
-        currentBossState = BossState.IDLE;
     }
 
     protected override void UpdateAI()
@@ -38,6 +38,11 @@ public class BossAI : EnemyAI
     public override void Reanimate()
     {
         throw new System.NotImplementedException();
+    }
+
+    public void StartPhase(int phase)
+    {
+        currentBossPhase = phase;
     }
 
 }
