@@ -93,6 +93,11 @@ public class Enemy : MonoBehaviour
         enemyAnimator.SetTrigger(triggerName);
     }
 
+    public void SetAnimatorSpeed(float speed)
+    {
+        enemyAnimator.speed = speed;
+    }
+
     public void SetInvincible(bool isInvincible)
     {
         enemyHurtBox.enabled = !isInvincible;

@@ -6,7 +6,9 @@ public class BossAI : EnemyAI
 {
     private enum BossState
     {
-        IDLE_PHASE_1
+        IDLE_PHASE_1,
+        SLAM_PREPARATION,
+        SLAM
     }
 
     private BossState currentBossState = BossState.IDLE_PHASE_1;
@@ -20,10 +22,13 @@ public class BossAI : EnemyAI
     [SerializeField] private float maxRotationAngle;
     [SerializeField] private float rotationSpeed;
 
-    [Header("Phase 1")]
+    [Header("Idle Phase 1")]
     [SerializeField] private float minTimeBetweenAttacks;
     [SerializeField] private float maxTimeBetweenAttacks;
     private float currentTimeBetweenAttacks;
+
+    [Header("Slam")]
+    [SerializeField] private float slamPreparationTime;
 
     private void Awake()
     {
@@ -42,6 +47,11 @@ public class BossAI : EnemyAI
             case BossState.IDLE_PHASE_1:
                 RotateTowardsPlayer();
                 UpdateIdlePhase1State();
+                break;
+
+            case BossState.SLAM_PREPARATION:
+                RotateTowardsPlayer();
+                UpdateSlamPreparationState();
                 break;
         }
     }
@@ -72,8 +82,36 @@ public class BossAI : EnemyAI
         currentTime += Time.deltaTime;
         if (currentTime >= currentTimeBetweenAttacks)
         {
-            
+            TransitionToSlamPreparationState();
         }
+    }
+
+    private void TransitionToSlamPreparationState()
+    {
+        currentBossState = BossState.SLAM_PREPARATION;
+        enemy.TriggerAnimation("prepareSlam");
+        currentTime = 0f;
+    }
+
+    private void UpdateSlamPreparationState()
+    {
+        currentTime += Time.deltaTime;
+        if (currentTime >= slamPreparationTime)
+        {
+            TransitionToSlamState();
+        }
+    }
+
+    public void OnSlamPreparationEnd()
+    {
+        enemy.SetAnimatorSpeed(0f);
+    }
+
+    private void TransitionToSlamState()
+    {
+        currentBossState = BossState.SLAM;
+        enemy.SetAnimatorSpeed(1f);
+        enemy.TriggerAnimation("slam");
     }
 
     public override void OnDeathStart()
