@@ -7,7 +7,7 @@ public class Enemy : MonoBehaviour
 {
     [SerializeField] private EnemyAI enemyAI;
     [SerializeField] private Animator enemyAnimator;
-    [SerializeField] private Collider enemyHurtBox;
+    [SerializeField] private List<Collider> enemyHurtBoxes;
 
     [Header("Enemy Stats")]
     [SerializeField] private int maxHealth;
@@ -42,7 +42,7 @@ public class Enemy : MonoBehaviour
         currentHealth = Mathf.Max(0, currentHealth - damage);
         if (currentHealth <= 0)
         {
-            enemyHurtBox.enabled = false;
+            SetInvincible(true);
             enemyAI.OnDeathStart();
         }
         else
@@ -100,7 +100,10 @@ public class Enemy : MonoBehaviour
 
     public void SetInvincible(bool isInvincible)
     {
-        enemyHurtBox.enabled = !isInvincible;
+        for (int i = 0; i < enemyHurtBoxes.Count; ++i)
+        {
+            enemyHurtBoxes[i].enabled = !isInvincible;
+        }
     }
 
     public float GetCurrentHealthPercentage()

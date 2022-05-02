@@ -83,7 +83,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   enemyAI: {fileID: -8815463534888132488}
   enemyAnimator: {fileID: 6724908315837017932}
-  enemyHurtBox: {fileID: 2366371274375746240}
+  enemyHurtBoxes:
+  - {fileID: 2366371274375746240}
   maxHealth: 30
   currentHealth: 0
   onSpawnedEnemyDead:
