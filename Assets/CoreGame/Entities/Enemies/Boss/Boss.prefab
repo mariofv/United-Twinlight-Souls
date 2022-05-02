@@ -51,7 +51,7 @@ MonoBehaviour:
   enemyHurtBoxes:
   - {fileID: 2222351811446734392}
   - {fileID: 3503957720173338254}
-  maxHealth: 250
+  maxHealth: 175
   currentHealth: 0
   orientateEnemyAfterHit: 0
   onSpawnedEnemyDead:

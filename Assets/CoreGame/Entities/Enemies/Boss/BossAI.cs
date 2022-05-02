@@ -12,6 +12,8 @@ public class BossAI : EnemyAI
         SLAM_REST,
         SLAM_RECOVERY,
         EARTHQUAKE,
+
+        TRANSITION_TO_PHASE_2
     }
 
     private BossState currentBossState = BossState.IDLE_PHASE_1;
@@ -58,6 +60,10 @@ public class BossAI : EnemyAI
                 break;
 
             case BossState.EARTHQUAKE:
+                RotateTowardsCenter();
+                break;
+
+            case BossState.TRANSITION_TO_PHASE_2:
                 RotateTowardsCenter();
                 break;
         }
@@ -160,6 +166,12 @@ public class BossAI : EnemyAI
         TransitionToIdlePhase1State();
     }
 
+    private void TransitionToTransitionToPhase2State()
+    {
+        currentBossState = BossState.TRANSITION_TO_PHASE_2;
+        enemy.TriggerAnimation("transitionToPhase2");
+    }
+
     public override void OnDeathStart()
     {
         return;
@@ -182,11 +194,23 @@ public class BossAI : EnemyAI
 
     public void StartPhase(int phase)
     {
-        if (phase == 0)
-        {
-            enemy.Reanimate();
-        }
         currentBossPhase = phase;
+        switch (currentBossPhase)
+        {
+            case 0:
+                enemy.Reanimate();
+                break;
+
+            case 1:
+                TransitionToTransitionToPhase2State();
+                break;
+
+            case 2:
+                break;
+
+            default:
+                break;
+        }
     }
 
     private void RotateTowardsCenter()
