@@ -7,6 +7,7 @@ public class GameUIManager : MonoBehaviour
     public PauseUI pauseUI;
     public HUDUI hudUI;
     public DamageIndicatorUI damageIndicatorUI;
+    public BossHealthBarUI bossHealthBarUI;
 
     /*
     public DialogUI dialogUI;

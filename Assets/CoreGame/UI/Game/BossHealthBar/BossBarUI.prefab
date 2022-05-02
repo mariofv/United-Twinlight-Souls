@@ -84,6 +84,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 5918806344504304608}
+  - component: {fileID: 7581329255405497866}
   m_Layer: 0
   m_Name: BossBarUI
   m_TagString: Untagged
@@ -111,6 +112,19 @@ RectTransform:
   m_AnchoredPosition: {x: 0, y: 0}
   m_SizeDelta: {x: 0, y: 0}
   m_Pivot: {x: 0.5, y: 0.5}
+--- !u!114 &7581329255405497866
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1329574062795376051}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 7eeebf0f82a03b5418b55fdda0391756, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  fillTransform: {fileID: 7698768935471044997}
 --- !u!1 &1448765443524404537
 GameObject:
   m_ObjectHideFlags: 0

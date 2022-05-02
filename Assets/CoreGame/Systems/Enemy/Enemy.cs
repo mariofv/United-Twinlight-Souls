@@ -9,7 +9,7 @@ public class Enemy : MonoBehaviour
     [SerializeField] private Animator enemyAnimator;
     [SerializeField] private List<Collider> enemyHurtBoxes;
 
-    [Header("Enemy Stats")]
+    [Header("Enemy Health")]
     [SerializeField] private int maxHealth;
     [SerializeField] private int currentHealth;
 
@@ -45,7 +45,13 @@ public class Enemy : MonoBehaviour
 
         GameManager.instance.uiManager.gameUIManager.damageIndicatorUI.ShowDamageIndicator(damage, attackerPosition, enemyPosition);
 
+        int previousHealth = currentHealth;
         currentHealth = Mathf.Max(0, currentHealth - damage);
+        if (GameManager.instance.levelManager.IsCurrentLevelBoss())
+        {
+            GameManager.instance.uiManager.gameUIManager.bossHealthBarUI.InflictDamage(currentHealth, previousHealth, maxHealth);
+        }
+
         if (currentHealth <= 0)
         {
             SetInvincible(true);
