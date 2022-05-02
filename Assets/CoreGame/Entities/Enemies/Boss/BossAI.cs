@@ -167,21 +167,25 @@ public class BossAI : EnemyAI
 
     public override void OnHitStart()
     {
-        throw new System.NotImplementedException();
+
     }
 
     public override void OnSpawnStart()
     {
-        throw new System.NotImplementedException();
+
     }
 
     public override void Reanimate()
     {
-        throw new System.NotImplementedException();
+
     }
 
     public void StartPhase(int phase)
     {
+        if (phase == 0)
+        {
+            enemy.Reanimate();
+        }
         currentBossPhase = phase;
     }
 
