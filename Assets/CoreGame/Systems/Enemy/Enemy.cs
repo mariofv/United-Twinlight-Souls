@@ -49,7 +49,10 @@ public class Enemy : MonoBehaviour
         currentHealth = Mathf.Max(0, currentHealth - damage);
         if (GameManager.instance.levelManager.IsCurrentLevelBoss())
         {
-            GameManager.instance.uiManager.gameUIManager.bossHealthBarUI.InflictDamage(currentHealth, previousHealth, maxHealth);
+            float currentPercentage = ((float)currentHealth) / maxHealth;
+            float previousPercentage = ((float)previousHealth) / maxHealth;
+            GameManager.instance.uiManager.gameUIManager.bossHealthBarUI.InflictDamage(currentPercentage, previousPercentage);
+            GameManager.instance.levelManager.GetCurrentLevelAsBoss().CheckPhaseTransition(currentPercentage);
         }
 
         if (currentHealth <= 0)

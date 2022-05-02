@@ -18,10 +18,9 @@ public class BossHealthBarUI : MonoBehaviour
         
     }
 
-    public void InflictDamage(int healthAfterDamage, int healthBeforeDamage, int maxHealth)
+    public void InflictDamage(float currentHealthPercentage, float previousHealthPercentage)
     {
-        float healthProgress = ((float)healthAfterDamage) / maxHealth;
-        float transformRight = (1 - healthProgress) * originalWidth;
+        float transformRight = (1 - currentHealthPercentage) * originalWidth;
         fillTransform.SetRight(transformRight);
     }
 }

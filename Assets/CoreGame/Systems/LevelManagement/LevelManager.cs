@@ -67,6 +67,16 @@ public class LevelManager : MonoBehaviour
         return currentLevel;
     }
 
+    public ZonedLevel GetCurrentLevelAsZoned()
+    {
+        return currentLevel as ZonedLevel;
+    }
+
+    public BossLevel GetCurrentLevelAsBoss()
+    {
+        return currentLevel as BossLevel;
+    }
+
     public bool IsCurrentLevelBoss()
     {
         return currentLevelIndex == 2;

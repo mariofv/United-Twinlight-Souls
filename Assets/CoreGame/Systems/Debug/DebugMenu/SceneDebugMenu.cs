@@ -53,7 +53,7 @@ public class SceneDebugMenu : DebugMenu
             GUILayout.Label("Teleport to combat area");
 
             int loadedZone = -1;
-            ZonedLevel currentLevel = GameManager.instance.levelManager.GetCurrentLevel() as ZonedLevel;
+            ZonedLevel currentLevel = GameManager.instance.levelManager.GetCurrentLevelAsZoned();
             for (int i = 0; i < currentLevel.GetNumberOfZones(); ++i)
             {
                 if (GUILayout.Button("Combat area " + (i + 1)))

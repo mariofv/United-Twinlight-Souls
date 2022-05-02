@@ -7,6 +7,7 @@ public class BossLevel : Level
 {
     [SerializeField] private CinemachineVirtualCamera virtualCamera;
     [SerializeField] private BossAI bossAI;
+    [SerializeField] private List<float> phasesThresholds;
 
     private int currentBossPhase = 0;
 
@@ -18,6 +19,15 @@ public class BossLevel : Level
     private void StartBossPhase(int bossPhase)
     {
         bossAI.StartPhase(bossPhase);
+    }
+
+    public void CheckPhaseTransition(float healthProgress)
+    {
+        if (phasesThresholds[currentBossPhase] >= healthProgress)
+        {
+            ++currentBossPhase;
+            StartBossPhase(currentBossPhase);
+        }
     }
 
     public override CinemachineVirtualCamera GetCurrentCamera()
