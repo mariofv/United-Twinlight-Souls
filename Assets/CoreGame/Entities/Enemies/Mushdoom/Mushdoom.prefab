@@ -57,6 +57,7 @@ MonoBehaviour:
   - {fileID: 7234784144486757714}
   maxHealth: 20
   currentHealth: 0
+  orientateEnemyAfterHit: 1
   onSpawnedEnemyDead:
     m_PersistentCalls:
       m_Calls: []

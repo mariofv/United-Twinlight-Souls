@@ -13,6 +13,9 @@ public class Enemy : MonoBehaviour
     [SerializeField] private int maxHealth;
     [SerializeField] private int currentHealth;
 
+    [Header("Hit reaction")]
+    [SerializeField] private bool orientateEnemyAfterHit;
+
     public UnityEvent onSpawnedEnemyDead;
 
     void Awake()
@@ -35,7 +38,10 @@ public class Enemy : MonoBehaviour
         Vector3 attackDirection = (enemyPosition - attackerPosition).normalized;
         attackDirection.y = 0f;
 
-        transform.rotation = Quaternion.LookRotation(-attackDirection);
+        if (orientateEnemyAfterHit)
+        {
+            transform.rotation = Quaternion.LookRotation(-attackDirection);
+        }
 
         GameManager.instance.uiManager.gameUIManager.damageIndicatorUI.ShowDamageIndicator(damage, attackerPosition, enemyPosition);
 
