@@ -116,6 +116,7 @@ MonoBehaviour:
   characterController: {fileID: 6540250780167808272}
   characterTransform: {fileID: 163847903933024333}
   movementSpeed: 7.5
+  rotationSpeed: 20
   gravity: 10
   jumpSpeed: 6
   groundedCheckDistance: 0.1

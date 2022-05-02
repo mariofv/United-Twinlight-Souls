@@ -8,6 +8,7 @@ public class CharacterMovementManager : CharacterSubManager
     [SerializeField] private Transform characterTransform;
 
     [SerializeField] private float movementSpeed;
+    [SerializeField] private float rotationSpeed;
     [SerializeField] private float gravity;
     [SerializeField] private float jumpSpeed;
     [SerializeField] private float groundedCheckDistance;
@@ -30,7 +31,8 @@ public class CharacterMovementManager : CharacterSubManager
     {
         if (IsMoving())
         {
-            characterTransform.rotation = Quaternion.LookRotation(movementVector);
+            Quaternion lookRotation = Quaternion.LookRotation(movementVector);
+            characterTransform.rotation = Quaternion.Slerp(characterTransform.rotation, lookRotation, Time.deltaTime * rotationSpeed);
         }
 
         Vector3 horizontalMovement = ComputeHorizontalMovement();
