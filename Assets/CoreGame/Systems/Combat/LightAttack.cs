@@ -10,10 +10,10 @@ public class LightAttack : MonoBehaviour
 
     private void OnTriggerEnter(Collider other)
     {
-        if (other.CompareTag(TagManager.ENEMY))
+        if (other.CompareTag(TagManager.ENEMY_HURTBOX))
         {
-            Enemy collidedEnemy = other.GetComponent<Enemy>();
-            collidedEnemy.Hurt(damage);
+            EnemyHurtbox collidedEnemyHurtBox = other.GetComponent<EnemyHurtbox>();
+            collidedEnemyHurtBox.GetEnemyScript().Hurt(damage);
         }
     }
 }

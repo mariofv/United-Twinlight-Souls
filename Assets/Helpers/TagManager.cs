@@ -9,6 +9,7 @@ public static class TagManager
 
     public const string PLAYER = "Player";
     public const string ENEMY = "Enemy";
+    public const string ENEMY_HURTBOX = "EnemyHurtBox";
 
     public const string LEVEL = "Level";
     public const string LEVEL_COLLIDER = "LevelCollider";

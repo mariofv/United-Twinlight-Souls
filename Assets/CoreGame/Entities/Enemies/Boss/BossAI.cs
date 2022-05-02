@@ -162,7 +162,7 @@ public class BossAI : EnemyAI
 
     public override void OnDeathStart()
     {
-        throw new System.NotImplementedException();
+        return;
     }
 
     public override void OnHitStart()

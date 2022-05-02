@@ -9,6 +9,7 @@ TagManager:
   - Level
   - LevelCollider
   - Enemy
+  - EnemyHurtBox
   layers:
   - Default
   - TransparentFX
