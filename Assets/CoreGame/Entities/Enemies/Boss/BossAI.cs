@@ -184,6 +184,11 @@ public class BossAI : EnemyAI
         enemy.TriggerAnimation("transitionToPhase2");
     }
 
+    public void OnTransitionToPhase2RoarStart()
+    {
+        GameManager.instance.cameraManager.ShakeCamera(CameraManager.CameraShakeType.STRONG, 2f);
+    }
+
     public void OnTransitionToPhase2End()
     {
         TransitionToIdlePhase2State();
