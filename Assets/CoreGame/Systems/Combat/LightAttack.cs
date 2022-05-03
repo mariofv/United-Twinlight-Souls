@@ -14,6 +14,7 @@ public class LightAttack : MonoBehaviour
         {
             EnemyHurtbox collidedEnemyHurtBox = other.GetComponent<EnemyHurtbox>();
             collidedEnemyHurtBox.GetEnemyScript().Hurt(damage);
+            GameManager.instance.cameraManager.ShakeCamera(CameraManager.CameraShakeType.MILD, 0.5f);
         }
     }
 }

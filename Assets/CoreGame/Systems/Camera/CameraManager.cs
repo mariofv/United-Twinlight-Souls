@@ -12,12 +12,16 @@ public class CameraManager : MonoBehaviour
     {
         NONE,
         MILD,
+        NORMAL,
         STRONG
     }
 
     [Header("Camera shake")]
     [SerializeField] private float mildShakeFrequency;
     [SerializeField] private float mildShakeAmplitude;
+
+    [SerializeField] private float normalShakeFrequency;
+    [SerializeField] private float normalShakeAmplitude;
 
     [SerializeField] private float strongShakeFrequency;
     [SerializeField] private float strongShakeAmplitude;
@@ -80,6 +84,11 @@ public class CameraManager : MonoBehaviour
             case CameraShakeType.MILD:
                 cinemachinePerlin.m_FrequencyGain = mildShakeFrequency;
                 cinemachinePerlin.m_AmplitudeGain = mildShakeAmplitude;
+                break;
+
+            case CameraShakeType.NORMAL:
+                cinemachinePerlin.m_FrequencyGain = normalShakeFrequency;
+                cinemachinePerlin.m_AmplitudeGain = normalShakeAmplitude;
                 break;
 
             case CameraShakeType.STRONG:

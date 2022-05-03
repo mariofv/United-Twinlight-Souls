@@ -203,8 +203,10 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   mainCamera: {fileID: 0}
-  mildShakeFrequency: 1
-  mildShakeAmplitude: 1
+  mildShakeFrequency: 0.75
+  mildShakeAmplitude: 0.75
+  normalShakeFrequency: 1
+  normalShakeAmplitude: 1
   strongShakeFrequency: 2
   strongShakeAmplitude: 2
 --- !u!1 &1573103672166890768
