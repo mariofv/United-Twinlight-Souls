@@ -20,6 +20,8 @@ public class BossAnimationEventAdapter : MonoBehaviour
     private UnityEvent onLeftPunchEnd = new UnityEvent();
     private UnityEvent onRightPunchEnd = new UnityEvent();
 
+    private UnityEvent onTransitionToPhase3End = new UnityEvent();
+
     private void Awake()
     {
         onBossSlamPreparationEnd.AddListener(bossAI.OnSlamPreparationEnd);
@@ -31,9 +33,11 @@ public class BossAnimationEventAdapter : MonoBehaviour
         onEarthquakeEnd.AddListener(bossAI.OnEarthquakeEnd);
 
         onTransitionToPhase2RoarStart.AddListener(bossAI.OnTransitionToPhase2RoarStart);
-        onTransitionToPhase2End.AddListener(bossAI.OnTransitionToPhase2End);
+        onTransitionToPhase2End.AddListener(bossAI.OnTransitionToPhase3End);
         onLeftPunchEnd.AddListener(bossAI.OnLeftPunchEnd);
         onRightPunchEnd.AddListener(bossAI.OnRightPunchEnd);
+
+        onTransitionToPhase3End.AddListener(bossAI.OnTransitionToPhase3End);
     }
 
     public void OnBossSlamPreparationEnd()
@@ -84,5 +88,10 @@ public class BossAnimationEventAdapter : MonoBehaviour
     public void OnRightPunchEnd()
     {
         onRightPunchEnd.Invoke();
+    }
+
+    public void OnTransitionToPhase3End()
+    {
+        onTransitionToPhase3End.Invoke();
     }
 }

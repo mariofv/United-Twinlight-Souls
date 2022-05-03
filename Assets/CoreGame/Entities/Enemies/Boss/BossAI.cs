@@ -17,6 +17,8 @@ public class BossAI : EnemyAI
         IDLE_PHASE_2,
         LEFT_PUNCH,
         RIGHT_PUNCH,
+
+        TRANSITION_TO_PHASE_3,
     }
 
     private BossState currentBossState = BossState.IDLE_PHASE_1;
@@ -244,6 +246,17 @@ public class BossAI : EnemyAI
         TransitionToIdlePhase2State();
     }
 
+    private void TransitionToTransitionToPhase3State()
+    {
+        currentBossState = BossState.TRANSITION_TO_PHASE_3;
+        enemy.TriggerAnimation("transitionToPhase3");
+    }
+
+    public void OnTransitionToPhase3End()
+    {
+        //TransitionToIdlePhase3State();
+    }
+
     public override void OnDeathStart()
     {
         return;
@@ -278,6 +291,7 @@ public class BossAI : EnemyAI
                 break;
 
             case 2:
+                TransitionToTransitionToPhase3State();
                 break;
 
             default:
