@@ -8,6 +8,7 @@ public class Enemy : MonoBehaviour
     [SerializeField] private EnemyAI enemyAI;
     [SerializeField] private Animator enemyAnimator;
     [SerializeField] private List<Collider> enemyHurtBoxes;
+    [SerializeField] private bool isBoss;
 
     [Header("Enemy Health")]
     [SerializeField] private int maxHealth;
@@ -47,7 +48,7 @@ public class Enemy : MonoBehaviour
 
         int previousHealth = currentHealth;
         currentHealth = Mathf.Max(0, currentHealth - damage);
-        if (GameManager.instance.levelManager.IsCurrentLevelBoss())
+        if (isBoss)
         {
             float currentPercentage = ((float)currentHealth) / maxHealth;
             float previousPercentage = ((float)previousHealth) / maxHealth;
