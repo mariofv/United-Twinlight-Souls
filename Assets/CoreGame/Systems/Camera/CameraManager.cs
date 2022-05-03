@@ -8,14 +8,43 @@ public class CameraManager : MonoBehaviour
     public Camera mainCamera;
     private CinemachineVirtualCamera currentVirtualCamera;
 
+    public enum CameraShakeType
+    {
+        NONE,
+        MILD,
+        STRONG
+    }
+
+    [Header("Camera shake")]
+    [SerializeField] private float mildShakeFrequency;
+    [SerializeField] private float mildShakeAmplitude;
+
+    [SerializeField] private float strongShakeFrequency;
+    [SerializeField] private float strongShakeAmplitude;
+
+    private CameraShakeType currentShakeType = CameraShakeType.NONE;
+    private float currentShakeTimer = 0f;
+    private float currentShakeDuration;
+
+
     private Vector3 currentProjectedFront;
     private Vector3 currentProjectedRight;
+
 
     private void Update()
     {
         if (GameManager.instance.GetCurrentGameState() == GameManager.GameState.COMBAT)
         {
             UpdateCameraVectors();
+
+            if (currentShakeType != CameraShakeType.NONE)
+            {
+                currentShakeTimer += Time.deltaTime;
+                if (currentShakeTimer >= currentShakeDuration)
+                {
+                    ShakeCamera(CameraShakeType.NONE, 0f);
+                }
+            }
         }
     }
 
@@ -33,6 +62,33 @@ public class CameraManager : MonoBehaviour
     public Vector3 GetCurrentProjectedRight()
     {
         return currentProjectedRight;
+    }
+
+    public void ShakeCamera(CameraShakeType cameraShakeType, float duration)
+    {
+        currentShakeType = cameraShakeType;
+        currentShakeDuration = duration;
+
+        CinemachineBasicMultiChannelPerlin cinemachinePerlin = currentVirtualCamera.GetCinemachineComponent<CinemachineBasicMultiChannelPerlin>();
+        switch (currentShakeType)
+        {
+            case CameraShakeType.NONE:
+                cinemachinePerlin.m_FrequencyGain = 0f;
+                cinemachinePerlin.m_AmplitudeGain = 0f;
+                break;
+
+            case CameraShakeType.MILD:
+                cinemachinePerlin.m_FrequencyGain = mildShakeFrequency;
+                cinemachinePerlin.m_AmplitudeGain = mildShakeAmplitude;
+                break;
+
+            case CameraShakeType.STRONG:
+                cinemachinePerlin.m_FrequencyGain = strongShakeFrequency;
+                cinemachinePerlin.m_AmplitudeGain = strongShakeAmplitude;
+                break;
+        }
+
+        currentShakeTimer = 0f;
     }
 
     public void LoadCamera(CinemachineVirtualCamera camera)

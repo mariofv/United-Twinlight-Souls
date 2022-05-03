@@ -203,6 +203,10 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   mainCamera: {fileID: 0}
+  mildShakeFrequency: 1
+  mildShakeAmplitude: 1
+  strongShakeFrequency: 2
+  strongShakeAmplitude: 2
 --- !u!1 &1573103672166890768
 GameObject:
   m_ObjectHideFlags: 0
