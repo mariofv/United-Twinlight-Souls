@@ -86,7 +86,7 @@ public class SceneDebugMenu : DebugMenu
 
             if (bossPhase != -1)
             {
-                currentLevel.ForceStartBossPhase(bossPhase - 1);
+                currentLevel.ForceStartBossPhase(bossPhase);
             }
             GUILayout.EndVertical();
         }

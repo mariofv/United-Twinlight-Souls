@@ -34,9 +34,22 @@ public class BossLevel : Level
 
     public void CheckPhaseTransition(float healthProgress)
     {
-        if (phasesThresholds[currentBossPhase] >= healthProgress)
+        int newPhase = -1;
+        for (int i = 0; i < phasesThresholds.Count; ++i)
         {
-            ++currentBossPhase;
+            if (phasesThresholds[i] >= healthProgress)
+            {
+                ++newPhase;
+            }
+            else
+            {
+                break;
+            }
+        }
+
+        if (currentBossPhase != newPhase)
+        {
+            currentBossPhase = newPhase;
             StartBossPhase(currentBossPhase);
         }
     }
