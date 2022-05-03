@@ -69,7 +69,27 @@ public class SceneDebugMenu : DebugMenu
             }
             GUILayout.EndVertical();
         }
+        else
+        {
+            GUILayout.BeginVertical("box", GUILayout.ExpandWidth(true));
+            GUILayout.Label("Trigger boss phase");
 
+            int bossPhase = -1;
+            BossLevel currentLevel = GameManager.instance.levelManager.GetCurrentLevelAsBoss();
+            for (int i = 1; i < currentLevel.GetNumberOfPhases(); ++i)
+            {
+                if (GUILayout.Button("Boss Phase " + (i + 1)))
+                {
+                    bossPhase = i;
+                }
+            }
+
+            if (bossPhase != -1)
+            {
+                currentLevel.ForceStartBossPhase(bossPhase - 1);
+            }
+            GUILayout.EndVertical();
+        }
 
         GUILayout.EndVertical();
     }

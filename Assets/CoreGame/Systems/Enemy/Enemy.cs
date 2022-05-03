@@ -121,6 +121,16 @@ public class Enemy : MonoBehaviour
         }
     }
 
+    public int GetMaxHealth()
+    {
+        return maxHealth;
+    }
+
+    public int GetCurrentHealth()
+    {
+        return currentHealth;
+    }
+
     public float GetCurrentHealthPercentage()
     {
         return ((float)currentHealth) / maxHealth;

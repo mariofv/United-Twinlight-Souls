@@ -21,6 +21,17 @@ public class BossLevel : Level
         bossAI.StartPhase(bossPhase);
     }
 
+    public void ForceStartBossPhase(int bossPhase)
+    {
+        Enemy bossScript = GameObject.Find("Boss").GetComponent<Enemy>();
+        int bossCurrentHealth = bossScript.GetCurrentHealth();
+        int bossMaxHealth = bossScript.GetMaxHealth();
+        float phaseHealthPercentage = phasesThresholds[bossPhase];
+
+        float necessaryDamage = bossCurrentHealth - phaseHealthPercentage * bossMaxHealth;
+        bossScript.Hurt(Mathf.RoundToInt(necessaryDamage));
+    }
+
     public void CheckPhaseTransition(float healthProgress)
     {
         if (phasesThresholds[currentBossPhase] >= healthProgress)
@@ -30,10 +41,13 @@ public class BossLevel : Level
         }
     }
 
+    public int GetNumberOfPhases()
+    {
+        return phasesThresholds.Count;
+    }
+
     public override CinemachineVirtualCamera GetCurrentCamera()
     {
         return virtualCamera;
     }
-
-
 }
