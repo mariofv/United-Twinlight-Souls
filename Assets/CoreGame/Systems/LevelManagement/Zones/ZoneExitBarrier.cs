@@ -40,5 +40,6 @@ public class ZoneExitBarrier : MonoBehaviour
     {
         opening = true;
         currentTime = 0f;
+        GameManager.instance.cameraManager.ShakeCamera(CameraManager.CameraShakeType.STRONG, openingTime);
     }
 }
