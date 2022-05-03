@@ -74,9 +74,11 @@ MonoBehaviour:
   bossTransform: {fileID: 2681013852670020741}
   maxRotationAngle: 25
   rotationSpeed: 5
-  minTimeBetweenAttacks: 4
-  maxTimeBetweenAttacks: 6
+  minTimeBetweenAttacksPhase1: 4
+  maxTimeBetweenAttacksPhase1: 6
   slamPreparationTime: 3
+  minTimeBetweenAttacksPhase2: 4
+  maxTimeBetweenAttacksPhase2: 6
 --- !u!195 &5454076620399081758
 NavMeshAgent:
   m_ObjectHideFlags: 0

@@ -13,7 +13,8 @@ public class BossAI : EnemyAI
         SLAM_RECOVERY,
         EARTHQUAKE,
 
-        TRANSITION_TO_PHASE_2
+        TRANSITION_TO_PHASE_2,
+        IDLE_PHASE_2,
     }
 
     private BossState currentBossState = BossState.IDLE_PHASE_1;
@@ -28,12 +29,17 @@ public class BossAI : EnemyAI
     [SerializeField] private float rotationSpeed;
 
     [Header("Idle Phase 1")]
-    [SerializeField] private float minTimeBetweenAttacks;
-    [SerializeField] private float maxTimeBetweenAttacks;
-    private float currentTimeBetweenAttacks;
+    [SerializeField] private float minTimeBetweenAttacksPhase1;
+    [SerializeField] private float maxTimeBetweenAttacksPhase1;
+    private float currentTimeBetweenAttacksPhase1;
 
     [Header("Slam")]
     [SerializeField] private float slamPreparationTime;
+
+    [Header("Idle Phase 2")]
+    [SerializeField] private float minTimeBetweenAttacksPhase2;
+    [SerializeField] private float maxTimeBetweenAttacksPhase2;
+    private float currentTimeBetweenAttacksPhase2;
 
     private void Awake()
     {
@@ -66,6 +72,10 @@ public class BossAI : EnemyAI
             case BossState.TRANSITION_TO_PHASE_2:
                 RotateTowardsCenter();
                 break;
+
+            case BossState.IDLE_PHASE_2:
+                UpdateIdlePhase2State();
+                break;
         }
     }
 
@@ -76,14 +86,14 @@ public class BossAI : EnemyAI
     private void TransitionToIdlePhase1State()
     {
         currentBossState = BossState.IDLE_PHASE_1;
-        currentTimeBetweenAttacks = Random.Range(minTimeBetweenAttacks, maxTimeBetweenAttacks);
+        currentTimeBetweenAttacksPhase1 = Random.Range(minTimeBetweenAttacksPhase1, maxTimeBetweenAttacksPhase1);
         currentTime = 0f;
     }
 
     private void UpdateIdlePhase1State()
     {
         currentTime += Time.deltaTime;
-        if (currentTime >= currentTimeBetweenAttacks)
+        if (currentTime >= currentTimeBetweenAttacksPhase1)
         {
             float random = Random.Range(0f, 1f);
             if (random >= 0.5f)
@@ -170,6 +180,35 @@ public class BossAI : EnemyAI
     {
         currentBossState = BossState.TRANSITION_TO_PHASE_2;
         enemy.TriggerAnimation("transitionToPhase2");
+    }
+
+    public void OnTransitionToPhase2End()
+    {
+        TransitionToIdlePhase2State();
+    }
+
+    private void TransitionToIdlePhase2State()
+    {
+        currentBossState = BossState.IDLE_PHASE_2;
+        currentTimeBetweenAttacksPhase2 = Random.Range(minTimeBetweenAttacksPhase2, maxTimeBetweenAttacksPhase2);
+        currentTime = 0f;
+    }
+
+    private void UpdateIdlePhase2State()
+    {
+        currentTime += Time.deltaTime;
+        if (currentTime >= currentTimeBetweenAttacksPhase2)
+        {
+            float random = Random.Range(0f, 1f);
+            if (random >= 0.5f)
+            {
+                //TransitionToSlamPreparationState();
+            }
+            else
+            {
+                //TransitionToEarthquakeState();
+            }
+        }
     }
 
     public override void OnDeathStart()
