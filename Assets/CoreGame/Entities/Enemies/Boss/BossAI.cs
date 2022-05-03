@@ -15,6 +15,8 @@ public class BossAI : EnemyAI
 
         TRANSITION_TO_PHASE_2,
         IDLE_PHASE_2,
+        LEFT_PUNCH,
+        RIGHT_PUNCH,
     }
 
     private BossState currentBossState = BossState.IDLE_PHASE_1;
@@ -202,13 +204,37 @@ public class BossAI : EnemyAI
             float random = Random.Range(0f, 1f);
             if (random >= 0.5f)
             {
-                //TransitionToSlamPreparationState();
+                TransitionToLeftPunchState();
             }
             else
             {
-                //TransitionToEarthquakeState();
+                TransitionToRightPunchState();
             }
         }
+    }
+
+    private void TransitionToLeftPunchState()
+    {
+        currentBossState = BossState.LEFT_PUNCH;
+        enemy.TriggerAnimation("leftPunch");
+
+    }
+
+    public void OnLeftPunchEnd()
+    {
+        TransitionToIdlePhase2State();
+    }
+
+    private void TransitionToRightPunchState()
+    {
+        currentBossState = BossState.RIGHT_PUNCH;
+        enemy.TriggerAnimation("rightPunch");
+
+    }
+
+    public void OnRightPunchEnd()
+    {
+        TransitionToIdlePhase2State();
     }
 
     public override void OnDeathStart()
