@@ -188,11 +188,6 @@ public class BossAI : EnemyAI
         enemy.TriggerAnimation("transitionToPhase2");
     }
 
-    public void OnTransitionToPhase2RoarStart()
-    {
-        GameManager.instance.cameraManager.ShakeCamera(CameraManager.CameraShakeType.STRONG, 2f);
-    }
-
     public void OnTransitionToPhase2End()
     {
         TransitionToIdlePhase2State();
@@ -297,6 +292,11 @@ public class BossAI : EnemyAI
             default:
                 break;
         }
+    }
+
+    public void OnRoarStart()
+    {
+        GameManager.instance.cameraManager.ShakeCamera(CameraManager.CameraShakeType.STRONG, 2f);
     }
 
     private void RotateTowardsCenter()
