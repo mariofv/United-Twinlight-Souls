@@ -33,7 +33,7 @@ public class BossAnimationEventAdapter : MonoBehaviour
         onEarthquakeHit.AddListener(bossAI.OnEarthquakeHit);
         onEarthquakeEnd.AddListener(bossAI.OnEarthquakeEnd);
 
-        onTransitionToPhase2End.AddListener(bossAI.OnTransitionToPhase3End);
+        onTransitionToPhase2End.AddListener(bossAI.OnTransitionToPhase2End);
         onLeftPunchEnd.AddListener(bossAI.OnLeftPunchEnd);
         onRightPunchEnd.AddListener(bossAI.OnRightPunchEnd);
 

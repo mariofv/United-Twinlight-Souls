@@ -35,6 +35,7 @@ public class BossAI : EnemyAI
     [Header("Idle Phase 1")]
     [SerializeField] private float minTimeBetweenAttacksPhase1;
     [SerializeField] private float maxTimeBetweenAttacksPhase1;
+    [SerializeField] private BossAttacksSelector phase1AttackSelector;
     private float currentTimeBetweenAttacksPhase1;
 
     [Header("Slam")]
@@ -43,6 +44,7 @@ public class BossAI : EnemyAI
     [Header("Idle Phase 2")]
     [SerializeField] private float minTimeBetweenAttacksPhase2;
     [SerializeField] private float maxTimeBetweenAttacksPhase2;
+    [SerializeField] private BossAttacksSelector phase2AttackSelector;
     private float currentTimeBetweenAttacksPhase2;
 
     private void Awake()
@@ -99,8 +101,8 @@ public class BossAI : EnemyAI
         currentTime += Time.deltaTime;
         if (currentTime >= currentTimeBetweenAttacksPhase1)
         {
-            float random = Random.Range(0f, 1f);
-            if (random >= 0.5f)
+            int selectedAttack = phase1AttackSelector.SelectAttack();
+            if (selectedAttack == 0)
             {
                 TransitionToSlamPreparationState();
             }
@@ -205,12 +207,12 @@ public class BossAI : EnemyAI
         currentTime += Time.deltaTime;
         if (currentTime >= currentTimeBetweenAttacksPhase2)
         {
-            float random = Random.Range(0f, 1f);
-            if (random >= 0.5f)
+            int selectedAttack = phase2AttackSelector.SelectAttack();
+            if (selectedAttack == 0)
             {
                 TransitionToLeftPunchState();
             }
-            else
+            else if (selectedAttack == 1)
             {
                 TransitionToRightPunchState();
             }
