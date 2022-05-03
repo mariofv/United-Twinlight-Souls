@@ -145,6 +145,7 @@ public class BossAI : EnemyAI
     private void TransitionToSlamRestState()
     {
         currentBossState = BossState.SLAM_REST;
+        GameManager.instance.cameraManager.ShakeCamera(CameraManager.CameraShakeType.STRONG, 1f);
     }
 
     public void OnSlamRestEnd()
@@ -171,6 +172,7 @@ public class BossAI : EnemyAI
 
     public void OnEarthquakeHit()
     {
+        GameManager.instance.cameraManager.ShakeCamera(CameraManager.CameraShakeType.STRONG, 2f);
     }
 
     public void OnEarthquakeEnd()
