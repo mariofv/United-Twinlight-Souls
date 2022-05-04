@@ -20,6 +20,8 @@ public class BossAI : EnemyAI
 
         TRANSITION_TO_PHASE_3,
         IDLE_PHASE_3,
+        START_AVALANCHE,
+        AVALANCHE,
     }
 
     private BossState currentBossState = BossState.IDLE_PHASE_1;
@@ -278,12 +280,28 @@ public class BossAI : EnemyAI
         phase3Waves[currentWave].onWaveEnd.RemoveAllListeners();
         if (currentWave == phase3Waves.Count - 1)
         {
-
+            TransitionToStartAvalancheState();
         }
         else
         {
             StartNextPhase3Wave();
         }
+    }
+
+    private void TransitionToStartAvalancheState()
+    {
+        currentBossState = BossState.START_AVALANCHE;
+        enemy.TriggerAnimation("startAvalanche");
+    }
+
+    public void OnStartAvalancheEnd()
+    {
+        TransitionToAvalancheState();
+    }
+
+    private void TransitionToAvalancheState()
+    {
+        currentBossState = BossState.AVALANCHE;
     }
 
     public override void OnDeathStart()

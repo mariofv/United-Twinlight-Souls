@@ -20,6 +20,7 @@ public class BossAnimationEventAdapter : MonoBehaviour
     private UnityEvent onRightPunchEnd = new UnityEvent();
 
     private UnityEvent onTransitionToPhase3End = new UnityEvent();
+    private UnityEvent onStartAvalancheEnd = new UnityEvent();
 
     private UnityEvent onRoarStart = new UnityEvent();
 
@@ -38,6 +39,7 @@ public class BossAnimationEventAdapter : MonoBehaviour
         onRightPunchEnd.AddListener(bossAI.OnRightPunchEnd);
 
         onTransitionToPhase3End.AddListener(bossAI.OnTransitionToPhase3End);
+        onStartAvalancheEnd.AddListener(bossAI.OnStartAvalancheEnd);
 
         onRoarStart.AddListener(bossAI.OnRoarStart);
     }
@@ -90,6 +92,11 @@ public class BossAnimationEventAdapter : MonoBehaviour
     public void OnTransitionToPhase3End()
     {
         onTransitionToPhase3End.Invoke();
+    }
+
+    public void OnStartAvalancheEnd()
+    {
+        onStartAvalancheEnd.Invoke();
     }
 
     public void OnRoarStart()
