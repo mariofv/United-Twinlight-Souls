@@ -130,8 +130,7 @@ public class BossAI : EnemyAI
             }
             else
             {
-                TransitionToSlamPreparationState();
-                //TransitionToEarthquakeState();
+                TransitionToEarthquakeState();
             }
         }
     }
@@ -139,7 +138,10 @@ public class BossAI : EnemyAI
     private void TransitionToSlamPreparationState()
     {
         currentBossState = BossState.SLAM_PREPARATION;
+
         enemy.TriggerAnimation("prepareSlam");
+        bossAudioAdapter.slamPreparation.Play();
+
         currentTime = 0f;
     }
 
@@ -201,12 +203,20 @@ public class BossAI : EnemyAI
     private void TransitionToEarthquakeState()
     {
         currentBossState = BossState.EARTHQUAKE;
+
         enemy.TriggerAnimation("earthquake");
+        bossAudioAdapter.earthquakePreparation.Play();
+    }
+
+    public void OnEarthquakeSwing()
+    {
+        bossAudioAdapter.earthquakeSwing.Play();
     }
 
     public void OnEarthquakeHit()
     {
         GameManager.instance.cameraManager.ShakeCamera(CameraManager.CameraShakeType.STRONG, 2f);
+        bossAudioAdapter.earthquakeHit.Play();
     }
 
     public void OnEarthquakeEnd()

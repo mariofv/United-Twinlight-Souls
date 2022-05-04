@@ -13,6 +13,7 @@ public class BossAnimationEventAdapter : MonoBehaviour
     private UnityEvent onBossSlamRestEnd = new UnityEvent();
     private UnityEvent onBossSlamRecoveryEnd = new UnityEvent();
 
+    private UnityEvent onEarthquakeSwing = new UnityEvent();
     private UnityEvent onEarthquakeHit = new UnityEvent();
     private UnityEvent onEarthquakeEnd = new UnityEvent();
 
@@ -34,6 +35,7 @@ public class BossAnimationEventAdapter : MonoBehaviour
         onBossSlamRestEnd.AddListener(bossAI.OnSlamRestEnd);
         onBossSlamRecoveryEnd.AddListener(bossAI.OnSlamRecoveryEnd);
 
+        onEarthquakeSwing.AddListener(bossAI.OnEarthquakeSwing);
         onEarthquakeHit.AddListener(bossAI.OnEarthquakeHit);
         onEarthquakeEnd.AddListener(bossAI.OnEarthquakeEnd);
 
@@ -71,6 +73,11 @@ public class BossAnimationEventAdapter : MonoBehaviour
     public void OnBossSlamRecoveryEnd()
     {
         onBossSlamRecoveryEnd.Invoke();
+    }
+
+    public void OnEarthquakeSwing()
+    {
+        onEarthquakeSwing.Invoke();
     }
 
     public void OnEarthquakeHit()
