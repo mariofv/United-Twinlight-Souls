@@ -28,7 +28,7 @@ public class BossLevel : Level
         int bossMaxHealth = bossScript.GetMaxHealth();
         float phaseHealthPercentage = phasesThresholds[bossPhase];
 
-        float necessaryDamage = bossCurrentHealth - phaseHealthPercentage * bossMaxHealth;
+        float necessaryDamage = bossCurrentHealth - phaseHealthPercentage * bossMaxHealth + 10;
         bossScript.Hurt(Mathf.RoundToInt(necessaryDamage));
     }
 
