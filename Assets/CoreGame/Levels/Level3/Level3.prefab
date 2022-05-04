@@ -847,6 +847,17 @@ PrefabInstance:
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 8b15625ebc326bc45b05db05de7000a4, type: 3}
+--- !u!114 &8095195237163398764 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: -5913412526494455136, guid: 8b15625ebc326bc45b05db05de7000a4, type: 3}
+  m_PrefabInstance: {fileID: 6753358261362957516}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 3adb3087bfbdaed4a92fc704905f9725, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1001 &8217991907115640545
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -980,6 +991,17 @@ PrefabInstance:
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 8b15625ebc326bc45b05db05de7000a4, type: 3}
+--- !u!114 &5786227041894602023 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: -5913412526494455136, guid: 8b15625ebc326bc45b05db05de7000a4, type: 3}
+  m_PrefabInstance: {fileID: 9053247305264725895}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 3adb3087bfbdaed4a92fc704905f9725, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1001 &9172925408250018212
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -987,6 +1009,18 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 7074280570057068009}
     m_Modifications:
+    - target: {fileID: -8202388134679437516, guid: a97b1cf32e590324bb78bd200dd3a83c, type: 3}
+      propertyPath: waveEnemies.Array.size
+      value: 2
+      objectReference: {fileID: 0}
+    - target: {fileID: -8202388134679437516, guid: a97b1cf32e590324bb78bd200dd3a83c, type: 3}
+      propertyPath: waveEnemies.Array.data[0]
+      value: 
+      objectReference: {fileID: 5786227041894602023}
+    - target: {fileID: -8202388134679437516, guid: a97b1cf32e590324bb78bd200dd3a83c, type: 3}
+      propertyPath: waveEnemies.Array.data[1]
+      value: 
+      objectReference: {fileID: 8095195237163398764}
     - target: {fileID: 2080715972044449687, guid: a97b1cf32e590324bb78bd200dd3a83c, type: 3}
       propertyPath: m_RootOrder
       value: 1
