@@ -130,7 +130,8 @@ public class BossAI : EnemyAI
             }
             else
             {
-                TransitionToEarthquakeState();
+                TransitionToSlamPreparationState();
+                //TransitionToEarthquakeState();
             }
         }
     }
@@ -159,8 +160,16 @@ public class BossAI : EnemyAI
     private void TransitionToSlamState()
     {
         currentBossState = BossState.SLAM;
+
         enemy.SetAnimatorSpeed(1f);
         enemy.TriggerAnimation("slam");
+        bossAudioAdapter.slamSwing.Play();
+    }
+
+    public void OnSlamHit()
+    {
+        GameManager.instance.cameraManager.ShakeCamera(CameraManager.CameraShakeType.STRONG, 1f);
+        bossAudioAdapter.slamHit.Play();
     }
 
     public void OnSlamEnd()
@@ -171,7 +180,6 @@ public class BossAI : EnemyAI
     private void TransitionToSlamRestState()
     {
         currentBossState = BossState.SLAM_REST;
-        GameManager.instance.cameraManager.ShakeCamera(CameraManager.CameraShakeType.STRONG, 1f);
     }
 
     public void OnSlamRestEnd()
@@ -342,7 +350,15 @@ public class BossAI : EnemyAI
     private void TransitionToStunState()
     {
         currentBossState = BossState.STUN;
-        bossAudioAdapter.stun.Play();
+        float random = Random.Range(0f, 1f);
+        if (random >= 0.5f)
+        {
+            bossAudioAdapter.stun.Play();
+        }
+        else
+        {
+            bossAudioAdapter.stun2.Play();
+        }
 
         currentTime = 0f;
     }
@@ -352,6 +368,7 @@ public class BossAI : EnemyAI
         currentTime += Time.deltaTime;
         if (currentTime >= stunTime)
         {
+            bossAudioAdapter.stunRecovery.Play();
             TransitionToStartAvalancheState();
         }
     }

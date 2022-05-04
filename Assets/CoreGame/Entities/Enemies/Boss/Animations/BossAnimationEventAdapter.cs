@@ -8,6 +8,7 @@ public class BossAnimationEventAdapter : MonoBehaviour
     [SerializeField] private BossAI bossAI;
 
     private UnityEvent onBossSlamPreparationEnd = new UnityEvent();
+    private UnityEvent onBossSlamHit = new UnityEvent();
     private UnityEvent onBossSlamEnd = new UnityEvent();
     private UnityEvent onBossSlamRestEnd = new UnityEvent();
     private UnityEvent onBossSlamRecoveryEnd = new UnityEvent();
@@ -28,6 +29,7 @@ public class BossAnimationEventAdapter : MonoBehaviour
     private void Awake()
     {
         onBossSlamPreparationEnd.AddListener(bossAI.OnSlamPreparationEnd);
+        onBossSlamHit.AddListener(bossAI.OnSlamHit);
         onBossSlamEnd.AddListener(bossAI.OnSlamEnd);
         onBossSlamRestEnd.AddListener(bossAI.OnSlamRestEnd);
         onBossSlamRecoveryEnd.AddListener(bossAI.OnSlamRecoveryEnd);
@@ -49,6 +51,11 @@ public class BossAnimationEventAdapter : MonoBehaviour
     public void OnBossSlamPreparationEnd()
     {
         onBossSlamPreparationEnd.Invoke();
+    }
+
+    public void OnBossSlamHit()
+    {
+        onBossSlamHit.Invoke();
     }
 
     public void OnBossSlamEnd()
