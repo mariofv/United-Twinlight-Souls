@@ -22,6 +22,7 @@ public class BossAI : EnemyAI
         IDLE_PHASE_3,
         START_AVALANCHE,
         AVALANCHE,
+        STUN,
     }
 
     private BossState currentBossState = BossState.IDLE_PHASE_1;
@@ -52,8 +53,9 @@ public class BossAI : EnemyAI
 
     [Header("Idle Phase 3")]
     [SerializeField] private List<EnemyWave> phase3Waves;
+    [SerializeField] private float avalancheCastingTime;
+    [SerializeField] private float stunTime;
     private int currentWave = -1;
-    private int currentWaveNumberOfEnemies;
 
     private void Awake()
     {
@@ -89,6 +91,14 @@ public class BossAI : EnemyAI
 
             case BossState.IDLE_PHASE_2:
                 UpdateIdlePhase2State();
+                break;
+
+            case BossState.AVALANCHE:
+                UpdateAvalancheState();
+                break;
+
+            case BossState.STUN:
+                UpdateStunState();
                 break;
         }
     }
@@ -302,6 +312,32 @@ public class BossAI : EnemyAI
     private void TransitionToAvalancheState()
     {
         currentBossState = BossState.AVALANCHE;
+        currentTime = 0f;
+    }
+
+    private void UpdateAvalancheState()
+    {
+        currentTime += Time.deltaTime;
+        if (currentTime >= avalancheCastingTime)
+        {
+            TransitionToStunState();
+        }
+    }
+
+    private void TransitionToStunState()
+    {
+        currentBossState = BossState.STUN;
+        enemy.TriggerAnimation("stun");
+        currentTime = 0f;
+    }
+
+    private void UpdateStunState()
+    {
+        currentTime += Time.deltaTime;
+        if (currentTime >= stunTime)
+        {
+            TransitionToStartAvalancheState();
+        }
     }
 
     public override void OnDeathStart()

@@ -128,6 +128,9 @@ MonoBehaviour:
   minTimeBetweenAttacksPhase2: 4
   maxTimeBetweenAttacksPhase2: 6
   phase2AttackSelector: {fileID: 7134656640990449402}
+  phase3Waves: []
+  avalancheCastingTime: 10
+  stunTime: 5
 --- !u!195 &5454076620399081758
 NavMeshAgent:
   m_ObjectHideFlags: 0
