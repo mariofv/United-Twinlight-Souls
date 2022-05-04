@@ -26,6 +26,7 @@ public class BossAnimationEventAdapter : MonoBehaviour
     private UnityEvent onStunStartEnd = new UnityEvent();
 
     private UnityEvent onRoarStart = new UnityEvent();
+    private UnityEvent onPunchHit = new UnityEvent();
 
     private void Awake()
     {
@@ -48,6 +49,7 @@ public class BossAnimationEventAdapter : MonoBehaviour
         onStunStartEnd.AddListener(bossAI.OnStunStartEnd);
 
         onRoarStart.AddListener(bossAI.OnRoarStart);
+        onPunchHit.AddListener(bossAI.OnPunchHit);
     }
 
     public void OnBossSlamPreparationEnd()
@@ -123,5 +125,10 @@ public class BossAnimationEventAdapter : MonoBehaviour
     public void OnRoarStart()
     {
         onRoarStart.Invoke();
+    }
+
+    public void OnPunchHit()
+    {
+        onPunchHit.Invoke();
     }
 }

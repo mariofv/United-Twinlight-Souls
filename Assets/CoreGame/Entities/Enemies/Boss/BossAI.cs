@@ -263,6 +263,7 @@ public class BossAI : EnemyAI
     {
         currentBossState = BossState.LEFT_PUNCH;
         enemy.TriggerAnimation("leftPunch");
+        bossAudioAdapter.punchSwing.Play();
 
     }
 
@@ -275,6 +276,7 @@ public class BossAI : EnemyAI
     {
         currentBossState = BossState.RIGHT_PUNCH;
         enemy.TriggerAnimation("rightPunch");
+        bossAudioAdapter.punchSwing.Play();
 
     }
 
@@ -436,6 +438,21 @@ public class BossAI : EnemyAI
         else
         {
             bossAudioAdapter.roarKingKong.Play();
+        }
+    }
+
+    public void OnPunchHit()
+    {
+        bossAudioAdapter.punchHit.Play();
+        if (currentBossState == BossState.LEFT_PUNCH)
+        {
+            GameManager.instance.cameraManager.ShakeCamera(CameraManager.CameraShakeType.NORMAL, 2f);
+
+        }
+        else if (currentBossState == BossState.RIGHT_PUNCH)
+        {
+            GameManager.instance.cameraManager.ShakeCamera(CameraManager.CameraShakeType.NORMAL, 2f);
+
         }
     }
 

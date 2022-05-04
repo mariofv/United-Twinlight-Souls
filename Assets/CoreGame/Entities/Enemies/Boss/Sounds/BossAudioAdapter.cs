@@ -22,4 +22,8 @@ public class BossAudioAdapter : MonoBehaviour
     public AudioSource earthquakePreparation;
     public AudioSource earthquakeSwing;
     public AudioSource earthquakeHit;
+
+    [Header("Punch")]
+    public AudioSource punchSwing;
+    public AudioSource punchHit;
 }
