@@ -31,6 +31,9 @@ public class BossAI : EnemyAI
 
     private float currentTime = 0f;
 
+    [Header("Boss Audio")]
+    [SerializeField] private BossAudioAdapter bossAudioAdapter;
+
     [Header("Boss movement")]
     [SerializeField] private Transform bossTransform;
     [SerializeField] private float maxRotationAngle;
@@ -385,6 +388,15 @@ public class BossAI : EnemyAI
     public void OnRoarStart()
     {
         GameManager.instance.cameraManager.ShakeCamera(CameraManager.CameraShakeType.STRONG, 2f);
+        float random = Random.Range(0f, 1f);
+        if (random >= 0.5f)
+        {
+            bossAudioAdapter.roar.Play();
+        }
+        else
+        {
+            bossAudioAdapter.roarKingKong.Play();
+        }
     }
 
     private void RotateTowardsCenter()
