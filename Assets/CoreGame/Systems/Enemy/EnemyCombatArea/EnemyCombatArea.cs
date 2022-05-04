@@ -5,19 +5,13 @@ using Cinemachine;
 
 public class EnemyCombatArea : MonoBehaviour
 {
-    [System.Serializable]
-    private struct CombatAreaWave
-    {
-        public List<EnemySpawnPoint> waveSpawnPoints;
-    }
-
     [SerializeField] private CinemachineVirtualCamera combatAreaCamera;
     [SerializeField] private BoxCollider combatAreaEnterGateCollider;
-    [SerializeField] private List<CombatAreaWave> combatAreaWaves;
+    [SerializeField] private List<EnemyWave> combatAreaWaves;
 
     private bool started = false;
     private int currentWave = 0;
-    private int currentWaveEnemies = 0;
+
     private void StartCombatArea()
     {
         started = true;
@@ -34,17 +28,14 @@ public class EnemyCombatArea : MonoBehaviour
 
     private void StartCurrentWave()
     {
-        List<EnemySpawnPoint> currentWaveSpawnPoints = combatAreaWaves[currentWave].waveSpawnPoints;
-        for (int i = 0; i < currentWaveSpawnPoints.Count; ++i)
-        {
-            Enemy waveEnemy = currentWaveSpawnPoints[i].Spawn();
-            waveEnemy.onSpawnedEnemyDead.AddListener(OnWaveEnemyDead);
-            ++currentWaveEnemies;
-        }
+        combatAreaWaves[currentWave].StartWave();
+        combatAreaWaves[currentWave].onWaveEnd.AddListener(EndCurrentWave);
     }
 
     private void EndCurrentWave()
     {
+        combatAreaWaves[currentWave].onWaveEnd.RemoveAllListeners();
+
         ++currentWave;
         if (currentWave == combatAreaWaves.Count)
         {
@@ -57,19 +48,6 @@ public class EnemyCombatArea : MonoBehaviour
         else
         {
             throw new UnityException("Current wave counter is higher than the number of waves!");
-        }
-    }
-
-    private void OnWaveEnemyDead()
-    {
-        --currentWaveEnemies;
-        if (currentWaveEnemies == 0)
-        {
-            EndCurrentWave();
-        }
-        else if (currentWaveEnemies < 0)
-        {
-            throw new UnityException("Number of current wave enemies is negative!");
         }
     }
 
