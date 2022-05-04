@@ -216,6 +216,17 @@ Transform:
   m_Father: {fileID: 0}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 62.2, y: -177.3, z: 0}
+--- !u!114 &759876871 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 3845457925305612993, guid: fb377fb4daeca65419dd4db70e054508, type: 3}
+  m_PrefabInstance: {fileID: 336865111230522945}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: da28e79103a4e0945adf482e506e0d1e, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1001 &1648106709
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -223,6 +234,18 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: -8570974121136205171, guid: 03b2644f8f8be0941b2d8d5034361cee, type: 3}
+      propertyPath: phase3Waves.Array.size
+      value: 2
+      objectReference: {fileID: 0}
+    - target: {fileID: -8570974121136205171, guid: 03b2644f8f8be0941b2d8d5034361cee, type: 3}
+      propertyPath: phase3Waves.Array.data[0]
+      value: 
+      objectReference: {fileID: 759876871}
+    - target: {fileID: -8570974121136205171, guid: 03b2644f8f8be0941b2d8d5034361cee, type: 3}
+      propertyPath: phase3Waves.Array.data[1]
+      value: 
+      objectReference: {fileID: 2077369193}
     - target: {fileID: 2681013851269993634, guid: 03b2644f8f8be0941b2d8d5034361cee, type: 3}
       propertyPath: m_Name
       value: Boss
@@ -286,6 +309,17 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: bfc299121cfc769438888cc02b4ffc27, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+--- !u!114 &2077369193 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 8171645725175195280, guid: fb377fb4daeca65419dd4db70e054508, type: 3}
+  m_PrefabInstance: {fileID: 336865111230522945}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: da28e79103a4e0945adf482e506e0d1e, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
 --- !u!1001 &336865111230522945

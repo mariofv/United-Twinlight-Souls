@@ -19,6 +19,7 @@ public class BossAI : EnemyAI
         RIGHT_PUNCH,
 
         TRANSITION_TO_PHASE_3,
+        IDLE_PHASE_3,
     }
 
     private BossState currentBossState = BossState.IDLE_PHASE_1;
@@ -46,6 +47,11 @@ public class BossAI : EnemyAI
     [SerializeField] private float maxTimeBetweenAttacksPhase2;
     [SerializeField] private BossAttacksSelector phase2AttackSelector;
     private float currentTimeBetweenAttacksPhase2;
+
+    [Header("Idle Phase 3")]
+    [SerializeField] private List<EnemyWave> phase3Waves;
+    private int currentWave = -1;
+    private int currentWaveNumberOfEnemies;
 
     private void Awake()
     {
@@ -251,7 +257,33 @@ public class BossAI : EnemyAI
 
     public void OnTransitionToPhase3End()
     {
-        //TransitionToIdlePhase3State();
+        TransitionToIdlePhase3State();
+    }
+
+    private void TransitionToIdlePhase3State()
+    {
+        currentBossState = BossState.IDLE_PHASE_3;
+        StartNextPhase3Wave();
+    }
+
+    private void StartNextPhase3Wave()
+    {
+        ++currentWave;
+        phase3Waves[currentWave].StartWave();
+        phase3Waves[currentWave].onWaveEnd.AddListener(OnWaveEnd);
+    }
+
+    private void OnWaveEnd()
+    {
+        phase3Waves[currentWave].onWaveEnd.RemoveAllListeners();
+        if (currentWave == phase3Waves.Count - 1)
+        {
+
+        }
+        else
+        {
+            StartNextPhase3Wave();
+        }
     }
 
     public override void OnDeathStart()
