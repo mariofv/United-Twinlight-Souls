@@ -330,7 +330,10 @@ public class BossAI : EnemyAI
     private void TransitionToStunState()
     {
         currentBossState = BossState.STUN;
+
         enemy.TriggerAnimation("stun");
+        bossAudioAdapter.stun.Play();
+
         currentTime = 0f;
     }
 

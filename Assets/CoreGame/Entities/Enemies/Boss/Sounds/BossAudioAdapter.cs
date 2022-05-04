@@ -6,4 +6,5 @@ public class BossAudioAdapter : MonoBehaviour
 {
     public AudioSource roar;
     public AudioSource roarKingKong;
+    public AudioSource stun;
 }
