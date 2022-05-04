@@ -22,6 +22,7 @@ public class BossAI : EnemyAI
         IDLE_PHASE_3,
         START_AVALANCHE,
         AVALANCHE,
+        START_STUN,
         STUN,
     }
 
@@ -323,15 +324,24 @@ public class BossAI : EnemyAI
         currentTime += Time.deltaTime;
         if (currentTime >= avalancheCastingTime)
         {
-            TransitionToStunState();
+            TransitionToStartStunState();
         }
+    }
+
+    private void TransitionToStartStunState()
+    {
+        currentBossState = BossState.START_STUN;
+        enemy.TriggerAnimation("stun");
+    }
+
+    public void OnStunStartEnd()
+    {
+        TransitionToStunState();
     }
 
     private void TransitionToStunState()
     {
         currentBossState = BossState.STUN;
-
-        enemy.TriggerAnimation("stun");
         bossAudioAdapter.stun.Play();
 
         currentTime = 0f;
