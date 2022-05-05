@@ -4,6 +4,13 @@ using UnityEngine;
 
 public class NecroProjectile : MonoBehaviour
 {
+    [Header("Audio")]
+    [SerializeField] private AudioSource audioSource;
+    [SerializeField] private AudioClip shootHit1;
+    [SerializeField] private AudioClip shootHit2;
+    [SerializeField] private AudioClip shootHit3;
+    [SerializeField] private AudioClip shootHit4;
+
     [Header("Projectile")]
     [SerializeField] private float projectileSpeed;
     [SerializeField] private int projectileDamage;
@@ -45,6 +52,7 @@ public class NecroProjectile : MonoBehaviour
 
     private void DestroyProjectile()
     {
+        audioSource.PlayOneShotRandom(shootHit1, shootHit2, shootHit3, shootHit4);
         for (int i = 0; i < projectileEffects.Count; ++i)
         {
             projectileEffects[i].Stop();

@@ -9,6 +9,7 @@ public abstract class EnemyAI : MonoBehaviour
     [SerializeField] protected PlayerDetectionCollider playerDetectionCollider;
 
     protected Enemy enemy;
+    [SerializeField] protected AudioSource audioSource;
 
     private float currentBaseTime = 0f;
     protected float deltaTimeAI;

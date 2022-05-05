@@ -23,6 +23,10 @@ public class NecroplantAI : EnemyAI
     [Header("Components")]
     [SerializeField] private Animator rootsAnimatorController;
 
+    [Header("Audio")]
+    [SerializeField] private AudioSource burroAudioSource;
+    [SerializeField] private NecroplantAudioClips necroplantAudioClips;
+
     [Header("Spawn State")]
     [SerializeField] private Transform necroplantBodyTransform;
     private float spawnTime;
@@ -125,6 +129,9 @@ public class NecroplantAI : EnemyAI
         enemy.SetInvincible(true);
         necroplantBodyTransform.localScale = Vector3.zero;
         aiTimer = 0f;
+
+        audioSource.PlayOneShot(necroplantAudioClips.taunt);
+        burroAudioSource.Play();
     }
 
     private void UpdateSpawnState()
@@ -141,6 +148,8 @@ public class NecroplantAI : EnemyAI
         {
             throw new UnityException("OnSpawnEnd was captured but Necroplant was in " + currentState + " state!");
         }
+
+        burroAudioSource.Stop();
 
         enemy.SetInvincible(false);
         necroplantBodyTransform.localScale = Vector3.one;
@@ -215,7 +224,7 @@ public class NecroplantAI : EnemyAI
         enemy.SetInvincible(true);
         aiTimer = 0f;
         burrowTargetPosition = NavMeshHelper.FindAvailableSpawnPosition(transform.position, distanceToBurrowAway);
-
+        burroAudioSource.Play();
     }
 
     private void UpdateBurrowState()
@@ -232,6 +241,8 @@ public class NecroplantAI : EnemyAI
         {
             throw new UnityException("OnBurrowEnd was captured but Necroplant was in " + currentState + " state!");
         }
+
+        burroAudioSource.Stop();
 
         timeSinceLastBurrow = 0f;
         necroplantBodyTransform.localScale = Vector3.zero;
@@ -252,6 +263,7 @@ public class NecroplantAI : EnemyAI
         Vector3 directionToPlayer = (targetedPlayerTransform.position - transform.position).normalized;
         directionToPlayer.y = 0;
 
+        audioSource.PlayOneShotRandom(necroplantAudioClips.shoot1, necroplantAudioClips.shoot2);
         if (currentState == NecroplantState.SIMPLE_ATTACK || currentState == NecroplantState.BARRAGE_ATTACK)
         {
             necroplantNecroMuzzle.Shoot(directionToPlayer);
@@ -326,6 +338,7 @@ public class NecroplantAI : EnemyAI
         currentState = NecroplantState.DYING;
         DisableNavMeshAgent();
         enemy.TriggerAnimation("die");
+        audioSource.PlayOneShotRandom(necroplantAudioClips.death1, necroplantAudioClips.death2, necroplantAudioClips.death3);
     }
 
     public void OnDeathEnd()

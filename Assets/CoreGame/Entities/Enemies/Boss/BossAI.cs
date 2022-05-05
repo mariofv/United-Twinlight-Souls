@@ -32,8 +32,7 @@ public class BossAI : EnemyAI
 
     private float currentTime = 0f;
 
-    [Header("Boss Audio")]
-    [SerializeField] private AudioSource bossAudioSource;
+    [Header("Audio")]
     [SerializeField] private BossAudioClips bossAudioClips;
 
     [Header("Boss movement")]
@@ -141,7 +140,7 @@ public class BossAI : EnemyAI
         currentBossState = BossState.SLAM_PREPARATION;
 
         enemy.TriggerAnimation("prepareSlam");
-        bossAudioSource.PlayOneShot(bossAudioClips.slamPreparation);
+        audioSource.PlayOneShot(bossAudioClips.slamPreparation);
 
         currentTime = 0f;
     }
@@ -166,13 +165,13 @@ public class BossAI : EnemyAI
 
         enemy.SetAnimatorSpeed(1f);
         enemy.TriggerAnimation("slam");
-        bossAudioSource.PlayOneShot(bossAudioClips.slamSwing);
+        audioSource.PlayOneShot(bossAudioClips.slamSwing);
     }
 
     public void OnSlamHit()
     {
         GameManager.instance.cameraManager.ShakeCamera(CameraManager.CameraShakeType.STRONG, 1f);
-        bossAudioSource.PlayOneShot(bossAudioClips.slamHit);
+        audioSource.PlayOneShot(bossAudioClips.slamHit);
     }
 
     public void OnSlamEnd()
@@ -206,18 +205,18 @@ public class BossAI : EnemyAI
         currentBossState = BossState.EARTHQUAKE;
 
         enemy.TriggerAnimation("earthquake");
-        bossAudioSource.PlayOneShot(bossAudioClips.earthquakePreparation);
+        audioSource.PlayOneShot(bossAudioClips.earthquakePreparation);
     }
 
     public void OnEarthquakeSwing()
     {
-        bossAudioSource.PlayOneShot(bossAudioClips.earthquakeSwing);
+        audioSource.PlayOneShot(bossAudioClips.earthquakeSwing);
     }
 
     public void OnEarthquakeHit()
     {
         GameManager.instance.cameraManager.ShakeCamera(CameraManager.CameraShakeType.STRONG, 2f);
-        bossAudioSource.PlayOneShot(bossAudioClips.earthquakeHit);
+        audioSource.PlayOneShot(bossAudioClips.earthquakeHit);
     }
 
     public void OnEarthquakeEnd()
@@ -264,7 +263,7 @@ public class BossAI : EnemyAI
     {
         currentBossState = BossState.LEFT_PUNCH;
         enemy.TriggerAnimation("leftPunch");
-        bossAudioSource.PlayOneShot(bossAudioClips.punchSwing);
+        audioSource.PlayOneShot(bossAudioClips.punchSwing);
 
     }
 
@@ -277,7 +276,7 @@ public class BossAI : EnemyAI
     {
         currentBossState = BossState.RIGHT_PUNCH;
         enemy.TriggerAnimation("rightPunch");
-        bossAudioSource.PlayOneShot(bossAudioClips.punchSwing);
+        audioSource.PlayOneShot(bossAudioClips.punchSwing);
 
     }
 
@@ -363,16 +362,7 @@ public class BossAI : EnemyAI
     private void TransitionToStunState()
     {
         currentBossState = BossState.STUN;
-        float random = Random.Range(0f, 1f);
-        if (random >= 0.5f)
-        {
-            bossAudioSource.PlayOneShot(bossAudioClips.stun);
-        }
-        else
-        {
-            bossAudioSource.PlayOneShot(bossAudioClips.stun2);
-        }
-
+        audioSource.PlayOneShotRandom(bossAudioClips.stun, bossAudioClips.stun2);
         currentTime = 0f;
     }
 
@@ -381,7 +371,7 @@ public class BossAI : EnemyAI
         currentTime += Time.deltaTime;
         if (currentTime >= stunTime)
         {
-            bossAudioSource.PlayOneShot(bossAudioClips.stunRecovery);
+            audioSource.PlayOneShot(bossAudioClips.stunRecovery);
             TransitionToStartAvalancheState();
         }
     }
@@ -431,20 +421,12 @@ public class BossAI : EnemyAI
     public void OnRoarStart()
     {
         GameManager.instance.cameraManager.ShakeCamera(CameraManager.CameraShakeType.STRONG, 2f);
-        float random = Random.Range(0f, 1f);
-        if (random >= 0.5f)
-        {
-            bossAudioSource.PlayOneShot(bossAudioClips.roar);
-        }
-        else
-        {
-            bossAudioSource.PlayOneShot(bossAudioClips.roarKingKong);
-        }
+        audioSource.PlayOneShotRandom(bossAudioClips.roar, bossAudioClips.roarKingKong);
     }
 
     public void OnPunchHit()
     {
-        bossAudioSource.PlayOneShot(bossAudioClips.punchHit);
+        audioSource.PlayOneShot(bossAudioClips.punchHit);
         if (currentBossState == BossState.LEFT_PUNCH)
         {
             GameManager.instance.cameraManager.ShakeCamera(CameraManager.CameraShakeType.NORMAL, 2f);

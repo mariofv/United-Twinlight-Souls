@@ -272,7 +272,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   enemyNavMeshAgent: {fileID: 5454076620399081758}
   playerDetectionCollider: {fileID: 0}
-  bossAudioSource: {fileID: 76972184251097267}
+  audioSource: {fileID: 76972184251097267}
   bossAudioClips: {fileID: 8584063222886045051}
   bossTransform: {fileID: 2681013852670020741}
   maxRotationAngle: 25
