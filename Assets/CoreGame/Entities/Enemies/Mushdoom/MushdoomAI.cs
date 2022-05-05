@@ -18,6 +18,9 @@ public class MushdoomAI : EnemyAI
         DYING
     }
 
+    [Header("Audio")]
+    [SerializeField] private MushdoomAudioClips mushdoomAudioClips;
+
     [Header("Idle State")]
     [SerializeField] private float minIdleTime;
     [SerializeField] private float maxIdleTime;
@@ -120,6 +123,8 @@ public class MushdoomAI : EnemyAI
         currentState = MushdoomState.SPAWN;
         enemy.TriggerAnimation("spawn");
         enemy.SetInvincible(true);
+
+        audioSource.PlayOneShotRandom(mushdoomAudioClips.death1, mushdoomAudioClips.death2, mushdoomAudioClips.death3);
     }
 
     public void OnSpawnEnd()
@@ -182,6 +187,7 @@ public class MushdoomAI : EnemyAI
         hasBattleCried = true;
         currentState = MushdoomState.BATTLE_CRY;
         enemy.TriggerAnimation("battleCry");
+        audioSource.PlayOneShotRandom(mushdoomAudioClips.battleCry1, mushdoomAudioClips.battleCry2, mushdoomAudioClips.battleCry3);
     }
 
     public void OnBattleCryEnd()
@@ -236,6 +242,7 @@ public class MushdoomAI : EnemyAI
     {
         enemy.TriggerAnimation("spinAttack");
         currentState = MushdoomState.SPIN_ATTACK;
+        audioSource.PlayOneShot(mushdoomAudioClips.spinAttack);
 
         for (int i = 0; i < spinAttackColliders.Count; ++i)
         {
@@ -273,12 +280,16 @@ public class MushdoomAI : EnemyAI
     {
         enemy.TriggerAnimation("sporeAttack");
         currentState = MushdoomState.SPORE_ATTACK;
+
+        audioSource.PlayOneShot(mushdoomAudioClips.sporesAttack);
     }
 
     public void OnSporteAttackVolumeStart()
     {
         sporeAttack.Spawn(transform.position + Vector3.up);
         isSporeAttackActive = true;
+
+        audioSource.PlayOneShot(mushdoomAudioClips.sporesRelease);
     }
 
     private void OnSporteAttackVolumeEnd()
@@ -331,6 +342,7 @@ public class MushdoomAI : EnemyAI
     public override void OnHitStart()
     {
         currentState = MushdoomState.HIT;
+
         if (Random.Range(0f, 1f) < 0.5f)
         {
             enemy.TriggerAnimation("hitReaction1");
@@ -363,6 +375,7 @@ public class MushdoomAI : EnemyAI
         currentState = MushdoomState.DYING;
         DisableNavMeshAgent();
         enemy.TriggerAnimation("die");
+        audioSource.PlayOneShotRandom(mushdoomAudioClips.death1, mushdoomAudioClips.death2, mushdoomAudioClips.death3);
     }
 
     public void OnDeathEnd()
