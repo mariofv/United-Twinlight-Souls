@@ -33,7 +33,8 @@ public class BossAI : EnemyAI
     private float currentTime = 0f;
 
     [Header("Boss Audio")]
-    [SerializeField] private BossAudioAdapter bossAudioAdapter;
+    [SerializeField] private AudioSource bossAudioSource;
+    [SerializeField] private BossAudioClips bossAudioClips;
 
     [Header("Boss movement")]
     [SerializeField] private Transform bossTransform;
@@ -140,7 +141,7 @@ public class BossAI : EnemyAI
         currentBossState = BossState.SLAM_PREPARATION;
 
         enemy.TriggerAnimation("prepareSlam");
-        bossAudioAdapter.slamPreparation.Play();
+        bossAudioSource.PlayOneShot(bossAudioClips.slamPreparation);
 
         currentTime = 0f;
     }
@@ -165,13 +166,13 @@ public class BossAI : EnemyAI
 
         enemy.SetAnimatorSpeed(1f);
         enemy.TriggerAnimation("slam");
-        bossAudioAdapter.slamSwing.Play();
+        bossAudioSource.PlayOneShot(bossAudioClips.slamSwing);
     }
 
     public void OnSlamHit()
     {
         GameManager.instance.cameraManager.ShakeCamera(CameraManager.CameraShakeType.STRONG, 1f);
-        bossAudioAdapter.slamHit.Play();
+        bossAudioSource.PlayOneShot(bossAudioClips.slamHit);
     }
 
     public void OnSlamEnd()
@@ -205,18 +206,18 @@ public class BossAI : EnemyAI
         currentBossState = BossState.EARTHQUAKE;
 
         enemy.TriggerAnimation("earthquake");
-        bossAudioAdapter.earthquakePreparation.Play();
+        bossAudioSource.PlayOneShot(bossAudioClips.earthquakePreparation);
     }
 
     public void OnEarthquakeSwing()
     {
-        bossAudioAdapter.earthquakeSwing.Play();
+        bossAudioSource.PlayOneShot(bossAudioClips.earthquakeSwing);
     }
 
     public void OnEarthquakeHit()
     {
         GameManager.instance.cameraManager.ShakeCamera(CameraManager.CameraShakeType.STRONG, 2f);
-        bossAudioAdapter.earthquakeHit.Play();
+        bossAudioSource.PlayOneShot(bossAudioClips.earthquakeHit);
     }
 
     public void OnEarthquakeEnd()
@@ -263,7 +264,7 @@ public class BossAI : EnemyAI
     {
         currentBossState = BossState.LEFT_PUNCH;
         enemy.TriggerAnimation("leftPunch");
-        bossAudioAdapter.punchSwing.Play();
+        bossAudioSource.PlayOneShot(bossAudioClips.punchSwing);
 
     }
 
@@ -276,7 +277,7 @@ public class BossAI : EnemyAI
     {
         currentBossState = BossState.RIGHT_PUNCH;
         enemy.TriggerAnimation("rightPunch");
-        bossAudioAdapter.punchSwing.Play();
+        bossAudioSource.PlayOneShot(bossAudioClips.punchSwing);
 
     }
 
@@ -365,11 +366,11 @@ public class BossAI : EnemyAI
         float random = Random.Range(0f, 1f);
         if (random >= 0.5f)
         {
-            bossAudioAdapter.stun.Play();
+            bossAudioSource.PlayOneShot(bossAudioClips.stun);
         }
         else
         {
-            bossAudioAdapter.stun2.Play();
+            bossAudioSource.PlayOneShot(bossAudioClips.stun2);
         }
 
         currentTime = 0f;
@@ -380,7 +381,7 @@ public class BossAI : EnemyAI
         currentTime += Time.deltaTime;
         if (currentTime >= stunTime)
         {
-            bossAudioAdapter.stunRecovery.Play();
+            bossAudioSource.PlayOneShot(bossAudioClips.stunRecovery);
             TransitionToStartAvalancheState();
         }
     }
@@ -433,17 +434,17 @@ public class BossAI : EnemyAI
         float random = Random.Range(0f, 1f);
         if (random >= 0.5f)
         {
-            bossAudioAdapter.roar.Play();
+            bossAudioSource.PlayOneShot(bossAudioClips.roar);
         }
         else
         {
-            bossAudioAdapter.roarKingKong.Play();
+            bossAudioSource.PlayOneShot(bossAudioClips.roarKingKong);
         }
     }
 
     public void OnPunchHit()
     {
-        bossAudioAdapter.punchHit.Play();
+        bossAudioSource.PlayOneShot(bossAudioClips.punchHit);
         if (currentBossState == BossState.LEFT_PUNCH)
         {
             GameManager.instance.cameraManager.ShakeCamera(CameraManager.CameraShakeType.NORMAL, 2f);
