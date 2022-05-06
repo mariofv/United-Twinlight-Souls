@@ -24,7 +24,7 @@ public class CharacterInteractionManager : CharacterSubManager
         {
             characterManager.Move(Vector2.zero);
             characterManager.SetCharacterState(CharacterManager.CharacterState.INTERACTING);
-            GameManager.instance.dialogueManager.StartDialogue(npcInteraction.interactionDialogue);
+            npcInteraction.StartInteraction();
         }
     }
 
@@ -37,7 +37,7 @@ public class CharacterInteractionManager : CharacterSubManager
     {
         if (other.CompareTag(TagManager.NPC))
         {
-            npcInteraction = other.GetComponent<NPCInteraction>();
+            npcInteraction = other.GetComponent<NPC>().GetInteraction();
         }
     }
 

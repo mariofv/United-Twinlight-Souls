@@ -10,7 +10,6 @@ GameObject:
   m_Component:
   - component: {fileID: 3558976883444717056}
   - component: {fileID: 729030077138811750}
-  - component: {fileID: 7904585234717405962}
   - component: {fileID: 2350436743591582957}
   - component: {fileID: 2967794277209314231}
   m_Layer: 0
@@ -50,19 +49,6 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   playerDetection: {fileID: 6561795281368970759}
   rotationSpeed: 10
---- !u!114 &7904585234717405962
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 2151517862799746923}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: a2d26444405eeb14eb97ea49d18b80db, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  interactionDialogue: {fileID: 11400000, guid: 1a93ef7b04b73a74fb1abfb10c4b08f8, type: 2}
 --- !u!54 &2350436743591582957
 Rigidbody:
   m_ObjectHideFlags: 0

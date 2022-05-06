@@ -1,17 +1,17 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.Events;
 
 public class DialogueManager : MonoBehaviour
 {
+    public UnityEvent onDialogueEnd;
     private DialogueAsset currentDialogue;
     private int currentDialogueMessage;
 
-    public void StartDialogue(DialogueAsset dialogue)
+    public void StartDialogue(DialogueAsset dialogueAsset)
     {
-        GameManager.instance.EnterGameState(GameManager.GameState.DIALOGUE);
-
-        currentDialogue = dialogue;
+        currentDialogue = dialogueAsset;
         currentDialogueMessage = -1;
         NextDialogueMessage();
     }
@@ -25,7 +25,7 @@ public class DialogueManager : MonoBehaviour
     public void EndCurrentDialogue()
     {
         currentDialogue = null;
-        GameManager.instance.EnterGameState(GameManager.GameState.COMBAT);
+        onDialogueEnd.Invoke();
     }
 
     public bool CanAdvanceInDialogue()
