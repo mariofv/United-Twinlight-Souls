@@ -5,7 +5,6 @@ using UnityEngine;
 public class EnemySpawnPoint : MonoBehaviour
 {
     [SerializeField] private EnemyAsset.EnemyId enemyId;
-    [SerializeField] private bool spawnFromStart = false;
 
     public Enemy Spawn(bool spawnAnimation = true)
     {
