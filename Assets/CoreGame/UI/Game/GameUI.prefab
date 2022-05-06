@@ -387,6 +387,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: BossBarUI
       objectReference: {fileID: 0}
+    - target: {fileID: 1448765443524404537, guid: 09bcfe7808680ce4d828bb30aaca8b78, type: 3}
+      propertyPath: m_IsActive
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 2560696328774967448, guid: 09bcfe7808680ce4d828bb30aaca8b78, type: 3}
       propertyPath: m_RootOrder
       value: 3
@@ -463,6 +467,10 @@ PrefabInstance:
     - target: {fileID: 790300249944723871, guid: ee880d798f4d385478872e85a2e0be87, type: 3}
       propertyPath: m_Name
       value: DialogueUI
+      objectReference: {fileID: 0}
+    - target: {fileID: 1418999527540278573, guid: ee880d798f4d385478872e85a2e0be87, type: 3}
+      propertyPath: m_IsActive
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 2323187317253700029, guid: ee880d798f4d385478872e85a2e0be87, type: 3}
       propertyPath: m_RootOrder

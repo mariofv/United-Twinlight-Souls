@@ -16,6 +16,11 @@ public class LevelManager : MonoBehaviour
 
     public IEnumerator LoadLevelAsync(int level, bool waitLoadingScreenTime, bool fade)
     {
+        if (level != 2)
+        {
+            GameManager.instance.uiManager.gameUIManager.bossHealthBarUI.Hide(instant: true);
+        }
+
         if (fade)
         {
             CursorHider.HideCursor();

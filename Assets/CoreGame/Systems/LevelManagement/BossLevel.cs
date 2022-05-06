@@ -19,6 +19,7 @@ public class BossLevel : Level
     private void StartBossPhase(int bossPhase)
     {
         bossAI.StartPhase(bossPhase);
+        GameManager.instance.uiManager.gameUIManager.bossHealthBarUI.Show();
     }
 
     public void ForceStartBossPhase(int bossPhase)

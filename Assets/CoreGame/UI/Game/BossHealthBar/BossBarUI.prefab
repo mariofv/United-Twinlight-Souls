@@ -124,6 +124,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 7eeebf0f82a03b5418b55fdda0391756, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  uiElementCanvasGroup: {fileID: 1350982790729777971}
   fillTransform: {fileID: 7698768935471044997}
 --- !u!1 &1448765443524404537
 GameObject:
