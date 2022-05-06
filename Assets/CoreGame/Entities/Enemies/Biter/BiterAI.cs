@@ -19,6 +19,9 @@ public class BiterAI : EnemyAI
     private BiterState currentState;
     private bool playerInSight = false;
 
+    [Header("Audio")]
+    [SerializeField] private BiterAudioClips biterAudioClips;
+
     [Header("Floating")]
     [SerializeField] private Transform bodyTransform;
     [SerializeField] private float floatingSpeed;
@@ -215,6 +218,12 @@ public class BiterAI : EnemyAI
         enemy.TriggerAnimation("bite");
         currentState = BiterState.BITING;
         biterBiteAttack.SetColliderActive(true);
+        audioSource.PlayOneShotRandom(
+            biterAudioClips.bite1,
+            biterAudioClips.bite2,
+            biterAudioClips.bite3,
+            biterAudioClips.bite4
+        );
     }
 
     public void OnBiteAttackEnd()
@@ -255,6 +264,16 @@ public class BiterAI : EnemyAI
         {
             enemyNavMeshAgent.Move(dashAttackDirection * dashAttackSpeed * Time.deltaTime);
         }
+    }
+
+    public void OnDashAttackBite()
+    {
+        audioSource.PlayOneShotRandom(
+            biterAudioClips.bite1,
+            biterAudioClips.bite2,
+            biterAudioClips.bite3,
+            biterAudioClips.bite4
+        );
     }
 
     public void OnDashAttackEnd()
@@ -319,6 +338,10 @@ public class BiterAI : EnemyAI
         currentState = BiterState.DYING;
         DisableNavMeshAgent();
         enemy.TriggerAnimation("die");
+        audioSource.PlayOneShotRandom(
+            biterAudioClips.death1,
+            biterAudioClips.death2
+        );
     }
 
     public void OnDeathEnd()
