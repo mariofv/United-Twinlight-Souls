@@ -43,7 +43,7 @@ public class BossAI : EnemyAI
     [Header("Idle Phase 1")]
     [SerializeField] private float minTimeBetweenAttacksPhase1;
     [SerializeField] private float maxTimeBetweenAttacksPhase1;
-    [SerializeField] private BossAttacksSelector phase1AttackSelector;
+    private BalancedRandomSelector phase1AttackSelector;
     private float currentTimeBetweenAttacksPhase1;
 
     [Header("Slam")]
@@ -52,7 +52,7 @@ public class BossAI : EnemyAI
     [Header("Idle Phase 2")]
     [SerializeField] private float minTimeBetweenAttacksPhase2;
     [SerializeField] private float maxTimeBetweenAttacksPhase2;
-    [SerializeField] private BossAttacksSelector phase2AttackSelector;
+    private BalancedRandomSelector phase2AttackSelector;
     private float currentTimeBetweenAttacksPhase2;
 
     [Header("Idle Phase 3")]
@@ -63,6 +63,8 @@ public class BossAI : EnemyAI
 
     private void Awake()
     {
+        phase1AttackSelector = new BalancedRandomSelector(2, 0.2f);
+        phase2AttackSelector = new BalancedRandomSelector(2, 0.2f);
     }
 
     private void Start()
@@ -123,7 +125,7 @@ public class BossAI : EnemyAI
         currentTime += Time.deltaTime;
         if (currentTime >= currentTimeBetweenAttacksPhase1)
         {
-            int selectedAttack = phase1AttackSelector.SelectAttack();
+            int selectedAttack = phase1AttackSelector.Select();
             if (selectedAttack == 0)
             {
                 TransitionToSlamPreparationState();
@@ -247,7 +249,7 @@ public class BossAI : EnemyAI
         currentTime += Time.deltaTime;
         if (currentTime >= currentTimeBetweenAttacksPhase2)
         {
-            int selectedAttack = phase2AttackSelector.SelectAttack();
+            int selectedAttack = phase2AttackSelector.Select();
             if (selectedAttack == 0)
             {
                 TransitionToLeftPunchState();
