@@ -50,6 +50,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   uiElementCanvasGroup: {fileID: 6174494656833118383}
+  dialogueText: {fileID: 559704818515355396}
 --- !u!1 &1418999527540278573
 GameObject:
   m_ObjectHideFlags: 0

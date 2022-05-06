@@ -11,6 +11,7 @@ public class DialogueManager : MonoBehaviour
     {
         currentDialogue = dialogue;
         currentDialogueMessage = -1;
+        GameManager.instance.uiManager.gameUIManager.dialogueUI.Show();
         NextDialogueMessage();
     }
 
@@ -19,7 +20,7 @@ public class DialogueManager : MonoBehaviour
         ++currentDialogueMessage;
         if (currentDialogueMessage < currentDialogue.dialogueMessages.Count)
         {
-
+            GameManager.instance.uiManager.gameUIManager.dialogueUI.DisplayDialogueText(currentDialogue.dialogueMessages[currentDialogueMessage]);
         }
         else
         {
@@ -29,6 +30,6 @@ public class DialogueManager : MonoBehaviour
 
     private void EndCurrentDialogue()
     {
-
+        GameManager.instance.uiManager.gameUIManager.dialogueUI.Hide();
     }
 }

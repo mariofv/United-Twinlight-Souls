@@ -4,14 +4,11 @@ using UnityEngine;
 
 public class GameUIManager : MonoBehaviour
 {
+    public DamageIndicatorUI damageIndicatorUI;
+    public DialogueUI dialogueUI;
     public PauseUI pauseUI;
     public HUDUI hudUI;
-    public DamageIndicatorUI damageIndicatorUI;
     public BossHealthBarUI bossHealthBarUI;
-
-    /*
-    public DialogUI dialogUI;
-    */
 
     public void HideAll()
     {
