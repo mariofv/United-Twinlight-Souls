@@ -24,6 +24,7 @@ public class AudioManager : MonoBehaviour
     [Header("NPC Sounds")]
     [SerializeField] private AudioSource npcAudioSource;
     [SerializeField] private NPCAudioClips npcAudioClips;
+    private BalancedRandomSelector npcTalkSelector = new BalancedRandomSelector(3, 0.3f);
 
     [Header("UI Sounds")]
     [SerializeField] private AudioSource uiClickSound;
@@ -59,11 +60,19 @@ public class AudioManager : MonoBehaviour
         switch (npcSound)
         {
             case NPCSound.TALK:
-                npcAudioSource.PlayOneShotRandom(
-                    npcAudioClips.talk1,
-                    npcAudioClips.talk2,
-                    npcAudioClips.talk3
-                );
+                int selected = npcTalkSelector.Select();
+                if (selected == 0)
+                {
+                    npcAudioSource.PlayOneShot(npcAudioClips.talk1);
+                }
+                else if (selected == 1)
+                {
+                    npcAudioSource.PlayOneShot(npcAudioClips.talk2);
+                }
+                else if (selected == 2)
+                {
+                    npcAudioSource.PlayOneShot(npcAudioClips.talk3);
+                }
                 break;
 
             case NPCSound.RELIEVE:
