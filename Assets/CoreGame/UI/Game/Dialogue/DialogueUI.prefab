@@ -155,9 +155,6 @@ MonoBehaviour:
   endTypingEvent:
     m_PersistentCalls:
       m_Calls: []
-  typingSoundFrequency: 0.35
-  typingSound: {fileID: 0}
-  typingEndSound: {fileID: 0}
 --- !u!222 &6568025174204314905
 CanvasRenderer:
   m_ObjectHideFlags: 0
