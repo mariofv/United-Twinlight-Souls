@@ -9,28 +9,32 @@ public class DialogueManager : MonoBehaviour
 
     public void StartDialogue(DialogueAsset dialogue)
     {
+        GameManager.instance.EnterGameState(GameManager.GameState.DIALOGUE);
+
         currentDialogue = dialogue;
         currentDialogueMessage = -1;
-
-        GameManager.instance.uiManager.gameUIManager.dialogueUI.Show();
         NextDialogueMessage();
     }
 
     public void NextDialogueMessage()
     {
         ++currentDialogueMessage;
-        if (currentDialogueMessage < currentDialogue.dialogueMessages.Count)
-        {
-            GameManager.instance.uiManager.gameUIManager.dialogueUI.DisplayDialogueText(currentDialogue.dialogueMessages[currentDialogueMessage]);
-        }
-        else
-        {
-            EndCurrentDialogue();
-        }
+        GameManager.instance.uiManager.gameUIManager.dialogueUI.DisplayDialogueText(currentDialogue.dialogueMessages[currentDialogueMessage]);
     }
 
-    private void EndCurrentDialogue()
+    public void EndCurrentDialogue()
     {
-        GameManager.instance.uiManager.gameUIManager.dialogueUI.Hide();
+        currentDialogue = null;
+        GameManager.instance.EnterGameState(GameManager.GameState.COMBAT);
+    }
+
+    public bool CanAdvanceInDialogue()
+    {
+        return currentDialogueMessage < currentDialogue.dialogueMessages.Count - 1;
+    }
+
+    public bool IsPlayerInDialogue()
+    {
+        return currentDialogue != null;
     }
 }

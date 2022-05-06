@@ -222,6 +222,45 @@
             ]
         },
         {
+            "name": "Dialogue",
+            "id": "4c9d398f-ef9c-4280-831f-32d2b4fcc26a",
+            "actions": [
+                {
+                    "name": "Interact",
+                    "type": "Button",
+                    "id": "06e40de7-fbde-42ec-8506-48658080db4b",
+                    "expectedControlType": "Button",
+                    "processors": "",
+                    "interactions": "",
+                    "initialStateCheck": false
+                }
+            ],
+            "bindings": [
+                {
+                    "name": "",
+                    "id": "5237d069-1f8b-4ba2-bd58-2e1b7962d69a",
+                    "path": "<Keyboard>/e",
+                    "interactions": "",
+                    "processors": "",
+                    "groups": "Keyboard&Mouse",
+                    "action": "Interact",
+                    "isComposite": false,
+                    "isPartOfComposite": false
+                },
+                {
+                    "name": "",
+                    "id": "2166dfd8-b763-4995-9744-096cc94ac628",
+                    "path": "<Gamepad>/buttonNorth",
+                    "interactions": "",
+                    "processors": "",
+                    "groups": "Gamepad",
+                    "action": "Interact",
+                    "isComposite": false,
+                    "isPartOfComposite": false
+                }
+            ]
+        },
+        {
             "name": "UI",
             "id": "47e2cd5a-5f84-4b94-8e26-1c8a61667ef4",
             "actions": [

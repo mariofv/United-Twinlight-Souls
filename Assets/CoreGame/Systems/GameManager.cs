@@ -24,6 +24,7 @@ public class GameManager : MonoBehaviour
         NONE,
         MAIN_MENU,
         COMBAT,
+        DIALOGUE,
         CINEMATIC,
         PAUSE,
         LOADING_LEVEL,

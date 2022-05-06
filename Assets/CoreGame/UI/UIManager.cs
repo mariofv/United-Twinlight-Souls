@@ -60,6 +60,10 @@ public class UIManager : MonoBehaviour
                 gameUIManager.ShowPauseUI(instant);
                 break;
 
+            case GameManager.GameState.DIALOGUE:
+                gameUIManager.dialogueUI.Show();
+                break;
+
             case GameManager.GameState.LOADING_LEVEL:
                 break;
         }
@@ -81,6 +85,10 @@ public class UIManager : MonoBehaviour
 
             case GameManager.GameState.PAUSE:
                 gameUIManager.HidePauseUI(instant);
+                break;
+
+            case GameManager.GameState.DIALOGUE:
+                gameUIManager.dialogueUI.Hide();
                 break;
         }
     }

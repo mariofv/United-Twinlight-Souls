@@ -85,7 +85,10 @@ public class CharacterManager : MonoBehaviour
 
     public void Interact()
     {
-        characterInteractionManager.Interact();
+        if (characterInteractionManager.CanInteract())
+        {
+            characterInteractionManager.Interact();
+        }
     }
 
     public void Teleport(Vector3 position)

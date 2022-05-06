@@ -29,7 +29,9 @@ public class InputManager : MonoBehaviour
         playerInput.Combat.Movement.canceled += ctx => OnMovementInput(ctx);
         playerInput.Combat.Jump.started += ctx => OnJumpInput(ctx);
         playerInput.Combat.LightAttack.started += ctx => OnLightAttackInput(ctx);
-        playerInput.Combat.Interact.started += ctx => OnInteractInput(ctx);
+        playerInput.Combat.Interact.started += ctx => OnInteractInput(ctx)
+        ;
+        playerInput.Dialogue.Interact.started += ctx => OnInteractInput(ctx);
 
         playerInput.Pause.Pause.started += ctx => GameManager.instance.OnPauseInput(ctx);
 
@@ -102,6 +104,9 @@ public class InputManager : MonoBehaviour
             case GameManager.GameState.COMBAT:
                 playerInput.Combat.Disable();
                 break;
+            case GameManager.GameState.DIALOGUE:
+                playerInput.Dialogue.Disable();
+                break;
             case GameManager.GameState.CINEMATIC:
                 //playerInput.Cinematic.Disable();
                 break;
@@ -126,6 +131,9 @@ public class InputManager : MonoBehaviour
             case GameManager.GameState.COMBAT:
                 playerInput.Combat.Enable();
                 break;
+            case GameManager.GameState.DIALOGUE:
+                playerInput.Dialogue.Enable();
+                break;
             case GameManager.GameState.CINEMATIC:
                 //playerInput.Cinematic.Enable();
                 break;
@@ -143,6 +151,7 @@ public class InputManager : MonoBehaviour
     private void DisableAllInputs()
     {
         playerInput.Combat.Disable();
+        playerInput.Dialogue.Disable();
         playerInput.Pause.Disable();
         playerInput.LoadingScreen.Disable();
         playerInput.MainMenu.Disable();

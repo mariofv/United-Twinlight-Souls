@@ -8,10 +8,29 @@ public class CharacterInteractionManager : CharacterSubManager
 
     public void Interact()
     {
-        if (npcInteraction != null)
+        if (GameManager.instance.dialogueManager.IsPlayerInDialogue())
         {
-            npcInteraction.Interact();
+            if (GameManager.instance.dialogueManager.CanAdvanceInDialogue())
+            {
+                GameManager.instance.dialogueManager.NextDialogueMessage();
+            }
+            else
+            {
+                GameManager.instance.dialogueManager.EndCurrentDialogue();
+                characterManager.SetCharacterState(CharacterManager.CharacterState.IDLE);
+            }
         }
+        else
+        {
+            characterManager.Move(Vector2.zero);
+            characterManager.SetCharacterState(CharacterManager.CharacterState.INTERACTING);
+            GameManager.instance.dialogueManager.StartDialogue(npcInteraction.interactionDialogue);
+        }
+    }
+
+    public bool CanInteract()
+    {
+        return npcInteraction != null;
     }
 
     private void OnTriggerEnter(Collider other)
