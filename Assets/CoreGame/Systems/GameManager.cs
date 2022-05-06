@@ -87,6 +87,7 @@ public class GameManager : MonoBehaviour
         audioManager.PlayMainMenuMusic();
         inputManager.EnablePauseInput(false);
 
+        enemyManager.KillAllEnemies();
         enemyManager.EmptyEnemyPools();
 
         uiManager.levelTransitionUIManager.FadeIn();
