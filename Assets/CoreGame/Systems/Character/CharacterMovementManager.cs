@@ -75,6 +75,13 @@ public class CharacterMovementManager : CharacterSubManager
         characterTransform.rotation = rotation;
     }
 
+    public void Orientate(Transform targetTransform)
+    {
+        Vector3 lookDirection = (targetTransform.position - transform.position).normalized;
+        lookDirection.y = 0;
+        Orientate(Quaternion.LookRotation(lookDirection));
+    }
+
     private Vector3 ComputeHorizontalMovement()
     {
         float movementMultiplier = 1f;

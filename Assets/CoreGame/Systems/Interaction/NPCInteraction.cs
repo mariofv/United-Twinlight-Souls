@@ -16,6 +16,7 @@ public class NPCInteraction : MonoBehaviour
         GameManager.instance.dialogueManager.onDialogueEnd.AddListener(EndInteraction);
 
         GameManager.instance.player.GetControlledCharacter().characterVisualsManager.HideMesh();
+        GameManager.instance.player.GetControlledCharacter().characterMovementManager.Orientate(transform);
         GameManager.instance.cameraManager.LoadCamera(interactionCamera);
         npc.LookAtTransform(interactionCamera.transform);
     }
