@@ -19,6 +19,7 @@ public class DialogueManager : MonoBehaviour
     public void NextDialogueMessage()
     {
         ++currentDialogueMessage;
+        GameManager.instance.audioManager.PlayNPCSound(AudioManager.NPCSound.TALK);
         GameManager.instance.uiManager.gameUIManager.dialogueUI.DisplayDialogueText(currentDialogue.dialogueMessages[currentDialogueMessage]);
     }
 
