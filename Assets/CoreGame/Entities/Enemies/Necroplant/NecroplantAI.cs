@@ -315,7 +315,7 @@ public class NecroplantAI : EnemyAI
         }
     }
 
-    private void OnPlayerDetected()
+    private void OnPlayerDetected(Transform detectedPlayer)
     {
         playerInSight = true;
         if (currentState == NecroplantState.IDLE)

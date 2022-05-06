@@ -7,7 +7,7 @@ public class PlayerDetectionCollider : MonoBehaviour
 {
     private bool isPlayerInsideCollider = false;
 
-    public UnityEvent onPlayerDetected;
+    public UnityEvent<Transform> onPlayerDetected;
     public UnityEvent onPlayerLost;
 
     private void OnTriggerEnter(Collider other)
@@ -15,7 +15,7 @@ public class PlayerDetectionCollider : MonoBehaviour
         if (other.gameObject.CompareTag(TagManager.PLAYER))
         {
             isPlayerInsideCollider = true;
-            onPlayerDetected.Invoke();
+            onPlayerDetected.Invoke(other.transform);
         }
     }
 

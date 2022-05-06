@@ -354,7 +354,7 @@ public class BiterAI : EnemyAI
         enemy.Kill();
     }
 
-    private void OnPlayerDetected()
+    private void OnPlayerDetected(Transform detectedPlayer)
     {
         playerInSight = true;
         if (IsInPassiveState())
