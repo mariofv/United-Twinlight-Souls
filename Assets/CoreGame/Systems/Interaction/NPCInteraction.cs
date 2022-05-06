@@ -15,12 +15,14 @@ public class NPCInteraction : MonoBehaviour
         GameManager.instance.dialogueManager.StartDialogue(interactionDialogue);
         GameManager.instance.dialogueManager.onDialogueEnd.AddListener(EndInteraction);
 
+        GameManager.instance.player.GetControlledCharacter().characterVisualsManager.HideMesh();
         GameManager.instance.cameraManager.LoadCamera(interactionCamera);
         npc.LookAtTransform(interactionCamera.transform);
     }
 
     private void EndInteraction()
     {
+        GameManager.instance.player.GetControlledCharacter().characterVisualsManager.ShowMesh();
         GameManager.instance.cameraManager.LoadCamera(GameManager.instance.levelManager.GetCurrentLevel().GetCurrentCamera());
         npc.LookAtPlayer();
 

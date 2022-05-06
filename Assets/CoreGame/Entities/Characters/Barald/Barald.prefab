@@ -151,6 +151,9 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   characterAnimator: {fileID: 5993322870105679182}
+  characterRenderer: {fileID: 3406233095700239613}
+  transparentMaterial: {fileID: 2100000, guid: d002462d42d32ed42b39d4ac98c7f6a1, type: 2}
+  transitionTime: 0.5
 --- !u!143 &6540250780167808272
 CharacterController:
   m_ObjectHideFlags: 0
@@ -395,6 +398,11 @@ Transform:
 --- !u!95 &5993322870105679182 stripped
 Animator:
   m_CorrespondingSourceObject: {fileID: 5866666021909216657, guid: a1bf4f573a328cf409c426b19c3c9f41, type: 3}
+  m_PrefabInstance: {fileID: 163847902121105631}
+  m_PrefabAsset: {fileID: 0}
+--- !u!137 &3406233095700239613 stripped
+SkinnedMeshRenderer:
+  m_CorrespondingSourceObject: {fileID: -5979860870350812126, guid: a1bf4f573a328cf409c426b19c3c9f41, type: 3}
   m_PrefabInstance: {fileID: 163847902121105631}
   m_PrefabAsset: {fileID: 0}
 --- !u!114 &8970631606939379925
