@@ -10,6 +10,7 @@ TagManager:
   - LevelCollider
   - Enemy
   - EnemyHurtBox
+  - NPC
   layers:
   - Default
   - TransparentFX

@@ -16,6 +16,7 @@ public class CharacterManager : MonoBehaviour
     public CharacterAnimationEventsManager characterAnimationEventsManager;
     public CharacterCombatManager characterCombatManager;
     public CharacterInputManager characterInputManager;
+    public CharacterInteractionManager characterInteractionManager;
     public CharacterMovementManager characterMovementManager;
     public CharacterStatsManager characterStatsManager;
     public CharacterVisualsManager characterVisualsManager;
@@ -27,6 +28,7 @@ public class CharacterManager : MonoBehaviour
         characterAnimationEventsManager.Link(this);
         characterCombatManager.Link(this);
         characterInputManager.Link(this);
+        characterInteractionManager.Link(this);
         characterMovementManager.Link(this);
         characterStatsManager.Link(this);
         characterVisualsManager.Link(this);
@@ -79,6 +81,11 @@ public class CharacterManager : MonoBehaviour
 
         characterCombatManager.LightAttack();
         SetCharacterState(CharacterState.ATTACKING);
+    }
+
+    public void Interact()
+    {
+        characterInteractionManager.Interact();
     }
 
     public void Teleport(Vector3 position)

@@ -11,6 +11,7 @@ public class DialogueManager : MonoBehaviour
     {
         currentDialogue = dialogue;
         currentDialogueMessage = -1;
+
         GameManager.instance.uiManager.gameUIManager.dialogueUI.Show();
         NextDialogueMessage();
     }

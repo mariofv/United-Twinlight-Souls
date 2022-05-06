@@ -29,6 +29,7 @@ public class InputManager : MonoBehaviour
         playerInput.Combat.Movement.canceled += ctx => OnMovementInput(ctx);
         playerInput.Combat.Jump.started += ctx => OnJumpInput(ctx);
         playerInput.Combat.LightAttack.started += ctx => OnLightAttackInput(ctx);
+        playerInput.Combat.Interact.started += ctx => OnInteractInput(ctx);
 
         playerInput.Pause.Pause.started += ctx => GameManager.instance.OnPauseInput(ctx);
 
@@ -192,6 +193,15 @@ public class InputManager : MonoBehaviour
             return;
         }
         GameManager.instance.player.GetControlledCharacter().LightAttack();
+    }
+
+    public void OnInteractInput(InputAction.CallbackContext context)
+    {
+        if (!GameManager.instance.player.GetControlledCharacter().characterInputManager.IsInputAcceptedInCurrentState(CharacterInputManager.CharacterInputAction.INTERACT))
+        {
+            return;
+        }
+        GameManager.instance.player.GetControlledCharacter().Interact();
     }
 
     public void OnPreviousTipInput(InputAction.CallbackContext context)

@@ -53,6 +53,15 @@ public partial class @PlayerInput : IInputActionCollection2, IDisposable
                     ""processors"": """",
                     ""interactions"": """",
                     ""initialStateCheck"": false
+                },
+                {
+                    ""name"": ""Interact"",
+                    ""type"": ""Button"",
+                    ""id"": ""0a9af82e-d46c-4423-8191-528fb65a42e1"",
+                    ""expectedControlType"": ""Button"",
+                    ""processors"": """",
+                    ""interactions"": """",
+                    ""initialStateCheck"": false
                 }
             ],
             ""bindings"": [
@@ -207,6 +216,28 @@ public partial class @PlayerInput : IInputActionCollection2, IDisposable
                     ""processors"": """",
                     ""groups"": ""Gamepad"",
                     ""action"": ""LightAttack"",
+                    ""isComposite"": false,
+                    ""isPartOfComposite"": false
+                },
+                {
+                    ""name"": """",
+                    ""id"": ""daffd09f-7750-4aed-ad63-fdbd0deaa6be"",
+                    ""path"": ""<Keyboard>/e"",
+                    ""interactions"": """",
+                    ""processors"": """",
+                    ""groups"": ""Keyboard&Mouse"",
+                    ""action"": ""Interact"",
+                    ""isComposite"": false,
+                    ""isPartOfComposite"": false
+                },
+                {
+                    ""name"": """",
+                    ""id"": ""470545a1-4d33-4896-9951-9fca477184b9"",
+                    ""path"": ""<Gamepad>/buttonNorth"",
+                    ""interactions"": """",
+                    ""processors"": """",
+                    ""groups"": ""Gamepad"",
+                    ""action"": ""Interact"",
                     ""isComposite"": false,
                     ""isPartOfComposite"": false
                 }
@@ -1269,6 +1300,7 @@ public partial class @PlayerInput : IInputActionCollection2, IDisposable
         m_Combat_Movement = m_Combat.FindAction("Movement", throwIfNotFound: true);
         m_Combat_Jump = m_Combat.FindAction("Jump", throwIfNotFound: true);
         m_Combat_LightAttack = m_Combat.FindAction("LightAttack", throwIfNotFound: true);
+        m_Combat_Interact = m_Combat.FindAction("Interact", throwIfNotFound: true);
         // UI
         m_UI = asset.FindActionMap("UI", throwIfNotFound: true);
         m_UI_Navigate = m_UI.FindAction("Navigate", throwIfNotFound: true);
@@ -1362,6 +1394,7 @@ public partial class @PlayerInput : IInputActionCollection2, IDisposable
     private readonly InputAction m_Combat_Movement;
     private readonly InputAction m_Combat_Jump;
     private readonly InputAction m_Combat_LightAttack;
+    private readonly InputAction m_Combat_Interact;
     public struct CombatActions
     {
         private @PlayerInput m_Wrapper;
@@ -1369,6 +1402,7 @@ public partial class @PlayerInput : IInputActionCollection2, IDisposable
         public InputAction @Movement => m_Wrapper.m_Combat_Movement;
         public InputAction @Jump => m_Wrapper.m_Combat_Jump;
         public InputAction @LightAttack => m_Wrapper.m_Combat_LightAttack;
+        public InputAction @Interact => m_Wrapper.m_Combat_Interact;
         public InputActionMap Get() { return m_Wrapper.m_Combat; }
         public void Enable() { Get().Enable(); }
         public void Disable() { Get().Disable(); }
@@ -1387,6 +1421,9 @@ public partial class @PlayerInput : IInputActionCollection2, IDisposable
                 @LightAttack.started -= m_Wrapper.m_CombatActionsCallbackInterface.OnLightAttack;
                 @LightAttack.performed -= m_Wrapper.m_CombatActionsCallbackInterface.OnLightAttack;
                 @LightAttack.canceled -= m_Wrapper.m_CombatActionsCallbackInterface.OnLightAttack;
+                @Interact.started -= m_Wrapper.m_CombatActionsCallbackInterface.OnInteract;
+                @Interact.performed -= m_Wrapper.m_CombatActionsCallbackInterface.OnInteract;
+                @Interact.canceled -= m_Wrapper.m_CombatActionsCallbackInterface.OnInteract;
             }
             m_Wrapper.m_CombatActionsCallbackInterface = instance;
             if (instance != null)
@@ -1400,6 +1437,9 @@ public partial class @PlayerInput : IInputActionCollection2, IDisposable
                 @LightAttack.started += instance.OnLightAttack;
                 @LightAttack.performed += instance.OnLightAttack;
                 @LightAttack.canceled += instance.OnLightAttack;
+                @Interact.started += instance.OnInteract;
+                @Interact.performed += instance.OnInteract;
+                @Interact.canceled += instance.OnInteract;
             }
         }
     }
@@ -1720,6 +1760,7 @@ public partial class @PlayerInput : IInputActionCollection2, IDisposable
         void OnMovement(InputAction.CallbackContext context);
         void OnJump(InputAction.CallbackContext context);
         void OnLightAttack(InputAction.CallbackContext context);
+        void OnInteract(InputAction.CallbackContext context);
     }
     public interface IUIActions
     {

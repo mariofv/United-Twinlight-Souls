@@ -117,9 +117,10 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 9d54887fe5593034ca3b2a11bb6d4729, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  damageIndicatorUI: {fileID: 4941887882349947847}
+  dialogueUI: {fileID: 427739382804439529}
   pauseUI: {fileID: 6579429677015209800}
   hudUI: {fileID: 3254855643753348102}
-  damageIndicatorUI: {fileID: 4941887882349947847}
   bossHealthBarUI: {fileID: 451539105841229240}
 --- !u!1001 &1993926932317635802
 PrefabInstance:
@@ -543,3 +544,14 @@ RectTransform:
   m_CorrespondingSourceObject: {fileID: 4034512655713874711, guid: ee880d798f4d385478872e85a2e0be87, type: 3}
   m_PrefabInstance: {fileID: 8276236817952884132}
   m_PrefabAsset: {fileID: 0}
+--- !u!114 &427739382804439529 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 8589696249426846797, guid: ee880d798f4d385478872e85a2e0be87, type: 3}
+  m_PrefabInstance: {fileID: 8276236817952884132}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 7ceb26e230281844e9990cc75af162ea, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
