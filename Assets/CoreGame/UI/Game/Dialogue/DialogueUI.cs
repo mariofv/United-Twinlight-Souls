@@ -7,10 +7,22 @@ using TMPro;
 public class DialogueUI : UIElement
 {
     [SerializeField] private TextMeshProUGUI dialogueText;
+    [SerializeField] private TextTyper dialogueTextTyper;
 
     public void DisplayDialogueText(string text)
     {
         dialogueText.text = text;
+        dialogueTextTyper.StartTyping();
+    }
+
+    public void SkipDialogueTyping()
+    {
+        dialogueTextTyper.EndTyping();
+    }
+
+    public bool IsTyping()
+    {
+        return dialogueTextTyper.IsTyping();
     }
 
     protected override void CreateShowTweens()

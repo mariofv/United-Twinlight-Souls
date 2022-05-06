@@ -10,14 +10,21 @@ public class CharacterInteractionManager : CharacterSubManager
     {
         if (GameManager.instance.dialogueManager.IsPlayerInDialogue())
         {
-            if (GameManager.instance.dialogueManager.CanAdvanceInDialogue())
+            if (GameManager.instance.uiManager.gameUIManager.dialogueUI.IsTyping())
             {
-                GameManager.instance.dialogueManager.NextDialogueMessage();
+                GameManager.instance.uiManager.gameUIManager.dialogueUI.SkipDialogueTyping();
             }
             else
             {
-                GameManager.instance.dialogueManager.EndCurrentDialogue();
-                characterManager.SetCharacterState(CharacterManager.CharacterState.IDLE);
+                if (GameManager.instance.dialogueManager.CanAdvanceInDialogue())
+                {
+                    GameManager.instance.dialogueManager.NextDialogueMessage();
+                }
+                else
+                {
+                    GameManager.instance.dialogueManager.EndCurrentDialogue();
+                    characterManager.SetCharacterState(CharacterManager.CharacterState.IDLE);
+                }
             }
         }
         else
