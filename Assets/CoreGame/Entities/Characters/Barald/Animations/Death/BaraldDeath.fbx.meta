@@ -1,10 +1,10 @@
 fileFormatVersion: 2
-guid: 3391709bcf7d6cd4998ed5a384e70577
+guid: eaf3b743e70124947a056f696cc6be47
 ModelImporter:
   serializedVersion: 20200
   internalIDToNameTable:
   - first:
-      74: -4630339522487117836
+      74: 1827226128182048838
     second: BaraldDeath
   externalObjects: {}
   materials:
@@ -36,10 +36,10 @@ ModelImporter:
     clipAnimations:
     - serializedVersion: 16
       name: BaraldDeath
-      takeName: Die
+      takeName: Take 001
       internalID: 0
-      firstFrame: 110
-      lastFrame: 140
+      firstFrame: 5
+      lastFrame: 60
       wrapMode: 0
       orientationOffsetY: 0
       level: 0
@@ -58,11 +58,18 @@ ModelImporter:
       mirror: 0
       bodyMask: 01000000010000000100000001000000010000000100000001000000010000000100000001000000010000000100000001000000
       curves: []
-      events: []
+      events:
+      - time: 1
+        functionName: OnDeathEnd
+        data: 
+        objectReferenceParameter: {instanceID: 0}
+        floatParameter: 0
+        intParameter: 0
+        messageOptions: 0
       transformMask: []
       maskType: 3
       maskSource: {instanceID: 0}
-      additiveReferencePoseFrame: 0
+      additiveReferencePoseFrame: 5
     isReadable: 0
   meshes:
     lODScreenPercentages: []

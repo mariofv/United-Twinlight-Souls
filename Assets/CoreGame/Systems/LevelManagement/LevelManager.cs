@@ -8,6 +8,7 @@ public class LevelManager : MonoBehaviour
 
     private int currentLevelIndex = -1;
     private Level currentLevel;
+    private Checkpoint lastCheckPoint;
 
     public void LoadLevel(int level, bool waitLoadingScreenTime, bool fade = true)
     {
@@ -65,6 +66,57 @@ public class LevelManager : MonoBehaviour
             }
             CursorHider.ShowCursor();
         }
+    }
+
+    public void Respawn()
+    {
+        StartCoroutine(RespawnAsync());
+    }
+
+    public IEnumerator RespawnAsync()
+    {
+        CursorHider.HideCursor();
+        GameManager.instance.uiManager.levelTransitionUIManager.FadeOut();
+        while (GameManager.instance.uiManager.levelTransitionUIManager.IsFadingOut())
+        {
+            yield return new WaitForFixedUpdate();
+        }
+
+        GameManager.instance.EnterGameState(GameManager.GameState.LOADING_LEVEL, changeGameStateInput: true); 
+        GameManager.instance.enemyManager.KillAllEnemies();
+
+        yield return new WaitForSeconds(UISettings.GameUISettings.RESPAWN_TIME);
+
+        GameManager.instance.audioManager.SetCurrentLevelMusic(gameLevels[currentLevelIndex].levelMusic);
+        GameManager.instance.player.GetNotControlledCharacter().Teleport(currentLevel.voidPosition.position);
+
+        Vector3 spawnPosition;
+        if (lastCheckPoint != null)
+        {
+            spawnPosition = lastCheckPoint.transform.position;
+        }
+        else
+        {
+            spawnPosition = currentLevel.startPosition.position;
+        }
+        GameManager.instance.player.GetControlledCharacter().Teleport(spawnPosition);
+        GameManager.instance.player.GetControlledCharacter().Revive();
+        GameManager.instance.cameraManager.LoadCamera(currentLevel.GetCurrentCamera());
+
+        GameManager.instance.EnterGameState(GameManager.GameState.COMBAT, changeGameStateInput: true);
+
+
+        GameManager.instance.uiManager.levelTransitionUIManager.FadeIn();
+        while (GameManager.instance.uiManager.levelTransitionUIManager.IsFadingIn())
+        {
+            yield return new WaitForFixedUpdate();
+        }
+        CursorHider.ShowCursor();
+    }
+
+    public void SetLastCheckpoint(Checkpoint checkpoint)
+    {
+        lastCheckPoint = checkpoint;
     }
 
     public Level GetCurrentLevel()

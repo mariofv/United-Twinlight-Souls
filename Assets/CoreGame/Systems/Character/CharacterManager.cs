@@ -38,6 +38,8 @@ public class CharacterManager : MonoBehaviour
     // Start is called before the first frame update
     private void Start()
     {
+        characterAnimationEventsManager.onDeathEnd.AddListener(OnDeathEnd);
+
         DisableMovement();
     }
 
@@ -123,6 +125,18 @@ public class CharacterManager : MonoBehaviour
         Move(Vector2.zero);
         characterCombatManager.SetInvincible(true);
         SetCharacterState(CharacterState.DYING);
+    }
+
+    public void OnDeathEnd()
+    {
+        GameManager.instance.levelManager.Respawn();
+    }
+
+    public void Revive()
+    {
+        characterVisualsManager.TriggerRevive();
+        characterCombatManager.SetInvincible(false);
+        SetCharacterState(CharacterState.IDLE);
     }
 
     public void ResetVisuals()

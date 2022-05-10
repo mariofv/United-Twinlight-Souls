@@ -74,6 +74,11 @@ public class CharacterVisualsManager : CharacterSubManager
         characterAnimator.SetTrigger("death");
     }
 
+    public void TriggerRevive()
+    {
+        characterAnimator.SetTrigger("revive");
+    }
+
     public float GetCurrentAnimationProgress()
     {
         AnimatorStateInfo currentAnimatorState = characterAnimator.GetCurrentAnimatorStateInfo(0);
