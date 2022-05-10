@@ -67,7 +67,7 @@ public class MushdoomSporeAttack : MonoBehaviour
 
     private void OnTriggerStay(Collider other)
     {
-        if (other.CompareTag(TagManager.PLAYER))
+        if (other.CompareTag(TagManager.PLAYER_HURTBOX))
         {
             currentTickTime += Time.fixedDeltaTime;
             if (currentTickTime >= damageTick)

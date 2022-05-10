@@ -70,7 +70,7 @@ public class NecroProjectile : MonoBehaviour
 
     private void OnCollisionEnter(Collision collision)
     {
-        if (collision.transform.CompareTag(TagManager.PLAYER))
+        if (collision.transform.CompareTag(TagManager.PLAYER_HURTBOX))
         {
             GameManager.instance.player.GetControlledCharacter().characterStatsManager.Hurt(projectileDamage);
             DestroyProjectile();

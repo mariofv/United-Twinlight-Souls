@@ -121,8 +121,8 @@ public class CharacterManager : MonoBehaviour
     {
         characterVisualsManager.TriggerDeath();
         Move(Vector2.zero);
+        characterCombatManager.SetInvincible(true);
         SetCharacterState(CharacterState.DYING);
-
     }
 
     public void ResetVisuals()

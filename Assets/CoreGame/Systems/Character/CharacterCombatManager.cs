@@ -4,6 +4,7 @@ using UnityEngine;
 
 public class CharacterCombatManager : CharacterSubManager
 {
+    [SerializeField] private Collider playerHurtbox;
     [SerializeField] private List<LightAttack> lightAttacks;
     private bool isInLightAttackChain = false;
     private int currentLightAttackChain = -1;
@@ -17,7 +18,12 @@ public class CharacterCombatManager : CharacterSubManager
     // Update is called once per frame
     void Update()
     {
-        
+
+    }
+
+    public void SetInvincible(bool invincible)
+    {
+        playerHurtbox.enabled = !invincible;
     }
 
     public void LightAttack()

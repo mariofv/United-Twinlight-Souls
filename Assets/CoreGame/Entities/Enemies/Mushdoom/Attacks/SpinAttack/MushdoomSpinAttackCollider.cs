@@ -19,7 +19,7 @@ public class MushdoomSpinAttackCollider : MonoBehaviour
 
     private void OnTriggerEnter(Collider other)
     {
-        if (other.CompareTag(TagManager.PLAYER))
+        if (other.CompareTag(TagManager.PLAYER_HURTBOX))
         {
             GameManager.instance.player.GetControlledCharacter().characterStatsManager.Hurt(damage);
         }
