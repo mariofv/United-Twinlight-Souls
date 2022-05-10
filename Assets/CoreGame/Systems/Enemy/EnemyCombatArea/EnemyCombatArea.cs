@@ -17,6 +17,7 @@ public class EnemyCombatArea : MonoBehaviour
         started = true;
         currentWave = 0;
         combatAreaEnterGateCollider.enabled = true;
+        GameManager.instance.levelManager.GetCurrentLevelAsZoned().SetCurrentCombatArea(this);
         GameManager.instance.cameraManager.LoadCamera(combatAreaCamera);
         StartCurrentWave();
     }
@@ -24,6 +25,13 @@ public class EnemyCombatArea : MonoBehaviour
     private void EndCombatArea()
     {
         GameManager.instance.levelManager.GetCurrentLevelAsZoned().AdvanceZone();
+    }
+
+    public void ResetCombatArea()
+    {
+        started = false;
+        combatAreaEnterGateCollider.enabled = false;
+        combatAreaWaves[currentWave].onWaveEnd.RemoveAllListeners();
     }
 
     private void StartCurrentWave()

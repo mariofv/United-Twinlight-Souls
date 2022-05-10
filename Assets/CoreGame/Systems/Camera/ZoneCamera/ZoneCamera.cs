@@ -22,12 +22,8 @@ public class ZoneCamera : MonoBehaviour
         {
             return;
         }
-
-        if (GameManager.instance.GetCurrentGameState() == GameManager.GameState.COMBAT)
-        {
-            float pathProgress = zoneCameraRail.GetRailProgress();
-            UpdateZoneCamera(pathProgress);
-        }
+        float pathProgress = zoneCameraRail.GetRailProgress();
+        UpdateZoneCamera(pathProgress);
     }
 
     private void UpdateZoneCamera(float progress)

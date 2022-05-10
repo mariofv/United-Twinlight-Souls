@@ -84,9 +84,17 @@ public class LevelManager : MonoBehaviour
         }
 
         GameManager.instance.EnterGameState(GameManager.GameState.LOADING_LEVEL, changeGameStateInput: true); 
+
+        if (!IsCurrentLevelBoss())
+        {
+            ZonedLevel zonedLevel = GetCurrentLevelAsZoned();
+            if (zonedLevel.IsPlayerInCombatArea())
+            {
+                zonedLevel.ResetCombatArea();
+            }
+        }
         GameManager.instance.enemyManager.KillAllEnemies();
 
-        yield return new WaitForSeconds(UISettings.GameUISettings.RESPAWN_TIME);
 
         GameManager.instance.audioManager.SetCurrentLevelMusic(gameLevels[currentLevelIndex].levelMusic);
         GameManager.instance.player.GetNotControlledCharacter().Teleport(currentLevel.voidPosition.position);
@@ -101,9 +109,10 @@ public class LevelManager : MonoBehaviour
             spawnPosition = currentLevel.startPosition.position;
         }
         GameManager.instance.player.GetControlledCharacter().Teleport(spawnPosition);
-        GameManager.instance.player.GetControlledCharacter().Revive();
         GameManager.instance.cameraManager.LoadCamera(currentLevel.GetCurrentCamera());
+        yield return new WaitForSeconds(UISettings.GameUISettings.RESPAWN_TIME);
 
+        GameManager.instance.player.GetControlledCharacter().Revive();
         GameManager.instance.EnterGameState(GameManager.GameState.COMBAT, changeGameStateInput: true);
 
 
