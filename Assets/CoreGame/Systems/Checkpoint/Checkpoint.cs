@@ -4,14 +4,19 @@ using UnityEngine;
 
 public class Checkpoint : MonoBehaviour
 {
-    private bool alreadyReached = false;
+    private bool alreadyActivated = false;
+
+    public void ActivateCheckpoint()
+    {
+        alreadyActivated = true;
+        GameManager.instance.levelManager.SetLastCheckpoint(this);
+    }
 
     private void OnTriggerEnter(Collider other)
     {
-        if (!alreadyReached && other.CompareTag(TagManager.PLAYER))
+        if (!alreadyActivated && other.CompareTag(TagManager.PLAYER))
         {
-            alreadyReached = true;
-            GameManager.instance.levelManager.SetLastCheckpoint(this);
+            ActivateCheckpoint();
         }
     }
 }

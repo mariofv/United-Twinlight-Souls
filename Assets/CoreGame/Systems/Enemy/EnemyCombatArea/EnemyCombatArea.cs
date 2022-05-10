@@ -6,6 +6,7 @@ using Cinemachine;
 public class EnemyCombatArea : MonoBehaviour
 {
     [SerializeField] private CinemachineVirtualCamera combatAreaCamera;
+    [SerializeField] private Checkpoint combatAreaCheckpoint;
     [SerializeField] private BoxCollider combatAreaEnterGateCollider;
     [SerializeField] private List<EnemyWave> combatAreaWaves;
 
@@ -24,6 +25,7 @@ public class EnemyCombatArea : MonoBehaviour
 
     private void EndCombatArea()
     {
+        combatAreaCheckpoint.ActivateCheckpoint();
         GameManager.instance.levelManager.GetCurrentLevelAsZoned().AdvanceZone();
     }
 

@@ -8,21 +8,10 @@ public class CharacterStatsManager : CharacterSubManager
 
     private int currentHealth;
 
-    // Start is called before the first frame update
-    void Awake()
-    {
-        SetFullHealth();
-    }
-
-    // Update is called once per frame
-    void Update()
-    {
-        
-    }
-
     public void SetFullHealth()
     {
         currentHealth = maxHealth;
+        GameManager.instance.uiManager.gameUIManager.hudUI.SetHealth(1f);
     }
 
     public void Hurt(int damage)

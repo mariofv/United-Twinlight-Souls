@@ -52,6 +52,7 @@ public class LevelManager : MonoBehaviour
         GameManager.instance.audioManager.SetCurrentLevelMusic(gameLevels[level].levelMusic);
         GameManager.instance.player.GetNotControlledCharacter().Teleport(currentLevel.voidPosition.position);
         GameManager.instance.player.GetControlledCharacter().Teleport(currentLevel.startPosition.position);
+        GameManager.instance.player.GetControlledCharacter().characterStatsManager.SetFullHealth();
         GameManager.instance.cameraManager.LoadCamera(currentLevel.GetCurrentCamera());
 
         GameManager.instance.EnterGameState(GameManager.GameState.COMBAT, changeGameStateInput: true);
