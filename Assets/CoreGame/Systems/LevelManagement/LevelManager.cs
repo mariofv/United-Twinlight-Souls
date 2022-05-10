@@ -47,6 +47,7 @@ public class LevelManager : MonoBehaviour
 
         currentLevelIndex = level;
         currentLevel = GameObject.FindGameObjectWithTag(TagManager.LEVEL).GetComponent<Level>();
+        lastCheckPoint = null;
 
         GameManager.instance.audioManager.SetCurrentLevelMusic(gameLevels[level].levelMusic);
         GameManager.instance.player.GetNotControlledCharacter().Teleport(currentLevel.voidPosition.position);
