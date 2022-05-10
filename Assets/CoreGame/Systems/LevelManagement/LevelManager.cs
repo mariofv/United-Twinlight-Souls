@@ -113,7 +113,11 @@ public class LevelManager : MonoBehaviour
         GameManager.instance.cameraManager.LoadCamera(currentLevel.GetCurrentCamera());
         yield return new WaitForSeconds(UISettings.GameUISettings.RESPAWN_TIME);
 
-        GameManager.instance.player.GetControlledCharacter().Revive();
+        if (GameManager.instance.player.GetControlledCharacter().IsDead())
+        {
+            GameManager.instance.player.GetControlledCharacter().Revive();
+        }
+        
         GameManager.instance.EnterGameState(GameManager.GameState.COMBAT, changeGameStateInput: true);
 
 

@@ -11,7 +11,7 @@ public class CharacterManager : MonoBehaviour
         JUMPING,
         ATTACKING,
         INTERACTING,
-        DYING
+        DEAD
     }
 
     public CharacterAnimationEventsManager characterAnimationEventsManager;
@@ -124,12 +124,17 @@ public class CharacterManager : MonoBehaviour
         characterVisualsManager.TriggerDeath();
         Move(Vector2.zero);
         characterCombatManager.SetInvincible(true);
-        SetCharacterState(CharacterState.DYING);
+        SetCharacterState(CharacterState.DEAD);
     }
 
     public void OnDeathEnd()
     {
         GameManager.instance.levelManager.Respawn();
+    }
+
+    public bool IsDead()
+    {
+        return currentState == CharacterState.DEAD;
     }
 
     public void Revive()
