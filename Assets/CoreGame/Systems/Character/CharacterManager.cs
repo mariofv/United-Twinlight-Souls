@@ -136,6 +136,7 @@ public class CharacterManager : MonoBehaviour
     {
         characterVisualsManager.TriggerRevive();
         characterCombatManager.SetInvincible(false);
+        characterStatsManager.SetFullHealth();
         SetCharacterState(CharacterState.IDLE);
     }
 

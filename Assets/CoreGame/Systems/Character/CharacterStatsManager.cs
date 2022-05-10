@@ -11,13 +11,18 @@ public class CharacterStatsManager : CharacterSubManager
     // Start is called before the first frame update
     void Awake()
     {
-        currentHealth = maxHealth;
+        SetFullHealth();
     }
 
     // Update is called once per frame
     void Update()
     {
         
+    }
+
+    public void SetFullHealth()
+    {
+        currentHealth = maxHealth;
     }
 
     public void Hurt(int damage)
