@@ -10,7 +10,8 @@ public class CharacterManager : MonoBehaviour
         MOVING,
         JUMPING,
         ATTACKING,
-        INTERACTING
+        INTERACTING,
+        DYING
     }
 
     public CharacterAnimationEventsManager characterAnimationEventsManager;
@@ -114,6 +115,14 @@ public class CharacterManager : MonoBehaviour
     public void DisableMovement()
     {
         characterMovementManager.enabled = false;
+    }
+
+    public void Kill()
+    {
+        characterVisualsManager.TriggerDeath();
+        Move(Vector2.zero);
+        SetCharacterState(CharacterState.DYING);
+
     }
 
     public void ResetVisuals()

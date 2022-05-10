@@ -62,6 +62,9 @@ public class CharacterInputManager : CharacterSubManager
         List<CharacterInputAction> interactingAcceptedInputs = new List<CharacterInputAction>();
         interactingAcceptedInputs.Add(CharacterInputAction.INTERACT);
         characterStateAcceptedInputs.Add(CharacterManager.CharacterState.INTERACTING, interactingAcceptedInputs);
+
+        List<CharacterInputAction> dyingAcceptedInputs = new List<CharacterInputAction>();
+        characterStateAcceptedInputs.Add(CharacterManager.CharacterState.DYING, dyingAcceptedInputs);
     }
 
     public bool IsInputAcceptedInCurrentState(CharacterInputAction inputAction)

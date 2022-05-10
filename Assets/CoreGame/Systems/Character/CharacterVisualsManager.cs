@@ -69,6 +69,11 @@ public class CharacterVisualsManager : CharacterSubManager
         characterAnimator.SetTrigger("attack");
     }
 
+    public void TriggerDeath()
+    {
+        characterAnimator.SetTrigger("death");
+    }
+
     public float GetCurrentAnimationProgress()
     {
         AnimatorStateInfo currentAnimatorState = characterAnimator.GetCurrentAnimatorStateInfo(0);

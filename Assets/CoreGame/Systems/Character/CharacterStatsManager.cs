@@ -25,5 +25,10 @@ public class CharacterStatsManager : CharacterSubManager
         currentHealth = Mathf.Max(0, currentHealth - damage);
         float currentHealthPercentage = (float)currentHealth / maxHealth;
         GameManager.instance.uiManager.gameUIManager.hudUI.SetHealth(currentHealthPercentage);
+
+        if (currentHealth == 0)
+        {
+            characterManager.Kill();
+        }
     }
 }
