@@ -14,6 +14,13 @@ public class CharacterStatsManager : CharacterSubManager
         GameManager.instance.uiManager.gameUIManager.hudUI.SetHealth(1f);
     }
 
+    public void Heal(int amountHealed)
+    {
+        currentHealth = Mathf.Min(maxHealth, currentHealth + amountHealed);
+        float currentHealthPercentage = (float)currentHealth / maxHealth;
+        GameManager.instance.uiManager.gameUIManager.hudUI.SetHealth(currentHealthPercentage);
+    }
+
     public void Hurt(int damage)
     {
         if (Debug.isDebugBuild || Application.isEditor)
