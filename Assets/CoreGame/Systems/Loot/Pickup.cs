@@ -24,10 +24,16 @@ public abstract class Pickup : MonoBehaviour
     [SerializeField] private float pickeableOscillationSpeed;
     [SerializeField] private float pickeableMaxOscillationHeight;
 
+    [Header("Being picked state")]
+    [SerializeField] protected float beingPickedTime;
+
+    [Header("Despawning state")]
+    [SerializeField] protected float despawningTime;
+
     private Vector3 originalSpeed;
     private Vector3 originalSpawnPosition;
     private Vector3 targetSpawnPosition;
-    private float currentTime = 0f;
+    protected float currentTime = 0f;
 
     protected PickupState currentState;
 
@@ -59,6 +65,8 @@ public abstract class Pickup : MonoBehaviour
     }
     public void Spawn(Vector3 position)
     {
+        ResetEffects();
+
         originalSpawnPosition = position;
         targetSpawnPosition = NavMeshHelper.GetNearPosition(position, spawnSpreadDistance);
         Debug.Log("Target position is " + targetSpawnPosition);
@@ -82,7 +90,6 @@ public abstract class Pickup : MonoBehaviour
     {
         currentTime += Time.deltaTime;
         Vector3 nextPosition = originalSpawnPosition + originalSpeed * currentTime;
-        //nextPosition.y = Mathf.Clamp(originalSpawnPosition.y + originalSpeed.y * currentTime - GRAVITY * 0.5f * currentTime * currentTime, targetSpawnPosition.y, 100f);
         nextPosition.y = originalSpawnPosition.y + originalSpeed.y * currentTime - GRAVITY * 0.5f * currentTime * currentTime;
         transform.position = nextPosition;
 
@@ -119,23 +126,42 @@ public abstract class Pickup : MonoBehaviour
     private void TransitionToDespawningState()
     {
         pickupCollider.enabled = false;
+
+        currentTime = 0f;
         currentState = PickupState.DESPAWNING;
     }
 
     private void UpdateDespawningState()
     {
-        TransitionToDisabledState();
+        currentTime += Time.deltaTime;
+
+        UpdateDespawningEffects();
+
+        if (currentTime >= despawningTime)
+        {
+            TransitionToDisabledState();
+        }
     }
 
     private void TransitionToBeingPickedState()
     {
         pickupCollider.enabled = false;
+        EnablePickedEffects();
+
+        currentTime = 0f;
         currentState = PickupState.BEING_PICKED;
     }
 
     private void UpdateBeingPickedState()
     {
-        TransitionToDisabledState();
+        currentTime += Time.deltaTime;
+
+        UpdatePickedEffects();
+
+        if (currentTime >= beingPickedTime)
+        {
+            TransitionToDisabledState();
+        }
     }
 
     private void TransitionToDisabledState()
@@ -148,11 +174,16 @@ public abstract class Pickup : MonoBehaviour
         return currentState != PickupState.DISABLED;
     }
 
+    protected abstract void ResetEffects();
+    protected abstract void EnablePickedEffects();
+    protected abstract void UpdatePickedEffects();
+    protected abstract void UpdateDespawningEffects();
+
     private void OnTriggerEnter(Collider other)
     {
-        if (other.CompareTag(TagManager.PLAYER))
+        if (IsActive() && other.CompareTag(TagManager.PLAYER))
         {
-            //Pick();
+            Pick();
         }
     }
 }
