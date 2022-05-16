@@ -17,6 +17,10 @@ public class Enemy : MonoBehaviour
     [Header("Hit reaction")]
     [SerializeField] private bool orientateEnemyAfterHit;
 
+    [Header("Loot")]
+    [SerializeField] private int minAmountLightOrbs;
+    [SerializeField] private int maxAmountLightOrbs;
+
     public UnityEvent onSpawnedEnemyDead;
 
     void Awake()
@@ -76,8 +80,13 @@ public class Enemy : MonoBehaviour
         enemyAI.Reanimate();
     }
 
-    public void Kill()
+    public void Kill(bool spawnLoot = true)
     {
+        if (spawnLoot)
+        {
+            SpawnLoot();
+        }
+
         gameObject.SetActive(false);
         GameManager.instance.enemyManager.RemoveSpawnedEnemy(this);
         onSpawnedEnemyDead.Invoke();
@@ -92,6 +101,12 @@ public class Enemy : MonoBehaviour
         {
             enemyAI.OnSpawnStart();
         }
+    }
+
+    private void SpawnLoot()
+    {
+        int numberOfSpawnedLightOrbs = Random.Range(minAmountLightOrbs, maxAmountLightOrbs + 1);
+        GameManager.instance.lootManager.SpawnLightOrbs(transform.position, numberOfSpawnedLightOrbs);
     }
 
     public bool IsAlive()

@@ -42,6 +42,7 @@ public class GameManager : MonoBehaviour
     public EnemyManager enemyManager;
     public InputManager inputManager;
     public LevelManager levelManager;
+    public LootManager lootManager;
     public ScenesManager scenesManager;
     public UIManager uiManager;
 
@@ -90,6 +91,8 @@ public class GameManager : MonoBehaviour
         enemyManager.KillAllEnemies();
         enemyManager.EmptyEnemyPools();
 
+        lootManager.EmptyPickupPools();
+
         uiManager.levelTransitionUIManager.FadeIn();
         while (uiManager.levelTransitionUIManager.IsFadingIn())
         {
@@ -122,6 +125,7 @@ public class GameManager : MonoBehaviour
         uiManager.gameUIManager.HideAll();
 
         enemyManager.InitializedEnemyPools();
+        lootManager.InitializePickupPools();
         yield return StartCoroutine(levelManager.LoadLevelAsync(level, waitLoadingScreenTime: waitLoadingScreenTime, fade:false));
 
         inputManager.EnablePauseInput(true);

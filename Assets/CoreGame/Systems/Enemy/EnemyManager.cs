@@ -79,7 +79,7 @@ public class EnemyManager : MonoBehaviour
     {
         while (spawnedEnemies.Count != 0)
         {
-            spawnedEnemies[0].Kill();
+            spawnedEnemies[0].Kill(spawnLoot: false);
         }
 
         spawnedEnemies.Clear();

@@ -14,10 +14,15 @@ public abstract class Pickup : MonoBehaviour
 
     protected abstract void ApplyEffect();
 
-    protected virtual void Spawn(Vector3 position)
+    public virtual void Spawn(Vector3 position)
     {
         transform.position = position;
         pickupCollider.enabled = true;
+    }
+
+    public bool IsActive()
+    {
+        return pickupCollider.enabled;
     }
 
     private void OnTriggerEnter(Collider other)

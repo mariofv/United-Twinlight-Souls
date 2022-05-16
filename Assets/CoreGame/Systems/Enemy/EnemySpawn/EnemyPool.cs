@@ -61,7 +61,7 @@ public class EnemyPool : MonoBehaviour
         for (int i = 0; i < batchSize; ++i)
         {
             Enemy newEnemyInstance = Instantiate(poolEnemyAsset.enemyPrefab, transform).GetComponent<Enemy>();
-            newEnemyInstance.Kill();
+            newEnemyInstance.Kill(spawnLoot: false);
 
             instantiatedEnemies.Add(newEnemyInstance);
         }

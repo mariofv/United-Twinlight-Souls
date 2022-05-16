@@ -143,11 +143,6 @@ MonoBehaviour:
   battleCry1: {fileID: 8300000, guid: 761826f31bd7af246ae5445110917627, type: 3}
   battleCry2: {fileID: 8300000, guid: f8849b67e0b390d47ac2223984c4141f, type: 3}
   battleCry3: {fileID: 8300000, guid: 1d53d27bab83abf44ab20ebe499fda32, type: 3}
-  hit1: {fileID: 8300000, guid: 240cfa58cece81a43b7d2363d995d541, type: 3}
-  hit2: {fileID: 8300000, guid: bb7b3eb1efada3b469741ecf79600ab6, type: 3}
-  hit3: {fileID: 8300000, guid: e721fe1f593d86c47ba9c55706da2175, type: 3}
-  hit4: {fileID: 8300000, guid: 387f2475d13f6a44891f68e4d08f1706, type: 3}
-  hit5: {fileID: 8300000, guid: 157d90f7a1287984495270a339632a8f, type: 3}
   spinAttack: {fileID: 8300000, guid: a4c14078640f2a54bbfacf44f1a7cccd, type: 3}
   sporesAttack: {fileID: 8300000, guid: 21072661494916d479c91cb19265b14a, type: 3}
   sporesRelease: {fileID: 8300000, guid: 992370833c57b504dbe02494eabb67c5, type: 3}
@@ -214,6 +209,8 @@ MonoBehaviour:
   maxHealth: 20
   currentHealth: 0
   orientateEnemyAfterHit: 1
+  minAmountLightOrbs: 1
+  maxAmountLightOrbs: 3
   onSpawnedEnemyDead:
     m_PersistentCalls:
       m_Calls: []
