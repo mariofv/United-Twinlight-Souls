@@ -40,7 +40,7 @@ public class LevelManager : MonoBehaviour
             yield return new WaitForSeconds(UISettings.GameUISettings.LOADING_SCREEN_TIP_DISPLAY_TIME);
         }
 
-        GameManager.instance.enemyManager.KillAllEnemies();
+        GameManager.instance.enemyManager.KillAllEnemies(spawnLoot: false);
 
         yield return StartCoroutine(GameManager.instance.scenesManager.ChangeScene(gameLevels[level].levelScene));
 
@@ -94,7 +94,7 @@ public class LevelManager : MonoBehaviour
                 zonedLevel.ResetCombatArea();
             }
         }
-        GameManager.instance.enemyManager.KillAllEnemies();
+        GameManager.instance.enemyManager.KillAllEnemies(spawnLoot: false);
 
 
         GameManager.instance.audioManager.SetCurrentLevelMusic(gameLevels[currentLevelIndex].levelMusic);

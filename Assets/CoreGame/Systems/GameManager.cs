@@ -88,7 +88,7 @@ public class GameManager : MonoBehaviour
         audioManager.PlayMainMenuMusic();
         inputManager.EnablePauseInput(false);
 
-        enemyManager.KillAllEnemies();
+        enemyManager.KillAllEnemies(spawnLoot: false);
         enemyManager.EmptyEnemyPools();
 
         lootManager.EmptyPickupPools();

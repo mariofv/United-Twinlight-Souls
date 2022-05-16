@@ -75,11 +75,11 @@ public class EnemyManager : MonoBehaviour
         spawnedEnemies.Remove(enemyToBeRemoved);
     }
 
-    public void KillAllEnemies()
+    public void KillAllEnemies(bool spawnLoot = true)
     {
         while (spawnedEnemies.Count != 0)
         {
-            spawnedEnemies[0].Kill(spawnLoot: false);
+            spawnedEnemies[0].Kill(spawnLoot);
         }
 
         spawnedEnemies.Clear();

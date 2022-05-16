@@ -46,9 +46,12 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   pickupCollider: {fileID: 6096908129304378080}
-  healedAmount: 5
+  pickeableTime: 30
   spawnTime: 0.5
   spawnSpreadDistance: 2
+  pickeableOscillationSpeed: 3
+  pickeableMaxOscillationHeight: 1
+  healedAmount: 5
 --- !u!135 &6096908129304378080
 SphereCollider:
   m_ObjectHideFlags: 0
