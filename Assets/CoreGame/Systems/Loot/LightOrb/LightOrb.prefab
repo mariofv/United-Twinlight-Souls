@@ -47,6 +47,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   pickupCollider: {fileID: 6096908129304378080}
   healedAmount: 5
+  spawnTime: 0.5
+  spawnSpreadDistance: 2
 --- !u!135 &6096908129304378080
 SphereCollider:
   m_ObjectHideFlags: 0
@@ -9828,7 +9830,7 @@ Light:
   m_Type: 2
   m_Shape: 0
   m_Color: {r: 0.6354541, g: 1, b: 0.4470588, a: 1}
-  m_Intensity: 2.5
+  m_Intensity: 1
   m_Range: 5
   m_SpotAngle: 30
   m_InnerSpotAngle: 21.80208
