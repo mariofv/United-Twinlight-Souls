@@ -69,7 +69,6 @@ public abstract class Pickup : MonoBehaviour
 
         originalSpawnPosition = position;
         targetSpawnPosition = NavMeshHelper.GetNearPosition(position, spawnSpreadDistance);
-        Debug.Log("Target position is " + targetSpawnPosition);
 
         originalSpeed = (targetSpawnPosition - originalSpawnPosition) / spawnTime;
         originalSpeed.y = GRAVITY * 0.5f * spawnTime;
