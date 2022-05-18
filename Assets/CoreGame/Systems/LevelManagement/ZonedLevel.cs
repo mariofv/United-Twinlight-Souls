@@ -44,8 +44,8 @@ public class ZonedLevel : Level
     {
         currentCombatArea = null;
         levelZones[currentZone].zoneExitBarrier.Open();
+        levelZones[currentZone].Purify();
         ++currentZone;
         GameManager.instance.cameraManager.LoadCamera(GetCurrentCamera());
     }
-
 }

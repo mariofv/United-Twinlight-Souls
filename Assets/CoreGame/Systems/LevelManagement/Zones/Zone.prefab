@@ -50,6 +50,8 @@ MonoBehaviour:
   zoneCamera: {fileID: 9144089369301292694}
   zoneCombatAreaTransform: {fileID: 6028420341630065216}
   zoneExitBarrier: {fileID: 4361623308355863370}
+  purificationTime: 5
+  zoneMeshes: []
 --- !u!1 &7353830792808815448
 GameObject:
   m_ObjectHideFlags: 0
