@@ -34,7 +34,9 @@ public class LightOrb : Pickup
 
             if (particleRenderer.trailMaterial != null)
             {
-                effectsMaterials.Add(particleRenderer.trailMaterial);
+                Material newTrailMaterial = new Material(particleRenderer.trailMaterial);
+                particleRenderer.trailMaterial = newTrailMaterial;
+                effectsMaterials.Add(newTrailMaterial);
             }
 
         }
