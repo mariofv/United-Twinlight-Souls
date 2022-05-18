@@ -10,8 +10,9 @@ Shader "Custom/LitTransparentWithDepth"
     {
         _Color("Color", Color) = (1,1,1,1)
         _MainTex("Albedo (RGB)", 2D) = "white" {}
-        _Glossiness("Smoothness", Range(0,1)) = 0.5
-        _Metallic("Metallic", Range(0,1)) = 0.0
+        _FadeTex ("Fade Albedo (RGB)", 2D) = "white" {}
+        _NoiseTex ("Noise Texture", 2D) = "white" {}
+        _FadeProgress ("Fade Progress", Range(0,1)) = 1
     }
         SubShader
         {
@@ -80,8 +81,9 @@ Shader "Custom/LitTransparentWithDepth"
                         float2 uv_MainTex;
                     };
 
-                    half _Glossiness;
-                    half _Metallic;
+                    sampler2D _FadeTex;
+                    sampler2D _NoiseTex;
+                    float _FadeProgress;
                     fixed4 _Color;
 
                     // Add instancing support for this shader. You need to check 'Enable Instancing' on materials that use the shader.
@@ -92,14 +94,21 @@ Shader "Custom/LitTransparentWithDepth"
                     UNITY_INSTANCING_BUFFER_END(Props)
 
                     void surf(Input IN, inout SurfaceOutputStandard o)
-                    {
-                        // Albedo comes from a texture tinted by color
-                        fixed4 c = tex2D(_MainTex, IN.uv_MainTex) * _Color;
-                        o.Albedo = c.rgb;
-                        // Metallic and smoothness come from slider variables
-                        o.Metallic = _Metallic;
-                        o.Smoothness = _Glossiness;
-                        o.Alpha = c.a;
+                    {// Albedo comes from a texture tinted by color
+                        fixed4 mainColor = tex2D (_MainTex, IN.uv_MainTex);
+                        fixed4 fadedColor = tex2D (_FadeTex, IN.uv_MainTex);
+                        fixed4 noiseColor = tex2D (_NoiseTex, IN.uv_MainTex);
+
+                        float currentThreshold = noiseColor.x;
+                        float thresholdPassed = clamp(sign(currentThreshold - _FadeProgress), 0, 1);
+                        fixed4 finalColor = (mainColor * thresholdPassed + fadedColor * (1 - thresholdPassed));
+
+                        finalColor = finalColor * _Color;
+
+                        o.Albedo = finalColor.rgb;
+                        o.Metallic = 0;
+                        o.Smoothness = 0;
+                        o.Alpha = finalColor.a;
                     }
                     ENDCG
         }

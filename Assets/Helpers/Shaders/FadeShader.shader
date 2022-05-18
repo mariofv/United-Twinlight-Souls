@@ -5,8 +5,6 @@ Shader "Custom/FadeShader"
         _Color ("Color", Color) = (1,1,1,1)
         _MainTex ("Albedo (RGB)", 2D) = "white" {}
         _FadeTex ("Fade Albedo (RGB)", 2D) = "white" {}
-        _Emission("Emission", 2D) = "white" {}
-        _EmissionFade("Emission Fade", 2D) = "white" {}
         _NoiseTex ("Noise Texture", 2D) = "white" {}
         _FadeProgress ("Fade Progress", Range(0,1)) = 1
     }
@@ -24,8 +22,6 @@ Shader "Custom/FadeShader"
 
         sampler2D _MainTex;
         sampler2D _FadeTex;
-        sampler2D _Emission;
-        sampler2D _EmissionFade;
         sampler2D _NoiseTex;
 
         struct Input
@@ -53,17 +49,12 @@ Shader "Custom/FadeShader"
             float currentThreshold = noiseColor.x;
             float thresholdPassed = clamp(sign(currentThreshold - _FadeProgress), 0, 1);
             fixed4 finalColor = (mainColor * thresholdPassed + fadedColor * (1 - thresholdPassed));
-            
-            fixed4 emissionColor = tex2D (_Emission, IN.uv_MainTex);
-            fixed4 emissionFadedColor = tex2D (_EmissionFade, IN.uv_MainTex);
-            fixed4 finalEmissionColor = (emissionColor * thresholdPassed + emissionFadedColor * (1 - thresholdPassed));
 
             finalColor = finalColor * _Color;
 
             o.Albedo = finalColor.rgb;
             o.Metallic = 0;
             o.Smoothness = 0;
-            o.Emission = finalEmissionColor.rgb;
             o.Alpha = finalColor.a;
         }
         ENDCG
