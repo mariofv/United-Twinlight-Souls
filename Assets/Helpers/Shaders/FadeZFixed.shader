@@ -4,12 +4,15 @@
 // https://forum.unity.com/threads/transparency-with-standard-surface-shader.394551/
 // https://forum.unity.com/threads/simply-adding-alpha-fade-makes-my-shader-only-work-in-scene-view.546852/
 
-Shader "Custom/LitTransparentWithDepth"
+Shader "Custom/FadeZFixed"
 {
     Properties
     {
         _Color("Color", Color) = (1,1,1,1)
         _MainTex("Albedo (RGB)", 2D) = "white" {}
+        _FadeTex ("Fade Albedo (RGB)", 2D) = "white" {}
+        _NoiseTex ("Noise Texture", 2D) = "white" {}
+        _FadeProgress ("Fade Progress", Range(0,1)) = 1
     }
         SubShader
         {
@@ -92,7 +95,15 @@ Shader "Custom/LitTransparentWithDepth"
 
                     void surf(Input IN, inout SurfaceOutputStandard o)
                     {// Albedo comes from a texture tinted by color
-                        fixed4 finalColor = tex2D (_MainTex, IN.uv_MainTex) * _Color;
+                        fixed4 mainColor = tex2D (_MainTex, IN.uv_MainTex);
+                        fixed4 fadedColor = tex2D (_FadeTex, IN.uv_MainTex);
+                        fixed4 noiseColor = tex2D (_NoiseTex, IN.uv_MainTex);
+
+                        float currentThreshold = noiseColor.x;
+                        float thresholdPassed = clamp(sign(currentThreshold - _FadeProgress), 0, 1);
+                        fixed4 finalColor = (mainColor * thresholdPassed + fadedColor * (1 - thresholdPassed));
+
+                        finalColor = finalColor * _Color;
 
                         o.Albedo = finalColor.rgb;
                         o.Metallic = 0;
