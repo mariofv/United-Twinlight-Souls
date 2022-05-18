@@ -1,116 +1,132 @@
-// surface shader version of https://forum.unity.com/threads/gltfutility-a-simple-gltf-plugin.654319/page-4#post-6854009
-
-// how to enable transparency for surface shaders
-// https://forum.unity.com/threads/transparency-with-standard-surface-shader.394551/
-// https://forum.unity.com/threads/simply-adding-alpha-fade-makes-my-shader-only-work-in-scene-view.546852/
-
 Shader "Custom/FadeZFixed"
 {
+    // The _BaseMap variable is visible in the Material's Inspector, as a field
+    // called Base Map.
     Properties
-    {
+    { 
         _Color("Color", Color) = (1,1,1,1)
         _MainTex("Albedo (RGB)", 2D) = "white" {}
         _FadeTex ("Fade Albedo (RGB)", 2D) = "white" {}
         _NoiseTex ("Noise Texture", 2D) = "white" {}
         _FadeProgress ("Fade Progress", Range(0,1)) = 1
     }
-        SubShader
-        {
-            Tags { "Queue" = "Transparent" "RenderType" = "Transparent" }
-            LOD 200
 
-            Pass {
-                ZWrite On
-                //Cull Off // make double sided
-                ColorMask 0 // don't draw any color
+    SubShader
+    {
+        Tags { "Queue" = "Transparent" "RenderType" = "Transparent" "RenderPipeline" = "UniversalPipeline" }
+        LOD 200
 
-                CGPROGRAM
-                #pragma vertex vert
-                #pragma fragment frag
+        Pass {
 
-                #include "UnityCG.cginc"
+            ZWrite On
+            Cull Off // make double sided
+            ColorMask 0 // don't draw any color
 
-                struct appdata
-                {
-                    float4 vertex : POSITION;
-                    float2 uv : TEXCOORD0;
-                };
+            HLSLPROGRAM
+            #pragma vertex vert
+            #pragma fragment frag
 
-                struct v2f
-                {
-                    float2 uv : TEXCOORD0;
-                    float4 vertex : SV_POSITION;
-                };
+            #include "UnityCG.cginc"   
 
-                sampler2D _MainTex;
+            struct appdata
+            {
+                float4 vertex : POSITION;
+                float2 uv : TEXCOORD0;
+            };
+
+            struct v2f
+            {
+                float2 uv : TEXCOORD0;
+                float4 vertex : SV_POSITION;
+            };
+
+            sampler2D _MainTex;
+
+            CBUFFER_START(UnityPerMaterial)
                 float4 _MainTex_ST;
+            CBUFFER_END
 
-                v2f vert(appdata v)
-                {
-                    v2f o;
-                    o.vertex = UnityObjectToClipPos(v.vertex);
-                    o.uv = TRANSFORM_TEX(v.uv, _MainTex);
-                    return o;
-                }
-
-                fixed4 frag(v2f i) : SV_Target
-                {
-                    fixed4 col = tex2D(_MainTex, i.uv);
-                    clip(col.a - .97); // remove non-opaque pixels from writing to zbuffer
-                    return col;
-                }
-                ENDCG
+            v2f vert(appdata v)
+            {
+                v2f o;
+                o.vertex = UnityObjectToClipPos(v.vertex);
+                o.uv = TRANSFORM_TEX(v.uv, _MainTex);
+                return o;
             }
 
+            fixed4  frag(v2f i) : SV_Target
+            {
+                fixed4  col = tex2D(_MainTex, i.uv);
+                clip(col.a - .97); // remove non-opaque pixels from writing to zbuffer
+                return col;
+            }
+            ENDHLSL
+        }
+
+        Pass
+        {
             // ---------- Start Pass 2 ----------
             ZWrite Off
-                    //Cull Off // make double sided
-                    Blend SrcAlpha OneMinusSrcAlpha
+            Cull Off // make double sided
+            Blend SrcAlpha OneMinusSrcAlpha
+            Tags { "LightMode" = "UniversalForward"}
 
-                    CGPROGRAM
-                    // Physically based Standard lighting model, and enable shadows on all light types
-                    #pragma surface surf Standard fullforwardshadows alpha:fade
+            HLSLPROGRAM
+            #pragma vertex vert
+            #pragma fragment frag
+            
+            #include "UnityCG.cginc"         
 
-                    // Use shader model 3.0 target, to get nicer looking lighting
-                    #pragma target 3.0
+            struct Attributes
+            {
+                float4 positionOS   : POSITION;
+                // The uv variable contains the UV coordinate on the texture for the
+                // given vertex.
+                float2 uv           : TEXCOORD0;
+            };
 
-                    sampler2D _MainTex;
+            struct Varyings
+            {
+                float4 positionHCS  : SV_POSITION;
+                // The uv variable contains the UV coordinate on the texture for the
+                // given vertex.
+                float2 uv           : TEXCOORD0;
+            };
 
-                    struct Input
-                    {
-                        float2 uv_MainTex;
-                    };
+            sampler2D _MainTex;
+            sampler2D _FadeTex;
+            sampler2D _NoiseTex;
+            float _FadeProgress;
+            fixed4 _Color;
 
-                    sampler2D _FadeTex;
-                    sampler2D _NoiseTex;
-                    float _FadeProgress;
-                    fixed4 _Color;
+            CBUFFER_START(UnityPerMaterial)
+                float4 _MainTex_ST;
+            CBUFFER_END
 
-                    // Add instancing support for this shader. You need to check 'Enable Instancing' on materials that use the shader.
-                    // See https://docs.unity3d.com/Manual/GPUInstancing.html for more information about instancing.
-                    // #pragma instancing_options assumeuniformscaling
-                    UNITY_INSTANCING_BUFFER_START(Props)
-                        // put more per-instance properties here
-                    UNITY_INSTANCING_BUFFER_END(Props)
+            Varyings vert(Attributes IN)
+            {
+                Varyings OUT;
+                OUT.positionHCS = UnityObjectToClipPos(IN.positionOS.xyz);
+                // The TRANSFORM_TEX macro performs the tiling and offset
+                // transformation.
+                OUT.uv = TRANSFORM_TEX(IN.uv, _MainTex);
+                return OUT;
+            }
 
-                    void surf(Input IN, inout SurfaceOutputStandard o)
-                    {// Albedo comes from a texture tinted by color
-                        fixed4 mainColor = tex2D (_MainTex, IN.uv_MainTex);
-                        fixed4 fadedColor = tex2D (_FadeTex, IN.uv_MainTex);
-                        fixed4 noiseColor = tex2D (_NoiseTex, IN.uv_MainTex);
+            fixed4  frag(Varyings IN) : SV_Target
+            {
+                fixed4 mainColor = tex2D (_MainTex, IN.uv);
+                fixed4 fadedColor = tex2D (_FadeTex, IN.uv);
+                fixed4 noiseColor = tex2D (_NoiseTex, IN.uv);
 
-                        float currentThreshold = noiseColor.x;
-                        float thresholdPassed = clamp(sign(currentThreshold - _FadeProgress), 0, 1);
-                        fixed4 finalColor = (mainColor * thresholdPassed + fadedColor * (1 - thresholdPassed));
+                float currentThreshold = noiseColor.x;
+                float thresholdPassed = clamp(sign(currentThreshold - _FadeProgress), 0, 1);
+                fixed4 finalColor = (mainColor * thresholdPassed + fadedColor * (1 - thresholdPassed));
 
-                        finalColor = finalColor * _Color;
-
-                        o.Albedo = finalColor.rgb;
-                        o.Metallic = 0;
-                        o.Smoothness = 0;
-                        o.Alpha = finalColor.a;
-                    }
-                    ENDCG
+                finalColor = finalColor * _Color;
+                return finalColor;
+            }
+            ENDHLSL
         }
-            FallBack "Diffuse"
+    }
 }

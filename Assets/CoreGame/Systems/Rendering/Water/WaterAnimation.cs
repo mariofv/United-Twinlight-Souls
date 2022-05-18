@@ -10,14 +10,11 @@ public class WaterAnimation : MonoBehaviour
     private void Awake()
     {
         animatedMaterial = GetComponent<MeshRenderer>().material;
+        animatedMaterial.SetVector("_Speed", new Vector4(animationSpeed.x, animationSpeed.y, 0f, 0f));
     }
 
     // Update is called once per frame
     void Update()
     {
-        Vector2 currentTiling = animatedMaterial.GetTextureOffset("_MainTex");
-        currentTiling += Time.deltaTime * animationSpeed;
-        animatedMaterial.SetTextureOffset("_MainTex", currentTiling);
-        animatedMaterial.SetTextureOffset("_FadeTex", currentTiling);
     }
 }
