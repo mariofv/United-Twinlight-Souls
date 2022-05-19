@@ -11,7 +11,7 @@ GameObject:
   - component: {fileID: 5345671025280023456}
   - component: {fileID: -8361337536931602512}
   m_Layer: 0
-  m_Name: PostProcessingVolume
+  m_Name: BloomVolume
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0

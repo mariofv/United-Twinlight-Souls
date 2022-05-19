@@ -732,7 +732,7 @@ PrefabInstance:
     m_Modifications:
     - target: {fileID: 163449018676891921, guid: b2b8d294577b1f345a921cc0e772c127, type: 3}
       propertyPath: m_Name
-      value: PostProcessingVolume
+      value: BloomVolume
       objectReference: {fileID: 0}
     - target: {fileID: 5345671025280023456, guid: b2b8d294577b1f345a921cc0e772c127, type: 3}
       propertyPath: m_RootOrder
