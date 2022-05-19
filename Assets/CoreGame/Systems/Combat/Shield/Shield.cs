@@ -101,11 +101,8 @@ public class Shield : MonoBehaviour
         hitLerp = 0f;
         hitAnimation = true;
 
-        currentHealth = Mathf.Max(0, currentHealth - damage);
-        if (currentHealth == 0)
-        {
-            BreakShield();
-        }
+        int newHealth = Mathf.Max(0, currentHealth - damage);
+        SetShieldHealth(newHealth);
     }
 
     public void Raise()
@@ -117,6 +114,19 @@ public class Shield : MonoBehaviour
     {
         currentState = ShieldState.RELEASING;
         shieldCollider.enabled = false;
+    }
+
+    private void SetShieldHealth(int health)
+    {
+        currentHealth = health;
+        float currentHealthProgress = (float)currentHealth / maxHealth;
+        Color newShieldColor = Color.Lerp(originalShieldColor, brokenShieldColor, (1f - currentHealthProgress));
+        shieldRenderer.material.SetColor("_FresnelColor", newShieldColor);
+
+        if (currentHealth == 0)
+        {
+            BreakShield();
+        }
     }
 
     private void BreakShield()
