@@ -134,4 +134,4 @@ MonoBehaviour:
     m_RotationOrder: 4
   displacementMagnitude: 0
   lerpSpeed: 0
-  disolveSpeed: 0
+  raiseSpeed: 5

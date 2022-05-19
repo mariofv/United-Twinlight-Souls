@@ -5,6 +5,7 @@ using UnityEngine;
 public class CharacterCombatManager : CharacterSubManager
 {
     [SerializeField] private Collider playerHurtbox;
+    [SerializeField] private Shield playerShield;
     [SerializeField] private List<LightAttack> lightAttacks;
     private bool isInLightAttackChain = false;
     private int currentLightAttackChain = -1;
@@ -87,5 +88,15 @@ public class CharacterCombatManager : CharacterSubManager
         isInLightAttackChain = false;
         currentLightAttackChain = -1;
         characterManager.SetCharacterState(CharacterManager.CharacterState.IDLE);
+    }
+
+    public void RaiseShield()
+    {
+        playerShield.Raise();
+    }
+
+    public void ReleaseShield()
+    {
+        playerShield.Release();
     }
 }

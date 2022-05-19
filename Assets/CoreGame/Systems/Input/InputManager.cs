@@ -29,6 +29,8 @@ public class InputManager : MonoBehaviour
         playerInput.Combat.Movement.canceled += ctx => OnMovementInput(ctx);
         playerInput.Combat.Jump.started += ctx => OnJumpInput(ctx);
         playerInput.Combat.LightAttack.started += ctx => OnLightAttackInput(ctx);
+        playerInput.Combat.Shield.started += ctx => OnShieldInputStart(ctx);
+        playerInput.Combat.Shield.canceled += ctx => OnShieldInputEnd(ctx);
         playerInput.Combat.Interact.started += ctx => OnInteractInput(ctx)
         ;
         playerInput.Dialogue.Interact.started += ctx => OnInteractInput(ctx);
@@ -202,6 +204,20 @@ public class InputManager : MonoBehaviour
             return;
         }
         GameManager.instance.player.GetControlledCharacter().LightAttack();
+    }
+
+    public void OnShieldInputStart(InputAction.CallbackContext context)
+    {
+        if (!GameManager.instance.player.GetControlledCharacter().characterInputManager.IsInputAcceptedInCurrentState(CharacterInputManager.CharacterInputAction.SHIELD))
+        {
+            return;
+        }
+        GameManager.instance.player.GetControlledCharacter().RaiseShield();
+    }
+
+    public void OnShieldInputEnd(InputAction.CallbackContext context)
+    {
+        GameManager.instance.player.GetControlledCharacter().ReleaseShield();
     }
 
     public void OnInteractInput(InputAction.CallbackContext context)

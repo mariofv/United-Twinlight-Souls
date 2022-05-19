@@ -72,7 +72,7 @@ Material:
     - _Cutoff: 0.5
     - _DepthOffset: 0.4
     - _DetailNormalMapScale: 1
-    - _Disolve: 0
+    - _Disolve: 1
     - _DisolveEdgeThickness: 0.05
     - _DisplacementStrength: 0.1
     - _DistortionStrength: 2.6

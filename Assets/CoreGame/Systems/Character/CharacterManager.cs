@@ -86,6 +86,16 @@ public class CharacterManager : MonoBehaviour
         SetCharacterState(CharacterState.ATTACKING);
     }
 
+    public void RaiseShield()
+    {
+        characterCombatManager.RaiseShield();
+    }
+
+    public void ReleaseShield()
+    {
+        characterCombatManager.ReleaseShield();
+    }
+
     public void Interact()
     {
         if (characterInteractionManager.CanInteract())

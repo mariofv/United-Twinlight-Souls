@@ -11,6 +11,7 @@ public class CharacterInputManager : CharacterSubManager
         MOVE,
         JUMP,
         ATTACK,
+        SHIELD,
         INTERACT
     }
 
@@ -42,6 +43,7 @@ public class CharacterInputManager : CharacterSubManager
         idleAccepetedInputs.Add(CharacterInputAction.MOVE);
         idleAccepetedInputs.Add(CharacterInputAction.JUMP);
         idleAccepetedInputs.Add(CharacterInputAction.ATTACK);
+        idleAccepetedInputs.Add(CharacterInputAction.SHIELD);
         characterStateAcceptedInputs.Add(CharacterManager.CharacterState.IDLE, idleAccepetedInputs);
 
         List<CharacterInputAction> movingAccepetedInputs = new List<CharacterInputAction>();
@@ -49,10 +51,12 @@ public class CharacterInputManager : CharacterSubManager
         movingAccepetedInputs.Add(CharacterInputAction.MOVE);
         movingAccepetedInputs.Add(CharacterInputAction.JUMP);
         movingAccepetedInputs.Add(CharacterInputAction.ATTACK);
+        movingAccepetedInputs.Add(CharacterInputAction.SHIELD);
         characterStateAcceptedInputs.Add(CharacterManager.CharacterState.MOVING, movingAccepetedInputs);
 
         List<CharacterInputAction> jumpingAccepetedInputs = new List<CharacterInputAction>();
         jumpingAccepetedInputs.Add(CharacterInputAction.MOVE);
+        jumpingAccepetedInputs.Add(CharacterInputAction.SHIELD);
         characterStateAcceptedInputs.Add(CharacterManager.CharacterState.JUMPING, jumpingAccepetedInputs);
 
         List<CharacterInputAction> attackngAccepetedInputs = new List<CharacterInputAction>();

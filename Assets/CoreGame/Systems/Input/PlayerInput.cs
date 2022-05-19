@@ -62,6 +62,15 @@ public partial class @PlayerInput : IInputActionCollection2, IDisposable
                     ""processors"": """",
                     ""interactions"": """",
                     ""initialStateCheck"": false
+                },
+                {
+                    ""name"": ""Shield"",
+                    ""type"": ""Button"",
+                    ""id"": ""39effe38-92a3-4b40-a93c-067e61424bbd"",
+                    ""expectedControlType"": ""Button"",
+                    ""processors"": """",
+                    ""interactions"": """",
+                    ""initialStateCheck"": false
                 }
             ],
             ""bindings"": [
@@ -238,6 +247,28 @@ public partial class @PlayerInput : IInputActionCollection2, IDisposable
                     ""processors"": """",
                     ""groups"": ""Gamepad"",
                     ""action"": ""Interact"",
+                    ""isComposite"": false,
+                    ""isPartOfComposite"": false
+                },
+                {
+                    ""name"": """",
+                    ""id"": ""50c1ba07-a03e-4dcc-8ecb-66c6f819d82d"",
+                    ""path"": ""<Keyboard>/q"",
+                    ""interactions"": """",
+                    ""processors"": """",
+                    ""groups"": ""Keyboard&Mouse"",
+                    ""action"": ""Shield"",
+                    ""isComposite"": false,
+                    ""isPartOfComposite"": false
+                },
+                {
+                    ""name"": """",
+                    ""id"": ""46643a05-ef71-40c2-845b-8ba4a3932158"",
+                    ""path"": ""<Gamepad>/leftShoulder"",
+                    ""interactions"": """",
+                    ""processors"": """",
+                    ""groups"": ""Gamepad"",
+                    ""action"": ""Shield"",
                     ""isComposite"": false,
                     ""isPartOfComposite"": false
                 }
@@ -1340,6 +1371,7 @@ public partial class @PlayerInput : IInputActionCollection2, IDisposable
         m_Combat_Jump = m_Combat.FindAction("Jump", throwIfNotFound: true);
         m_Combat_LightAttack = m_Combat.FindAction("LightAttack", throwIfNotFound: true);
         m_Combat_Interact = m_Combat.FindAction("Interact", throwIfNotFound: true);
+        m_Combat_Shield = m_Combat.FindAction("Shield", throwIfNotFound: true);
         // Dialogue
         m_Dialogue = asset.FindActionMap("Dialogue", throwIfNotFound: true);
         m_Dialogue_Interact = m_Dialogue.FindAction("Interact", throwIfNotFound: true);
@@ -1437,6 +1469,7 @@ public partial class @PlayerInput : IInputActionCollection2, IDisposable
     private readonly InputAction m_Combat_Jump;
     private readonly InputAction m_Combat_LightAttack;
     private readonly InputAction m_Combat_Interact;
+    private readonly InputAction m_Combat_Shield;
     public struct CombatActions
     {
         private @PlayerInput m_Wrapper;
@@ -1445,6 +1478,7 @@ public partial class @PlayerInput : IInputActionCollection2, IDisposable
         public InputAction @Jump => m_Wrapper.m_Combat_Jump;
         public InputAction @LightAttack => m_Wrapper.m_Combat_LightAttack;
         public InputAction @Interact => m_Wrapper.m_Combat_Interact;
+        public InputAction @Shield => m_Wrapper.m_Combat_Shield;
         public InputActionMap Get() { return m_Wrapper.m_Combat; }
         public void Enable() { Get().Enable(); }
         public void Disable() { Get().Disable(); }
@@ -1466,6 +1500,9 @@ public partial class @PlayerInput : IInputActionCollection2, IDisposable
                 @Interact.started -= m_Wrapper.m_CombatActionsCallbackInterface.OnInteract;
                 @Interact.performed -= m_Wrapper.m_CombatActionsCallbackInterface.OnInteract;
                 @Interact.canceled -= m_Wrapper.m_CombatActionsCallbackInterface.OnInteract;
+                @Shield.started -= m_Wrapper.m_CombatActionsCallbackInterface.OnShield;
+                @Shield.performed -= m_Wrapper.m_CombatActionsCallbackInterface.OnShield;
+                @Shield.canceled -= m_Wrapper.m_CombatActionsCallbackInterface.OnShield;
             }
             m_Wrapper.m_CombatActionsCallbackInterface = instance;
             if (instance != null)
@@ -1482,6 +1519,9 @@ public partial class @PlayerInput : IInputActionCollection2, IDisposable
                 @Interact.started += instance.OnInteract;
                 @Interact.performed += instance.OnInteract;
                 @Interact.canceled += instance.OnInteract;
+                @Shield.started += instance.OnShield;
+                @Shield.performed += instance.OnShield;
+                @Shield.canceled += instance.OnShield;
             }
         }
     }
@@ -1836,6 +1876,7 @@ public partial class @PlayerInput : IInputActionCollection2, IDisposable
         void OnJump(InputAction.CallbackContext context);
         void OnLightAttack(InputAction.CallbackContext context);
         void OnInteract(InputAction.CallbackContext context);
+        void OnShield(InputAction.CallbackContext context);
     }
     public interface IDialogueActions
     {
