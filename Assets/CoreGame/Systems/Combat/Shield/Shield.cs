@@ -41,7 +41,7 @@ public class Shield : MonoBehaviour
 
     private ShieldState currentState;
 
-    private void Awake()
+    private void Start()
     {
         originalShieldColor = shieldRenderer.material.GetColor("_FresnelColor");
         brokenShieldColor = brokenShield.GetBrokenShieldColor();
