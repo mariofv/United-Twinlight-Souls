@@ -49,8 +49,8 @@ MonoBehaviour:
   shieldRenderer: {fileID: 4736572460364597521}
   shieldCollider: {fileID: 4518284696011750711}
   maxHealth: 50
-  healthRegenerationSpeed: 0
-  timeUntilHealthRegeneration: 0
+  healthRegenerationSpeed: 5
+  timeUntilHealthRegeneration: 3
   displacementCurve:
     serializedVersion: 2
     m_Curve:

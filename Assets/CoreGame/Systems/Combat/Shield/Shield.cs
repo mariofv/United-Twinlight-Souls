@@ -24,6 +24,8 @@ public class Shield : MonoBehaviour
     private int currentHealth = 0;
     [SerializeField] private float healthRegenerationSpeed;
     [SerializeField] private float timeUntilHealthRegeneration;
+    private float lastHitTime = -1;
+    private int healthAfterLastHit = -1;
 
     [Header("Hit")]
     [SerializeField] private AnimationCurve displacementCurve;
@@ -69,6 +71,13 @@ public class Shield : MonoBehaviour
                 break;
 
             case ShieldState.RAISED:
+                float timeSinceLastHit = Time.time - lastHitTime;
+                if (currentHealth < maxHealth && timeSinceLastHit >= timeUntilHealthRegeneration)
+                {
+                    int newHealth = Mathf.Min(maxHealth, healthAfterLastHit + Mathf.RoundToInt(timeSinceLastHit * healthRegenerationSpeed));
+                    SetShieldHealth(newHealth);
+                }
+
                 if (hitAnimation)
                 {
                     hitLerp = Mathf.Min(1f, hitLerp + Time.deltaTime * lerpSpeed);
@@ -102,6 +111,9 @@ public class Shield : MonoBehaviour
         hitAnimation = true;
 
         int newHealth = Mathf.Max(0, currentHealth - damage);
+        lastHitTime = Time.time;
+        healthAfterLastHit = newHealth;
+
         SetShieldHealth(newHealth);
     }
 
