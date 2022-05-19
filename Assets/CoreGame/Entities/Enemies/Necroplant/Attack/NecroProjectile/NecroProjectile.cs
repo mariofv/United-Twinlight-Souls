@@ -70,20 +70,14 @@ public class NecroProjectile : MonoBehaviour
 
     private void OnCollisionEnter(Collision collision)
     {
-        if (collision.transform.CompareTag(TagManager.PLAYER_HURTBOX))
+        if (collision.transform.CompareTag(TagManager.PLAYER_HURTBOX) || collision.transform.CompareTag(TagManager.SHIELD))
         {
-            GameManager.instance.player.GetControlledCharacter().characterStatsManager.Hurt(projectileDamage);
+            Vector3 hitPosition = collision.GetContact(0).point;
+            GameManager.instance.player.GetControlledCharacter().characterStatsManager.Hurt(projectileDamage, hitPosition);
             DestroyProjectile();
         }
         else if (collision.transform.CompareTag(TagManager.LEVEL_COLLIDER))
         {
-            DestroyProjectile();
-        }
-        else if (collision.transform.CompareTag(TagManager.SHIELD))
-        {
-            Shield shield = collision.transform.GetComponent<Shield>();
-            Vector3 hitPosition = collision.GetContact(0).point;
-            shield.HitShield(hitPosition);
             DestroyProjectile();
         }
     }

@@ -10,7 +10,7 @@ public class DeathPit : MonoBehaviour
     {
         if (other.CompareTag(TagManager.PLAYER))
         {
-            GameManager.instance.player.GetControlledCharacter().characterStatsManager.Hurt(damage);
+            GameManager.instance.player.GetControlledCharacter().characterStatsManager.Hurt(damage, other.transform.position);
             if (!GameManager.instance.player.GetControlledCharacter().IsDead())
             {
                 GameManager.instance.levelManager.Respawn();

@@ -101,4 +101,14 @@ public class CharacterCombatManager : CharacterSubManager
         playerShield.Release();
         SetInvincible(false);
     }
+
+    public void HitShield(int damage, Vector3 hitPosition)
+    {
+        playerShield.HitShield(damage, hitPosition);
+    }
+
+    public bool IsShieldActive()
+    {
+        return playerShield.IsRaised();
+    }
 }

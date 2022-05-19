@@ -48,6 +48,9 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   shieldRenderer: {fileID: 4736572460364597521}
   shieldCollider: {fileID: 4518284696011750711}
+  maxHealth: 10
+  healthRegenerationSpeed: 0
+  timeUntilHealthRegeneration: 0
   displacementCurve:
     serializedVersion: 2
     m_Curve:

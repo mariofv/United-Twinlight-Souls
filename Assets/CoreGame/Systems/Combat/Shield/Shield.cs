@@ -13,8 +13,17 @@ public class Shield : MonoBehaviour
         BROKEN
     }
 
+    [Header("Shield components")]
     [SerializeField] private Renderer shieldRenderer;
     [SerializeField] private SphereCollider shieldCollider;
+    private Color originalShieldColor;
+    private Color brokenShieldColor;
+
+    [Header("Shield stats")]
+    [SerializeField] private int maxHealth;
+    private int currentHealth = 0;
+    [SerializeField] private float healthRegenerationSpeed;
+    [SerializeField] private float timeUntilHealthRegeneration;
 
     [Header("Hit")]
     [SerializeField] private AnimationCurve displacementCurve;
@@ -31,6 +40,14 @@ public class Shield : MonoBehaviour
     [SerializeField] private BrokenShield brokenShield;
 
     private ShieldState currentState;
+
+    private void Awake()
+    {
+        originalShieldColor = shieldRenderer.material.GetColor("_FresnelColor");
+        brokenShieldColor = brokenShield.GetBrokenShieldColor();
+
+        currentHealth = maxHealth;
+    }
 
     private void Update()
     {
@@ -78,15 +95,17 @@ public class Shield : MonoBehaviour
         }
     }
 
-    public void HitShield(Vector3 hitPos)
+    public void HitShield(int damage, Vector3 hitPos)
     {
-        brokenShield.transform.position = transform.position;
-        brokenShield.Explode();
-        return;
         shieldRenderer.material.SetVector("_HitPos", hitPos);
-        StopAllCoroutines();
         hitLerp = 0f;
         hitAnimation = true;
+
+        currentHealth = Mathf.Max(0, currentHealth - damage);
+        if (currentHealth == 0)
+        {
+            BreakShield();
+        }
     }
 
     public void Raise()
@@ -98,5 +117,16 @@ public class Shield : MonoBehaviour
     {
         currentState = ShieldState.RELEASING;
         shieldCollider.enabled = false;
+    }
+
+    private void BreakShield()
+    {
+        brokenShield.transform.position = transform.position;
+        brokenShield.Explode();
+    }
+
+    public bool IsRaised()
+    {
+        return currentState == ShieldState.RAISED;
     }
 }

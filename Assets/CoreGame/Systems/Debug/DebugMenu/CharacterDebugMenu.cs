@@ -41,11 +41,11 @@ public class CharacterDebugMenu : DebugMenu
         GameManager.instance.debugManager.flashMode = GUILayout.Toggle(GameManager.instance.debugManager.flashMode, "FlashMode");
         if (GUILayout.Button("Kill"))
         {
-            GameManager.instance.player.GetControlledCharacter().characterStatsManager.Hurt(1000);
+            GameManager.instance.player.GetControlledCharacter().characterStatsManager.Hurt(1000, GameManager.instance.player.GetControlledCharacter().transform.position);
         }
         if (GUILayout.Button("Hurt (10)"))
         {
-            GameManager.instance.player.GetControlledCharacter().characterStatsManager.Hurt(10);
+            GameManager.instance.player.GetControlledCharacter().characterStatsManager.Hurt(10, GameManager.instance.player.GetControlledCharacter().transform.position);
         }
         GUILayout.EndHorizontal();
         

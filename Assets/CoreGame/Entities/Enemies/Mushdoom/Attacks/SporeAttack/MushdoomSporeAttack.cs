@@ -67,19 +67,14 @@ public class MushdoomSporeAttack : MonoBehaviour
 
     private void OnTriggerStay(Collider other)
     {
-        if (other.CompareTag(TagManager.PLAYER_HURTBOX))
+        if (other.CompareTag(TagManager.PLAYER_HURTBOX) || other.CompareTag(TagManager.SHIELD))
         {
             currentTickTime += Time.fixedDeltaTime;
             if (currentTickTime >= damageTick)
             {
                 currentTickTime = 0f;
-                GameManager.instance.player.GetControlledCharacter().characterStatsManager.Hurt(damage);
-            }
-            else if (other.CompareTag(TagManager.SHIELD))
-            {
-                Shield shield = other.GetComponent<Shield>();
                 Vector3 hitPosition = other.ClosestPointOnBounds(transform.position);
-                shield.HitShield(hitPosition);
+                GameManager.instance.player.GetControlledCharacter().characterStatsManager.Hurt(damage, hitPosition);
             }
         }
     }
