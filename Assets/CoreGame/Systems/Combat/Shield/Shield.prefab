@@ -94,6 +94,7 @@ MonoBehaviour:
   lerpSpeed: 2
   raiseSpeed: 5
   releaseSpeed: 1
+  brokenShield: {fileID: 0}
 --- !u!135 &4518284696011750711
 SphereCollider:
   m_ObjectHideFlags: 0

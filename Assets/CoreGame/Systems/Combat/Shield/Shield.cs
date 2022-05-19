@@ -9,7 +9,8 @@ public class Shield : MonoBehaviour
         DISABLED,
         RAISING,
         RAISED,
-        RELEASING
+        RELEASING,
+        BROKEN
     }
 
     [SerializeField] private Renderer shieldRenderer;
@@ -25,6 +26,9 @@ public class Shield : MonoBehaviour
     [Header("Casting")]
     [SerializeField] private float raiseSpeed;
     [SerializeField] private float releaseSpeed;
+
+    [Header("Breaking")]
+    [SerializeField] private BrokenShield brokenShield;
 
     private ShieldState currentState;
 
@@ -76,6 +80,9 @@ public class Shield : MonoBehaviour
 
     public void HitShield(Vector3 hitPos)
     {
+        brokenShield.transform.position = transform.position;
+        brokenShield.Explode();
+        return;
         shieldRenderer.material.SetVector("_HitPos", hitPos);
         StopAllCoroutines();
         hitLerp = 0f;
