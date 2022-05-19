@@ -14,7 +14,6 @@ public class WaterBubblesAnimation : MonoBehaviour
     {
         bubbleMaterial = GetComponent<MeshRenderer>().material;
         originalScale = transform.localScale.x;
-        bubbleMaterial.SetTextureOffset("_NoiseTex", Vector2.one * currentProgress);
     }
 
     // Update is called once per frame
