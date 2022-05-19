@@ -738,7 +738,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   playerHurtbox: {fileID: 1482834646225637014}
-  playerShield: {fileID: 8171275718081410278}
+  playerShield: {fileID: 9004618645745343484}
   lightAttacks:
   - {fileID: 7945166414633603838}
   - {fileID: 5578006741164324350}
@@ -1489,9 +1489,9 @@ Transform:
   m_CorrespondingSourceObject: {fileID: 2468650875839143395, guid: e4063a0f0824b8a4b93f88cc484c1c68, type: 3}
   m_PrefabInstance: {fileID: 6478625850298009163}
   m_PrefabAsset: {fileID: 0}
---- !u!114 &8171275718081410278 stripped
+--- !u!114 &9004618645745343484 stripped
 MonoBehaviour:
-  m_CorrespondingSourceObject: {fileID: 2922414058938921645, guid: e4063a0f0824b8a4b93f88cc484c1c68, type: 3}
+  m_CorrespondingSourceObject: {fileID: 2674688553869352375, guid: e4063a0f0824b8a4b93f88cc484c1c68, type: 3}
   m_PrefabInstance: {fileID: 6478625850298009163}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 0}

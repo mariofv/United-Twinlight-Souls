@@ -9,6 +9,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 2468650875839143395}
+  - component: {fileID: 2674688553869352375}
   m_Layer: 0
   m_Name: Shield
   m_TagString: Untagged
@@ -31,6 +32,29 @@ Transform:
   m_Father: {fileID: 0}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &2674688553869352375
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 8004874593297649821}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 5821bdbad077a88499c2a30e7957c514, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  shieldRenderer: {fileID: 4736572460364597521}
+  displacementCurve:
+    serializedVersion: 2
+    m_Curve: []
+    m_PreInfinity: 2
+    m_PostInfinity: 2
+    m_RotationOrder: 4
+  displacementMagnitude: 0
+  lerpSpeed: 0
+  raiseSpeed: 5
+  releaseSpeed: 1
 --- !u!1001 &6231357010010215829
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -102,6 +126,11 @@ Transform:
   m_CorrespondingSourceObject: {fileID: -8679921383154817045, guid: bc64044d96ef3844a84622fb4545482d, type: 3}
   m_PrefabInstance: {fileID: 6231357010010215829}
   m_PrefabAsset: {fileID: 0}
+--- !u!23 &4736572460364597521 stripped
+MeshRenderer:
+  m_CorrespondingSourceObject: {fileID: -7511558181221131132, guid: bc64044d96ef3844a84622fb4545482d, type: 3}
+  m_PrefabInstance: {fileID: 6231357010010215829}
+  m_PrefabAsset: {fileID: 0}
 --- !u!114 &406706182687735763
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -114,24 +143,3 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 9487c8e7aedf41e449657ddcac539937, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
---- !u!114 &2922414058938921645
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 6537911637100308676}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 5821bdbad077a88499c2a30e7957c514, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  displacementCurve:
-    serializedVersion: 2
-    m_Curve: []
-    m_PreInfinity: 2
-    m_PostInfinity: 2
-    m_RotationOrder: 4
-  displacementMagnitude: 0
-  lerpSpeed: 0
-  raiseSpeed: 5

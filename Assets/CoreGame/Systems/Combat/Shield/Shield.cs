@@ -12,20 +12,18 @@ public class Shield : MonoBehaviour
         RELEASING
     }
 
+    [SerializeField] private Renderer shieldRenderer;
+
+    [Header("Hit")]
     [SerializeField] private AnimationCurve displacementCurve;
     [SerializeField] private float displacementMagnitude;
     [SerializeField] private float lerpSpeed;
+
+    [Header("Casting")]
     [SerializeField] private float raiseSpeed;
+    [SerializeField] private float releaseSpeed;
 
     private ShieldState currentState;
-    private float currentShieldProgress = 0f;
-    private Renderer shieldRenderer;
-
-    // Start is called before the first frame update
-    private void Start()
-    {
-        shieldRenderer = GetComponent<Renderer>();
-    }
 
     private void Update()
     {
@@ -51,7 +49,7 @@ public class Shield : MonoBehaviour
             case ShieldState.RELEASING:
                 float releasingProgress = shieldRenderer.material.GetFloat("_Disolve");
 
-                releasingProgress = Mathf.Min(Time.deltaTime * raiseSpeed + releasingProgress, 1f);
+                releasingProgress = Mathf.Min(Time.deltaTime * releaseSpeed + releasingProgress, 1f);
                 shieldRenderer.material.SetFloat("_Disolve", releasingProgress);
 
                 if (releasingProgress == 0f)
