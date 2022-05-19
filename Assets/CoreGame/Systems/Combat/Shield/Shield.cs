@@ -122,6 +122,7 @@ public class Shield : MonoBehaviour
         float currentHealthProgress = (float)currentHealth / maxHealth;
         Color newShieldColor = Color.Lerp(originalShieldColor, brokenShieldColor, (1f - currentHealthProgress));
         shieldRenderer.material.SetColor("_FresnelColor", newShieldColor);
+        shieldRenderer.material.SetFloat("_BreakProgress", (1f - currentHealthProgress));
 
         if (currentHealth == 0)
         {
