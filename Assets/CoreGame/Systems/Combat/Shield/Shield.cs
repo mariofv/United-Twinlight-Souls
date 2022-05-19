@@ -13,11 +13,14 @@ public class Shield : MonoBehaviour
     }
 
     [SerializeField] private Renderer shieldRenderer;
+    [SerializeField] private SphereCollider shieldCollider;
 
     [Header("Hit")]
     [SerializeField] private AnimationCurve displacementCurve;
     [SerializeField] private float displacementMagnitude;
     [SerializeField] private float lerpSpeed;
+    private bool hitAnimation = false;
+    private float hitLerp = 0f;
 
     [Header("Casting")]
     [SerializeField] private float raiseSpeed;
@@ -37,13 +40,24 @@ public class Shield : MonoBehaviour
                 raisingProgress = Mathf.Max(raisingProgress - Time.deltaTime * raiseSpeed, 0f);
                 shieldRenderer.material.SetFloat("_Disolve", raisingProgress);
 
-                if (raisingProgress == 1f)
+                if (raisingProgress == 0f)
                 {
                     currentState = ShieldState.RAISED;
+                    shieldCollider.enabled = true;
                 }
                 break;
 
             case ShieldState.RAISED:
+                if (hitAnimation)
+                {
+                    hitLerp = Mathf.Min(1f, hitLerp + Time.deltaTime * lerpSpeed);
+                    shieldRenderer.material.SetFloat("_DisplacementStrength", displacementCurve.Evaluate(hitLerp) * displacementMagnitude);
+
+                    if (hitLerp == 1f)
+                    {
+                        hitAnimation = false;
+                    }
+                }
                 break;
 
             case ShieldState.RELEASING:
@@ -52,7 +66,7 @@ public class Shield : MonoBehaviour
                 releasingProgress = Mathf.Min(Time.deltaTime * releaseSpeed + releasingProgress, 1f);
                 shieldRenderer.material.SetFloat("_Disolve", releasingProgress);
 
-                if (releasingProgress == 0f)
+                if (releasingProgress == 1f)
                 {
                     currentState = ShieldState.DISABLED;
                 }
@@ -64,7 +78,8 @@ public class Shield : MonoBehaviour
     {
         shieldRenderer.material.SetVector("_HitPos", hitPos);
         StopAllCoroutines();
-        StartCoroutine(Coroutine_HitDisplacement());
+        hitLerp = 0f;
+        hitAnimation = true;
     }
 
     public void Raise()
@@ -75,16 +90,6 @@ public class Shield : MonoBehaviour
     public void Release()
     {
         currentState = ShieldState.RELEASING;
-    }
-
-    IEnumerator Coroutine_HitDisplacement()
-    {
-        float lerp = 0;
-        while (lerp < 1)
-        {
-            shieldRenderer.material.SetFloat("_DisplacementStrength", displacementCurve.Evaluate(lerp) * displacementMagnitude);
-            lerp += Time.deltaTime * lerpSpeed;
-            yield return null;
-        }
+        shieldCollider.enabled = false;
     }
 }

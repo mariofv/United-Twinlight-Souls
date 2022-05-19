@@ -93,10 +93,12 @@ public class CharacterCombatManager : CharacterSubManager
     public void RaiseShield()
     {
         playerShield.Raise();
+        SetInvincible(true);
     }
 
     public void ReleaseShield()
     {
         playerShield.Release();
+        SetInvincible(false);
     }
 }

@@ -79,5 +79,12 @@ public class NecroProjectile : MonoBehaviour
         {
             DestroyProjectile();
         }
+        else if (collision.transform.CompareTag(TagManager.SHIELD))
+        {
+            Shield shield = collision.transform.GetComponent<Shield>();
+            Vector3 hitPosition = collision.GetContact(0).point;
+            shield.HitShield(hitPosition);
+            DestroyProjectile();
+        }
     }
 }

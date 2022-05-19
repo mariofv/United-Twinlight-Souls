@@ -7,7 +7,7 @@ Material:
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_Name: ShieldMaterial
+  m_Name: IlonaShieldMaterial
   m_Shader: {fileID: -6465566751694194690, guid: 20628b2fd4c1db44dae6d6647f80af3a, type: 3}
   m_ShaderKeywords: 
   m_LightmapFlags: 4
@@ -94,8 +94,8 @@ Material:
     - _ZWrite: 1
     m_Colors:
     - _Color: {r: 1, g: 1, b: 1, a: 1}
-    - _DisolveEdgeColor: {r: 0, g: 0.7374075, b: 3.482202, a: 0}
+    - _DisolveEdgeColor: {r: 3.640265, g: 2.519324, b: 0.017171102, a: 0}
     - _EmissionColor: {r: 0, g: 0, b: 0, a: 1}
-    - _FresnelColor: {r: 0, g: 0.33727056, b: 11.582295, a: 0}
+    - _FresnelColor: {r: 13.858593, g: 2.6810431, b: 0, a: 0}
     - _MaskSmoothstep: {r: 0.4, g: 4.3, b: 0, a: 0}
   m_BuildTextureStacks: []

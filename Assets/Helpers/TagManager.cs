@@ -9,6 +9,8 @@ public static class TagManager
 
     public const string PLAYER = "Player";
     public const string PLAYER_HURTBOX = "PlayerHurtbox";
+    public const string SHIELD = "Shield";
+
     public const string NPC = "NPC";
     public const string ENEMY = "Enemy";
     public const string ENEMY_HURTBOX = "EnemyHurtBox";

@@ -12,6 +12,7 @@ TagManager:
   - EnemyHurtBox
   - NPC
   - PlayerHurtbox
+  - Shield
   layers:
   - Default
   - TransparentFX

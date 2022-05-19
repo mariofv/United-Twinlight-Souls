@@ -23,5 +23,11 @@ public class BiterDashAttack : MonoBehaviour
         {
             GameManager.instance.player.GetControlledCharacter().characterStatsManager.Hurt(damage);
         }
+        else if (other.CompareTag(TagManager.SHIELD))
+        {
+            Shield shield = other.GetComponent<Shield>();
+            Vector3 hitPosition = other.ClosestPointOnBounds(transform.position);
+            shield.HitShield(hitPosition);
+        }
     }
 }
