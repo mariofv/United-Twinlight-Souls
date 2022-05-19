@@ -95,6 +95,8 @@ MonoBehaviour:
   - {fileID: 5851539640112523076}
   - {fileID: 7106578908703533575}
   - {fileID: 5597519150446391080}
+  explodedTime: 4
+  dissolveActivationPercentage: 0.7
   minForce: 20
   maxForce: 50
   radius: 10
