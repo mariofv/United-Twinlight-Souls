@@ -108,6 +108,14 @@ public class CharacterCombatManager : CharacterSubManager
         }
     }
 
+    public void RepairShield()
+    {
+        if (playerShield.IsBroken())
+        {
+            playerShield.RepairShield();
+        }
+    }
+
     public void HitShield(int damage, Vector3 hitPosition)
     {
         playerShield.HitShield(damage, hitPosition);

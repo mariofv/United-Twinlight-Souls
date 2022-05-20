@@ -141,6 +141,7 @@ public class CharacterManager : MonoBehaviour
     public void EndStun()
     {
         characterVisualsManager.EndStun();
+        characterCombatManager.RepairShield();
         SetCharacterState(CharacterState.IDLE);
     }
 

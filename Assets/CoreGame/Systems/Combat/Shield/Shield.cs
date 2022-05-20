@@ -111,16 +111,6 @@ public class Shield : MonoBehaviour
                 break;
 
             case ShieldState.BROKEN:
-                {
-                    float timeSinceLastHit = Time.time - lastHitTime;
-                    int newHealth = Mathf.Min(maxHealth, Mathf.RoundToInt(timeSinceLastHit * healthRegenerationSpeed));
-                    SetShieldHealth(newHealth);
-
-                    if (newHealth == maxHealth)
-                    {
-                        currentState = ShieldState.DISABLED;
-                    }
-                }
                 break;
         }
     }
@@ -186,6 +176,12 @@ public class Shield : MonoBehaviour
         brokenShield.Explode(lastHitPosition);
 
         GameManager.instance.player.GetControlledCharacter().StartStun();
+    }
+
+    public void RepairShield()
+    {
+        SetShieldHealth(maxHealth);
+        currentState = ShieldState.DISABLED; 
     }
 
     public bool IsRaised()
