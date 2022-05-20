@@ -7,6 +7,7 @@ public class CharacterCombatManager : CharacterSubManager
     [SerializeField] private Collider playerHurtbox;
     [SerializeField] private Shield playerShield;
     [SerializeField] private List<LightAttack> lightAttacks;
+    [SerializeField] private float maxRotationAngleTowardsLockedEnemy;
     private bool isInLightAttackChain = false;
     private int currentLightAttackChain = -1;
 
@@ -59,6 +60,18 @@ public class CharacterCombatManager : CharacterSubManager
         characterManager.characterMovementManager.SetInputedMovement(Vector3.zero);
         characterManager.characterVisualsManager.TriggerLightAttack();
         lightAttacks[currentLightAttackChain].gameObject.SetActive(true);
+
+        if (characterManager.characterLockManager.IsLockingEnemy())
+        {
+            Vector3 lockedEnemyPosition = characterManager.characterLockManager.GetLockedEnemyPosition();
+
+            Vector3 lookDirection = lockedEnemyPosition - transform.position;
+            lookDirection.y = 0f;
+
+            float angleTowardsEnemy = Vector3.SignedAngle(transform.forward, lookDirection, Vector3.up);
+            angleTowardsEnemy = Mathf.Clamp(angleTowardsEnemy, -maxRotationAngleTowardsLockedEnemy, maxRotationAngleTowardsLockedEnemy);
+            transform.rotation = Quaternion.AngleAxis(angleTowardsEnemy, Vector3.up) * transform.rotation;
+        }
     }
 
     private void EndCurrentLightAttack()

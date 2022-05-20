@@ -223,4 +223,14 @@ public class CharacterLockManager : CharacterSubManager
         return spawnedEnemies[nextEnemyIndex];
     }
 
+    public bool IsLockingEnemy()
+    {
+        return currentState == LockState.LOCK;
+    }
+
+    public Vector3 GetLockedEnemyPosition()
+    {
+        return currentLockedEnemy.transform.position;
+    }
+
 }

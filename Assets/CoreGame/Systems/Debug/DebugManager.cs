@@ -9,6 +9,7 @@ public class DebugManager : MonoBehaviour
     public int selectedLevel = 0;
     public bool showEnemyDebugInfo = false;
     public bool godMode = false;
+    public bool saitamaMode = false;
     public bool flashMode = false;
 
     [Header("Debug menus")]

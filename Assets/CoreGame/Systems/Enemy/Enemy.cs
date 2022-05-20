@@ -32,7 +32,7 @@ public class Enemy : MonoBehaviour
     {
         if (Debug.isDebugBuild || Application.isEditor)
         {
-            if (GameManager.instance.debugManager.godMode)
+            if (GameManager.instance.debugManager.saitamaMode)
             {
                 damage = 9999;
             }
