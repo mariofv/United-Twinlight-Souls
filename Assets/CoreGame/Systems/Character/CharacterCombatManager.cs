@@ -90,11 +90,6 @@ public class CharacterCombatManager : CharacterSubManager
         characterManager.SetCharacterState(CharacterManager.CharacterState.IDLE);
     }
 
-    public void SetShieldRecoveryTime(float recoveryTime)
-    {
-        playerShield.SetShieldRecoveryTime(recoveryTime);
-    }
-
     public void RaiseShield()
     {
         if (!playerShield.IsBroken())
