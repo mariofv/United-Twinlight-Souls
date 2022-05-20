@@ -97,8 +97,8 @@ MonoBehaviour:
   - {fileID: 5597519150446391080}
   explodedTime: 4
   dissolveActivationPercentage: 0.7
-  minForce: 150
-  maxForce: 250
+  minForce: 400
+  maxForce: 500
   radius: 10
 --- !u!1001 &705801937246045402
 PrefabInstance:

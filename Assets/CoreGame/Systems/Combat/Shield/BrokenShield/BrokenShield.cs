@@ -57,13 +57,13 @@ public class BrokenShield : MonoBehaviour
         }
     }
 
-    public void Explode()
+    public void Explode(Vector3 hitPosition)
     {
         for (int i = 0; i < piecesBodies.Count; ++i)
         {
             piecesBodies[i].gameObject.SetActive(true);
             float explosionForce = Random.Range(minForce, maxForce);
-            piecesBodies[i].AddExplosionForce(explosionForce, transform.position, radius);
+            piecesBodies[i].AddExplosionForce(explosionForce, hitPosition, radius);
         }
 
         currentTime = 0f;

@@ -26,6 +26,7 @@ public class Shield : MonoBehaviour
     [SerializeField] private float timeUntilHealthRegeneration;
     private float lastHitTime = -1;
     private int healthAfterLastHit = -1;
+    private Vector3 lastHitPosition;
 
     [Header("Hit")]
     [SerializeField] private AnimationCurve displacementCurve;
@@ -127,6 +128,7 @@ public class Shield : MonoBehaviour
 
         int newHealth = Mathf.Max(0, currentHealth - damage);
         lastHitTime = Time.time;
+        lastHitPosition = hitPos;
         healthAfterLastHit = newHealth;
 
         SetShieldHealth(newHealth);
@@ -171,7 +173,7 @@ public class Shield : MonoBehaviour
         shieldRenderer.material.SetFloat("_Disolve", 1f);
 
         brokenShield.transform.position = transform.position;
-        brokenShield.Explode();
+        brokenShield.Explode(lastHitPosition);
     }
 
     public bool IsRaised()
