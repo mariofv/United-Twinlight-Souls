@@ -10,18 +10,10 @@ public class CharacterCombatManager : CharacterSubManager
     private bool isInLightAttackChain = false;
     private int currentLightAttackChain = -1;
 
-    private Enemy currentLockedEnemy = null;
-
     // Start is called before the first frame update
     void Start()
     {
         characterManager.characterAnimationEventsManager.onLightAttackEnd.AddListener(EndLightAttack);
-    }
-
-    // Update is called once per frame
-    void Update()
-    {
-
     }
 
     public void SetInvincible(bool invincible)
@@ -126,64 +118,5 @@ public class CharacterCombatManager : CharacterSubManager
     public bool IsShieldActive()
     {
         return playerShield.IsRaised();
-    }
-
-    public void SwitchLockEnemy()
-    {
-        if (currentLockedEnemy == null)
-        {
-            LockClosestEnemy();
-        }
-        else
-        {
-            UnlockEnemy();
-        }
-    }
-
-    public void ChangeLockedEnemy()
-    {
-        if (currentLockedEnemy == null)
-        {
-            return;
-        }
-
-        Enemy nextEnemy = GameManager.instance.enemyManager.GetNextEnemy(currentLockedEnemy);
-        if (nextEnemy != null)
-        {
-            UnlockEnemy();
-            LockEnemy(nextEnemy);
-        }
-    }
-
-    private void LockClosestEnemy()
-    {
-        Enemy closestEnemy = GameManager.instance.enemyManager.GetClosestEnemy(transform.position);
-        if (closestEnemy == null)
-        {
-            return;
-        }
-
-        LockEnemy(closestEnemy);
-    }
-
-    private void LockEnemy(Enemy enemy)
-    {
-        currentLockedEnemy = enemy;
-        currentLockedEnemy.onSpawnedEnemyDead.AddListener(OnLockedEnemyDeath);
-
-        GameManager.instance.uiManager.gameUIManager.lockUI.LockEnemy(currentLockedEnemy.transform);
-    }
-
-    private void UnlockEnemy()
-    {
-        currentLockedEnemy.onSpawnedEnemyDead.RemoveListener(OnLockedEnemyDeath);
-        currentLockedEnemy = null;
-
-        GameManager.instance.uiManager.gameUIManager.lockUI.UnlockEnemy();
-    }
-
-    private void OnLockedEnemyDeath()
-    {
-        UnlockEnemy();
     }
 }

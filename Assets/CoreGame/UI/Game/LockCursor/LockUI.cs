@@ -34,10 +34,10 @@ public class LockUI : UIElement
         hideTweens.Add(disableGameObjectAnimation);
     }
 
-    public void PotentialLockEnemy(Transform enemyTransform)
+    public void SoftLockEnemy(Transform enemyTransform)
     {
         TargetEnemy(enemyTransform);
-        lockCursorUI.SetLockType(LockCursorUI.LockType.POTENTIAL_LOCK);
+        lockCursorUI.SetLockType(LockCursorUI.LockType.SOFT_LOCK);
     }
 
     public void LockEnemy(Transform enemyTransform)

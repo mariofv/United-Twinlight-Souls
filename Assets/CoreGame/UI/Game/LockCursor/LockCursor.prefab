@@ -126,7 +126,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   uiElementCanvasGroup: {fileID: 6955120138568692155}
   lockCursorRectTransform: {fileID: 3582917636445606956}
-  potentialLockCursor: {fileID: 1941534748682534207}
+  softLockCursor: {fileID: 1941534748682534207}
   lockCursor: {fileID: 56610555703893626}
   hitLockCursor: {fileID: 3704528862022991043}
 --- !u!1 &1941534748682534207
@@ -141,7 +141,7 @@ GameObject:
   - component: {fileID: 425751645859952110}
   - component: {fileID: 837468186843659476}
   m_Layer: 0
-  m_Name: PotentialLockCursor
+  m_Name: SoftLockCursor
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0

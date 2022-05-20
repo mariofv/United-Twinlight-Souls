@@ -7,13 +7,13 @@ public class LockCursorUI : UIElement
 {
     public enum LockType
     {
-        POTENTIAL_LOCK,
+        SOFT_LOCK,
         LOCK,
         HIT_LOCK
     }
 
     [SerializeField] private RectTransform lockCursorRectTransform;
-    [SerializeField] private GameObject potentialLockCursor;
+    [SerializeField] private GameObject softLockCursor;
     [SerializeField] private GameObject lockCursor;
     [SerializeField] private GameObject hitLockCursor;
 
@@ -36,20 +36,20 @@ public class LockCursorUI : UIElement
     {
         switch (lockType)
         {
-            case LockType.POTENTIAL_LOCK:
-                potentialLockCursor.SetActive(true);
+            case LockType.SOFT_LOCK:
+                softLockCursor.SetActive(true);
                 lockCursor.SetActive(false);
                 hitLockCursor.SetActive(false);
                 break;
 
             case LockType.LOCK:
-                potentialLockCursor.SetActive(false);
+                softLockCursor.SetActive(false);
                 lockCursor.SetActive(true);
                 hitLockCursor.SetActive(false);
                 break;
 
             case LockType.HIT_LOCK:
-                potentialLockCursor.SetActive(false);
+                softLockCursor.SetActive(false);
                 lockCursor.SetActive(false);
                 hitLockCursor.SetActive(true);
                 break;

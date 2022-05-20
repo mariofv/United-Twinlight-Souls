@@ -228,7 +228,7 @@ public class InputManager : MonoBehaviour
         {
             return;
         }
-        GameManager.instance.player.GetControlledCharacter().characterCombatManager.SwitchLockEnemy();
+        GameManager.instance.player.GetControlledCharacter().characterLockManager.SwitchLockEnemy();
     }
 
     public void OnChangeLockedEnemyInput(InputAction.CallbackContext context)
@@ -237,7 +237,7 @@ public class InputManager : MonoBehaviour
         {
             return;
         }
-        GameManager.instance.player.GetControlledCharacter().characterCombatManager.ChangeLockedEnemy();
+        GameManager.instance.player.GetControlledCharacter().characterLockManager.ChangeLockedEnemy();
     }
 
     public void OnInteractInput(InputAction.CallbackContext context)

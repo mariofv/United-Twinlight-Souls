@@ -54,43 +54,9 @@ public class EnemyManager : MonoBehaviour
         }
     }
 
-    public Enemy GetClosestEnemy(Vector3 postion)
+    public void GetSpawnedEnemies(out List<Enemy> spawnedEnemies)
     {
-        Enemy closestEnemy = null;
-        float closestEnemySqrDistance = float.PositiveInfinity;
-
-        for (int i = 0; i < spawnedEnemies.Count; ++i)
-        {
-            float currentSqrDistance = Vector3.SqrMagnitude(spawnedEnemies[i].transform.position - postion);
-            if (currentSqrDistance < closestEnemySqrDistance)
-            {
-                closestEnemySqrDistance = currentSqrDistance;
-                closestEnemy = spawnedEnemies[i];
-            }
-        }
-
-        return closestEnemy;
-    }
-
-    public Enemy GetNextEnemy(Enemy enemy)
-    {
-        int currentEnemyIndex = -1;
-
-        for (int i = 0; i < spawnedEnemies.Count; ++i)
-        {
-            if (spawnedEnemies[i] == enemy)
-            {
-                currentEnemyIndex = i;
-                break;
-            }
-        }
-
-        if (currentEnemyIndex == -1)
-        {
-            return null;
-        }
-        int nextEnemyIndex = (currentEnemyIndex + 1) % spawnedEnemies.Count;
-        return spawnedEnemies[nextEnemyIndex];
+        spawnedEnemies = this.spawnedEnemies;
     }
 
     public void InitializedEnemyPools()

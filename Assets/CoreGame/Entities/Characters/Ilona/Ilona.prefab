@@ -661,6 +661,7 @@ GameObject:
   - component: {fileID: 7855998216074806897}
   - component: {fileID: 3980906460473043069}
   - component: {fileID: 4814775789447958}
+  - component: {fileID: 5164649130328184363}
   - component: {fileID: 168567079618534877}
   - component: {fileID: 8178449551800392154}
   - component: {fileID: 6891792521040977022}
@@ -722,6 +723,7 @@ MonoBehaviour:
   characterCombatManager: {fileID: 3980906460473043069}
   characterInputManager: {fileID: 4814775789447958}
   characterInteractionManager: {fileID: 7341180674724614470}
+  characterLockManager: {fileID: 5164649130328184363}
   characterMovementManager: {fileID: 168567079618534877}
   characterStatsManager: {fileID: 8178449551800392154}
   characterVisualsManager: {fileID: 6891792521040977022}
@@ -756,6 +758,22 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   movementVector: {x: 0, y: 0}
+--- !u!114 &5164649130328184363
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 4913848581889118377}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: c23e929a9f54aa2498747d4fcd3f352b, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  minSoftLockDistance: 20
+  maxAngleFrontOfPlayer: 90
+  frontOfPlayerAddedPriority: 0.5
+  timeUntilSoftLockCheck: 0.25
 --- !u!114 &168567079618534877
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -2492,6 +2510,11 @@ PrefabInstance:
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: b78c63f99404bc149b8924b61c73d305, type: 3}
+--- !u!1 &7409871948940402645 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 919132149155446097, guid: b78c63f99404bc149b8924b61c73d305, type: 3}
+  m_PrefabInstance: {fileID: 7643820876520252036}
+  m_PrefabAsset: {fileID: 0}
 --- !u!137 &8899632690203191231 stripped
 SkinnedMeshRenderer:
   m_CorrespondingSourceObject: {fileID: 1267084145561404731, guid: b78c63f99404bc149b8924b61c73d305, type: 3}
@@ -2500,11 +2523,6 @@ SkinnedMeshRenderer:
 --- !u!4 &7899023388785050991 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: -8679921383154817045, guid: b78c63f99404bc149b8924b61c73d305, type: 3}
-  m_PrefabInstance: {fileID: 7643820876520252036}
-  m_PrefabAsset: {fileID: 0}
---- !u!1 &7409871948940402645 stripped
-GameObject:
-  m_CorrespondingSourceObject: {fileID: 919132149155446097, guid: b78c63f99404bc149b8924b61c73d305, type: 3}
   m_PrefabInstance: {fileID: 7643820876520252036}
   m_PrefabAsset: {fileID: 0}
 --- !u!95 &3231331449416215192

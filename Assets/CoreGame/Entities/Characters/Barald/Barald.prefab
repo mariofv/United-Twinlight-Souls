@@ -13,6 +13,7 @@ GameObject:
   - component: {fileID: 937895936696378117}
   - component: {fileID: 5603003234516706130}
   - component: {fileID: 5102444277900775136}
+  - component: {fileID: 5250988116449909553}
   - component: {fileID: 3749913235640488592}
   - component: {fileID: 5577634193418974252}
   - component: {fileID: 5795132419189483490}
@@ -74,6 +75,7 @@ MonoBehaviour:
   characterCombatManager: {fileID: 5603003234516706130}
   characterInputManager: {fileID: 5102444277900775136}
   characterInteractionManager: {fileID: 863567932642485499}
+  characterLockManager: {fileID: 5250988116449909553}
   characterMovementManager: {fileID: 3749913235640488592}
   characterStatsManager: {fileID: 5577634193418974252}
   characterVisualsManager: {fileID: 5795132419189483490}
@@ -108,6 +110,22 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   movementVector: {x: 0, y: 0}
+--- !u!114 &5250988116449909553
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 163847903933024330}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: c23e929a9f54aa2498747d4fcd3f352b, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  minSoftLockDistance: 20
+  maxAngleFrontOfPlayer: 90
+  frontOfPlayerAddedPriority: 0.5
+  timeUntilSoftLockCheck: 0.25
 --- !u!114 &3749913235640488592
 MonoBehaviour:
   m_ObjectHideFlags: 0

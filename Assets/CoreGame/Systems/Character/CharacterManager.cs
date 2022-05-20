@@ -19,6 +19,7 @@ public class CharacterManager : MonoBehaviour
     public CharacterCombatManager characterCombatManager;
     public CharacterInputManager characterInputManager;
     public CharacterInteractionManager characterInteractionManager;
+    public CharacterLockManager characterLockManager;
     public CharacterMovementManager characterMovementManager;
     public CharacterStatsManager characterStatsManager;
     public CharacterVisualsManager characterVisualsManager;
@@ -31,6 +32,7 @@ public class CharacterManager : MonoBehaviour
         characterCombatManager.Link(this);
         characterInputManager.Link(this);
         characterInteractionManager.Link(this);
+        characterLockManager.Link(this);
         characterMovementManager.Link(this);
         characterStatsManager.Link(this);
         characterVisualsManager.Link(this);
