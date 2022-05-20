@@ -60,7 +60,7 @@
                     "initialStateCheck": false
                 },
                 {
-                    "name": "SwitchLockedEnemy",
+                    "name": "ChangeLockedEnemy",
                     "type": "Button",
                     "id": "6e4bd773-7be7-41b3-92ef-e5ecf8cf4e10",
                     "expectedControlType": "Button",
@@ -294,10 +294,10 @@
                     "name": "",
                     "id": "f6d4869b-1955-454e-aad5-e14420755c4c",
                     "path": "<Gamepad>/rightTrigger",
-                    "interactions": "",
+                    "interactions": "Press",
                     "processors": "",
                     "groups": "Gamepad",
-                    "action": "SwitchLockedEnemy",
+                    "action": "ChangeLockedEnemy",
                     "isComposite": false,
                     "isPartOfComposite": false
                 },
@@ -308,7 +308,7 @@
                     "interactions": "",
                     "processors": "",
                     "groups": "Keyboard&Mouse",
-                    "action": "SwitchLockedEnemy",
+                    "action": "ChangeLockedEnemy",
                     "isComposite": false,
                     "isPartOfComposite": false
                 }

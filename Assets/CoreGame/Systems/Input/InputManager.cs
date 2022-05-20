@@ -32,7 +32,7 @@ public class InputManager : MonoBehaviour
         playerInput.Combat.Shield.started += ctx => OnShieldInputStart(ctx);
         playerInput.Combat.Shield.canceled += ctx => OnShieldInputEnd(ctx);
         playerInput.Combat.LockEnemy.started += ctx => OnLockEnemyInput(ctx);
-        playerInput.Combat.SwitchLockedEnemy.started += ctx => OnSwitchLockedEnemyInput(ctx);
+        playerInput.Combat.ChangeLockedEnemy.started += ctx => OnChangeLockedEnemyInput(ctx);
         playerInput.Combat.Interact.started += ctx => OnInteractInput(ctx)
         ;
         playerInput.Dialogue.Interact.started += ctx => OnInteractInput(ctx);
@@ -228,16 +228,16 @@ public class InputManager : MonoBehaviour
         {
             return;
         }
-        GameManager.instance.player.GetControlledCharacter().characterCombatManager.LockEnemy();
+        GameManager.instance.player.GetControlledCharacter().characterCombatManager.SwitchLockEnemy();
     }
 
-    public void OnSwitchLockedEnemyInput(InputAction.CallbackContext context)
+    public void OnChangeLockedEnemyInput(InputAction.CallbackContext context)
     {
         if (!GameManager.instance.player.GetControlledCharacter().characterInputManager.IsInputAcceptedInCurrentState(CharacterInputManager.CharacterInputAction.LOCK_ENEMY))
         {
             return;
         }
-        GameManager.instance.player.GetControlledCharacter().characterCombatManager.SwitchLockedEnemy();
+        GameManager.instance.player.GetControlledCharacter().characterCombatManager.ChangeLockedEnemy();
     }
 
     public void OnInteractInput(InputAction.CallbackContext context)

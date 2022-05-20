@@ -128,7 +128,7 @@ public class CharacterCombatManager : CharacterSubManager
         return playerShield.IsRaised();
     }
 
-    public void LockEnemy()
+    public void SwitchLockEnemy()
     {
         if (currentLockedEnemy == null)
         {
@@ -140,9 +140,19 @@ public class CharacterCombatManager : CharacterSubManager
         }
     }
 
-    public void SwitchLockedEnemy()
+    public void ChangeLockedEnemy()
     {
+        if (currentLockedEnemy == null)
+        {
+            return;
+        }
 
+        Enemy nextEnemy = GameManager.instance.enemyManager.GetNextEnemy(currentLockedEnemy);
+        if (nextEnemy != null)
+        {
+            UnlockEnemy();
+            LockEnemy(nextEnemy);
+        }
     }
 
     private void LockClosestEnemy()
@@ -153,7 +163,12 @@ public class CharacterCombatManager : CharacterSubManager
             return;
         }
 
-        currentLockedEnemy = closestEnemy;
+        LockEnemy(closestEnemy);
+    }
+
+    private void LockEnemy(Enemy enemy)
+    {
+        currentLockedEnemy = enemy;
         currentLockedEnemy.onSpawnedEnemyDead.AddListener(OnLockedEnemyDeath);
 
         GameManager.instance.uiManager.gameUIManager.lockCursorUI.LockOnEnemy(currentLockedEnemy.transform);

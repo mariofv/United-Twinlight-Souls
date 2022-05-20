@@ -72,6 +72,27 @@ public class EnemyManager : MonoBehaviour
         return closestEnemy;
     }
 
+    public Enemy GetNextEnemy(Enemy enemy)
+    {
+        int currentEnemyIndex = -1;
+
+        for (int i = 0; i < spawnedEnemies.Count; ++i)
+        {
+            if (spawnedEnemies[i] == enemy)
+            {
+                currentEnemyIndex = i;
+                break;
+            }
+        }
+
+        if (currentEnemyIndex == -1)
+        {
+            return null;
+        }
+        int nextEnemyIndex = (currentEnemyIndex + 1) % spawnedEnemies.Count;
+        return spawnedEnemies[nextEnemyIndex];
+    }
+
     public void InitializedEnemyPools()
     {
         spawnVFXPool.InitPool();
