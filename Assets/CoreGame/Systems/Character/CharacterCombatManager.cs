@@ -92,14 +92,20 @@ public class CharacterCombatManager : CharacterSubManager
 
     public void RaiseShield()
     {
-        playerShield.Raise();
-        SetInvincible(true);
+        if (!playerShield.IsBroken())
+        {
+            playerShield.Raise();
+            SetInvincible(true);
+        }
     }
 
     public void ReleaseShield()
     {
-        playerShield.Release();
-        SetInvincible(false);
+        if (!playerShield.IsBroken())
+        {
+            playerShield.Release();
+            SetInvincible(false);
+        }
     }
 
     public void HitShield(int damage, Vector3 hitPosition)

@@ -71,21 +71,23 @@ public class Shield : MonoBehaviour
                 break;
 
             case ShieldState.RAISED:
-                float timeSinceLastHit = Time.time - lastHitTime;
-                if (currentHealth < maxHealth && timeSinceLastHit >= timeUntilHealthRegeneration)
                 {
-                    int newHealth = Mathf.Min(maxHealth, healthAfterLastHit + Mathf.RoundToInt(timeSinceLastHit * healthRegenerationSpeed));
-                    SetShieldHealth(newHealth);
-                }
-
-                if (hitAnimation)
-                {
-                    hitLerp = Mathf.Min(1f, hitLerp + Time.deltaTime * lerpSpeed);
-                    shieldRenderer.material.SetFloat("_DisplacementStrength", displacementCurve.Evaluate(hitLerp) * displacementMagnitude);
-
-                    if (hitLerp == 1f)
+                    float timeSinceLastHit = Time.time - lastHitTime;
+                    if (currentHealth < maxHealth && timeSinceLastHit >= timeUntilHealthRegeneration)
                     {
-                        hitAnimation = false;
+                        int newHealth = Mathf.Min(maxHealth, healthAfterLastHit + Mathf.RoundToInt(timeSinceLastHit * healthRegenerationSpeed));
+                        SetShieldHealth(newHealth);
+                    }
+
+                    if (hitAnimation)
+                    {
+                        hitLerp = Mathf.Min(1f, hitLerp + Time.deltaTime * lerpSpeed);
+                        shieldRenderer.material.SetFloat("_DisplacementStrength", displacementCurve.Evaluate(hitLerp) * displacementMagnitude);
+
+                        if (hitLerp == 1f)
+                        {
+                            hitAnimation = false;
+                        }
                     }
                 }
                 break;
@@ -99,6 +101,19 @@ public class Shield : MonoBehaviour
                 if (releasingProgress == 1f)
                 {
                     currentState = ShieldState.DISABLED;
+                }
+                break;
+
+            case ShieldState.BROKEN:
+                {
+                    float timeSinceLastHit = Time.time - lastHitTime;
+                    int newHealth = Mathf.Min(maxHealth, Mathf.RoundToInt(timeSinceLastHit * healthRegenerationSpeed));
+                    SetShieldHealth(newHealth);
+
+                    if (newHealth == maxHealth)
+                    {
+                        currentState = ShieldState.DISABLED;
+                    }
                 }
                 break;
         }
@@ -130,6 +145,11 @@ public class Shield : MonoBehaviour
 
     private void SetShieldHealth(int health)
     {
+        if (currentHealth == health)
+        {
+            return;
+        }
+
         currentHealth = health;
         float currentHealthProgress = (float)currentHealth / maxHealth;
         Color newShieldColor = Color.Lerp(originalShieldColor, brokenShieldColor, (1f - currentHealthProgress));
@@ -144,6 +164,12 @@ public class Shield : MonoBehaviour
 
     private void BreakShield()
     {
+        currentState = ShieldState.BROKEN;
+        shieldCollider.enabled = false;
+
+        lastHitTime = Time.time;
+        shieldRenderer.material.SetFloat("_Disolve", 1f);
+
         brokenShield.transform.position = transform.position;
         brokenShield.Explode();
     }
@@ -151,5 +177,10 @@ public class Shield : MonoBehaviour
     public bool IsRaised()
     {
         return currentState == ShieldState.RAISED;
+    }
+
+    public bool IsBroken()
+    {
+        return currentState == ShieldState.BROKEN;
     }
 }
