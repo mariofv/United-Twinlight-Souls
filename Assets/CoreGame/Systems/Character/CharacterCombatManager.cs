@@ -147,14 +147,24 @@ public class CharacterCombatManager : CharacterSubManager
 
     private void LockClosestEnemy()
     {
-        currentLockedEnemy = GameManager.instance.enemyManager.GetClosestEnemy(transform.position);
+        Enemy closestEnemy = GameManager.instance.enemyManager.GetClosestEnemy(transform.position);
+        if (closestEnemy == null)
+        {
+            return;
+        }
+
+        currentLockedEnemy = closestEnemy;
         currentLockedEnemy.onSpawnedEnemyDead.AddListener(OnLockedEnemyDeath);
+
+        GameManager.instance.uiManager.gameUIManager.lockCursorUI.LockOnEnemy(currentLockedEnemy.transform);
     }
 
     private void UnlockEnemy()
     {
         currentLockedEnemy.onSpawnedEnemyDead.RemoveListener(OnLockedEnemyDeath);
         currentLockedEnemy = null;
+
+        GameManager.instance.uiManager.gameUIManager.lockCursorUI.UnlockEnemy();
     }
 
     private void OnLockedEnemyDeath()
