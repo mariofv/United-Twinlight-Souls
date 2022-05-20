@@ -11,6 +11,7 @@ public class CharacterManager : MonoBehaviour
         JUMPING,
         ATTACKING,
         INTERACTING,
+        STUNNED,
         DEAD
     }
 
@@ -127,6 +128,20 @@ public class CharacterManager : MonoBehaviour
     public void DisableMovement()
     {
         characterMovementManager.enabled = false;
+    }
+
+    public void StartStun()
+    {
+        characterVisualsManager.StartStun();
+        characterStatsManager.StartStun();
+        Move(Vector2.zero);
+        SetCharacterState(CharacterState.STUNNED);
+    }
+
+    public void EndStun()
+    {
+        characterVisualsManager.EndStun();
+        SetCharacterState(CharacterState.IDLE);
     }
 
     public void Kill()

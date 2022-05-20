@@ -69,6 +69,9 @@ public class CharacterInputManager : CharacterSubManager
 
         List<CharacterInputAction> deadAcceptedInputs = new List<CharacterInputAction>();
         characterStateAcceptedInputs.Add(CharacterManager.CharacterState.DEAD, deadAcceptedInputs);
+
+        List<CharacterInputAction> stunedAcceptedInputs = new List<CharacterInputAction>();
+        characterStateAcceptedInputs.Add(CharacterManager.CharacterState.STUNNED, stunedAcceptedInputs);
     }
 
     public bool IsInputAcceptedInCurrentState(CharacterInputAction inputAction)

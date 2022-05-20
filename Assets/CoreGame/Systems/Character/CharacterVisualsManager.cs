@@ -69,6 +69,16 @@ public class CharacterVisualsManager : CharacterSubManager
         characterAnimator.SetTrigger("attack");
     }
 
+    public void StartStun()
+    {
+        characterAnimator.SetTrigger("startStun");
+    }
+
+    public void EndStun()
+    {
+        characterAnimator.SetTrigger("endStun");
+    }
+
     public void TriggerDeath()
     {
         characterAnimator.SetTrigger("death");

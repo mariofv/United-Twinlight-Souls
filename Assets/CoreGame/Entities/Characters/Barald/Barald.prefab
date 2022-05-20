@@ -143,6 +143,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   maxHealth: 100
+  stunnedTime: 3
 --- !u!114 &5795132419189483490
 MonoBehaviour:
   m_ObjectHideFlags: 0

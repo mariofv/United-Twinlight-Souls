@@ -5,8 +5,23 @@ using UnityEngine;
 public class CharacterStatsManager : CharacterSubManager
 {
     [SerializeField] private int maxHealth;
+    [SerializeField] private float stunnedTime;
+
+    private float currentTime = 0f;
 
     private int currentHealth;
+
+    private void Update()
+    {
+        if (characterManager.GetCharacterState() == CharacterManager.CharacterState.STUNNED)
+        {
+            currentTime += Time.deltaTime;
+            if (currentTime >= stunnedTime)
+            {
+                characterManager.EndStun();
+            }
+        }
+    }
 
     public void SetFullHealth()
     {
@@ -46,5 +61,10 @@ public class CharacterStatsManager : CharacterSubManager
                 characterManager.Kill();
             }
         }
+    }
+
+    public void StartStun()
+    {
+        currentTime = 0f;
     }
 }
