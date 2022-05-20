@@ -22,8 +22,8 @@ public class Shield : MonoBehaviour
     [Header("Shield stats")]
     [SerializeField] private int maxHealth;
     private int currentHealth = 0;
-    [SerializeField] private float healthRegenerationSpeed;
     [SerializeField] private float timeUntilHealthRegeneration;
+    private float healthRegenerationSpeed;
     private float lastHitTime = -1;
     private int healthAfterLastHit = -1;
     private Vector3 lastHitPosition;
@@ -176,6 +176,11 @@ public class Shield : MonoBehaviour
         brokenShield.Explode(lastHitPosition);
 
         GameManager.instance.player.GetControlledCharacter().StartStun();
+    }
+
+    public void SetShieldRecoveryTime(float recoveryTime)
+    {
+        healthRegenerationSpeed = maxHealth / recoveryTime;
     }
 
     public bool IsRaised()

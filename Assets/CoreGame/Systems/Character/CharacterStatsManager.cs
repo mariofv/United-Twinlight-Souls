@@ -11,6 +11,11 @@ public class CharacterStatsManager : CharacterSubManager
 
     private int currentHealth;
 
+    private void Start()
+    {
+        characterManager.characterCombatManager.SetShieldRecoveryTime(stunnedTime);
+    }
+
     private void Update()
     {
         if (characterManager.GetCharacterState() == CharacterManager.CharacterState.STUNNED)
