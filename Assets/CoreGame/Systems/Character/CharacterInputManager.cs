@@ -12,7 +12,8 @@ public class CharacterInputManager : CharacterSubManager
         JUMP,
         ATTACK,
         SHIELD,
-        INTERACT
+        INTERACT, 
+        LOCK_ENEMY
     }
 
     private Dictionary<CharacterManager.CharacterState, List<CharacterInputAction>> characterStateAcceptedInputs;
@@ -44,6 +45,7 @@ public class CharacterInputManager : CharacterSubManager
         idleAccepetedInputs.Add(CharacterInputAction.JUMP);
         idleAccepetedInputs.Add(CharacterInputAction.ATTACK);
         idleAccepetedInputs.Add(CharacterInputAction.SHIELD);
+        idleAccepetedInputs.Add(CharacterInputAction.LOCK_ENEMY);
         characterStateAcceptedInputs.Add(CharacterManager.CharacterState.IDLE, idleAccepetedInputs);
 
         List<CharacterInputAction> movingAccepetedInputs = new List<CharacterInputAction>();
@@ -51,16 +53,19 @@ public class CharacterInputManager : CharacterSubManager
         movingAccepetedInputs.Add(CharacterInputAction.MOVE);
         movingAccepetedInputs.Add(CharacterInputAction.JUMP);
         movingAccepetedInputs.Add(CharacterInputAction.ATTACK);
+        idleAccepetedInputs.Add(CharacterInputAction.LOCK_ENEMY);
         movingAccepetedInputs.Add(CharacterInputAction.SHIELD);
         characterStateAcceptedInputs.Add(CharacterManager.CharacterState.MOVING, movingAccepetedInputs);
 
         List<CharacterInputAction> jumpingAccepetedInputs = new List<CharacterInputAction>();
         jumpingAccepetedInputs.Add(CharacterInputAction.MOVE);
         jumpingAccepetedInputs.Add(CharacterInputAction.SHIELD);
+        idleAccepetedInputs.Add(CharacterInputAction.LOCK_ENEMY);
         characterStateAcceptedInputs.Add(CharacterManager.CharacterState.JUMPING, jumpingAccepetedInputs);
 
         List<CharacterInputAction> attackngAccepetedInputs = new List<CharacterInputAction>();
         attackngAccepetedInputs.Add(CharacterInputAction.ATTACK);
+        idleAccepetedInputs.Add(CharacterInputAction.LOCK_ENEMY);
         characterStateAcceptedInputs.Add(CharacterManager.CharacterState.ATTACKING, attackngAccepetedInputs);
 
         List<CharacterInputAction> interactingAcceptedInputs = new List<CharacterInputAction>();

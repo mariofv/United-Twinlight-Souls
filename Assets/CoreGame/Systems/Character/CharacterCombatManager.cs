@@ -125,4 +125,14 @@ public class CharacterCombatManager : CharacterSubManager
     {
         return playerShield.IsRaised();
     }
+
+    public void LockEnemy()
+    {
+
+    }
+
+    public void SwitchLockedEnemy()
+    {
+
+    }
 }

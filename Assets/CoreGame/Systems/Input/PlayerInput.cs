@@ -71,6 +71,24 @@ public partial class @PlayerInput : IInputActionCollection2, IDisposable
                     ""processors"": """",
                     ""interactions"": """",
                     ""initialStateCheck"": false
+                },
+                {
+                    ""name"": ""LockEnemy"",
+                    ""type"": ""Button"",
+                    ""id"": ""02d43c51-a725-4cdb-ae68-27eab9926965"",
+                    ""expectedControlType"": ""Button"",
+                    ""processors"": """",
+                    ""interactions"": """",
+                    ""initialStateCheck"": false
+                },
+                {
+                    ""name"": ""SwitchLockedEnemy"",
+                    ""type"": ""Button"",
+                    ""id"": ""6e4bd773-7be7-41b3-92ef-e5ecf8cf4e10"",
+                    ""expectedControlType"": ""Button"",
+                    ""processors"": """",
+                    ""interactions"": """",
+                    ""initialStateCheck"": false
                 }
             ],
             ""bindings"": [
@@ -269,6 +287,50 @@ public partial class @PlayerInput : IInputActionCollection2, IDisposable
                     ""processors"": """",
                     ""groups"": ""Gamepad"",
                     ""action"": ""Shield"",
+                    ""isComposite"": false,
+                    ""isPartOfComposite"": false
+                },
+                {
+                    ""name"": """",
+                    ""id"": ""237bca84-cbd3-41a5-8ebf-86d0a04df29d"",
+                    ""path"": ""<Gamepad>/rightShoulder"",
+                    ""interactions"": """",
+                    ""processors"": """",
+                    ""groups"": ""Gamepad"",
+                    ""action"": ""LockEnemy"",
+                    ""isComposite"": false,
+                    ""isPartOfComposite"": false
+                },
+                {
+                    ""name"": """",
+                    ""id"": ""09b7e825-72e6-4775-8186-ddaa9976a027"",
+                    ""path"": ""<Keyboard>/r"",
+                    ""interactions"": """",
+                    ""processors"": """",
+                    ""groups"": ""Keyboard&Mouse"",
+                    ""action"": ""LockEnemy"",
+                    ""isComposite"": false,
+                    ""isPartOfComposite"": false
+                },
+                {
+                    ""name"": """",
+                    ""id"": ""f6d4869b-1955-454e-aad5-e14420755c4c"",
+                    ""path"": ""<Gamepad>/rightTrigger"",
+                    ""interactions"": """",
+                    ""processors"": """",
+                    ""groups"": ""Gamepad"",
+                    ""action"": ""SwitchLockedEnemy"",
+                    ""isComposite"": false,
+                    ""isPartOfComposite"": false
+                },
+                {
+                    ""name"": """",
+                    ""id"": ""7f281bbb-50b4-46a1-b105-d7028c024b51"",
+                    ""path"": ""<Keyboard>/f"",
+                    ""interactions"": """",
+                    ""processors"": """",
+                    ""groups"": ""Keyboard&Mouse"",
+                    ""action"": ""SwitchLockedEnemy"",
                     ""isComposite"": false,
                     ""isPartOfComposite"": false
                 }
@@ -1372,6 +1434,8 @@ public partial class @PlayerInput : IInputActionCollection2, IDisposable
         m_Combat_LightAttack = m_Combat.FindAction("LightAttack", throwIfNotFound: true);
         m_Combat_Interact = m_Combat.FindAction("Interact", throwIfNotFound: true);
         m_Combat_Shield = m_Combat.FindAction("Shield", throwIfNotFound: true);
+        m_Combat_LockEnemy = m_Combat.FindAction("LockEnemy", throwIfNotFound: true);
+        m_Combat_SwitchLockedEnemy = m_Combat.FindAction("SwitchLockedEnemy", throwIfNotFound: true);
         // Dialogue
         m_Dialogue = asset.FindActionMap("Dialogue", throwIfNotFound: true);
         m_Dialogue_Interact = m_Dialogue.FindAction("Interact", throwIfNotFound: true);
@@ -1470,6 +1534,8 @@ public partial class @PlayerInput : IInputActionCollection2, IDisposable
     private readonly InputAction m_Combat_LightAttack;
     private readonly InputAction m_Combat_Interact;
     private readonly InputAction m_Combat_Shield;
+    private readonly InputAction m_Combat_LockEnemy;
+    private readonly InputAction m_Combat_SwitchLockedEnemy;
     public struct CombatActions
     {
         private @PlayerInput m_Wrapper;
@@ -1479,6 +1545,8 @@ public partial class @PlayerInput : IInputActionCollection2, IDisposable
         public InputAction @LightAttack => m_Wrapper.m_Combat_LightAttack;
         public InputAction @Interact => m_Wrapper.m_Combat_Interact;
         public InputAction @Shield => m_Wrapper.m_Combat_Shield;
+        public InputAction @LockEnemy => m_Wrapper.m_Combat_LockEnemy;
+        public InputAction @SwitchLockedEnemy => m_Wrapper.m_Combat_SwitchLockedEnemy;
         public InputActionMap Get() { return m_Wrapper.m_Combat; }
         public void Enable() { Get().Enable(); }
         public void Disable() { Get().Disable(); }
@@ -1503,6 +1571,12 @@ public partial class @PlayerInput : IInputActionCollection2, IDisposable
                 @Shield.started -= m_Wrapper.m_CombatActionsCallbackInterface.OnShield;
                 @Shield.performed -= m_Wrapper.m_CombatActionsCallbackInterface.OnShield;
                 @Shield.canceled -= m_Wrapper.m_CombatActionsCallbackInterface.OnShield;
+                @LockEnemy.started -= m_Wrapper.m_CombatActionsCallbackInterface.OnLockEnemy;
+                @LockEnemy.performed -= m_Wrapper.m_CombatActionsCallbackInterface.OnLockEnemy;
+                @LockEnemy.canceled -= m_Wrapper.m_CombatActionsCallbackInterface.OnLockEnemy;
+                @SwitchLockedEnemy.started -= m_Wrapper.m_CombatActionsCallbackInterface.OnSwitchLockedEnemy;
+                @SwitchLockedEnemy.performed -= m_Wrapper.m_CombatActionsCallbackInterface.OnSwitchLockedEnemy;
+                @SwitchLockedEnemy.canceled -= m_Wrapper.m_CombatActionsCallbackInterface.OnSwitchLockedEnemy;
             }
             m_Wrapper.m_CombatActionsCallbackInterface = instance;
             if (instance != null)
@@ -1522,6 +1596,12 @@ public partial class @PlayerInput : IInputActionCollection2, IDisposable
                 @Shield.started += instance.OnShield;
                 @Shield.performed += instance.OnShield;
                 @Shield.canceled += instance.OnShield;
+                @LockEnemy.started += instance.OnLockEnemy;
+                @LockEnemy.performed += instance.OnLockEnemy;
+                @LockEnemy.canceled += instance.OnLockEnemy;
+                @SwitchLockedEnemy.started += instance.OnSwitchLockedEnemy;
+                @SwitchLockedEnemy.performed += instance.OnSwitchLockedEnemy;
+                @SwitchLockedEnemy.canceled += instance.OnSwitchLockedEnemy;
             }
         }
     }
@@ -1877,6 +1957,8 @@ public partial class @PlayerInput : IInputActionCollection2, IDisposable
         void OnLightAttack(InputAction.CallbackContext context);
         void OnInteract(InputAction.CallbackContext context);
         void OnShield(InputAction.CallbackContext context);
+        void OnLockEnemy(InputAction.CallbackContext context);
+        void OnSwitchLockedEnemy(InputAction.CallbackContext context);
     }
     public interface IDialogueActions
     {
