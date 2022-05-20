@@ -82,7 +82,7 @@ Material:
     - _DisplacementStrength: 0.1
     - _DistortionStrength: 2.6
     - _DstBlend: 0
-    - _FresnelPower: 4.34
+    - _FresnelPower: 0.75
     - _GlossMapScale: 1
     - _Glossiness: 0.5
     - _GlossyReflections: 1
