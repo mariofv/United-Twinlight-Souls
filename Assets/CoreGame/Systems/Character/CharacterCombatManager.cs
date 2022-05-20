@@ -10,6 +10,8 @@ public class CharacterCombatManager : CharacterSubManager
     private bool isInLightAttackChain = false;
     private int currentLightAttackChain = -1;
 
+    private Enemy currentLockedEnemy = null;
+
     // Start is called before the first frame update
     void Start()
     {
@@ -128,11 +130,35 @@ public class CharacterCombatManager : CharacterSubManager
 
     public void LockEnemy()
     {
-
+        if (currentLockedEnemy == null)
+        {
+            LockClosestEnemy();
+        }
+        else
+        {
+            UnlockEnemy();
+        }
     }
 
     public void SwitchLockedEnemy()
     {
 
+    }
+
+    private void LockClosestEnemy()
+    {
+        currentLockedEnemy = GameManager.instance.enemyManager.GetClosestEnemy(transform.position);
+        currentLockedEnemy.onSpawnedEnemyDead.AddListener(OnLockedEnemyDeath);
+    }
+
+    private void UnlockEnemy()
+    {
+        currentLockedEnemy.onSpawnedEnemyDead.RemoveListener(OnLockedEnemyDeath);
+        currentLockedEnemy = null;
+    }
+
+    private void OnLockedEnemyDeath()
+    {
+        UnlockEnemy();
     }
 }

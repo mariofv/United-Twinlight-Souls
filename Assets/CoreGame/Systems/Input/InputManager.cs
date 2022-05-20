@@ -231,7 +231,7 @@ public class InputManager : MonoBehaviour
         GameManager.instance.player.GetControlledCharacter().characterCombatManager.LockEnemy();
     }
 
-    public void OnSwitchLockedEnemy(InputAction.CallbackContext context)
+    public void OnSwitchLockedEnemyInput(InputAction.CallbackContext context)
     {
         if (!GameManager.instance.player.GetControlledCharacter().characterInputManager.IsInputAcceptedInCurrentState(CharacterInputManager.CharacterInputAction.LOCK_ENEMY))
         {
