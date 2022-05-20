@@ -5,19 +5,17 @@ using Tweening;
 
 public class LockCursorUI : UIElement
 {
-    [SerializeField] private RectTransform cursorTransform;
-
-    private bool enemyLocked = false;
-    private Transform lockedEnemyTransform;
-
-    private void Update()
+    public enum LockType
     {
-        if (enemyLocked)
-        {
-            Vector2 cursorScreenPosition = GameManager.instance.cameraManager.mainCamera.WorldToScreenPoint(lockedEnemyTransform.position);
-            cursorTransform.position = cursorScreenPosition;
-        }
+        POTENTIAL_LOCK,
+        LOCK,
+        HIT_LOCK
     }
+
+    [SerializeField] private RectTransform lockCursorRectTransform;
+    [SerializeField] private GameObject potentialLockCursor;
+    [SerializeField] private GameObject lockCursor;
+    [SerializeField] private GameObject hitLockCursor;
 
     protected override void CreateShowTweens()
     {
@@ -34,16 +32,47 @@ public class LockCursorUI : UIElement
         hideTweens.Add(disableGameObjectAnimation);
     }
 
-    public void LockOnEnemy(Transform enemyTransform)
+    public void SetLockType(LockType lockType)
     {
-        enemyLocked = true;
-        lockedEnemyTransform = enemyTransform;
-        cursorTransform.gameObject.SetActive(true);
+        switch (lockType)
+        {
+            case LockType.POTENTIAL_LOCK:
+                potentialLockCursor.SetActive(true);
+                lockCursor.SetActive(false);
+                hitLockCursor.SetActive(false);
+                break;
+
+            case LockType.LOCK:
+                potentialLockCursor.SetActive(false);
+                lockCursor.SetActive(true);
+                hitLockCursor.SetActive(false);
+                break;
+
+            case LockType.HIT_LOCK:
+                potentialLockCursor.SetActive(false);
+                lockCursor.SetActive(false);
+                hitLockCursor.SetActive(true);
+                break;
+        }
     }
 
-    public void UnlockEnemy()
+    public void SetPosition(Vector2 screenPosition)
     {
-        enemyLocked = false;
-        cursorTransform.gameObject.SetActive(false);
+        lockCursorRectTransform.position = screenPosition;
+    }
+
+    public void ShowCursor()
+    {
+        uiElementCanvasGroup.gameObject.SetActive(true);
+    }
+
+    public void HideCursor()
+    {
+        uiElementCanvasGroup.gameObject.SetActive(false);
+    }
+
+    public bool IsCursorVisible()
+    {
+        return uiElementCanvasGroup.gameObject.activeSelf;
     }
 }

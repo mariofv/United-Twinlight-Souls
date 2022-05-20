@@ -171,7 +171,7 @@ public class CharacterCombatManager : CharacterSubManager
         currentLockedEnemy = enemy;
         currentLockedEnemy.onSpawnedEnemyDead.AddListener(OnLockedEnemyDeath);
 
-        GameManager.instance.uiManager.gameUIManager.lockCursorUI.LockOnEnemy(currentLockedEnemy.transform);
+        GameManager.instance.uiManager.gameUIManager.lockUI.LockEnemy(currentLockedEnemy.transform);
     }
 
     private void UnlockEnemy()
@@ -179,7 +179,7 @@ public class CharacterCombatManager : CharacterSubManager
         currentLockedEnemy.onSpawnedEnemyDead.RemoveListener(OnLockedEnemyDeath);
         currentLockedEnemy = null;
 
-        GameManager.instance.uiManager.gameUIManager.lockCursorUI.UnlockEnemy();
+        GameManager.instance.uiManager.gameUIManager.lockUI.UnlockEnemy();
     }
 
     private void OnLockedEnemyDeath()
