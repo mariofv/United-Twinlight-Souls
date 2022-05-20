@@ -87,4 +87,9 @@ public class BrokenShield : MonoBehaviour
     {
         return piecesRenderers[0].material.GetColor("_FresnelColor");
     }
+
+    public Color GetBrokenShieldDissolveColor()
+    {
+        return piecesRenderers[0].material.GetColor("_DisolveEdgeColor");
+    }
 }

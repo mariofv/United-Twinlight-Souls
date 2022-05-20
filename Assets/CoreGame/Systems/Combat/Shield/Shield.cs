@@ -17,7 +17,9 @@ public class Shield : MonoBehaviour
     [SerializeField] private Renderer shieldRenderer;
     [SerializeField] private SphereCollider shieldCollider;
     private Color originalShieldColor;
+    private Color originalShieldDissolveColor;
     private Color brokenShieldColor;
+    private Color brokenShieldDissolveColor;
 
     [Header("Shield stats")]
     [SerializeField] private int maxHealth;
@@ -48,6 +50,9 @@ public class Shield : MonoBehaviour
     {
         originalShieldColor = shieldRenderer.material.GetColor("_FresnelColor");
         brokenShieldColor = brokenShield.GetBrokenShieldColor();
+
+        originalShieldDissolveColor = shieldRenderer.material.GetColor("_DisolveEdgeColor");
+        brokenShieldDissolveColor = brokenShield.GetBrokenShieldDissolveColor();
 
         currentHealth = maxHealth;
     }
@@ -154,8 +159,13 @@ public class Shield : MonoBehaviour
 
         currentHealth = health;
         float currentHealthProgress = (float)currentHealth / maxHealth;
+
         Color newShieldColor = Color.Lerp(originalShieldColor, brokenShieldColor, (1f - currentHealthProgress));
         shieldRenderer.material.SetColor("_FresnelColor", newShieldColor);
+
+        Color newShieldDissolveColor = Color.Lerp(originalShieldDissolveColor, brokenShieldDissolveColor, (1f - currentHealthProgress));
+        shieldRenderer.material.SetColor("_DisolveEdgeColor", newShieldDissolveColor);
+
         shieldRenderer.material.SetFloat("_BreakProgress", (1f - currentHealthProgress));
 
         if (currentHealth == 0)
