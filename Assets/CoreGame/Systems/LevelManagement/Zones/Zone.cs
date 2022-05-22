@@ -47,7 +47,7 @@ public class Zone : MonoBehaviour
         purifying = true;
     }
 
-    private void SetZonePurification(float purification)
+    public void SetZonePurification(float purification)
     {
         for (int i = 0; i < zoneMaterials.Count; ++i)
         {

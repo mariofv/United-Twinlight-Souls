@@ -68,6 +68,11 @@ public class LevelManager : MonoBehaviour
             }
             CursorHider.ShowCursor();
         }
+
+        if (currentLevel.introLevelCinematic != null)
+        {
+            GameManager.instance.cinematicManager.PlayCinematic(currentLevel.introLevelCinematic);
+        }
     }
 
     public void Respawn()

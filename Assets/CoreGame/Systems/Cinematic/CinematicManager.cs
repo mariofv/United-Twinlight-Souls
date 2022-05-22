@@ -5,7 +5,7 @@ using UnityEngine.Playables;
 
 public class CinematicManager : MonoBehaviour
 {
-    [SerializeField] private PlayableDirector playableDirector;
+    private Cinematic currentCinematic;
 
     // Start is called before the first frame update
     void Start()
@@ -19,9 +19,11 @@ public class CinematicManager : MonoBehaviour
         
     }
 
-    public void PlayCinematic(PlayableAsset cinematic)
+    public void PlayCinematic(Cinematic cinematic)
     {
-        playableDirector.playableAsset = cinematic;
-        playableDirector.Play();
+        currentCinematic = cinematic;
+        cinematic.Play();
+
+        GameManager.instance.EnterGameState(GameManager.GameState.CINEMATIC);
     }
 }
