@@ -7,8 +7,17 @@ public class EnemyWave : MonoBehaviour
 {
     public UnityEvent onWaveEnd;
     
-    [SerializeField] private List<EnemySpawnPoint> waveEnemies;
+    private List<EnemySpawnPoint> waveEnemies;
     private int currentWaveEnemies;
+
+    private void Awake()
+    {
+        waveEnemies = new List<EnemySpawnPoint>();
+        for (int i = 0; i < transform.childCount; ++i)
+        {
+            waveEnemies.Add(transform.GetChild(i).GetComponent<EnemySpawnPoint>());
+        }
+    }
 
     public void StartWave()
     {
