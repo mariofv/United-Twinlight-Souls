@@ -91,6 +91,8 @@ MonoBehaviour:
   maxHealth: 30
   currentHealth: 0
   orientateEnemyAfterHit: 0
+  minAmountLightOrbs: 2
+  maxAmountLightOrbs: 4
   onSpawnedEnemyDead:
     m_PersistentCalls:
       m_Calls: []
