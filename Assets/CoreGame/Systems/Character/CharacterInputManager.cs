@@ -13,7 +13,8 @@ public class CharacterInputManager : CharacterSubManager
         ATTACK,
         SHIELD,
         INTERACT, 
-        LOCK_ENEMY
+        LOCK_ENEMY,
+        DASH
     }
 
     private Dictionary<CharacterManager.CharacterState, List<CharacterInputAction>> characterStateAcceptedInputs;
@@ -44,6 +45,7 @@ public class CharacterInputManager : CharacterSubManager
         idleAccepetedInputs.Add(CharacterInputAction.MOVE);
         idleAccepetedInputs.Add(CharacterInputAction.JUMP);
         idleAccepetedInputs.Add(CharacterInputAction.ATTACK);
+        idleAccepetedInputs.Add(CharacterInputAction.DASH);
         idleAccepetedInputs.Add(CharacterInputAction.SHIELD);
         idleAccepetedInputs.Add(CharacterInputAction.LOCK_ENEMY);
         characterStateAcceptedInputs.Add(CharacterManager.CharacterState.IDLE, idleAccepetedInputs);
@@ -53,6 +55,7 @@ public class CharacterInputManager : CharacterSubManager
         movingAccepetedInputs.Add(CharacterInputAction.MOVE);
         movingAccepetedInputs.Add(CharacterInputAction.JUMP);
         movingAccepetedInputs.Add(CharacterInputAction.ATTACK);
+        movingAccepetedInputs.Add(CharacterInputAction.DASH);
         movingAccepetedInputs.Add(CharacterInputAction.LOCK_ENEMY);
         movingAccepetedInputs.Add(CharacterInputAction.SHIELD);
         characterStateAcceptedInputs.Add(CharacterManager.CharacterState.MOVING, movingAccepetedInputs);
@@ -61,12 +64,16 @@ public class CharacterInputManager : CharacterSubManager
         jumpingAccepetedInputs.Add(CharacterInputAction.MOVE);
         jumpingAccepetedInputs.Add(CharacterInputAction.SHIELD);
         jumpingAccepetedInputs.Add(CharacterInputAction.LOCK_ENEMY);
+        jumpingAccepetedInputs.Add(CharacterInputAction.DASH);
         characterStateAcceptedInputs.Add(CharacterManager.CharacterState.JUMPING, jumpingAccepetedInputs);
 
         List<CharacterInputAction> attackngAccepetedInputs = new List<CharacterInputAction>();
         attackngAccepetedInputs.Add(CharacterInputAction.ATTACK);
         attackngAccepetedInputs.Add(CharacterInputAction.LOCK_ENEMY);
         characterStateAcceptedInputs.Add(CharacterManager.CharacterState.ATTACKING, attackngAccepetedInputs);
+
+        List<CharacterInputAction> dashingAccepetedInputs = new List<CharacterInputAction>();
+        characterStateAcceptedInputs.Add(CharacterManager.CharacterState.DASHING, dashingAccepetedInputs);
 
         List<CharacterInputAction> interactingAcceptedInputs = new List<CharacterInputAction>();
         interactingAcceptedInputs.Add(CharacterInputAction.INTERACT);

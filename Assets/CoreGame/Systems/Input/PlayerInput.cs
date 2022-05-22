@@ -89,6 +89,15 @@ public partial class @PlayerInput : IInputActionCollection2, IDisposable
                     ""processors"": """",
                     ""interactions"": """",
                     ""initialStateCheck"": false
+                },
+                {
+                    ""name"": ""Dash"",
+                    ""type"": ""Button"",
+                    ""id"": ""63cf67a2-ff17-4a7b-8e4f-baf8279abe6b"",
+                    ""expectedControlType"": ""Button"",
+                    ""processors"": """",
+                    ""interactions"": """",
+                    ""initialStateCheck"": false
                 }
             ],
             ""bindings"": [
@@ -315,7 +324,7 @@ public partial class @PlayerInput : IInputActionCollection2, IDisposable
                 {
                     ""name"": """",
                     ""id"": ""f6d4869b-1955-454e-aad5-e14420755c4c"",
-                    ""path"": ""<Gamepad>/rightTrigger"",
+                    ""path"": ""<Gamepad>/leftTrigger"",
                     ""interactions"": ""Press"",
                     ""processors"": """",
                     ""groups"": ""Gamepad"",
@@ -331,6 +340,28 @@ public partial class @PlayerInput : IInputActionCollection2, IDisposable
                     ""processors"": """",
                     ""groups"": ""Keyboard&Mouse"",
                     ""action"": ""ChangeLockedEnemy"",
+                    ""isComposite"": false,
+                    ""isPartOfComposite"": false
+                },
+                {
+                    ""name"": """",
+                    ""id"": ""642754ff-5c02-4f88-bb90-e3b36774d82e"",
+                    ""path"": ""<Gamepad>/rightTrigger"",
+                    ""interactions"": ""Press"",
+                    ""processors"": """",
+                    ""groups"": ""Gamepad"",
+                    ""action"": ""Dash"",
+                    ""isComposite"": false,
+                    ""isPartOfComposite"": false
+                },
+                {
+                    ""name"": """",
+                    ""id"": ""20f9bac2-495e-4efb-8567-576325b5a923"",
+                    ""path"": ""<Keyboard>/shift"",
+                    ""interactions"": """",
+                    ""processors"": """",
+                    ""groups"": ""Keyboard&Mouse"",
+                    ""action"": ""Dash"",
                     ""isComposite"": false,
                     ""isPartOfComposite"": false
                 }
@@ -1436,6 +1467,7 @@ public partial class @PlayerInput : IInputActionCollection2, IDisposable
         m_Combat_Shield = m_Combat.FindAction("Shield", throwIfNotFound: true);
         m_Combat_LockEnemy = m_Combat.FindAction("LockEnemy", throwIfNotFound: true);
         m_Combat_ChangeLockedEnemy = m_Combat.FindAction("ChangeLockedEnemy", throwIfNotFound: true);
+        m_Combat_Dash = m_Combat.FindAction("Dash", throwIfNotFound: true);
         // Dialogue
         m_Dialogue = asset.FindActionMap("Dialogue", throwIfNotFound: true);
         m_Dialogue_Interact = m_Dialogue.FindAction("Interact", throwIfNotFound: true);
@@ -1536,6 +1568,7 @@ public partial class @PlayerInput : IInputActionCollection2, IDisposable
     private readonly InputAction m_Combat_Shield;
     private readonly InputAction m_Combat_LockEnemy;
     private readonly InputAction m_Combat_ChangeLockedEnemy;
+    private readonly InputAction m_Combat_Dash;
     public struct CombatActions
     {
         private @PlayerInput m_Wrapper;
@@ -1547,6 +1580,7 @@ public partial class @PlayerInput : IInputActionCollection2, IDisposable
         public InputAction @Shield => m_Wrapper.m_Combat_Shield;
         public InputAction @LockEnemy => m_Wrapper.m_Combat_LockEnemy;
         public InputAction @ChangeLockedEnemy => m_Wrapper.m_Combat_ChangeLockedEnemy;
+        public InputAction @Dash => m_Wrapper.m_Combat_Dash;
         public InputActionMap Get() { return m_Wrapper.m_Combat; }
         public void Enable() { Get().Enable(); }
         public void Disable() { Get().Disable(); }
@@ -1577,6 +1611,9 @@ public partial class @PlayerInput : IInputActionCollection2, IDisposable
                 @ChangeLockedEnemy.started -= m_Wrapper.m_CombatActionsCallbackInterface.OnChangeLockedEnemy;
                 @ChangeLockedEnemy.performed -= m_Wrapper.m_CombatActionsCallbackInterface.OnChangeLockedEnemy;
                 @ChangeLockedEnemy.canceled -= m_Wrapper.m_CombatActionsCallbackInterface.OnChangeLockedEnemy;
+                @Dash.started -= m_Wrapper.m_CombatActionsCallbackInterface.OnDash;
+                @Dash.performed -= m_Wrapper.m_CombatActionsCallbackInterface.OnDash;
+                @Dash.canceled -= m_Wrapper.m_CombatActionsCallbackInterface.OnDash;
             }
             m_Wrapper.m_CombatActionsCallbackInterface = instance;
             if (instance != null)
@@ -1602,6 +1639,9 @@ public partial class @PlayerInput : IInputActionCollection2, IDisposable
                 @ChangeLockedEnemy.started += instance.OnChangeLockedEnemy;
                 @ChangeLockedEnemy.performed += instance.OnChangeLockedEnemy;
                 @ChangeLockedEnemy.canceled += instance.OnChangeLockedEnemy;
+                @Dash.started += instance.OnDash;
+                @Dash.performed += instance.OnDash;
+                @Dash.canceled += instance.OnDash;
             }
         }
     }
@@ -1959,6 +1999,7 @@ public partial class @PlayerInput : IInputActionCollection2, IDisposable
         void OnShield(InputAction.CallbackContext context);
         void OnLockEnemy(InputAction.CallbackContext context);
         void OnChangeLockedEnemy(InputAction.CallbackContext context);
+        void OnDash(InputAction.CallbackContext context);
     }
     public interface IDialogueActions
     {

@@ -9,6 +9,7 @@ public class CharacterManager : MonoBehaviour
         IDLE,
         MOVING,
         JUMPING,
+        DASHING,
         ATTACKING,
         INTERACTING,
         STUNNED,
@@ -87,6 +88,29 @@ public class CharacterManager : MonoBehaviour
 
         characterCombatManager.LightAttack();
         SetCharacterState(CharacterState.ATTACKING);
+    }
+
+    public void StartDash()
+    {
+        if (!characterMovementManager.CanDash())
+        {
+            return;
+        }
+
+        Vector2 lookingDirection = new Vector2(transform.forward.x, transform.forward.z);
+        characterMovementManager.SetInputedMovement(lookingDirection, adjustToCamera:false);
+        characterMovementManager.EnableDashMultiplier();
+
+        characterCombatManager.SetInvincible(true);
+        characterVisualsManager.TriggerStartDash();
+        SetCharacterState(CharacterState.DASHING);
+    }
+
+    public void EndDash()
+    {
+        characterCombatManager.SetInvincible(false);
+        characterVisualsManager.TriggerEndDash();
+        Move(Vector2.zero);
     }
 
     public void RaiseShield()

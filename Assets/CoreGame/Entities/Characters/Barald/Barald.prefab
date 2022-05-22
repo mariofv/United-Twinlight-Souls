@@ -141,14 +141,17 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   characterController: {fileID: 6540250780167808272}
   characterTransform: {fileID: 163847903933024333}
+  terrainMask:
+    serializedVersion: 2
+    m_Bits: 64
   movementSpeed: 7.5
   rotationSpeed: 20
   gravity: 10
   jumpSpeed: 6
   groundedCheckDistance: 0.1
-  terrainMask:
-    serializedVersion: 2
-    m_Bits: 64
+  dashSpeedMultiplier: 3
+  dashDuration: 0.2
+  dashCooldown: 1
 --- !u!114 &5577634193418974252
 MonoBehaviour:
   m_ObjectHideFlags: 0

@@ -29,6 +29,7 @@ public class InputManager : MonoBehaviour
         playerInput.Combat.Movement.canceled += ctx => OnMovementInput(ctx);
         playerInput.Combat.Jump.started += ctx => OnJumpInput(ctx);
         playerInput.Combat.LightAttack.started += ctx => OnLightAttackInput(ctx);
+        playerInput.Combat.Dash.started += ctx => OnDashInput(ctx);
         playerInput.Combat.Shield.started += ctx => OnShieldInputStart(ctx);
         playerInput.Combat.Shield.canceled += ctx => OnShieldInputEnd(ctx);
         playerInput.Combat.LockEnemy.started += ctx => OnLockEnemyInput(ctx);
@@ -206,6 +207,15 @@ public class InputManager : MonoBehaviour
             return;
         }
         GameManager.instance.player.GetControlledCharacter().LightAttack();
+    }
+
+    public void OnDashInput(InputAction.CallbackContext context)
+    {
+        if (!GameManager.instance.player.GetControlledCharacter().characterInputManager.IsInputAcceptedInCurrentState(CharacterInputManager.CharacterInputAction.DASH))
+        {
+            return;
+        }
+        GameManager.instance.player.GetControlledCharacter().StartDash();
     }
 
     public void OnShieldInputStart(InputAction.CallbackContext context)

@@ -69,6 +69,16 @@ public class CharacterVisualsManager : CharacterSubManager
         characterAnimator.SetTrigger("attack");
     }
 
+    public void TriggerStartDash()
+    {
+        characterAnimator.SetTrigger("startDash");
+    }
+
+    public void TriggerEndDash()
+    {
+        characterAnimator.SetTrigger("endDash");
+    }
+
     public void StartStun()
     {
         characterAnimator.SetTrigger("startStun");
