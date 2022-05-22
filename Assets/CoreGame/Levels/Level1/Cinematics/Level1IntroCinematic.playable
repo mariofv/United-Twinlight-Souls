@@ -15,6 +15,7 @@ MonoBehaviour:
   m_Version: 0
   m_Tracks:
   - {fileID: 209716326019880084}
+  - {fileID: 7252379237376842334}
   m_FixedDuration: 0
   m_EditorSettings:
     m_Framerate: 60
@@ -43,7 +44,7 @@ MonoBehaviour:
   m_Children: []
   m_Clips:
   - m_Version: 1
-    m_Start: 0
+    m_Start: 1.15
     m_ClipIn: 0
     m_Asset: {fileID: 3186357793628426758}
     m_Duration: 5
@@ -126,7 +127,10 @@ MonoBehaviour:
   m_Name: CorruptionClip
   m_EditorClassIdentifier: 
   startCorruption: 0
-  endCorruption: 0
+  endCorruption: 1
+  clipZone:
+    exposedName: ca78c3fb13c52e544a363f9ec82a44e5
+    defaultValue: {fileID: 0}
 --- !u!114 &3215708430235056500
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -138,6 +142,29 @@ MonoBehaviour:
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 2a16748d9461eae46a725db9776d5390, type: 3}
   m_Name: Markers
+  m_EditorClassIdentifier: 
+  m_Version: 3
+  m_AnimClip: {fileID: 0}
+  m_Locked: 0
+  m_Muted: 0
+  m_CustomPlayableFullTypename: 
+  m_Curves: {fileID: 0}
+  m_Parent: {fileID: 11400000}
+  m_Children: []
+  m_Clips: []
+  m_Markers:
+    m_Objects: []
+--- !u!114 &7252379237376842334
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 05acc715f855ced458d76ee6f8ac6c61, type: 3}
+  m_Name: Cinemachine Track
   m_EditorClassIdentifier: 
   m_Version: 3
   m_AnimClip: {fileID: 0}
