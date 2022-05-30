@@ -26,7 +26,7 @@ public class ZoneCamera : MonoBehaviour
         UpdateZoneCamera(pathProgress);
     }
 
-    private void UpdateZoneCamera(float progress)
+    public void UpdateZoneCamera(float progress)
     {
         zoneCameraLookAt.position = zoneCameraRail.GetFocusPosition(progress);
         levelTrackedDolly.m_PathPosition = progress;

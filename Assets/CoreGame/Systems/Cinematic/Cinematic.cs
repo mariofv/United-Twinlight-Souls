@@ -20,7 +20,7 @@ public class Cinematic : MonoBehaviour
     {
         CinemachineBrain brain = GameManager.instance.cameraManager.mainCamera.GetComponent<CinemachineBrain>();
         TimelineAsset timelineAsset = (TimelineAsset)cinematicDirector.playableAsset;
-        TrackAsset track = timelineAsset.GetOutputTrack(0);
+        TrackAsset track = timelineAsset.GetOutputTrack(1);
         cinematicDirector.SetGenericBinding(track, brain);
 
         cinematicDirector.Play();
