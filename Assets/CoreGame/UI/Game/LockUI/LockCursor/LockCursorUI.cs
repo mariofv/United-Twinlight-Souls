@@ -17,6 +17,8 @@ public class LockCursorUI : UIElement
     [SerializeField] private GameObject lockCursor;
     [SerializeField] private GameObject hitLockCursor;
 
+    private LockType lockType;
+
     protected override void CreateShowTweens()
     {
         TweeningAnimation fadeAnimation = uiElementCanvasGroup.TweenFade(UISettings.GameUISettings.DISPLAY_TIME, 0f, 1f).DontKillOnEnd();
@@ -54,6 +56,13 @@ public class LockCursorUI : UIElement
                 hitLockCursor.SetActive(true);
                 break;
         }
+
+        this.lockType = lockType;
+    }
+
+    public LockType GetLockType()
+    {
+        return lockType;
     }
 
     public void SetPosition(Vector2 screenPosition)

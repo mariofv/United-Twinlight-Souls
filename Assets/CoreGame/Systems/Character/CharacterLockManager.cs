@@ -66,7 +66,7 @@ public class CharacterLockManager : CharacterSubManager
         Enemy nextEnemy = GetNextEnemy(currentLockedEnemy);
         if (nextEnemy != null)
         {
-            UnlockEnemy();
+            UnlockEnemy(hasToHideUI: false);
             LockEnemy(nextEnemy);
         }
     }
@@ -85,7 +85,7 @@ public class CharacterLockManager : CharacterSubManager
         currentSoftLockedEnemy.onSpawnedEnemyDead.RemoveListener(OnSoftLockedEnemyDeath);
         currentSoftLockedEnemy = null;
 
-        GameManager.instance.uiManager.gameUIManager.lockUI.UnlockEnemy();
+        GameManager.instance.uiManager.gameUIManager.lockUI.UnlockEnemy(hasToHideUI: true);
         currentState = LockState.NONE;
     }
 
@@ -103,12 +103,12 @@ public class CharacterLockManager : CharacterSubManager
         currentState = LockState.LOCK;
     }
 
-    private void UnlockEnemy()
+    private void UnlockEnemy(bool hasToHideUI = true)
     {
         currentLockedEnemy.onSpawnedEnemyDead.RemoveListener(OnLockedEnemyDeath);
         currentLockedEnemy = null;
 
-        GameManager.instance.uiManager.gameUIManager.lockUI.UnlockEnemy();
+        GameManager.instance.uiManager.gameUIManager.lockUI.UnlockEnemy(hasToHideUI);
         currentState = LockState.NONE;
     }
 

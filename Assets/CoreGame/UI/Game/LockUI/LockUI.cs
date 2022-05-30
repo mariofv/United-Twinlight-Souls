@@ -6,6 +6,7 @@ using Tweening;
 public class LockUI : UIElement
 {
     [SerializeField] private LockCursorUI lockCursorUI;
+    [SerializeField] private LockOnIndicatorUI lockOnIndicatorUI;
 
     private bool enemyLocked = false;
     private Transform lockedEnemyTransform;
@@ -44,6 +45,7 @@ public class LockUI : UIElement
     {
         TargetEnemy(enemyTransform);
         lockCursorUI.SetLockType(LockCursorUI.LockType.LOCK);
+        lockOnIndicatorUI.Show();
     }
 
     private void TargetEnemy(Transform enemyTransform)
@@ -57,9 +59,13 @@ public class LockUI : UIElement
         }
     }
 
-    public void UnlockEnemy()
+    public void UnlockEnemy(bool hasToHideUI)
     {
         enemyLocked = false;
         lockCursorUI.HideCursor();
+        if (lockCursorUI.GetLockType() == LockCursorUI.LockType.LOCK && hasToHideUI)
+        {
+            lockOnIndicatorUI.Hide();
+        }
     }
 }
