@@ -26,7 +26,7 @@ public class EnemyCombatArea : MonoBehaviour
     private void EndCombatArea()
     {
         combatAreaCheckpoint.ActivateCheckpoint();
-        GameManager.instance.levelManager.GetCurrentLevelAsZoned().AdvanceZone();
+        GameManager.instance.levelManager.GetCurrentLevelAsZoned().PlayZoneCinematic();
     }
 
     public void ResetCombatArea()
