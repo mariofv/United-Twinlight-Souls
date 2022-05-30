@@ -22,8 +22,15 @@ public class CinematicManager : MonoBehaviour
     public void PlayCinematic(Cinematic cinematic)
     {
         currentCinematic = cinematic;
+        cinematic.onCinematicEnd.AddListener(EndCurrentCinematic);
         cinematic.Play();
 
         GameManager.instance.EnterGameState(GameManager.GameState.CINEMATIC);
+    }
+    
+    public void EndCurrentCinematic()
+    {
+        currentCinematic.onCinematicEnd.RemoveListener(EndCurrentCinematic);
+        GameManager.instance.EnterGameState(GameManager.GameState.COMBAT);
     }
 }
