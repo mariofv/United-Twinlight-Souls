@@ -6,15 +6,37 @@ public class CharacterCombatManager : CharacterSubManager
 {
     [SerializeField] private Collider playerHurtbox;
     [SerializeField] private Shield playerShield;
+
     [SerializeField] private List<LightAttack> lightAttacks;
-    [SerializeField] private float maxRotationAngleTowardsLockedEnemy;
     private bool isInLightAttackChain = false;
     private int currentLightAttackChain = -1;
+
+    [SerializeField] private float orientatingTime;
+    private bool isOrientatingPlayer = false;
+    private Quaternion startingOrientation;
+    private Quaternion targetOrientation;
+    private float currentTime = 0f;
 
     // Start is called before the first frame update
     void Start()
     {
         characterManager.characterAnimationEventsManager.onLightAttackEnd.AddListener(EndLightAttack);
+    }
+
+    private void Update()
+    {
+        if (isOrientatingPlayer)
+        {
+            currentTime += Time.deltaTime;
+            float progress = Mathf.Min(1f, currentTime / orientatingTime);
+
+            transform.rotation = Quaternion.Lerp(startingOrientation, targetOrientation, progress);
+
+            if (progress == 1f)
+            {
+                isOrientatingPlayer = false;
+            }
+        }
     }
 
     public void SetInvincible(bool invincible)
@@ -64,13 +86,14 @@ public class CharacterCombatManager : CharacterSubManager
         if (characterManager.characterLockManager.IsLockingEnemy())
         {
             Vector3 lockedEnemyPosition = characterManager.characterLockManager.GetLockedEnemyPosition();
-
             Vector3 lookDirection = lockedEnemyPosition - transform.position;
             lookDirection.y = 0f;
 
-            float angleTowardsEnemy = Vector3.SignedAngle(transform.forward, lookDirection, Vector3.up);
-            angleTowardsEnemy = Mathf.Clamp(angleTowardsEnemy, -maxRotationAngleTowardsLockedEnemy, maxRotationAngleTowardsLockedEnemy);
-            transform.rotation = Quaternion.AngleAxis(angleTowardsEnemy, Vector3.up) * transform.rotation;
+            startingOrientation = transform.rotation;
+            targetOrientation = Quaternion.LookRotation(lookDirection);
+
+            isOrientatingPlayer = true;
+            currentTime = 0f;
         }
     }
 

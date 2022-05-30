@@ -225,12 +225,19 @@ public class CharacterLockManager : CharacterSubManager
 
     public bool IsLockingEnemy()
     {
-        return currentState == LockState.LOCK;
+        return currentState != LockState.NONE;
     }
 
     public Vector3 GetLockedEnemyPosition()
     {
-        return currentLockedEnemy.transform.position;
+        if (currentState == LockState.LOCK)
+        {
+            return currentLockedEnemy.transform.position;
+        }
+        else
+        {
+            return currentSoftLockedEnemy.transform.position;
+        }
     }
 
 }

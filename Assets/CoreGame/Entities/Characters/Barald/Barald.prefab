@@ -97,7 +97,7 @@ MonoBehaviour:
   - {fileID: 6324136636345891937}
   - {fileID: 1208588133305510931}
   - {fileID: 5080869992459096911}
-  maxRotationAngleTowardsLockedEnemy: 60
+  orientatingTime: 0.1
 --- !u!114 &5102444277900775136
 MonoBehaviour:
   m_ObjectHideFlags: 0
