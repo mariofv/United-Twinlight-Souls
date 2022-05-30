@@ -1,11 +1,13 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.UI;
 
 public class UIManager : MonoBehaviour
 {
     public LevelTransitionUIManager levelTransitionUIManager;
     public LoadingScreenUIManager loadingScreenUIManager;
+    public Image cinematicDarkVeil;
 
     [Header("Game UI")]
     public string gameUIScene;

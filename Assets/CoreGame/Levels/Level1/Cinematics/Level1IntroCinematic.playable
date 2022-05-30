@@ -22,13 +22,13 @@ MonoBehaviour:
   m_Children: []
   m_Clips:
   - m_Version: 1
-    m_Start: 0
+    m_Start: 0.1
     m_ClipIn: 0
     m_Asset: {fileID: -2712578637514932317}
-    m_Duration: 5
+    m_Duration: 5.5
     m_TimeScale: 1
     m_ParentTrack: {fileID: -8314516008713208170}
-    m_EaseInDuration: 5
+    m_EaseInDuration: 5.5
     m_EaseOutDuration: 0
     m_BlendInDuration: -1
     m_BlendOutDuration: -1
@@ -92,6 +92,18 @@ MonoBehaviour:
     m_DisplayName: ZoneCameraClip
   m_Markers:
     m_Objects: []
+--- !u!114 &-4473759314952971043
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 786f4d8c487f8f04e841b2776bd2fbd3, type: 3}
+  m_Name: DarkVeilClip
+  m_EditorClassIdentifier: 
 --- !u!114 &-2712578637514932317
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -124,6 +136,7 @@ MonoBehaviour:
   m_Version: 0
   m_Tracks:
   - {fileID: 7252379237376842334}
+  - {fileID: 1687262537178138722}
   - {fileID: 209716326019880084}
   - {fileID: -8314516008713208170}
   m_FixedDuration: 0
@@ -154,13 +167,13 @@ MonoBehaviour:
   m_Children: []
   m_Clips:
   - m_Version: 1
-    m_Start: 0
+    m_Start: 0.1
     m_ClipIn: 0
     m_Asset: {fileID: 3186357793628426758}
-    m_Duration: 5
+    m_Duration: 5.5
     m_TimeScale: 1
     m_ParentTrack: {fileID: 209716326019880084}
-    m_EaseInDuration: 5
+    m_EaseInDuration: 5.5
     m_EaseOutDuration: 0
     m_BlendInDuration: -1
     m_BlendOutDuration: -1
@@ -224,6 +237,179 @@ MonoBehaviour:
     m_DisplayName: CorruptionClip
   m_Markers:
     m_Objects: []
+--- !u!114 &1687262537178138722
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 678cb607a50e30546a0c02a48c20d5e5, type: 3}
+  m_Name: Dark Veil Track
+  m_EditorClassIdentifier: 
+  m_Version: 3
+  m_AnimClip: {fileID: 0}
+  m_Locked: 0
+  m_Muted: 0
+  m_CustomPlayableFullTypename: 
+  m_Curves: {fileID: 0}
+  m_Parent: {fileID: 11400000}
+  m_Children: []
+  m_Clips:
+  - m_Version: 1
+    m_Start: 0
+    m_ClipIn: 0
+    m_Asset: {fileID: -4473759314952971043}
+    m_Duration: 0.9999999999999999
+    m_TimeScale: 1
+    m_ParentTrack: {fileID: 1687262537178138722}
+    m_EaseInDuration: 0
+    m_EaseOutDuration: 0.9999999999999999
+    m_BlendInDuration: -1
+    m_BlendOutDuration: -1
+    m_MixInCurve:
+      serializedVersion: 2
+      m_Curve:
+      - serializedVersion: 3
+        time: 0
+        value: 0
+        inSlope: 0
+        outSlope: 0
+        tangentMode: 0
+        weightedMode: 0
+        inWeight: 0
+        outWeight: 0
+      - serializedVersion: 3
+        time: 1
+        value: 1
+        inSlope: 0
+        outSlope: 0
+        tangentMode: 0
+        weightedMode: 0
+        inWeight: 0
+        outWeight: 0
+      m_PreInfinity: 2
+      m_PostInfinity: 2
+      m_RotationOrder: 4
+    m_MixOutCurve:
+      serializedVersion: 2
+      m_Curve:
+      - serializedVersion: 3
+        time: 0
+        value: 1
+        inSlope: -1
+        outSlope: -1
+        tangentMode: 34
+        weightedMode: 0
+        inWeight: 0
+        outWeight: 0
+      - serializedVersion: 3
+        time: 1
+        value: 0
+        inSlope: -1
+        outSlope: -1
+        tangentMode: 34
+        weightedMode: 0
+        inWeight: 0
+        outWeight: 0
+      m_PreInfinity: 2
+      m_PostInfinity: 2
+      m_RotationOrder: 4
+    m_BlendInCurveMode: 0
+    m_BlendOutCurveMode: 1
+    m_ExposedParameterNames: []
+    m_AnimationCurves: {fileID: 0}
+    m_Recordable: 0
+    m_PostExtrapolationMode: 0
+    m_PreExtrapolationMode: 0
+    m_PostExtrapolationTime: 0
+    m_PreExtrapolationTime: 0
+    m_DisplayName: DarkVeilClip
+  - m_Version: 1
+    m_Start: 4.5
+    m_ClipIn: 0
+    m_Asset: {fileID: 2998595191785583057}
+    m_Duration: 2
+    m_TimeScale: 1
+    m_ParentTrack: {fileID: 1687262537178138722}
+    m_EaseInDuration: 0.9999999999999999
+    m_EaseOutDuration: 0.1
+    m_BlendInDuration: -1
+    m_BlendOutDuration: -1
+    m_MixInCurve:
+      serializedVersion: 2
+      m_Curve:
+      - serializedVersion: 3
+        time: 0
+        value: 0
+        inSlope: 1
+        outSlope: 1
+        tangentMode: 34
+        weightedMode: 0
+        inWeight: 0
+        outWeight: 0
+      - serializedVersion: 3
+        time: 1
+        value: 1
+        inSlope: 1
+        outSlope: 1
+        tangentMode: 34
+        weightedMode: 0
+        inWeight: 0
+        outWeight: 0
+      m_PreInfinity: 2
+      m_PostInfinity: 2
+      m_RotationOrder: 4
+    m_MixOutCurve:
+      serializedVersion: 2
+      m_Curve:
+      - serializedVersion: 3
+        time: 0
+        value: 1
+        inSlope: -1
+        outSlope: -1
+        tangentMode: 34
+        weightedMode: 0
+        inWeight: 0
+        outWeight: 0
+      - serializedVersion: 3
+        time: 1
+        value: 0
+        inSlope: -1
+        outSlope: -1
+        tangentMode: 34
+        weightedMode: 0
+        inWeight: 0
+        outWeight: 0
+      m_PreInfinity: 2
+      m_PostInfinity: 2
+      m_RotationOrder: 4
+    m_BlendInCurveMode: 1
+    m_BlendOutCurveMode: 1
+    m_ExposedParameterNames: []
+    m_AnimationCurves: {fileID: 0}
+    m_Recordable: 0
+    m_PostExtrapolationMode: 0
+    m_PreExtrapolationMode: 0
+    m_PostExtrapolationTime: 0
+    m_PreExtrapolationTime: 0
+    m_DisplayName: DarkVeilClip
+  m_Markers:
+    m_Objects: []
+--- !u!114 &2998595191785583057
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 786f4d8c487f8f04e841b2776bd2fbd3, type: 3}
+  m_Name: DarkVeilClip(Clone)(Clone)
+  m_EditorClassIdentifier: 
 --- !u!114 &3186357793628426758
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -237,7 +423,7 @@ MonoBehaviour:
   m_Name: CorruptionClip
   m_EditorClassIdentifier: 
   startCorruption: 0
-  endCorruption: 0.5
+  endCorruption: 1
   clipZone:
     exposedName: ca78c3fb13c52e544a363f9ec82a44e5
     defaultValue: {fileID: 0}
@@ -305,7 +491,7 @@ MonoBehaviour:
     m_Start: 0
     m_ClipIn: 0
     m_Asset: {fileID: 4904622948795991336}
-    m_Duration: 5
+    m_Duration: 5.6
     m_TimeScale: 1
     m_ParentTrack: {fileID: 7252379237376842334}
     m_EaseInDuration: 0
