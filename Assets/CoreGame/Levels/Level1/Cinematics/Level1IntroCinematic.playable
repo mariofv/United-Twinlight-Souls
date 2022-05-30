@@ -154,7 +154,7 @@ MonoBehaviour:
   m_Children: []
   m_Clips:
   - m_Version: 1
-    m_Start: 1.05
+    m_Start: 0
     m_ClipIn: 0
     m_Asset: {fileID: 3186357793628426758}
     m_Duration: 5
@@ -237,7 +237,7 @@ MonoBehaviour:
   m_Name: CorruptionClip
   m_EditorClassIdentifier: 
   startCorruption: 0
-  endCorruption: 1
+  endCorruption: 0.5
   clipZone:
     exposedName: ca78c3fb13c52e544a363f9ec82a44e5
     defaultValue: {fileID: 0}
@@ -305,7 +305,7 @@ MonoBehaviour:
     m_Start: 0
     m_ClipIn: 0
     m_Asset: {fileID: 4904622948795991336}
-    m_Duration: 5.45
+    m_Duration: 5
     m_TimeScale: 1
     m_ParentTrack: {fileID: 7252379237376842334}
     m_EaseInDuration: 0

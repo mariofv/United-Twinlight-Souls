@@ -23,7 +23,8 @@ public class CorruptionMixerBehaviour : PlayableBehaviour
 				CorruptionBehaviour input = inputPlayable.GetBehaviour();
 
 				Zone corruptedZone = input.corruptedZone;
-				corruptedZone.SetZonePurification(inputWeight);
+				float progress = Mathf.Lerp(input.startCorruption, input.endCorruption, inputWeight);
+				corruptedZone.SetZonePurification(1f - progress);
 
 			}
 		}
