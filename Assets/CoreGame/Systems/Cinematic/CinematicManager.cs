@@ -19,7 +19,7 @@ public class CinematicManager : MonoBehaviour
     public void EndCurrentCinematic()
     {
         currentCinematic.onCinematicEnd.RemoveListener(EndCurrentCinematic);
-        GameManager.instance.uiManager.cinematicUIManager.HideSkipPromptInstantly();
+        GameManager.instance.uiManager.cinematicUIManager.HideCinematicUI();
         GameManager.instance.EnterGameState(GameManager.GameState.COMBAT);
     }
 

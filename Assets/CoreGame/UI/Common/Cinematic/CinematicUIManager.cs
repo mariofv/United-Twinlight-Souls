@@ -15,12 +15,17 @@ public class CinematicUIManager : MonoBehaviour
 
     public Image cinematicDarkVeil;
     [SerializeField] private CanvasGroup skipPromptContainer;
+    [SerializeField] private Image skipCircle;
     [SerializeField] private float promptFadeTime;
     [SerializeField] private float timeToHidePrompt;
 
     private SkipPromptState currentSkipPromptState;
     private float currentTime = 0f;
     private float timeSinceLastInteraction = 0f;
+
+    private bool isHoldingSkip = false;
+    private const float SKIP_HOLD_TIME = 2f;
+    private float currentSkipHoldTime = 0f;
 
     private void Update()
     {
@@ -39,7 +44,6 @@ public class CinematicUIManager : MonoBehaviour
                     if (progress == 1f)
                     {
                         currentSkipPromptState = SkipPromptState.SHOWN;
-                        timeSinceLastInteraction = 0f;
                     }
                 }
                 break;
@@ -67,10 +71,25 @@ public class CinematicUIManager : MonoBehaviour
                 }
                 break;
         }
+
+        if (isHoldingSkip)
+        {
+            currentSkipHoldTime += Time.deltaTime;
+            float progress = Mathf.Min(1f, currentSkipHoldTime / SKIP_HOLD_TIME);
+
+            skipCircle.fillAmount = progress;
+
+            if (progress == 1f)
+            {
+                isHoldingSkip = false;
+            }
+        }
     }
 
     public void ShowSkipPrompt()
     {
+        timeSinceLastInteraction = 0f;
+
         if (currentSkipPromptState == SkipPromptState.SHOWING || currentSkipPromptState == SkipPromptState.SHOWN)
         {
             return;
@@ -88,20 +107,24 @@ public class CinematicUIManager : MonoBehaviour
         currentTime = 0f;
     }
     
-    public void HideSkipPromptInstantly()
-    {
-        currentSkipPromptState = SkipPromptState.HIDING;
-        skipPromptContainer.gameObject.SetActive(false);
-        skipPromptContainer.alpha = 0f;
-    }
-
     public void StartSkipCinematic()
     {
-
+        isHoldingSkip = true;
+        currentSkipHoldTime = 0f;
     }
 
     public void EndSkipCinematic()
     {
+        isHoldingSkip = false;
+        skipCircle.fillAmount = 0f;
+    }
 
+    public void HideCinematicUI()
+    {
+        currentSkipPromptState = SkipPromptState.HIDING;
+        skipPromptContainer.gameObject.SetActive(false);
+        skipPromptContainer.alpha = 0f;
+
+        cinematicDarkVeil.SetAlpha(0f);
     }
 }
