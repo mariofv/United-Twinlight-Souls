@@ -7,7 +7,7 @@ public class UIManager : MonoBehaviour
 {
     public LevelTransitionUIManager levelTransitionUIManager;
     public LoadingScreenUIManager loadingScreenUIManager;
-    public Image cinematicDarkVeil;
+    public CinematicUIManager cinematicUIManager;
 
     [Header("Game UI")]
     public string gameUIScene;

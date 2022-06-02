@@ -25,7 +25,7 @@ public class Cinematic : MonoBehaviour
         cinematicDirector.SetGenericBinding(cinemachineTrack, brain);
 
         TrackAsset darkVeilTrack = timelineAsset.GetOutputTrack(2);
-        cinematicDirector.SetGenericBinding(darkVeilTrack, GameManager.instance.uiManager.cinematicDarkVeil);
+        cinematicDirector.SetGenericBinding(darkVeilTrack, GameManager.instance.uiManager.cinematicUIManager.cinematicDarkVeil);
 
         cinematicDirector.Play();
     }
