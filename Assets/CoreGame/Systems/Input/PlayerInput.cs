@@ -971,7 +971,7 @@ public partial class @PlayerInput : IInputActionCollection2, IDisposable
                     ""name"": """",
                     ""id"": ""7e990c15-fa28-4d97-907e-704ebddedb7a"",
                     ""path"": ""<Gamepad>/buttonEast"",
-                    ""interactions"": """",
+                    ""interactions"": ""Hold(duration=2)"",
                     ""processors"": """",
                     ""groups"": ""Gamepad"",
                     ""action"": ""SkipCinematic"",

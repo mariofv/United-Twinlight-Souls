@@ -39,7 +39,9 @@ public class InputManager : MonoBehaviour
         playerInput.Dialogue.Interact.started += ctx => OnInteractInput(ctx);
 
         playerInput.Cinematic.AnyKey.started += ctx => OnCinematicAnyKeyInput(ctx);
-        playerInput.Cinematic.SkipCinematic.started += ctx => OnSkipCinematicInput(ctx);
+        playerInput.Cinematic.SkipCinematic.started += ctx => OnSkipCinematicStartedInput(ctx);
+        playerInput.Cinematic.SkipCinematic.performed += ctx => OnSkipCinematicPerformedInput(ctx);
+        playerInput.Cinematic.SkipCinematic.canceled += ctx => OnSkipCinematicCanceledInput(ctx);
 
         playerInput.Pause.Pause.started += ctx => GameManager.instance.OnPauseInput(ctx);
 
@@ -268,9 +270,19 @@ public class InputManager : MonoBehaviour
         GameManager.instance.uiManager.cinematicUIManager.ShowSkipPrompt();
     }
 
-    public void OnSkipCinematicInput(InputAction.CallbackContext context)
+    public void OnSkipCinematicStartedInput(InputAction.CallbackContext context)
     {
-        //GameManager.instance.uiManager.cinematicUIManager.ShowSkipPrompt();
+        GameManager.instance.uiManager.cinematicUIManager.StartSkipCinematic();
+    }
+
+    public void OnSkipCinematicPerformedInput(InputAction.CallbackContext context)
+    {
+        GameManager.instance.cinematicManager.SkipCinematic();
+    }
+
+    public void OnSkipCinematicCanceledInput(InputAction.CallbackContext context)
+    {
+        GameManager.instance.uiManager.cinematicUIManager.EndSkipCinematic();
     }
 
     public void OnPreviousTipInput(InputAction.CallbackContext context)

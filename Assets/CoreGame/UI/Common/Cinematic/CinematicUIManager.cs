@@ -94,4 +94,14 @@ public class CinematicUIManager : MonoBehaviour
         skipPromptContainer.gameObject.SetActive(false);
         skipPromptContainer.alpha = 0f;
     }
+
+    public void StartSkipCinematic()
+    {
+
+    }
+
+    public void EndSkipCinematic()
+    {
+
+    }
 }

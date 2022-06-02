@@ -22,4 +22,9 @@ public class CinematicManager : MonoBehaviour
         GameManager.instance.uiManager.cinematicUIManager.HideSkipPromptInstantly();
         GameManager.instance.EnterGameState(GameManager.GameState.COMBAT);
     }
+
+    public void SkipCinematic()
+    {
+        currentCinematic.Skip();
+    }
 }

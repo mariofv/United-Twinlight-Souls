@@ -30,6 +30,11 @@ public class Cinematic : MonoBehaviour
         cinematicDirector.Play();
     }
 
+    public void Skip()
+    {
+        cinematicDirector.time = cinematicDirector.playableAsset.duration;
+    }
+
     private void EndCinematic(PlayableDirector director)
     {
         onCinematicEnd.Invoke();
