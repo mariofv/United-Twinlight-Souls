@@ -38,6 +38,9 @@ public class InputManager : MonoBehaviour
         ;
         playerInput.Dialogue.Interact.started += ctx => OnInteractInput(ctx);
 
+        playerInput.Cinematic.AnyKey.started += ctx => OnCinematicAnyKeyInput(ctx);
+        playerInput.Cinematic.SkipCinematic.started += ctx => OnSkipCinematicInput(ctx);
+
         playerInput.Pause.Pause.started += ctx => GameManager.instance.OnPauseInput(ctx);
 
         playerInput.LoadingScreen.PreviousTip.started += ctx => OnPreviousTipInput(ctx);
@@ -113,7 +116,7 @@ public class InputManager : MonoBehaviour
                 playerInput.Dialogue.Disable();
                 break;
             case GameManager.GameState.CINEMATIC:
-                //playerInput.Cinematic.Disable();
+                playerInput.Cinematic.Disable();
                 break;
             case GameManager.GameState.PAUSE:
                 break;
@@ -140,7 +143,7 @@ public class InputManager : MonoBehaviour
                 playerInput.Dialogue.Enable();
                 break;
             case GameManager.GameState.CINEMATIC:
-                //playerInput.Cinematic.Enable();
+                playerInput.Cinematic.Enable();
                 break;
             case GameManager.GameState.PAUSE:
                 playerInput.Pause.Enable();
@@ -157,6 +160,7 @@ public class InputManager : MonoBehaviour
     {
         playerInput.Combat.Disable();
         playerInput.Dialogue.Disable();
+        playerInput.Cinematic.Disable();
         playerInput.Pause.Disable();
         playerInput.LoadingScreen.Disable();
         playerInput.MainMenu.Disable();
@@ -257,6 +261,16 @@ public class InputManager : MonoBehaviour
             return;
         }
         GameManager.instance.player.GetControlledCharacter().Interact();
+    }
+
+    public void OnCinematicAnyKeyInput(InputAction.CallbackContext context)
+    {
+        GameManager.instance.uiManager.cinematicUIManager.ShowSkipPrompt();
+    }
+
+    public void OnSkipCinematicInput(InputAction.CallbackContext context)
+    {
+        //GameManager.instance.uiManager.cinematicUIManager.ShowSkipPrompt();
     }
 
     public void OnPreviousTipInput(InputAction.CallbackContext context)

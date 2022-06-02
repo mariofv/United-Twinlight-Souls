@@ -7,18 +7,6 @@ public class CinematicManager : MonoBehaviour
 {
     private Cinematic currentCinematic;
 
-    // Start is called before the first frame update
-    void Start()
-    {
-        
-    }
-
-    // Update is called once per frame
-    void Update()
-    {
-        
-    }
-
     public void PlayCinematic(Cinematic cinematic)
     {
         currentCinematic = cinematic;
@@ -31,6 +19,7 @@ public class CinematicManager : MonoBehaviour
     public void EndCurrentCinematic()
     {
         currentCinematic.onCinematicEnd.RemoveListener(EndCurrentCinematic);
+        GameManager.instance.uiManager.cinematicUIManager.HideSkipPromptInstantly();
         GameManager.instance.EnterGameState(GameManager.GameState.COMBAT);
     }
 }
