@@ -14,9 +14,6 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   startCorruption: 1
   endCorruption: 0
-  clipZone:
-    exposedName: 1be932ab453ee3b4bac47b2273377e5f
-    defaultValue: {fileID: 0}
 --- !u!114 &-3076171715847886651
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -42,7 +39,7 @@ MonoBehaviour:
     m_Start: 0
     m_ClipIn: 0
     m_Asset: {fileID: -4145244419104085712}
-    m_Duration: 10
+    m_Duration: 14.249999999999982
     m_TimeScale: 1
     m_ParentTrack: {fileID: -3076171715847886651}
     m_EaseInDuration: 10

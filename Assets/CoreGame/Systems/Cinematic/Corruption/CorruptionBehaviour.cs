@@ -7,5 +7,4 @@ public class CorruptionBehaviour : PlayableBehaviour
 {
     public float startCorruption;
     public float endCorruption;
-    public Zone corruptedZone;
 }

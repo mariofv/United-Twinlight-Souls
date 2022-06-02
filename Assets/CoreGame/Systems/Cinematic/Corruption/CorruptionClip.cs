@@ -11,8 +11,6 @@ public class CorruptionClip : PlayableAsset
 	public float startCorruption;
 	public float endCorruption;
 
-	public ExposedReference<Zone> clipZone;
-
 	public override Playable CreatePlayable(PlayableGraph graph, GameObject owner)
 	{
 		ScriptPlayable<CorruptionBehaviour> playable = ScriptPlayable<CorruptionBehaviour>.Create(graph);
@@ -20,7 +18,6 @@ public class CorruptionClip : PlayableAsset
 
 		clone.startCorruption = startCorruption;
 		clone.endCorruption = endCorruption;
-		clone.corruptedZone = clipZone.Resolve(graph.GetResolver());
 
 		return playable;
 
