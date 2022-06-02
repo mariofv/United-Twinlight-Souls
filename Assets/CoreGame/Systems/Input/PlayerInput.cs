@@ -942,7 +942,7 @@ public partial class @PlayerInput : IInputActionCollection2, IDisposable
                     ""id"": ""26f988fb-9990-47ae-951f-9ea776cb8978"",
                     ""expectedControlType"": ""Button"",
                     ""processors"": """",
-                    ""interactions"": """",
+                    ""interactions"": ""Hold(duration=2)"",
                     ""initialStateCheck"": false
                 },
                 {
@@ -959,7 +959,7 @@ public partial class @PlayerInput : IInputActionCollection2, IDisposable
                 {
                     ""name"": """",
                     ""id"": ""4f6cdc93-143a-4a42-aa67-69405802da66"",
-                    ""path"": ""<Keyboard>/escape"",
+                    ""path"": ""<Keyboard>/e"",
                     ""interactions"": """",
                     ""processors"": """",
                     ""groups"": ""Keyboard&Mouse"",
@@ -971,7 +971,7 @@ public partial class @PlayerInput : IInputActionCollection2, IDisposable
                     ""name"": """",
                     ""id"": ""7e990c15-fa28-4d97-907e-704ebddedb7a"",
                     ""path"": ""<Gamepad>/buttonEast"",
-                    ""interactions"": ""Hold(duration=2)"",
+                    ""interactions"": """",
                     ""processors"": """",
                     ""groups"": ""Gamepad"",
                     ""action"": ""SkipCinematic"",

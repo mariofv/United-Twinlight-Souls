@@ -526,7 +526,7 @@ PrefabInstance:
     - target: {fileID: 5589600761843293795, guid: 5cf2f2ef43692ae4494e9ff4c1118c0c, type: 3}
       propertyPath: pcImage
       value: 
-      objectReference: {fileID: 21300000, guid: bc6b78dae9ba8234f9d97a2b9f424ab6, type: 3}
+      objectReference: {fileID: 21300000, guid: 26b2f597410ad1546892f998f2d5b4cb, type: 3}
     - target: {fileID: 5589600761843293795, guid: 5cf2f2ef43692ae4494e9ff4c1118c0c, type: 3}
       propertyPath: psImage
       value: 
@@ -534,7 +534,7 @@ PrefabInstance:
     - target: {fileID: 5589600761843293795, guid: 5cf2f2ef43692ae4494e9ff4c1118c0c, type: 3}
       propertyPath: m_Sprite
       value: 
-      objectReference: {fileID: 21300000, guid: bc6b78dae9ba8234f9d97a2b9f424ab6, type: 3}
+      objectReference: {fileID: 21300000, guid: 26b2f597410ad1546892f998f2d5b4cb, type: 3}
     - target: {fileID: 5589600761843293795, guid: 5cf2f2ef43692ae4494e9ff4c1118c0c, type: 3}
       propertyPath: xboxImage
       value: 
