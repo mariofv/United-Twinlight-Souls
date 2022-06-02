@@ -17,6 +17,8 @@ public class UIManager : MonoBehaviour
     public string mainMenuScene;
     public MainMenuUIManager mainMenuUIManager;
 
+    private List<InputDeviceButtonImage> inputDeviceButtonImages = new List<InputDeviceButtonImage>();
+
     public IEnumerator LoadMainMenuUI()
     {
         yield return StartCoroutine(GameManager.instance.scenesManager.ChangeScene(mainMenuScene));
@@ -93,5 +95,23 @@ public class UIManager : MonoBehaviour
                 gameUIManager.dialogueUI.Hide();
                 break;
         }
+    }
+
+    public void ChangeInputDeviceType(InputManager.InputDeviceType inputDeviceType)
+    {
+        for (int i = 0; i < inputDeviceButtonImages.Count; ++i)
+        {
+            inputDeviceButtonImages[i].SetInputDeviceImage(inputDeviceType);
+        }
+    }
+
+    public void RegisterInputDeviceButtonImage(InputDeviceButtonImage inputDeviceButtonImage)
+    {
+        inputDeviceButtonImages.Add(inputDeviceButtonImage);
+    }
+
+    public void UnregisterInputDeviceButtonImage(InputDeviceButtonImage inputDeviceButtonImage)
+    {
+        inputDeviceButtonImages.Remove(inputDeviceButtonImage);
     }
 }

@@ -439,6 +439,10 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 4134742692434151058}
     m_Modifications:
+    - target: {fileID: 4743845492139993437, guid: 5cf2f2ef43692ae4494e9ff4c1118c0c, type: 3}
+      propertyPath: m_Sprite
+      value: 
+      objectReference: {fileID: 21300000, guid: 26b2f597410ad1546892f998f2d5b4cb, type: 3}
     - target: {fileID: 5108969344337306351, guid: 5cf2f2ef43692ae4494e9ff4c1118c0c, type: 3}
       propertyPath: m_Pivot.x
       value: 0.5
@@ -523,6 +527,18 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 5239405772504526496, guid: 5cf2f2ef43692ae4494e9ff4c1118c0c, type: 3}
+      propertyPath: pcImage
+      value: 
+      objectReference: {fileID: 21300000, guid: 26b2f597410ad1546892f998f2d5b4cb, type: 3}
+    - target: {fileID: 5239405772504526496, guid: 5cf2f2ef43692ae4494e9ff4c1118c0c, type: 3}
+      propertyPath: psImage
+      value: 
+      objectReference: {fileID: 7638101785682355720, guid: ee3021fbaf88f174896ffbc345a6ba55, type: 3}
+    - target: {fileID: 5239405772504526496, guid: 5cf2f2ef43692ae4494e9ff4c1118c0c, type: 3}
+      propertyPath: xboxImage
+      value: 
+      objectReference: {fileID: 21300000, guid: 031c6ddbbe22d984dbcef752ffed263d, type: 3}
     - target: {fileID: 5589600761843293795, guid: 5cf2f2ef43692ae4494e9ff4c1118c0c, type: 3}
       propertyPath: pcImage
       value: 

@@ -2,10 +2,21 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.InputSystem;
+using UnityEngine.InputSystem.DualShock;
+using UnityEngine.InputSystem.XInput;
 using UnityEngine.InputSystem.UI;
 
 public class InputManager : MonoBehaviour
 {
+    public enum InputDeviceType
+    {
+        KEYBOARD,
+        PS5_CONTROLLER,
+        XBOX_CONTROLLER
+    }
+
+    private InputDeviceType currentInputDeviceType;
+
     [Header("Components")]
     private PlayerInput playerInput;
     [SerializeField] private InputSystemUIInputModule uiInputModule;
@@ -18,6 +29,8 @@ public class InputManager : MonoBehaviour
     void Awake()
     {
         playerInput = new PlayerInput();
+
+        playerInput.DeviceCheck.AnyKey.performed += ctx => CheckInputDevice(ctx);
 
         playerInput.MainMenu.AnyKey.performed += ctx => GameManager.instance.uiManager.mainMenuUIManager.OnAnyKeyPressed(ctx);
         playerInput.MainMenu.RightNavigation.performed += ctx => GameManager.instance.uiManager.mainMenuUIManager.OnRightPressed(ctx);
@@ -190,6 +203,38 @@ public class InputManager : MonoBehaviour
     {
         playerInput.UI.Disable();
         uiInputModule.submit = InputActionReference.Create(playerInput.MainMenu.AnyKey);
+    }
+
+    public InputDeviceType GetInputDeviceType()
+    {
+        return currentInputDeviceType;
+    }
+
+    public void CheckInputDevice(InputAction.CallbackContext context)
+    {
+        InputDeviceType newInputDeviceType = InputDeviceType.KEYBOARD;
+        if (context.control.device is Keyboard || context.control.device is Mouse)
+        {
+            newInputDeviceType = InputDeviceType.KEYBOARD;
+        }
+        else if (context.control.device is DualShockGamepad)
+        {
+            newInputDeviceType = InputDeviceType.PS5_CONTROLLER;
+            Debug.Log(context.control.device);
+        }
+        else if (context.control.device is XInputController)
+        {
+            newInputDeviceType = InputDeviceType.XBOX_CONTROLLER;
+            Debug.Log(context.control.device);
+        }
+
+        if (currentInputDeviceType == newInputDeviceType)
+        {
+            return;
+        }
+
+        currentInputDeviceType = newInputDeviceType;
+        GameManager.instance.uiManager.ChangeInputDeviceType(currentInputDeviceType);
     }
 
     public void OnMovementInput(InputAction.CallbackContext context)
