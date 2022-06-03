@@ -1,0 +1,624 @@
+fileFormatVersion: 2
+guid: 6a46539c1004fec418069c2e8ee68e4e
+TextureImporter:
+  internalIDToNameTable:
+  - first:
+      213: 3008205981533696408
+    second: XboxSeriesX_Diagram
+  - first:
+      213: -4192922657333519605
+    second: XboxSeriesX_Diagram_Simple
+  - first:
+      213: -3162298095629279127
+    second: XboxSeriesX_Share
+  - first:
+      213: 5235461502967161694
+    second: XboxSeriesX_Y
+  - first:
+      213: 7434563878036449621
+    second: XboxSeriesX_Dpad_Up
+  - first:
+      213: 6269649660198885350
+    second: XboxSeriesX_Dpad_Right
+  - first:
+      213: -4265760168757433794
+    second: XboxSeriesX_B
+  - first:
+      213: 2117755620991936491
+    second: XboxSeriesX_A
+  - first:
+      213: -5018367458859105228
+    second: XboxSeriesX_Right_Stick_Click
+  - first:
+      213: 2632770186687789245
+    second: XboxSeriesX_Left_Stick
+  - first:
+      213: -6391448737675613202
+    second: XboxSeriesX_LB
+  - first:
+      213: -7671349136101516521
+    second: XboxSeriesX_Right_Stick
+  - first:
+      213: -1314703735856225995
+    second: XboxSeriesX_LT
+  - first:
+      213: 4191240915307892597
+    second: XboxSeriesX_RT
+  - first:
+      213: -8264448469875124452
+    second: XboxSeriesX_Menu
+  - first:
+      213: -7771929869751206966
+    second: XboxSeriesX_Left_Stick_Click
+  - first:
+      213: -6416443919158329662
+    second: XboxSeriesX_Dpad
+  - first:
+      213: 3733076315627835140
+    second: XboxSeriesX_View
+  - first:
+      213: -6907987659982077770
+    second: XboxSeriesX_Dpad_Down
+  - first:
+      213: 5371410988880185910
+    second: XboxSeriesX_X
+  - first:
+      213: 5777646316513826209
+    second: XboxSeriesX_RB
+  - first:
+      213: 7885311076120175914
+    second: XboxSeriesX_Dpad_Left
+  externalObjects: {}
+  serializedVersion: 11
+  mipmaps:
+    mipMapMode: 0
+    enableMipMap: 0
+    sRGBTexture: 1
+    linearTexture: 0
+    fadeOut: 0
+    borderMipMap: 0
+    mipMapsPreserveCoverage: 0
+    alphaTestReferenceValue: 0.5
+    mipMapFadeDistanceStart: 1
+    mipMapFadeDistanceEnd: 3
+  bumpmap:
+    convertToNormalMap: 0
+    externalNormalMap: 0
+    heightScale: 0.25
+    normalMapFilter: 0
+  isReadable: 0
+  streamingMipmaps: 0
+  streamingMipmapsPriority: 0
+  vTOnly: 0
+  grayScaleToAlpha: 0
+  generateCubemap: 6
+  cubemapConvolution: 0
+  seamlessCubemap: 0
+  textureFormat: 1
+  maxTextureSize: 2048
+  textureSettings:
+    serializedVersion: 2
+    filterMode: 1
+    aniso: 1
+    mipBias: 0
+    wrapU: 1
+    wrapV: 1
+    wrapW: 1
+  nPOTScale: 0
+  lightmap: 0
+  compressionQuality: 50
+  spriteMode: 2
+  spriteExtrude: 1
+  spriteMeshType: 1
+  alignment: 0
+  spritePivot: {x: 0.5, y: 0.5}
+  spritePixelsToUnits: 100
+  spriteBorder: {x: 0, y: 0, z: 0, w: 0}
+  spriteGenerateFallbackPhysicsShape: 1
+  alphaUsage: 1
+  alphaIsTransparency: 1
+  spriteTessellationDetail: -1
+  textureType: 8
+  textureShape: 1
+  singleChannelComponent: 0
+  flipbookRows: 1
+  flipbookColumns: 1
+  maxTextureSizeSet: 0
+  compressionQualitySet: 0
+  textureFormatSet: 0
+  ignorePngGamma: 0
+  applyGammaDecoding: 0
+  platformSettings:
+  - serializedVersion: 3
+    buildTarget: DefaultTexturePlatform
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 1
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
+  spriteSheet:
+    serializedVersion: 2
+    sprites:
+    - serializedVersion: 2
+      name: XboxSeriesX_Diagram
+      rect:
+        serializedVersion: 2
+        x: 4
+        y: 4
+        width: 1452
+        height: 940
+      alignment: 6
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 891758ce66b4fb920800000000000000
+      internalID: 3008205981533696408
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: XboxSeriesX_Diagram_Simple
+      rect:
+        serializedVersion: 2
+        x: 1464
+        y: 4
+        width: 1452
+        height: 940
+      alignment: 6
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: b0bd2f6ee0fbfc5c0800000000000000
+      internalID: -4192922657333519605
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: XboxSeriesX_Share
+      rect:
+        serializedVersion: 2
+        x: 4
+        y: 952
+        width: 100
+        height: 100
+      alignment: 6
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 9606f18f2a24d14d0800000000000000
+      internalID: -3162298095629279127
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: XboxSeriesX_Y
+      rect:
+        serializedVersion: 2
+        x: 1464
+        y: 952
+        width: 100
+        height: 100
+      alignment: 6
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: e53279f8f7818a840800000000000000
+      internalID: 5235461502967161694
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: XboxSeriesX_Dpad_Up
+      rect:
+        serializedVersion: 2
+        x: 2924
+        y: 4
+        width: 100
+        height: 100
+      alignment: 6
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 55920520570ec2760800000000000000
+      internalID: 7434563878036449621
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: XboxSeriesX_Dpad_Right
+      rect:
+        serializedVersion: 2
+        x: 112
+        y: 952
+        width: 100
+        height: 100
+      alignment: 6
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 6e79d4ed525420750800000000000000
+      internalID: 6269649660198885350
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: XboxSeriesX_B
+      rect:
+        serializedVersion: 2
+        x: 4
+        y: 1060
+        width: 100
+        height: 100
+      alignment: 6
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: e3ae33c3ab9fcc4c0800000000000000
+      internalID: -4265760168757433794
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: XboxSeriesX_A
+      rect:
+        serializedVersion: 2
+        x: 112
+        y: 1060
+        width: 100
+        height: 100
+      alignment: 6
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: be7af465487c36d10800000000000000
+      internalID: 2117755620991936491
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: XboxSeriesX_Right_Stick_Click
+      rect:
+        serializedVersion: 2
+        x: 1572
+        y: 952
+        width: 100
+        height: 100
+      alignment: 6
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 434c256726d2b5ab0800000000000000
+      internalID: -5018367458859105228
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: XboxSeriesX_Left_Stick
+      rect:
+        serializedVersion: 2
+        x: 1464
+        y: 1060
+        width: 100
+        height: 100
+      alignment: 6
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: db8b3c8298a798420800000000000000
+      internalID: 2632770186687789245
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: XboxSeriesX_LB
+      rect:
+        serializedVersion: 2
+        x: 1572
+        y: 1060
+        width: 100
+        height: 100
+      alignment: 6
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: eebe9b68c330d47a0800000000000000
+      internalID: -6391448737675613202
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: XboxSeriesX_Right_Stick
+      rect:
+        serializedVersion: 2
+        x: 3032
+        y: 4
+        width: 100
+        height: 100
+      alignment: 6
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 71b5ba2fa94e98590800000000000000
+      internalID: -7671349136101516521
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: XboxSeriesX_LT
+      rect:
+        serializedVersion: 2
+        x: 2924
+        y: 112
+        width: 100
+        height: 100
+      alignment: 6
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 5312967faeb31cde0800000000000000
+      internalID: -1314703735856225995
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: XboxSeriesX_RT
+      rect:
+        serializedVersion: 2
+        x: 3032
+        y: 112
+        width: 100
+        height: 100
+      alignment: 6
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 57f820508674a2a30800000000000000
+      internalID: 4191240915307892597
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: XboxSeriesX_Menu
+      rect:
+        serializedVersion: 2
+        x: 220
+        y: 952
+        width: 100
+        height: 100
+      alignment: 6
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: c17929057e7ce4d80800000000000000
+      internalID: -8264448469875124452
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: XboxSeriesX_Left_Stick_Click
+      rect:
+        serializedVersion: 2
+        x: 4
+        y: 1168
+        width: 100
+        height: 100
+      alignment: 6
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: acb3b3ef5fe842490800000000000000
+      internalID: -7771929869751206966
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: XboxSeriesX_Dpad
+      rect:
+        serializedVersion: 2
+        x: 220
+        y: 1060
+        width: 100
+        height: 100
+      alignment: 6
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 2ce3a55504634f6a0800000000000000
+      internalID: -6416443919158329662
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: XboxSeriesX_View
+      rect:
+        serializedVersion: 2
+        x: 112
+        y: 1168
+        width: 100
+        height: 100
+      alignment: 6
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 40fcb60612d8ec330800000000000000
+      internalID: 3733076315627835140
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: XboxSeriesX_Dpad_Down
+      rect:
+        serializedVersion: 2
+        x: 220
+        y: 1168
+        width: 100
+        height: 100
+      alignment: 6
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 6b08cf5c2d5e120a0800000000000000
+      internalID: -6907987659982077770
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: XboxSeriesX_X
+      rect:
+        serializedVersion: 2
+        x: 1680
+        y: 952
+        width: 100
+        height: 100
+      alignment: 6
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 63a45ded5d51b8a40800000000000000
+      internalID: 5371410988880185910
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: XboxSeriesX_RB
+      rect:
+        serializedVersion: 2
+        x: 1464
+        y: 1168
+        width: 100
+        height: 100
+      alignment: 6
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 1a596ada6b25e2050800000000000000
+      internalID: 5777646316513826209
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: XboxSeriesX_Dpad_Left
+      rect:
+        serializedVersion: 2
+        x: 1680
+        y: 1060
+        width: 100
+        height: 100
+      alignment: 6
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: a25a89345a04e6d60800000000000000
+      internalID: 7885311076120175914
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    outline: []
+    physicsShape: []
+    bones: []
+    spriteID: 
+    internalID: 0
+    vertices: []
+    indices: 
+    edges: []
+    weights: []
+    secondaryTextures: []
+  spritePackingTag: 
+  pSDRemoveMatte: 0
+  pSDShowRemoveMatteOption: 0
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 

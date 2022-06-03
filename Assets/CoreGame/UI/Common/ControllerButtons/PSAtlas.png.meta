@@ -1,0 +1,696 @@
+fileFormatVersion: 2
+guid: 972d39c6df413e24fb14f51f53a3c8ec
+TextureImporter:
+  internalIDToNameTable:
+  - first:
+      213: -1225397489463024342
+    second: PS5_Diagram
+  - first:
+      213: 5053556591745780986
+    second: PS5_Diagram_Simple
+  - first:
+      213: 4849922650762550130
+    second: PS5_Options_Alt
+  - first:
+      213: -217965588299418808
+    second: PS5_R1
+  - first:
+      213: -7222733046492722525
+    second: PS5_Share_Alt
+  - first:
+      213: 7826103835678644141
+    second: PS5_Right_Stick
+  - first:
+      213: 7638101785682355720
+    second: PS5_Circle_0
+  - first:
+      213: -6811595647771928151
+    second: PS5_Dpad_Right
+  - first:
+      213: 4831033444678812234
+    second: PS5_Cross
+  - first:
+      213: 4489013808957609464
+    second: PS5_Dpad_Left
+  - first:
+      213: -652276769228694795
+    second: PS5_Left_Stick_Click
+  - first:
+      213: 455311826327796185
+    second: PS5_Dpad_Down
+  - first:
+      213: -6864129051128224912
+    second: PS5_R2
+  - first:
+      213: 3656123363091472589
+    second: PS5_Dpad_Up
+  - first:
+      213: -6961777612959160066
+    second: PS5_Triangle
+  - first:
+      213: -4617243940992065231
+    second: PS5_L1
+  - first:
+      213: -8158510305384868355
+    second: PS5_Options
+  - first:
+      213: 1438927550843192578
+    second: PS5_Microphone
+  - first:
+      213: -439248835098311029
+    second: PS5_Left_Stick
+  - first:
+      213: -1883832975835697452
+    second: PS5_L2
+  - first:
+      213: -6495601596473617284
+    second: PS5_Square
+  - first:
+      213: 4000773783748724168
+    second: PS5_Dpad
+  - first:
+      213: 8113908301925735125
+    second: PS5_Touch_Pad
+  - first:
+      213: 6938736726820517673
+    second: PS5_Share
+  - first:
+      213: -454132054917450334
+    second: PS5_Right_Stick_Click
+  externalObjects: {}
+  serializedVersion: 11
+  mipmaps:
+    mipMapMode: 0
+    enableMipMap: 0
+    sRGBTexture: 1
+    linearTexture: 0
+    fadeOut: 0
+    borderMipMap: 0
+    mipMapsPreserveCoverage: 0
+    alphaTestReferenceValue: 0.5
+    mipMapFadeDistanceStart: 1
+    mipMapFadeDistanceEnd: 3
+  bumpmap:
+    convertToNormalMap: 0
+    externalNormalMap: 0
+    heightScale: 0.25
+    normalMapFilter: 0
+  isReadable: 0
+  streamingMipmaps: 0
+  streamingMipmapsPriority: 0
+  vTOnly: 0
+  grayScaleToAlpha: 0
+  generateCubemap: 6
+  cubemapConvolution: 0
+  seamlessCubemap: 0
+  textureFormat: 1
+  maxTextureSize: 2048
+  textureSettings:
+    serializedVersion: 2
+    filterMode: 1
+    aniso: 1
+    mipBias: 0
+    wrapU: 1
+    wrapV: 1
+    wrapW: 1
+  nPOTScale: 0
+  lightmap: 0
+  compressionQuality: 50
+  spriteMode: 2
+  spriteExtrude: 1
+  spriteMeshType: 1
+  alignment: 0
+  spritePivot: {x: 0.5, y: 0.5}
+  spritePixelsToUnits: 100
+  spriteBorder: {x: 0, y: 0, z: 0, w: 0}
+  spriteGenerateFallbackPhysicsShape: 1
+  alphaUsage: 1
+  alphaIsTransparency: 1
+  spriteTessellationDetail: -1
+  textureType: 8
+  textureShape: 1
+  singleChannelComponent: 0
+  flipbookRows: 1
+  flipbookColumns: 1
+  maxTextureSizeSet: 0
+  compressionQualitySet: 0
+  textureFormatSet: 0
+  ignorePngGamma: 0
+  applyGammaDecoding: 0
+  platformSettings:
+  - serializedVersion: 3
+    buildTarget: DefaultTexturePlatform
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 1
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
+  spriteSheet:
+    serializedVersion: 2
+    sprites:
+    - serializedVersion: 2
+      name: PS5_Diagram
+      rect:
+        serializedVersion: 2
+        x: 4
+        y: 4
+        width: 1452
+        height: 940
+      alignment: 6
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: a25a6ebc9738efee0800000000000000
+      internalID: -1225397489463024342
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: PS5_Diagram_Simple
+      rect:
+        serializedVersion: 2
+        x: 1464
+        y: 4
+        width: 1452
+        height: 940
+      alignment: 6
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: afc475ff1f6d12640800000000000000
+      internalID: 5053556591745780986
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: PS5_Options_Alt
+      rect:
+        serializedVersion: 2
+        x: 4
+        y: 952
+        width: 100
+        height: 100
+      alignment: 6
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 27b92d274f26e4340800000000000000
+      internalID: 4849922650762550130
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: PS5_R1
+      rect:
+        serializedVersion: 2
+        x: 1464
+        y: 952
+        width: 100
+        height: 100
+      alignment: 6
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 8437728c371a9fcf0800000000000000
+      internalID: -217965588299418808
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: PS5_Share_Alt
+      rect:
+        serializedVersion: 2
+        x: 2924
+        y: 4
+        width: 100
+        height: 100
+      alignment: 6
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 3aa8358df82b3cb90800000000000000
+      internalID: -7222733046492722525
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: PS5_Right_Stick
+      rect:
+        serializedVersion: 2
+        x: 112
+        y: 952
+        width: 100
+        height: 100
+      alignment: 6
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: da792fc59f7eb9c60800000000000000
+      internalID: 7826103835678644141
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: PS5_Circle_0
+      rect:
+        serializedVersion: 2
+        x: 4
+        y: 1060
+        width: 100
+        height: 100
+      alignment: 6
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 806afdd0b1dfff960800000000000000
+      internalID: 7638101785682355720
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: PS5_Dpad_Right
+      rect:
+        serializedVersion: 2
+        x: 112
+        y: 1060
+        width: 100
+        height: 100
+      alignment: 6
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 9a915f409d95871a0800000000000000
+      internalID: -6811595647771928151
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: PS5_Cross
+      rect:
+        serializedVersion: 2
+        x: 1572
+        y: 952
+        width: 100
+        height: 100
+      alignment: 6
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: a42cc1072574b0340800000000000000
+      internalID: 4831033444678812234
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: PS5_Dpad_Left
+      rect:
+        serializedVersion: 2
+        x: 1464
+        y: 1060
+        width: 100
+        height: 100
+      alignment: 6
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 8f5ddb2864e2c4e30800000000000000
+      internalID: 4489013808957609464
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: PS5_Left_Stick_Click
+      rect:
+        serializedVersion: 2
+        x: 1572
+        y: 1060
+        width: 100
+        height: 100
+      alignment: 6
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 5fa52eafbb5a2f6f0800000000000000
+      internalID: -652276769228694795
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: PS5_Dpad_Down
+      rect:
+        serializedVersion: 2
+        x: 3032
+        y: 4
+        width: 100
+        height: 100
+      alignment: 6
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 9d97d4691b7915600800000000000000
+      internalID: 455311826327796185
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: PS5_R2
+      rect:
+        serializedVersion: 2
+        x: 2924
+        y: 112
+        width: 100
+        height: 100
+      alignment: 6
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 0732017eef6bdb0a0800000000000000
+      internalID: -6864129051128224912
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: PS5_Dpad_Up
+      rect:
+        serializedVersion: 2
+        x: 3032
+        y: 112
+        width: 100
+        height: 100
+      alignment: 6
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: dc0e218e3d82db230800000000000000
+      internalID: 3656123363091472589
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: PS5_Triangle
+      rect:
+        serializedVersion: 2
+        x: 220
+        y: 952
+        width: 100
+        height: 100
+      alignment: 6
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: ef86d46652cc26f90800000000000000
+      internalID: -6961777612959160066
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: PS5_L1
+      rect:
+        serializedVersion: 2
+        x: 4
+        y: 1168
+        width: 100
+        height: 100
+      alignment: 6
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 131e7df49114cefb0800000000000000
+      internalID: -4617243940992065231
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: PS5_Options
+      rect:
+        serializedVersion: 2
+        x: 220
+        y: 1060
+        width: 100
+        height: 100
+      alignment: 6
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: df5db275a1627ce80800000000000000
+      internalID: -8158510305384868355
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: PS5_Microphone
+      rect:
+        serializedVersion: 2
+        x: 112
+        y: 1168
+        width: 100
+        height: 100
+      alignment: 6
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 2050885dbf818f310800000000000000
+      internalID: 1438927550843192578
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: PS5_Left_Stick
+      rect:
+        serializedVersion: 2
+        x: 220
+        y: 1168
+        width: 100
+        height: 100
+      alignment: 6
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: b8606fff28977e9f0800000000000000
+      internalID: -439248835098311029
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: PS5_L2
+      rect:
+        serializedVersion: 2
+        x: 1680
+        y: 952
+        width: 100
+        height: 100
+      alignment: 6
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 4de6523b3e74bd5e0800000000000000
+      internalID: -1883832975835697452
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: PS5_Square
+      rect:
+        serializedVersion: 2
+        x: 1464
+        y: 1168
+        width: 100
+        height: 100
+      alignment: 6
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: c74dabf53ccfad5a0800000000000000
+      internalID: -6495601596473617284
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: PS5_Dpad
+      rect:
+        serializedVersion: 2
+        x: 1680
+        y: 1060
+        width: 100
+        height: 100
+      alignment: 6
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 8c5c90f2f8a958730800000000000000
+      internalID: 4000773783748724168
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: PS5_Touch_Pad
+      rect:
+        serializedVersion: 2
+        x: 1572
+        y: 1168
+        width: 100
+        height: 100
+      alignment: 6
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 5da506c7c946a9070800000000000000
+      internalID: 8113908301925735125
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: PS5_Share
+      rect:
+        serializedVersion: 2
+        x: 1680
+        y: 1168
+        width: 100
+        height: 100
+      alignment: 6
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 927f7104a485b4060800000000000000
+      internalID: 6938736726820517673
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: PS5_Right_Stick_Click
+      rect:
+        serializedVersion: 2
+        x: 3140
+        y: 4
+        width: 100
+        height: 100
+      alignment: 6
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 2a5f6895d4992b9f0800000000000000
+      internalID: -454132054917450334
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    outline: []
+    physicsShape: []
+    bones: []
+    spriteID: 
+    internalID: 0
+    vertices: []
+    indices: 
+    edges: []
+    weights: []
+    secondaryTextures: []
+  spritePackingTag: 
+  pSDRemoveMatte: 0
+  pSDShowRemoveMatteOption: 0
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 

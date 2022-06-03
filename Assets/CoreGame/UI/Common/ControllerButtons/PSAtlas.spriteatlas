@@ -1,0 +1,117 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!687078895 &4343727234628468602
+SpriteAtlas:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_Name: PSAtlas
+  m_EditorData:
+    serializedVersion: 2
+    textureSettings:
+      serializedVersion: 2
+      anisoLevel: 1
+      compressionQuality: 50
+      maxTextureSize: 2048
+      textureCompression: 0
+      filterMode: 1
+      generateMipMaps: 0
+      readable: 0
+      crunchedCompression: 0
+      sRGB: 1
+    platformSettings: []
+    packingSettings:
+      serializedVersion: 2
+      padding: 4
+      blockOffset: 1
+      allowAlphaSplitting: 0
+      enableRotation: 1
+      enableTightPacking: 1
+    secondaryTextureSettings: {}
+    variantMultiplier: 1
+    packables:
+    - {fileID: 2800000, guid: ee3021fbaf88f174896ffbc345a6ba55, type: 3}
+    - {fileID: 2800000, guid: d135780a33a8d8747a0ba42ba402da62, type: 3}
+    - {fileID: 2800000, guid: 5ca6f8df99df4994881e6d2dc81ffc31, type: 3}
+    - {fileID: 2800000, guid: b2463e3cbd619d94db30903fa880cff6, type: 3}
+    - {fileID: 2800000, guid: e9bc61b206183b64e86dd640d8eb4b46, type: 3}
+    - {fileID: 2800000, guid: 6085dede4a89d70498081d3ba9ba1b2f, type: 3}
+    - {fileID: 2800000, guid: 87cc27c9e8484ec429a03de40032be78, type: 3}
+    - {fileID: 2800000, guid: c93ebe4b0f569b947aff84030ff69237, type: 3}
+    - {fileID: 2800000, guid: f0c8eb278bd67514d9e5562860397497, type: 3}
+    - {fileID: 2800000, guid: 26e7b556ecfdd704ba76252c44c514c5, type: 3}
+    - {fileID: 2800000, guid: 89941d9406aa68141b742fe6bc244aec, type: 3}
+    - {fileID: 2800000, guid: dd2b5cd43ba37bd4b9028a2b45eb42ee, type: 3}
+    - {fileID: 2800000, guid: 6fe35a89eeddb024290b7a77194543a3, type: 3}
+    - {fileID: 2800000, guid: a1710a355b7dc024593fb174e6e1e541, type: 3}
+    - {fileID: 2800000, guid: cf6155f58b73ee74b977a8de7363007f, type: 3}
+    - {fileID: 2800000, guid: 08ccf2aedce6adf4f999845875c4e8aa, type: 3}
+    - {fileID: 2800000, guid: af96285eff8b0de4d886057df4ba019d, type: 3}
+    - {fileID: 2800000, guid: 1c14bf49d53f3de44bc149cf0025105a, type: 3}
+    - {fileID: 2800000, guid: 8ddacdec9329e934ea567927c4e5ad60, type: 3}
+    - {fileID: 2800000, guid: bfc826410318a3e46a6dd4c75a32ab74, type: 3}
+    - {fileID: 2800000, guid: 59aba108bcbac3040a8755e3f9012699, type: 3}
+    - {fileID: 2800000, guid: 2404313dee43d594d8ce250b1a531456, type: 3}
+    - {fileID: 2800000, guid: ac4b2a1468fb3a5439adf311f48248bf, type: 3}
+    - {fileID: 2800000, guid: 5153c8b1b364fe64ab9ba77f6bc6f11d, type: 3}
+    - {fileID: 2800000, guid: 4d84f9a638da62d428408897651eab57, type: 3}
+    bindAsDefault: 0
+    isAtlasV2: 0
+    cachedData: {fileID: 0}
+  m_MasterAtlas: {fileID: 0}
+  m_PackedSprites:
+  - {fileID: 21300000, guid: bfc826410318a3e46a6dd4c75a32ab74, type: 3}
+  - {fileID: 21300000, guid: 5153c8b1b364fe64ab9ba77f6bc6f11d, type: 3}
+  - {fileID: 21300000, guid: e9bc61b206183b64e86dd640d8eb4b46, type: 3}
+  - {fileID: 21300000, guid: ac4b2a1468fb3a5439adf311f48248bf, type: 3}
+  - {fileID: 21300000, guid: 89941d9406aa68141b742fe6bc244aec, type: 3}
+  - {fileID: 21300000, guid: dd2b5cd43ba37bd4b9028a2b45eb42ee, type: 3}
+  - {fileID: 21300000, guid: a1710a355b7dc024593fb174e6e1e541, type: 3}
+  - {fileID: 21300000, guid: cf6155f58b73ee74b977a8de7363007f, type: 3}
+  - {fileID: 21300000, guid: 26e7b556ecfdd704ba76252c44c514c5, type: 3}
+  - {fileID: 21300000, guid: 4d84f9a638da62d428408897651eab57, type: 3}
+  - {fileID: 21300000, guid: f0c8eb278bd67514d9e5562860397497, type: 3}
+  - {fileID: 21300000, guid: 59aba108bcbac3040a8755e3f9012699, type: 3}
+  - {fileID: 21300000, guid: 1c14bf49d53f3de44bc149cf0025105a, type: 3}
+  - {fileID: 21300000, guid: 6fe35a89eeddb024290b7a77194543a3, type: 3}
+  - {fileID: 21300000, guid: 87cc27c9e8484ec429a03de40032be78, type: 3}
+  - {fileID: 21300000, guid: d135780a33a8d8747a0ba42ba402da62, type: 3}
+  - {fileID: 21300000, guid: c93ebe4b0f569b947aff84030ff69237, type: 3}
+  - {fileID: 7638101785682355720, guid: ee3021fbaf88f174896ffbc345a6ba55, type: 3}
+  - {fileID: 21300000, guid: b2463e3cbd619d94db30903fa880cff6, type: 3}
+  - {fileID: 21300000, guid: 8ddacdec9329e934ea567927c4e5ad60, type: 3}
+  - {fileID: 21300000, guid: 2404313dee43d594d8ce250b1a531456, type: 3}
+  - {fileID: 21300000, guid: af96285eff8b0de4d886057df4ba019d, type: 3}
+  - {fileID: 21300000, guid: 08ccf2aedce6adf4f999845875c4e8aa, type: 3}
+  - {fileID: 21300000, guid: 6085dede4a89d70498081d3ba9ba1b2f, type: 3}
+  - {fileID: 21300000, guid: 5ca6f8df99df4994881e6d2dc81ffc31, type: 3}
+  m_PackedSpriteNamesToIndex:
+  - PS5_Right_Stick_Click
+  - PS5_Touch_Pad
+  - PS5_Dpad
+  - PS5_Square
+  - PS5_L2
+  - PS5_Left_Stick
+  - PS5_Microphone
+  - PS5_Options
+  - PS5_L1
+  - PS5_Triangle
+  - PS5_Dpad_Up
+  - PS5_Share
+  - PS5_R2
+  - PS5_Left_Stick_Click
+  - PS5_Dpad_Left
+  - PS5_Cross
+  - PS5_Dpad_Right
+  - PS5_Circle_0
+  - PS5_Diagram_Simple
+  - PS5_Right_Stick
+  - PS5_Share_Alt
+  - PS5_R1
+  - PS5_Options_Alt
+  - PS5_Dpad_Down
+  - PS5_Diagram
+  m_RenderDataMap: {}
+  m_Tag: PSAtlas
+  m_IsVariant: 0

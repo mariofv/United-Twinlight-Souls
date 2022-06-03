@@ -1,0 +1,2376 @@
+fileFormatVersion: 2
+guid: 2d3ea6885a9c0084ebd49d0f168e3bd9
+TextureImporter:
+  internalIDToNameTable:
+  - first:
+      213: -343526562357084104
+    second: 1_Key_Light
+  - first:
+      213: -5996182145806891208
+    second: Q_Key_Light
+  - first:
+      213: 7866658464808956985
+    second: Esc_Key_Light
+  - first:
+      213: -7904061727353435631
+    second: Mark_Right_Key_Light
+  - first:
+      213: 4809848491654433761
+    second: Arrow_Left_Key_Light
+  - first:
+      213: -6312349478100587380
+    second: Backspace_Key_Light
+  - first:
+      213: -3172506784566476093
+    second: H_Key_Light
+  - first:
+      213: 8066532033760660598
+    second: D_Key_Light
+  - first:
+      213: -6785255726154250419
+    second: T_Key_Light
+  - first:
+      213: -28842079938839942
+    second: F_Key_Light
+  - first:
+      213: 8959026387525413869
+    second: Page_Up_Key_Light
+  - first:
+      213: 8811207925418458329
+    second: Mark_Left_Key_Light
+  - first:
+      213: -4260822508751985913
+    second: Mouse_Left_Key_Light
+  - first:
+      213: 8571109880003328876
+    second: F12_Key_Light
+  - first:
+      213: -8542427791487961202
+    second: Plus_Key_Light
+  - first:
+      213: -5506985827559719191
+    second: 8_Key_Light
+  - first:
+      213: 3404485857120866029
+    second: Backspace_Alt_Key_Light
+  - first:
+      213: -360289897305198746
+    second: Enter_Alt_Key_Light
+  - first:
+      213: -7233892425095304037
+    second: A_Key_Light
+  - first:
+      213: 7345711479333383985
+    second: End_Key_Light
+  - first:
+      213: 8184890554019654732
+    second: Shift_Alt_Key_Light
+  - first:
+      213: 148448043294909864
+    second: G_Key_Light
+  - first:
+      213: 2221275078650874750
+    second: J_Key_Light
+  - first:
+      213: -6784316273231676528
+    second: Arrow_Right_Key_Light
+  - first:
+      213: 8498590408665612700
+    second: Home_Key_Light
+  - first:
+      213: -5022959992071624536
+    second: Tilda_Key_Light
+  - first:
+      213: -635478088740238373
+    second: 7_Key_Light
+  - first:
+      213: 524758866000091826
+    second: I_Key_Light
+  - first:
+      213: -3760716764379525563
+    second: F4_Key_Light
+  - first:
+      213: 395634662018802686
+    second: Enter_Tall_Key_Light
+  - first:
+      213: -7898300397911718877
+    second: X_Key_Light
+  - first:
+      213: -3860375539209390402
+    second: 0_Key_Light
+  - first:
+      213: 537554842821200747
+    second: V_Key_Light
+  - first:
+      213: -4418029790252517583
+    second: 5_Key_Light
+  - first:
+      213: 9076131057530981246
+    second: P_Key_Light
+  - first:
+      213: -6065751530305534598
+    second: F8_Key_Light
+  - first:
+      213: 3156097059786225916
+    second: F5_Key_Light
+  - first:
+      213: 115980804713299264
+    second: L_Key_Light
+  - first:
+      213: -130583682487179327
+    second: F3_Key_Light
+  - first:
+      213: -1190912325562640176
+    second: 2_Key_Light
+  - first:
+      213: 5513598669340100276
+    second: Del_Key_Light
+  - first:
+      213: 2902936165014712063
+    second: S_Key_Light
+  - first:
+      213: 7947623982262148255
+    second: 6_Key_Light
+  - first:
+      213: -7583291822568434944
+    second: Slash_Key_Light
+  - first:
+      213: 3641433426253888362
+    second: Space_Key_Light
+  - first:
+      213: 2318741587959413829
+    second: Mouse_Right_Key_Light
+  - first:
+      213: -4470240013445947269
+    second: F10_Key_Light
+  - first:
+      213: -3972189217348626858
+    second: R_Key_Light
+  - first:
+      213: 5858207784666276262
+    second: E_Key_Light
+  - first:
+      213: -1550585132109477922
+    second: Minus_Key_Light
+  - first:
+      213: 4030842323859790826
+    second: Alt_Key_Light
+  - first:
+      213: -82475541225189830
+    second: K_Key_Light
+  - first:
+      213: -4985004888499534860
+    second: Plus_Tall_Key_Light
+  - first:
+      213: 1392630212207724496
+    second: Tab_Key_Light
+  - first:
+      213: 3377545203669400244
+    second: O_Key_Light
+  - first:
+      213: 7686687141273002425
+    second: Arrow_Up_Key_Light
+  - first:
+      213: 4595419685386214473
+    second: F11_Key_Light
+  - first:
+      213: -4022552876053974260
+    second: Asterisk_Key_Light
+  - first:
+      213: -5176199216725089061
+    second: F7_Key_Light
+  - first:
+      213: -2057472244765216431
+    second: Mouse_Simple_Key_Light
+  - first:
+      213: 7266838700975151823
+    second: Print_Screen_Key_Light
+  - first:
+      213: 994726581487925458
+    second: Insert_Key_Light
+  - first:
+      213: -2779165521900447794
+    second: Num_Lock_Key_Light
+  - first:
+      213: 6813491860836382171
+    second: Ctrl_Key_Light
+  - first:
+      213: -6797976603605660669
+    second: Bracket_Right_Key_Light
+  - first:
+      213: 7098881601008138143
+    second: Page_Down_Key_Light
+  - first:
+      213: -9003656997852838901
+    second: Enter_Key_Light
+  - first:
+      213: -7297796137000461259
+    second: U_Key_Light
+  - first:
+      213: -5549484952541044803
+    second: Y_Key_Light
+  - first:
+      213: -3092903208056410855
+    second: 10_Key_Light
+  - first:
+      213: -1705384062143986515
+    second: Command_Key_Light
+  - first:
+      213: 7657859250995165391
+    second: Bracket_Left_Key_Light
+  - first:
+      213: 1563841869628303442
+    second: Shift_Key_Light
+  - first:
+      213: 7362836452690811556
+    second: F1_Key_Light
+  - first:
+      213: 8124051566717159
+    second: 9_Key_Light
+  - first:
+      213: -728168780798749478
+    second: Question_Key_Light
+  - first:
+      213: 4889748430316174796
+    second: Semicolon_Key_Light
+  - first:
+      213: -8909548101620043659
+    second: Mouse_Middle_Key_Light
+  - first:
+      213: 2435786613959805628
+    second: N_Key_Light
+  - first:
+      213: -3134338822939710107
+    second: M_Key_Light
+  - first:
+      213: -1970678881192483223
+    second: C_Key_Light
+  - first:
+      213: -6055577391807061407
+    second: 11_Key_Light
+  - first:
+      213: -6541009559146167184
+    second: Caps_Lock_Key_Light
+  - first:
+      213: 2882258075898398358
+    second: W_Key_Light
+  - first:
+      213: 4739825480563666861
+    second: F6_Key_Light
+  - first:
+      213: 6613894469626249163
+    second: 3_Key_Light
+  - first:
+      213: 1375495566741385693
+    second: F2_Key_Light
+  - first:
+      213: 7978703705503345984
+    second: Quote_Key_Light
+  - first:
+      213: 6976399133099847033
+    second: F9_Key_Light
+  - first:
+      213: -2237899693108238611
+    second: 12_Key_Light
+  - first:
+      213: -4671382943894335151
+    second: Z_Key_Light
+  - first:
+      213: -6396672223050538981
+    second: B_Key_Light
+  - first:
+      213: 8179875093254642371
+    second: 4_Key_Light
+  - first:
+      213: -2377559961598734329
+    second: Win_Key_Light
+  - first:
+      213: -91828130498380735
+    second: Arrow_Down_Key_Light
+  externalObjects: {}
+  serializedVersion: 11
+  mipmaps:
+    mipMapMode: 0
+    enableMipMap: 0
+    sRGBTexture: 1
+    linearTexture: 0
+    fadeOut: 0
+    borderMipMap: 0
+    mipMapsPreserveCoverage: 0
+    alphaTestReferenceValue: 0.5
+    mipMapFadeDistanceStart: 1
+    mipMapFadeDistanceEnd: 3
+  bumpmap:
+    convertToNormalMap: 0
+    externalNormalMap: 0
+    heightScale: 0.25
+    normalMapFilter: 0
+  isReadable: 0
+  streamingMipmaps: 0
+  streamingMipmapsPriority: 0
+  vTOnly: 0
+  grayScaleToAlpha: 0
+  generateCubemap: 6
+  cubemapConvolution: 0
+  seamlessCubemap: 0
+  textureFormat: 1
+  maxTextureSize: 2048
+  textureSettings:
+    serializedVersion: 2
+    filterMode: 1
+    aniso: 1
+    mipBias: 0
+    wrapU: 1
+    wrapV: 1
+    wrapW: 1
+  nPOTScale: 0
+  lightmap: 0
+  compressionQuality: 50
+  spriteMode: 2
+  spriteExtrude: 1
+  spriteMeshType: 1
+  alignment: 0
+  spritePivot: {x: 0.5, y: 0.5}
+  spritePixelsToUnits: 100
+  spriteBorder: {x: 0, y: 0, z: 0, w: 0}
+  spriteGenerateFallbackPhysicsShape: 1
+  alphaUsage: 1
+  alphaIsTransparency: 1
+  spriteTessellationDetail: -1
+  textureType: 8
+  textureShape: 1
+  singleChannelComponent: 0
+  flipbookRows: 1
+  flipbookColumns: 1
+  maxTextureSizeSet: 0
+  compressionQualitySet: 0
+  textureFormatSet: 0
+  ignorePngGamma: 0
+  applyGammaDecoding: 0
+  platformSettings:
+  - serializedVersion: 3
+    buildTarget: DefaultTexturePlatform
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 1
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
+  spriteSheet:
+    serializedVersion: 2
+    sprites:
+    - serializedVersion: 2
+      name: 1_Key_Light
+      rect:
+        serializedVersion: 2
+        x: 4
+        y: 4
+        width: 100
+        height: 100
+      alignment: 6
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 8308bcf596c8b3bf0800000000000000
+      internalID: -343526562357084104
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Q_Key_Light
+      rect:
+        serializedVersion: 2
+        x: 112
+        y: 4
+        width: 100
+        height: 100
+      alignment: 6
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 83704a68b1849cca0800000000000000
+      internalID: -5996182145806891208
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Esc_Key_Light
+      rect:
+        serializedVersion: 2
+        x: 4
+        y: 112
+        width: 100
+        height: 100
+      alignment: 6
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 934f144c13cfb2d60800000000000000
+      internalID: 7866658464808956985
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Mark_Right_Key_Light
+      rect:
+        serializedVersion: 2
+        x: 112
+        y: 112
+        width: 100
+        height: 100
+      alignment: 6
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 11a865a8cb12f4290800000000000000
+      internalID: -7904061727353435631
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Arrow_Left_Key_Light
+      rect:
+        serializedVersion: 2
+        x: 220
+        y: 4
+        width: 100
+        height: 100
+      alignment: 6
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 1ebc28038b300c240800000000000000
+      internalID: 4809848491654433761
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Backspace_Key_Light
+      rect:
+        serializedVersion: 2
+        x: 4
+        y: 220
+        width: 100
+        height: 100
+      alignment: 6
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: c8c21bb08970668a0800000000000000
+      internalID: -6312349478100587380
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: H_Key_Light
+      rect:
+        serializedVersion: 2
+        x: 220
+        y: 112
+        width: 100
+        height: 100
+      alignment: 6
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 3c2066a53edf8f3d0800000000000000
+      internalID: -3172506784566476093
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: D_Key_Light
+      rect:
+        serializedVersion: 2
+        x: 112
+        y: 220
+        width: 100
+        height: 100
+      alignment: 6
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 67c0d99752412ff60800000000000000
+      internalID: 8066532033760660598
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: T_Key_Light
+      rect:
+        serializedVersion: 2
+        x: 220
+        y: 220
+        width: 100
+        height: 100
+      alignment: 6
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: d47046ceddde5d1a0800000000000000
+      internalID: -6785255726154250419
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: F_Key_Light
+      rect:
+        serializedVersion: 2
+        x: 328
+        y: 4
+        width: 100
+        height: 100
+      alignment: 6
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: a7a79a6f748899ff0800000000000000
+      internalID: -28842079938839942
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Page_Up_Key_Light
+      rect:
+        serializedVersion: 2
+        x: 4
+        y: 328
+        width: 100
+        height: 100
+      alignment: 6
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: debadc1580bd45c70800000000000000
+      internalID: 8959026387525413869
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Mark_Left_Key_Light
+      rect:
+        serializedVersion: 2
+        x: 328
+        y: 112
+        width: 100
+        height: 100
+      alignment: 6
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 9dc7ca4ace2b74a70800000000000000
+      internalID: 8811207925418458329
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Mouse_Left_Key_Light
+      rect:
+        serializedVersion: 2
+        x: 112
+        y: 328
+        width: 100
+        height: 100
+      alignment: 6
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 70369dac0848ed4c0800000000000000
+      internalID: -4260822508751985913
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: F12_Key_Light
+      rect:
+        serializedVersion: 2
+        x: 328
+        y: 220
+        width: 100
+        height: 100
+      alignment: 6
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: c6b70703603b2f670800000000000000
+      internalID: 8571109880003328876
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Plus_Key_Light
+      rect:
+        serializedVersion: 2
+        x: 220
+        y: 328
+        width: 100
+        height: 100
+      alignment: 6
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: e877fe0fe23337980800000000000000
+      internalID: -8542427791487961202
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: 8_Key_Light
+      rect:
+        serializedVersion: 2
+        x: 328
+        y: 328
+        width: 100
+        height: 100
+      alignment: 6
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 9ee313d21914393b0800000000000000
+      internalID: -5506985827559719191
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Backspace_Alt_Key_Light
+      rect:
+        serializedVersion: 2
+        x: 436
+        y: 4
+        width: 100
+        height: 100
+      alignment: 6
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: deec78c69d92f3f20800000000000000
+      internalID: 3404485857120866029
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Enter_Alt_Key_Light
+      rect:
+        serializedVersion: 2
+        x: 4
+        y: 436
+        width: 100
+        height: 100
+      alignment: 6
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 66f26fe4f3efffaf0800000000000000
+      internalID: -360289897305198746
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: A_Key_Light
+      rect:
+        serializedVersion: 2
+        x: 436
+        y: 112
+        width: 100
+        height: 100
+      alignment: 6
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: b9c2eca8a2d0c9b90800000000000000
+      internalID: -7233892425095304037
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: End_Key_Light
+      rect:
+        serializedVersion: 2
+        x: 112
+        y: 436
+        width: 100
+        height: 100
+      alignment: 6
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 13fec24dba531f560800000000000000
+      internalID: 7345711479333383985
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Shift_Alt_Key_Light
+      rect:
+        serializedVersion: 2
+        x: 436
+        y: 220
+        width: 100
+        height: 100
+      alignment: 6
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: c4caacde792969170800000000000000
+      internalID: 8184890554019654732
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: G_Key_Light
+      rect:
+        serializedVersion: 2
+        x: 220
+        y: 436
+        width: 100
+        height: 100
+      alignment: 6
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 8a5e13875b46f0200800000000000000
+      internalID: 148448043294909864
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: J_Key_Light
+      rect:
+        serializedVersion: 2
+        x: 436
+        y: 328
+        width: 100
+        height: 100
+      alignment: 6
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: e7bc96b4aed83de10800000000000000
+      internalID: 2221275078650874750
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Arrow_Right_Key_Light
+      rect:
+        serializedVersion: 2
+        x: 328
+        y: 436
+        width: 100
+        height: 100
+      alignment: 6
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 09bbf1a5b4449d1a0800000000000000
+      internalID: -6784316273231676528
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Home_Key_Light
+      rect:
+        serializedVersion: 2
+        x: 436
+        y: 436
+        width: 100
+        height: 100
+      alignment: 6
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: c914e0003fe01f570800000000000000
+      internalID: 8498590408665612700
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Tilda_Key_Light
+      rect:
+        serializedVersion: 2
+        x: 544
+        y: 4
+        width: 100
+        height: 100
+      alignment: 6
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 8a8629fff7cda4ab0800000000000000
+      internalID: -5022959992071624536
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: 7_Key_Light
+      rect:
+        serializedVersion: 2
+        x: 4
+        y: 544
+        width: 100
+        height: 100
+      alignment: 6
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: bdb08129b045e27f0800000000000000
+      internalID: -635478088740238373
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: I_Key_Light
+      rect:
+        serializedVersion: 2
+        x: 544
+        y: 112
+        width: 100
+        height: 100
+      alignment: 6
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 2ba1ca88861584700800000000000000
+      internalID: 524758866000091826
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: F4_Key_Light
+      rect:
+        serializedVersion: 2
+        x: 112
+        y: 544
+        width: 100
+        height: 100
+      alignment: 6
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 54e4d4627004fcbc0800000000000000
+      internalID: -3760716764379525563
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Enter_Tall_Key_Light
+      rect:
+        serializedVersion: 2
+        x: 544
+        y: 220
+        width: 100
+        height: 100
+      alignment: 6
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: ef3667201a39d7500800000000000000
+      internalID: 395634662018802686
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: X_Key_Light
+      rect:
+        serializedVersion: 2
+        x: 220
+        y: 544
+        width: 100
+        height: 100
+      alignment: 6
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 324452592a9936290800000000000000
+      internalID: -7898300397911718877
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: 0_Key_Light
+      rect:
+        serializedVersion: 2
+        x: 544
+        y: 328
+        width: 100
+        height: 100
+      alignment: 6
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: eb631d576e03d6ac0800000000000000
+      internalID: -3860375539209390402
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: V_Key_Light
+      rect:
+        serializedVersion: 2
+        x: 328
+        y: 544
+        width: 100
+        height: 100
+      alignment: 6
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: b6b06ad0847c57700800000000000000
+      internalID: 537554842821200747
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: 5_Key_Light
+      rect:
+        serializedVersion: 2
+        x: 544
+        y: 436
+        width: 100
+        height: 100
+      alignment: 6
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 137b7e0405100b2c0800000000000000
+      internalID: -4418029790252517583
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: P_Key_Light
+      rect:
+        serializedVersion: 2
+        x: 436
+        y: 544
+        width: 100
+        height: 100
+      alignment: 6
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: e7b46030c15e4fd70800000000000000
+      internalID: 9076131057530981246
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: F8_Key_Light
+      rect:
+        serializedVersion: 2
+        x: 544
+        y: 544
+        width: 100
+        height: 100
+      alignment: 6
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: a754b54fe1f12dba0800000000000000
+      internalID: -6065751530305534598
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: F5_Key_Light
+      rect:
+        serializedVersion: 2
+        x: 652
+        y: 4
+        width: 100
+        height: 100
+      alignment: 6
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: cf8763ddd85bccb20800000000000000
+      internalID: 3156097059786225916
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: L_Key_Light
+      rect:
+        serializedVersion: 2
+        x: 4
+        y: 652
+        width: 100
+        height: 100
+      alignment: 6
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 04d33b96deb0c9100800000000000000
+      internalID: 115980804713299264
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: F3_Key_Light
+      rect:
+        serializedVersion: 2
+        x: 652
+        y: 112
+        width: 100
+        height: 100
+      alignment: 6
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 1c7a3e725d2103ef0800000000000000
+      internalID: -130583682487179327
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: 2_Key_Light
+      rect:
+        serializedVersion: 2
+        x: 112
+        y: 652
+        width: 100
+        height: 100
+      alignment: 6
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 0d85434bc87097fe0800000000000000
+      internalID: -1190912325562640176
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Del_Key_Light
+      rect:
+        serializedVersion: 2
+        x: 652
+        y: 220
+        width: 100
+        height: 100
+      alignment: 6
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 4b6451807cc348c40800000000000000
+      internalID: 5513598669340100276
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: S_Key_Light
+      rect:
+        serializedVersion: 2
+        x: 220
+        y: 652
+        width: 100
+        height: 100
+      alignment: 6
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: ffe2659cf0d494820800000000000000
+      internalID: 2902936165014712063
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: 6_Key_Light
+      rect:
+        serializedVersion: 2
+        x: 652
+        y: 328
+        width: 100
+        height: 100
+      alignment: 6
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: f9c5c1f47e1ab4e60800000000000000
+      internalID: 7947623982262148255
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Slash_Key_Light
+      rect:
+        serializedVersion: 2
+        x: 328
+        y: 652
+        width: 100
+        height: 100
+      alignment: 6
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 0031fafe34cb2c690800000000000000
+      internalID: -7583291822568434944
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Space_Key_Light
+      rect:
+        serializedVersion: 2
+        x: 652
+        y: 436
+        width: 100
+        height: 100
+      alignment: 6
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: a6bb8157868f88230800000000000000
+      internalID: 3641433426253888362
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Mouse_Right_Key_Light
+      rect:
+        serializedVersion: 2
+        x: 436
+        y: 652
+        width: 100
+        height: 100
+      alignment: 6
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 54cfe346033dd2020800000000000000
+      internalID: 2318741587959413829
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: F10_Key_Light
+      rect:
+        serializedVersion: 2
+        x: 652
+        y: 544
+        width: 100
+        height: 100
+      alignment: 6
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: b7021d1646486f1c0800000000000000
+      internalID: -4470240013445947269
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: R_Key_Light
+      rect:
+        serializedVersion: 2
+        x: 544
+        y: 652
+        width: 100
+        height: 100
+      alignment: 6
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 6565c4fc3f2ffd8c0800000000000000
+      internalID: -3972189217348626858
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: E_Key_Light
+      rect:
+        serializedVersion: 2
+        x: 652
+        y: 652
+        width: 100
+        height: 100
+      alignment: 6
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 6a1267921f88c4150800000000000000
+      internalID: 5858207784666276262
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Minus_Key_Light
+      rect:
+        serializedVersion: 2
+        x: 760
+        y: 4
+        width: 100
+        height: 100
+      alignment: 6
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: ed7cc96a9073b7ae0800000000000000
+      internalID: -1550585132109477922
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Alt_Key_Light
+      rect:
+        serializedVersion: 2
+        x: 4
+        y: 760
+        width: 100
+        height: 100
+      alignment: 6
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: aebd54bbcbd60f730800000000000000
+      internalID: 4030842323859790826
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: K_Key_Light
+      rect:
+        serializedVersion: 2
+        x: 760
+        y: 112
+        width: 100
+        height: 100
+      alignment: 6
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: a3e4d96aeecfadef0800000000000000
+      internalID: -82475541225189830
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Plus_Tall_Key_Light
+      rect:
+        serializedVersion: 2
+        x: 112
+        y: 760
+        width: 100
+        height: 100
+      alignment: 6
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 4f346613774b1dab0800000000000000
+      internalID: -4985004888499534860
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Tab_Key_Light
+      rect:
+        serializedVersion: 2
+        x: 760
+        y: 220
+        width: 100
+        height: 100
+      alignment: 6
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 0d74e1eaccd935310800000000000000
+      internalID: 1392630212207724496
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: O_Key_Light
+      rect:
+        serializedVersion: 2
+        x: 220
+        y: 760
+        width: 100
+        height: 100
+      alignment: 6
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 4baf98db7737fde20800000000000000
+      internalID: 3377545203669400244
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Arrow_Up_Key_Light
+      rect:
+        serializedVersion: 2
+        x: 760
+        y: 328
+        width: 100
+        height: 100
+      alignment: 6
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 9b1e32baa399caa60800000000000000
+      internalID: 7686687141273002425
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: F11_Key_Light
+      rect:
+        serializedVersion: 2
+        x: 328
+        y: 760
+        width: 100
+        height: 100
+      alignment: 6
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 94c58453bd536cf30800000000000000
+      internalID: 4595419685386214473
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Asterisk_Key_Light
+      rect:
+        serializedVersion: 2
+        x: 760
+        y: 436
+        width: 100
+        height: 100
+      alignment: 6
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: c03b39cb8750d28c0800000000000000
+      internalID: -4022552876053974260
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: F7_Key_Light
+      rect:
+        serializedVersion: 2
+        x: 436
+        y: 760
+        width: 100
+        height: 100
+      alignment: 6
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: bd42270bc327a28b0800000000000000
+      internalID: -5176199216725089061
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Mouse_Simple_Key_Light
+      rect:
+        serializedVersion: 2
+        x: 760
+        y: 544
+        width: 100
+        height: 100
+      alignment: 6
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 1513b83f4e36273e0800000000000000
+      internalID: -2057472244765216431
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Print_Screen_Key_Light
+      rect:
+        serializedVersion: 2
+        x: 544
+        y: 760
+        width: 100
+        height: 100
+      alignment: 6
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: fca5fa31c4ff8d460800000000000000
+      internalID: 7266838700975151823
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Insert_Key_Light
+      rect:
+        serializedVersion: 2
+        x: 760
+        y: 652
+        width: 100
+        height: 100
+      alignment: 6
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 2d8f93a3e8afdcd00800000000000000
+      internalID: 994726581487925458
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Num_Lock_Key_Light
+      rect:
+        serializedVersion: 2
+        x: 652
+        y: 760
+        width: 100
+        height: 100
+      alignment: 6
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: ec75c17beab6e69d0800000000000000
+      internalID: -2779165521900447794
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Ctrl_Key_Light
+      rect:
+        serializedVersion: 2
+        x: 760
+        y: 760
+        width: 100
+        height: 100
+      alignment: 6
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: bd5fa2d7fb26e8e50800000000000000
+      internalID: 6813491860836382171
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Bracket_Right_Key_Light
+      rect:
+        serializedVersion: 2
+        x: 868
+        y: 4
+        width: 100
+        height: 100
+      alignment: 6
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 30c0ba6db4cb8a1a0800000000000000
+      internalID: -6797976603605660669
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Page_Down_Key_Light
+      rect:
+        serializedVersion: 2
+        x: 4
+        y: 868
+        width: 100
+        height: 100
+      alignment: 6
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: f9775a2643b448260800000000000000
+      internalID: 7098881601008138143
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Enter_Key_Light
+      rect:
+        serializedVersion: 2
+        x: 868
+        y: 112
+        width: 100
+        height: 100
+      alignment: 6
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: b048583f9a59c0380800000000000000
+      internalID: -9003656997852838901
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: U_Key_Light
+      rect:
+        serializedVersion: 2
+        x: 112
+        y: 868
+        width: 100
+        height: 100
+      alignment: 6
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 53c9eda241509ba90800000000000000
+      internalID: -7297796137000461259
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Y_Key_Light
+      rect:
+        serializedVersion: 2
+        x: 868
+        y: 220
+        width: 100
+        height: 100
+      alignment: 6
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: dbf5a6d86d44cf2b0800000000000000
+      internalID: -5549484952541044803
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: 10_Key_Light
+      rect:
+        serializedVersion: 2
+        x: 220
+        y: 868
+        width: 100
+        height: 100
+      alignment: 6
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 91da12f4becc315d0800000000000000
+      internalID: -3092903208056410855
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Command_Key_Light
+      rect:
+        serializedVersion: 2
+        x: 868
+        y: 328
+        width: 100
+        height: 100
+      alignment: 6
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: da48b422b324558e0800000000000000
+      internalID: -1705384062143986515
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Bracket_Left_Key_Light
+      rect:
+        serializedVersion: 2
+        x: 328
+        y: 868
+        width: 100
+        height: 100
+      alignment: 6
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: fc8718b6a6e264a60800000000000000
+      internalID: 7657859250995165391
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Shift_Key_Light
+      rect:
+        serializedVersion: 2
+        x: 868
+        y: 436
+        width: 100
+        height: 100
+      alignment: 6
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 258e31415e1e3b510800000000000000
+      internalID: 1563841869628303442
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: F1_Key_Light
+      rect:
+        serializedVersion: 2
+        x: 436
+        y: 868
+        width: 100
+        height: 100
+      alignment: 6
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 4aadee56ebc0e2660800000000000000
+      internalID: 7362836452690811556
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: 9_Key_Light
+      rect:
+        serializedVersion: 2
+        x: 868
+        y: 544
+        width: 100
+        height: 100
+      alignment: 6
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 7e865c728ccdc1000800000000000000
+      internalID: 8124051566717159
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Question_Key_Light
+      rect:
+        serializedVersion: 2
+        x: 544
+        y: 868
+        width: 100
+        height: 100
+      alignment: 6
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: ad416f31a5605e5f0800000000000000
+      internalID: -728168780798749478
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Semicolon_Key_Light
+      rect:
+        serializedVersion: 2
+        x: 868
+        y: 652
+        width: 100
+        height: 100
+      alignment: 6
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: ccdf4065a40ebd340800000000000000
+      internalID: 4889748430316174796
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Mouse_Middle_Key_Light
+      rect:
+        serializedVersion: 2
+        x: 652
+        y: 868
+        width: 100
+        height: 100
+      alignment: 6
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 5707ea5d43dea5480800000000000000
+      internalID: -8909548101620043659
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: N_Key_Light
+      rect:
+        serializedVersion: 2
+        x: 868
+        y: 760
+        width: 100
+        height: 100
+      alignment: 6
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: cbac9b12507adc120800000000000000
+      internalID: 2435786613959805628
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: M_Key_Light
+      rect:
+        serializedVersion: 2
+        x: 760
+        y: 868
+        width: 100
+        height: 100
+      alignment: 6
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 56d66fc62779084d0800000000000000
+      internalID: -3134338822939710107
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: C_Key_Light
+      rect:
+        serializedVersion: 2
+        x: 868
+        y: 868
+        width: 100
+        height: 100
+      alignment: 6
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 9666828affdb6a4e0800000000000000
+      internalID: -1970678881192483223
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: 11_Key_Light
+      rect:
+        serializedVersion: 2
+        x: 976
+        y: 4
+        width: 100
+        height: 100
+      alignment: 6
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 162247b227446fba0800000000000000
+      internalID: -6055577391807061407
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Caps_Lock_Key_Light
+      rect:
+        serializedVersion: 2
+        x: 4
+        y: 976
+        width: 100
+        height: 100
+      alignment: 6
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 07488a2367aa935a0800000000000000
+      internalID: -6541009559146167184
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: W_Key_Light
+      rect:
+        serializedVersion: 2
+        x: 976
+        y: 112
+        width: 100
+        height: 100
+      alignment: 6
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 696ccecf276dff720800000000000000
+      internalID: 2882258075898398358
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: F6_Key_Light
+      rect:
+        serializedVersion: 2
+        x: 112
+        y: 976
+        width: 100
+        height: 100
+      alignment: 6
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: dafa752792e37c140800000000000000
+      internalID: 4739825480563666861
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: 3_Key_Light
+      rect:
+        serializedVersion: 2
+        x: 976
+        y: 220
+        width: 100
+        height: 100
+      alignment: 6
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: bcf3efb6af549cb50800000000000000
+      internalID: 6613894469626249163
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: F2_Key_Light
+      rect:
+        serializedVersion: 2
+        x: 220
+        y: 976
+        width: 100
+        height: 100
+      alignment: 6
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: dd1beb52eedb61310800000000000000
+      internalID: 1375495566741385693
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Quote_Key_Light
+      rect:
+        serializedVersion: 2
+        x: 976
+        y: 328
+        width: 100
+        height: 100
+      alignment: 6
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 04dae964fbc0abe60800000000000000
+      internalID: 7978703705503345984
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: F9_Key_Light
+      rect:
+        serializedVersion: 2
+        x: 328
+        y: 976
+        width: 100
+        height: 100
+      alignment: 6
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 97d62cb8c0621d060800000000000000
+      internalID: 6976399133099847033
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: 12_Key_Light
+      rect:
+        serializedVersion: 2
+        x: 976
+        y: 436
+        width: 100
+        height: 100
+      alignment: 6
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: de6e355061261f0e0800000000000000
+      internalID: -2237899693108238611
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Z_Key_Light
+      rect:
+        serializedVersion: 2
+        x: 436
+        y: 976
+        width: 100
+        height: 100
+      alignment: 6
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 1511c5b66f9eb2fb0800000000000000
+      internalID: -4671382943894335151
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: B_Key_Light
+      rect:
+        serializedVersion: 2
+        x: 976
+        y: 544
+        width: 100
+        height: 100
+      alignment: 6
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: b10e67011847a37a0800000000000000
+      internalID: -6396672223050538981
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: 4_Key_Light
+      rect:
+        serializedVersion: 2
+        x: 544
+        y: 976
+        width: 100
+        height: 100
+      alignment: 6
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 3ca1288fe01c48170800000000000000
+      internalID: 8179875093254642371
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Win_Key_Light
+      rect:
+        serializedVersion: 2
+        x: 976
+        y: 652
+        width: 100
+        height: 100
+      alignment: 6
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 70057b0dfc5310fd0800000000000000
+      internalID: -2377559961598734329
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Arrow_Down_Key_Light
+      rect:
+        serializedVersion: 2
+        x: 652
+        y: 976
+        width: 100
+        height: 100
+      alignment: 6
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 14c71454dc2c9bef0800000000000000
+      internalID: -91828130498380735
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    outline: []
+    physicsShape: []
+    bones: []
+    spriteID: 
+    internalID: 0
+    vertices: []
+    indices: 
+    edges: []
+    weights: []
+    secondaryTextures: []
+  spritePackingTag: 
+  pSDRemoveMatte: 0
+  pSDShowRemoveMatteOption: 0
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 

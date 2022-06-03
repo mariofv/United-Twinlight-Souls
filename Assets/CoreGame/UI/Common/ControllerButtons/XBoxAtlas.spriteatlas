@@ -1,0 +1,108 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!687078895 &4343727234628468602
+SpriteAtlas:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_Name: XBoxAtlas
+  m_EditorData:
+    serializedVersion: 2
+    textureSettings:
+      serializedVersion: 2
+      anisoLevel: 1
+      compressionQuality: 50
+      maxTextureSize: 2048
+      textureCompression: 0
+      filterMode: 1
+      generateMipMaps: 0
+      readable: 0
+      crunchedCompression: 0
+      sRGB: 1
+    platformSettings: []
+    packingSettings:
+      serializedVersion: 2
+      padding: 4
+      blockOffset: 1
+      allowAlphaSplitting: 0
+      enableRotation: 1
+      enableTightPacking: 1
+    secondaryTextureSettings: {}
+    variantMultiplier: 1
+    packables:
+    - {fileID: 2800000, guid: 36100bdb9c0551d46842c3b25845553d, type: 3}
+    - {fileID: 2800000, guid: 031c6ddbbe22d984dbcef752ffed263d, type: 3}
+    - {fileID: 2800000, guid: be067951d9157704ca6aeccf34b48f81, type: 3}
+    - {fileID: 2800000, guid: 448884ebd8e7dbe49bd3ab8af76ef77f, type: 3}
+    - {fileID: 2800000, guid: 878d5bd3ad307284f9d50d944aed66f9, type: 3}
+    - {fileID: 2800000, guid: 018c66128c6c15c4db534108d40bd9fb, type: 3}
+    - {fileID: 2800000, guid: e330c77fb550b8141bc4268daec9e66f, type: 3}
+    - {fileID: 2800000, guid: f4084a1c5bef4614aa4443ec0bca56aa, type: 3}
+    - {fileID: 2800000, guid: bd83ef1cc9b7b2a4880f21e4a02581d6, type: 3}
+    - {fileID: 2800000, guid: 1d0b4058c213d6c49a4b9e2004ef2709, type: 3}
+    - {fileID: 2800000, guid: 7c72121a602ea1c4cbb96bf2f3c06b6d, type: 3}
+    - {fileID: 2800000, guid: 03e679f40186cc447a18118f0d7cd08f, type: 3}
+    - {fileID: 2800000, guid: e545cdc7b9d0ed34a8b2efc6e7558d69, type: 3}
+    - {fileID: 2800000, guid: 739bac567b07d5d44ae66657585e8da1, type: 3}
+    - {fileID: 2800000, guid: 4742c71f8fdf4d8459e6057aee7032de, type: 3}
+    - {fileID: 2800000, guid: df044c4832249d5488fd6cdd539cd70e, type: 3}
+    - {fileID: 2800000, guid: 971d911bbea6b0e46ad240b149edd05c, type: 3}
+    - {fileID: 2800000, guid: 4fa0b7d6ba285fc44b2678081ae6ddb5, type: 3}
+    - {fileID: 2800000, guid: eab160a0ce19a8f42aecd1b198a3d358, type: 3}
+    - {fileID: 2800000, guid: 1d862663550e61d42ad146b4fca2c512, type: 3}
+    - {fileID: 2800000, guid: 05acdac18c32d704fb9f89fef8616e04, type: 3}
+    - {fileID: 2800000, guid: 7509587c3a5ba32458889d86bb3da4b2, type: 3}
+    bindAsDefault: 0
+    isAtlasV2: 0
+    cachedData: {fileID: 0}
+  m_MasterAtlas: {fileID: 0}
+  m_PackedSprites:
+  - {fileID: 21300000, guid: eab160a0ce19a8f42aecd1b198a3d358, type: 3}
+  - {fileID: 21300000, guid: be067951d9157704ca6aeccf34b48f81, type: 3}
+  - {fileID: 21300000, guid: 05acdac18c32d704fb9f89fef8616e04, type: 3}
+  - {fileID: 21300000, guid: 018c66128c6c15c4db534108d40bd9fb, type: 3}
+  - {fileID: 21300000, guid: 1d862663550e61d42ad146b4fca2c512, type: 3}
+  - {fileID: 21300000, guid: 878d5bd3ad307284f9d50d944aed66f9, type: 3}
+  - {fileID: 21300000, guid: 03e679f40186cc447a18118f0d7cd08f, type: 3}
+  - {fileID: 21300000, guid: 739bac567b07d5d44ae66657585e8da1, type: 3}
+  - {fileID: 21300000, guid: 4fa0b7d6ba285fc44b2678081ae6ddb5, type: 3}
+  - {fileID: 21300000, guid: e545cdc7b9d0ed34a8b2efc6e7558d69, type: 3}
+  - {fileID: 21300000, guid: df044c4832249d5488fd6cdd539cd70e, type: 3}
+  - {fileID: 21300000, guid: 1d0b4058c213d6c49a4b9e2004ef2709, type: 3}
+  - {fileID: 21300000, guid: 7c72121a602ea1c4cbb96bf2f3c06b6d, type: 3}
+  - {fileID: 21300000, guid: 971d911bbea6b0e46ad240b149edd05c, type: 3}
+  - {fileID: 21300000, guid: 36100bdb9c0551d46842c3b25845553d, type: 3}
+  - {fileID: 21300000, guid: 031c6ddbbe22d984dbcef752ffed263d, type: 3}
+  - {fileID: 21300000, guid: 448884ebd8e7dbe49bd3ab8af76ef77f, type: 3}
+  - {fileID: 21300000, guid: f4084a1c5bef4614aa4443ec0bca56aa, type: 3}
+  - {fileID: 21300000, guid: bd83ef1cc9b7b2a4880f21e4a02581d6, type: 3}
+  - {fileID: 21300000, guid: 7509587c3a5ba32458889d86bb3da4b2, type: 3}
+  - {fileID: 21300000, guid: 4742c71f8fdf4d8459e6057aee7032de, type: 3}
+  - {fileID: 21300000, guid: e330c77fb550b8141bc4268daec9e66f, type: 3}
+  m_PackedSpriteNamesToIndex:
+  - XboxSeriesX_Share
+  - XboxSeriesX_Diagram
+  - XboxSeriesX_X
+  - XboxSeriesX_Dpad_Down
+  - XboxSeriesX_View
+  - XboxSeriesX_Dpad
+  - XboxSeriesX_Left_Stick_Click
+  - XboxSeriesX_Menu
+  - XboxSeriesX_RT
+  - XboxSeriesX_LT
+  - XboxSeriesX_Right_Stick
+  - XboxSeriesX_LB
+  - XboxSeriesX_Left_Stick
+  - XboxSeriesX_Right_Stick_Click
+  - XboxSeriesX_A
+  - XboxSeriesX_B
+  - XboxSeriesX_Diagram_Simple
+  - XboxSeriesX_Dpad_Right
+  - XboxSeriesX_Dpad_Up
+  - XboxSeriesX_Y
+  - XboxSeriesX_RB
+  - XboxSeriesX_Dpad_Left
+  m_RenderDataMap: {}
+  m_Tag: XBoxAtlas
+  m_IsVariant: 0
