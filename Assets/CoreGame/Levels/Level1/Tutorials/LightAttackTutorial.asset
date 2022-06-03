@@ -12,7 +12,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 5bdb68d569066e1468145be64d03fd27, type: 3}
   m_Name: LightAttackTutorial
   m_EditorClassIdentifier: 
-  pcText: Press <sprite="KeyboadAtlas" name="J_Key_Light"> to do a <color="blue">
+  pcText: Press <sprite="KeyboardAtlas" name="J_Key_Light"> to do a <color="green">
     light attack</color>
-  psText: 
-  xboxText: 
+  psText: Press <sprite="PSAtlas" name="PS5_Square"> to do a <color="green"> light
+    attack</color>
+  xboxText: Press <sprite="XBoxAtlas" name="XboxSeriesX_X"> to do a <color="green">
+    light attack</color>

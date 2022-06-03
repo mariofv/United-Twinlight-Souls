@@ -50,8 +50,13 @@ public class LevelManager : MonoBehaviour
         lastCheckPoint = null;
 
         GameManager.instance.audioManager.SetCurrentLevelMusic(gameLevels[level].levelMusic);
+
+        if (currentLevel.introLevelCinematic == null)
+        {
+            GameManager.instance.player.GetControlledCharacter().Teleport(currentLevel.startPosition.position);
+        }
+
         GameManager.instance.player.GetNotControlledCharacter().Teleport(currentLevel.voidPosition.position);
-        GameManager.instance.player.GetControlledCharacter().Teleport(currentLevel.startPosition.position);
         GameManager.instance.player.GetControlledCharacter().characterStatsManager.SetFullHealth();
         GameManager.instance.cameraManager.LoadCamera(currentLevel.GetCurrentCamera());
 
@@ -72,7 +77,14 @@ public class LevelManager : MonoBehaviour
         if (currentLevel.introLevelCinematic != null)
         {
             GameManager.instance.cinematicManager.PlayCinematic(currentLevel.introLevelCinematic);
+            currentLevel.introLevelCinematic.onCinematicEnd.AddListener(OnIntroCinematicEnd);
         }
+    }
+
+    private void OnIntroCinematicEnd()
+    {
+        currentLevel.introLevelCinematic.onCinematicEnd.RemoveListener(OnIntroCinematicEnd);
+        GameManager.instance.player.GetControlledCharacter().Teleport(currentLevel.startPosition.position);
     }
 
     public void Respawn()
