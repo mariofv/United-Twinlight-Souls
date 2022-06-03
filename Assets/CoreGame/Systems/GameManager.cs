@@ -45,6 +45,7 @@ public class GameManager : MonoBehaviour
     public LevelManager levelManager;
     public LootManager lootManager;
     public ScenesManager scenesManager;
+    public TutorialManager tutorialManager;
     public UIManager uiManager;
 
     // Start is called before the first frame update

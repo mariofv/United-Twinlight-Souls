@@ -10,6 +10,7 @@ public class GameUIManager : MonoBehaviour
     public HUDUI hudUI;
     public LockUI lockUI;
     public PauseUI pauseUI;
+    public TutorialUI tutorialUI;
 
     public void HideAll()
     {
