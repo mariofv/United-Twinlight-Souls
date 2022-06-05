@@ -115,6 +115,9 @@ MonoBehaviour:
   npc: {fileID: 5398721095669554222}
   interactionDialogue: {fileID: 0}
   interactionCamera: {fileID: 1830491015262610475}
+  playerDetectionCollider: {fileID: 2009233046178451791}
+  npcRenderer: {fileID: 7455246467341242588}
+  transitionTime: 0.75
 --- !u!1 &6039917629216850269
 GameObject:
   m_ObjectHideFlags: 0
@@ -261,5 +264,21 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 99bc3c5fd398ada45b1fc5413c594781, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+--- !u!137 &7455246467341242588 stripped
+SkinnedMeshRenderer:
+  m_CorrespondingSourceObject: {fileID: 2847488739712300948, guid: bbe39fa0d9bcae847a1ad48fa8f30d2a, type: 3}
+  m_PrefabInstance: {fileID: 4679825801391482696}
+  m_PrefabAsset: {fileID: 0}
+--- !u!114 &2009233046178451791 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 6561795281368970759, guid: bbe39fa0d9bcae847a1ad48fa8f30d2a, type: 3}
+  m_PrefabInstance: {fileID: 4679825801391482696}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 345ca91d4d590f0409b90822a1c70e54, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 

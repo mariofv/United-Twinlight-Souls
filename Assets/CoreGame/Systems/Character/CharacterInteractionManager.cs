@@ -37,7 +37,12 @@ public class CharacterInteractionManager : CharacterSubManager
 
     public bool CanInteract()
     {
-        return npcInteraction != null;
+        if (npcInteraction == null)
+        {
+            return false;
+        }
+
+        return npcInteraction.IsAvailable();
     }
 
     private void OnTriggerEnter(Collider other)
