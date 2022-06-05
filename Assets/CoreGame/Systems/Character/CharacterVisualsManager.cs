@@ -35,7 +35,7 @@ public class CharacterVisualsManager : CharacterSubManager
             float progress = Mathf.Min(currentTime / transitionTime, 1f);
 
             Color newColor = new Color(1f, 1f, 1f, progress);
-            characterRenderer.material.SetColor("_Color", newColor);
+            characterRenderer.material.SetColor("_BaseColor", newColor);
 
             if (progress == 1f)
             {
@@ -49,7 +49,7 @@ public class CharacterVisualsManager : CharacterSubManager
             float progress = Mathf.Min(currentTime / transitionTime, 1f);
 
             Color newColor = new Color(1f, 1f, 1f, 1f - progress);
-            characterRenderer.material.SetColor("_Color", newColor);
+            characterRenderer.material.SetColor("_BaseColor", newColor);
             
             if (progress == 1f)
             {
