@@ -10,7 +10,7 @@ public class Tutorial : MonoBehaviour
 
     private void Update()
     {
-        if (currentTutorialEvent == -1)
+        if (currentTutorialEvent < 0 || currentTutorialEvent >= tutorialEvents.Count)
         { 
             return;
         }
@@ -34,7 +34,7 @@ public class Tutorial : MonoBehaviour
 
     private void StartTutorialEvent(TutorialEvent tutorialEvent)
     {
-        tutorialEvent.StartEvent();
+        tutorialEvent.StartEvent(this);
         tutorialEvent.onTutorialEventEnd.AddListener(OnTutorialEventEnd);
     }
 
@@ -43,11 +43,7 @@ public class Tutorial : MonoBehaviour
         tutorialEvent.onTutorialEventEnd.RemoveListener(OnTutorialEventEnd);
 
         ++currentTutorialEvent;
-        if (currentTutorialEvent == tutorialEvents.Count)
-        {
-            EndTutorial();
-        }
-        else
+        if (currentTutorialEvent != tutorialEvents.Count)
         {
             StartTutorialEvent(tutorialEvents[currentTutorialEvent]);
         }
@@ -80,7 +76,7 @@ public class Tutorial : MonoBehaviour
 
         public virtual void Update(float deltaTime) { }
 
-        public abstract void StartEvent();
+        public abstract void StartEvent(Tutorial tutorialOwner);
         protected virtual void EndEventSpecialized() {}
         public void EndEvent()
         {
@@ -92,9 +88,13 @@ public class Tutorial : MonoBehaviour
     public class SpawnEnemyTutorialEvent : TutorialEvent
     {
         [SerializeField] private EnemyWave enemyWave;
-        public override void StartEvent()
+        public override void StartEvent(Tutorial tutorialOwner)
         {
             enemyWave.onWaveSpawnEnd.AddListener(EndEvent);
+
+            enemyWave.onWaveEnd.RemoveAllListeners();
+            enemyWave.onWaveEnd.AddListener(tutorialOwner.EndTutorial);
+
             enemyWave.StartWave();
         }
 
@@ -118,7 +118,7 @@ public class Tutorial : MonoBehaviour
             currentTime += deltaTime;
         }
 
-        public override void StartEvent()
+        public override void StartEvent(Tutorial tutorialOwner)
         {
             string text = GetText(GameManager.instance.inputManager.GetInputDeviceType());
 
