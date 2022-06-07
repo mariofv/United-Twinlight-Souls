@@ -235,6 +235,7 @@ public class InputManager : MonoBehaviour
 
         currentInputDeviceType = newInputDeviceType;
         GameManager.instance.uiManager.ChangeInputDeviceType(currentInputDeviceType);
+        GameManager.instance.tutorialManager.OnInputDeviceChanged(currentInputDeviceType);
     }
 
     public void OnMovementInput(InputAction.CallbackContext context)

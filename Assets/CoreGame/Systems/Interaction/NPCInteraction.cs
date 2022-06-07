@@ -16,6 +16,7 @@ public class NPCInteraction : MonoBehaviour
 
     [SerializeField] private NPC npc;
     [SerializeField] private DialogueAsset interactionDialogue;
+    [SerializeField] private Tutorial interactionTutorial;
     [SerializeField] private CinemachineVirtualCamera interactionCamera;
     [SerializeField] private PlayerDetectionCollider playerDetectionCollider;
     [SerializeField] private SkinnedMeshRenderer npcRenderer;
@@ -94,6 +95,7 @@ public class NPCInteraction : MonoBehaviour
         npc.LookAtPlayer();
 
         hasPlayerInteracted = true;
+        GameManager.instance.tutorialManager.StartTutorial(interactionTutorial);
         currentState = InteractionState.AVAILABLE;
 
         GameManager.instance.EnterGameState(GameManager.GameState.COMBAT);

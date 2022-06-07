@@ -5,20 +5,45 @@ using UnityEngine;
 public class TutorialManager : MonoBehaviour
 {
     private Tutorial currentTutorial = null;
+    private int currentTutorialEvent;
 
     public void StartTutorial(Tutorial tutorial)
     {
         currentTutorial = tutorial;
-        string text = currentTutorial.GetText(GameManager.instance.inputManager.GetInputDeviceType());
+        currentTutorialEvent = 0;
 
-        GameManager.instance.uiManager.gameUIManager.tutorialUI.SetTutorialText(text);
-        GameManager.instance.uiManager.gameUIManager.tutorialUI.Show();
+        StartTutorialEvent(currentTutorial.tutorialEvents[currentTutorialEvent]);
     }
 
     public void EndTutorial()
     {
         currentTutorial = null;
-        GameManager.instance.uiManager.gameUIManager.tutorialUI.Hide();
+    }
+
+    private void StartTutorialEvent(Tutorial.TutorialEvent tutorialEvent)
+    {
+        tutorialEvent.StartEvent();
+        tutorialEvent.onTutorialEventEnd.AddListener(OnTutorialEventEnd);
+    }
+
+    private void EndCurrentTutorialEvent()
+    {
+        currentTutorial.tutorialEvents[currentTutorialEvent].EndEvent();
+    }
+
+    private void OnTutorialEventEnd(Tutorial.TutorialEvent tutorialEvent)
+    {
+        tutorialEvent.onTutorialEventEnd.RemoveListener(OnTutorialEventEnd);
+        
+        ++currentTutorialEvent;
+        if (currentTutorialEvent == currentTutorial.tutorialEvents.Count)
+        {
+            EndTutorial();
+        }
+        else
+        {
+            StartTutorialEvent(currentTutorial.tutorialEvents[currentTutorialEvent]);
+        }
     }
 
     public void OnInputDeviceChanged(InputManager.InputDeviceType inputDeviceType)
@@ -28,8 +53,10 @@ public class TutorialManager : MonoBehaviour
             return;
         }
 
-        string text = currentTutorial.GetText(inputDeviceType);
-
-        GameManager.instance.uiManager.gameUIManager.tutorialUI.SetTutorialText(text);
+        Tutorial.ShowTextTutorialEvent currentEvent = currentTutorial.tutorialEvents[currentTutorialEvent] as Tutorial.ShowTextTutorialEvent;
+        if (currentEvent != null)
+        {
+            currentEvent.OnInputDeviceChanged(inputDeviceType);
+        }
     }
 }
