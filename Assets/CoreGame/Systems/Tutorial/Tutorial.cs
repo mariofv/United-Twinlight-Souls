@@ -111,7 +111,7 @@ public class Tutorial : MonoBehaviour
         [SerializeField] private string psText;
         [SerializeField] private string xboxText;
 
-        private const float blockedInteractionTime = 2f;
+        private const float blockedInteractionTime = 1f;
         private float currentTime = 0f;
 
         public override void Update(float deltaTime)
