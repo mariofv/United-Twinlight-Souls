@@ -98,6 +98,7 @@ public class NPCInteraction : MonoBehaviour
         GameManager.instance.tutorialManager.StartTutorial(interactionTutorial);
         currentState = InteractionState.AVAILABLE;
 
+        GameManager.instance.dialogueManager.onDialogueEnd.RemoveListener(EndInteraction);
         GameManager.instance.EnterGameState(GameManager.GameState.COMBAT);
     }
 

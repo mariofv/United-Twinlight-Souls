@@ -25,6 +25,7 @@ public class GameManager : MonoBehaviour
         MAIN_MENU,
         COMBAT,
         DIALOGUE,
+        TUTORIAL,
         CINEMATIC,
         PAUSE,
         LOADING_LEVEL,
@@ -162,11 +163,6 @@ public class GameManager : MonoBehaviour
     public bool IsGamePaused()
     {
         return gameState == GameState.PAUSE;
-    }
-
-    private bool IsGameRunning()
-    {
-        return gameState != GameState.MAIN_MENU;
     }
 
     public void EnterGameState(GameState state, bool changeGameStateInput = true)

@@ -21,8 +21,8 @@ public class Enemy : MonoBehaviour
     [SerializeField] private int minAmountLightOrbs;
     [SerializeField] private int maxAmountLightOrbs;
 
-    public UnityEvent onSpawnEnd;
-    public UnityEvent onSpawnedEnemyDead;
+    public UnityEvent<Enemy> onSpawnEnd;
+    public UnityEvent<Enemy> onSpawnedEnemyDead;
 
     void Awake()
     {
@@ -90,7 +90,7 @@ public class Enemy : MonoBehaviour
 
         gameObject.SetActive(false);
         GameManager.instance.enemyManager.RemoveSpawnedEnemy(this);
-        onSpawnedEnemyDead.Invoke();
+        onSpawnedEnemyDead.Invoke(this);
     }
 
     public void Spawn(Vector3 position, bool spawnAnimation)

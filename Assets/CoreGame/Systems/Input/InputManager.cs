@@ -56,6 +56,8 @@ public class InputManager : MonoBehaviour
         playerInput.Cinematic.SkipCinematic.performed += ctx => OnSkipCinematicPerformedInput(ctx);
         playerInput.Cinematic.SkipCinematic.canceled += ctx => OnSkipCinematicCanceledInput(ctx);
 
+        playerInput.Tutorial.AnyKey.started += ctx => OnTutorialAnyKeyInput(ctx);
+
         playerInput.Pause.Pause.started += ctx => GameManager.instance.OnPauseInput(ctx);
 
         playerInput.LoadingScreen.PreviousTip.started += ctx => OnPreviousTipInput(ctx);
@@ -133,6 +135,9 @@ public class InputManager : MonoBehaviour
             case GameManager.GameState.CINEMATIC:
                 playerInput.Cinematic.Disable();
                 break;
+            case GameManager.GameState.TUTORIAL:
+                playerInput.Tutorial.Disable();
+                break;
             case GameManager.GameState.PAUSE:
                 break;
             case GameManager.GameState.NONE:
@@ -159,6 +164,9 @@ public class InputManager : MonoBehaviour
                 break;
             case GameManager.GameState.CINEMATIC:
                 playerInput.Cinematic.Enable();
+                break;
+            case GameManager.GameState.TUTORIAL:
+                playerInput.Tutorial.Enable();
                 break;
             case GameManager.GameState.PAUSE:
                 playerInput.Pause.Enable();
@@ -235,7 +243,10 @@ public class InputManager : MonoBehaviour
 
         currentInputDeviceType = newInputDeviceType;
         GameManager.instance.uiManager.ChangeInputDeviceType(currentInputDeviceType);
-        GameManager.instance.tutorialManager.OnInputDeviceChanged(currentInputDeviceType);
+        if (GameManager.instance.tutorialManager.GetCurrentTutorial() != null)
+        {
+            GameManager.instance.tutorialManager.GetCurrentTutorial().OnInputDeviceChanged(currentInputDeviceType);
+        }
     }
 
     public void OnMovementInput(InputAction.CallbackContext context)
@@ -329,6 +340,14 @@ public class InputManager : MonoBehaviour
     public void OnSkipCinematicCanceledInput(InputAction.CallbackContext context)
     {
         GameManager.instance.uiManager.cinematicUIManager.EndSkipCinematic();
+    }
+
+    public void OnTutorialAnyKeyInput(InputAction.CallbackContext context)
+    {
+        if (GameManager.instance.tutorialManager.GetCurrentTutorial() != null)
+        {
+            GameManager.instance.tutorialManager.GetCurrentTutorial().AnyKeyPressed();
+        }
     }
 
     public void OnPreviousTipInput(InputAction.CallbackContext context)

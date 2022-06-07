@@ -5,11 +5,57 @@ using UnityEngine.Events;
 public class Tutorial : MonoBehaviour
 {
     [SerializeReference] public List<TutorialEvent> tutorialEvents = new List<TutorialEvent>();
+    private int currentTutorialEvent;
+
+    public void StartTutorial()
+    {
+        currentTutorialEvent = 0;
+
+        StartTutorialEvent(tutorialEvents[currentTutorialEvent]);
+    }
+
+    private void StartTutorialEvent(TutorialEvent tutorialEvent)
+    {
+        tutorialEvent.StartEvent();
+        tutorialEvent.onTutorialEventEnd.AddListener(OnTutorialEventEnd);
+    }
+
+    private void OnTutorialEventEnd(TutorialEvent tutorialEvent)
+    {
+        tutorialEvent.onTutorialEventEnd.RemoveListener(OnTutorialEventEnd);
+
+        ++currentTutorialEvent;
+        if (currentTutorialEvent == tutorialEvents.Count)
+        {
+            GameManager.instance.tutorialManager.EndTutorial();
+        }
+        else
+        {
+            StartTutorialEvent(tutorialEvents[currentTutorialEvent]);
+        }
+    }
+    public void OnInputDeviceChanged(InputManager.InputDeviceType inputDeviceType)
+    {
+        ShowTextTutorialEvent currentEvent = tutorialEvents[currentTutorialEvent] as ShowTextTutorialEvent;
+        if (currentEvent != null)
+        {
+            currentEvent.OnInputDeviceChanged(inputDeviceType);
+        }
+    }
+
+    public void AnyKeyPressed()
+    {
+        ShowTextTutorialEvent currentEvent = tutorialEvents[currentTutorialEvent] as ShowTextTutorialEvent;
+        if (currentEvent != null)
+        {
+            currentEvent.EndEvent();
+        }
+    }
 
     [System.Serializable]
     public abstract class TutorialEvent
     {
-        public UnityEvent<TutorialEvent> onTutorialEventEnd;
+        [HideInInspector] public UnityEvent<TutorialEvent> onTutorialEventEnd;
 
         public abstract void StartEvent();
         protected virtual void EndEventSpecialized() {}
@@ -28,6 +74,11 @@ public class Tutorial : MonoBehaviour
             enemyWave.onWaveSpawnEnd.AddListener(EndEvent);
             enemyWave.StartWave();
         }
+
+        protected override void EndEventSpecialized()
+        {
+            enemyWave.onWaveSpawnEnd.RemoveListener(EndEvent);
+        }
     }
 
     public class ShowTextTutorialEvent : TutorialEvent
@@ -42,10 +93,15 @@ public class Tutorial : MonoBehaviour
 
             GameManager.instance.uiManager.gameUIManager.tutorialUI.SetTutorialText(text);
             GameManager.instance.uiManager.gameUIManager.tutorialUI.Show();
+
+            GameManager.instance.EnterGameState(GameManager.GameState.TUTORIAL);
+            Time.timeScale = 0;
         }
 
         protected override void EndEventSpecialized()
         {
+            GameManager.instance.EnterGameState(GameManager.GameState.COMBAT);
+            Time.timeScale = 1f;
             GameManager.instance.uiManager.gameUIManager.tutorialUI.Hide();
         }
 

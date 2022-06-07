@@ -33,8 +33,9 @@ public class EnemyWave : MonoBehaviour
         }
     }
 
-    private void OnWaveEnemySpawnEnd()
+    private void OnWaveEnemySpawnEnd(Enemy enemy)
     {
+        enemy.onSpawnEnd.RemoveListener(OnWaveEnemySpawnEnd);
         --currentWaveSpawnedEnemies;
         if (currentWaveSpawnedEnemies == 0)
         {
@@ -42,8 +43,9 @@ public class EnemyWave : MonoBehaviour
         }
     }
 
-    private void OnWaveEnemyDead()
+    private void OnWaveEnemyDead(Enemy enemy)
     {
+        enemy.onSpawnedEnemyDead.RemoveListener(OnWaveEnemyDead);
         --currentWaveEnemies;
         if (currentWaveEnemies == 0)
         {

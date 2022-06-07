@@ -35,7 +35,7 @@ public abstract class EnemyAI : MonoBehaviour
     public void OnSpawnEnd()
     {
         OnSpawnEndSpecific();
-        enemy.onSpawnEnd.Invoke();
+        enemy.onSpawnEnd.Invoke(enemy);
     }
 
     public virtual void OnSpawnEndSpecific() { }

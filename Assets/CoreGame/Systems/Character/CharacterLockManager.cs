@@ -89,7 +89,7 @@ public class CharacterLockManager : CharacterSubManager
         currentState = LockState.NONE;
     }
 
-    private void OnSoftLockedEnemyDeath()
+    private void OnSoftLockedEnemyDeath(Enemy enemy)
     {
         SoftUnlockEnemy();
     }
@@ -112,7 +112,7 @@ public class CharacterLockManager : CharacterSubManager
         currentState = LockState.NONE;
     }
 
-    private void OnLockedEnemyDeath()
+    private void OnLockedEnemyDeath(Enemy enemy)
     {
         UnlockEnemy();
         Enemy bestSuitableEnemy = GetBestSuitableLockEnemy();
