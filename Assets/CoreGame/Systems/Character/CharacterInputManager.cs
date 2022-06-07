@@ -18,6 +18,7 @@ public class CharacterInputManager : CharacterSubManager
     }
 
     private Dictionary<CharacterManager.CharacterState, List<CharacterInputAction>> characterStateAcceptedInputs;
+    private Dictionary<CharacterInputAction, ProgressionManager.Progression> progressionAcceptedInputs;
 
     public Vector2 movementVector;
 
@@ -25,6 +26,7 @@ public class CharacterInputManager : CharacterSubManager
     void Start()
     {
         InitializeCharacterStateAccepetedInputs();
+        InitializeProgressionAccepetedInputs();
     }
 
     // Update is called once per frame
@@ -86,7 +88,32 @@ public class CharacterInputManager : CharacterSubManager
         characterStateAcceptedInputs.Add(CharacterManager.CharacterState.STUNNED, stunedAcceptedInputs);
     }
 
-    public bool IsInputAcceptedInCurrentState(CharacterInputAction inputAction)
+    private void InitializeProgressionAccepetedInputs()
+    {
+        progressionAcceptedInputs = new Dictionary<CharacterInputAction, ProgressionManager.Progression>();
+
+        progressionAcceptedInputs.Add(CharacterInputAction.ATTACK, ProgressionManager.Progression.LIGHT_ATTACK_UNLOCKED);
+        progressionAcceptedInputs.Add(CharacterInputAction.DASH, ProgressionManager.Progression.DASH_UNLOCKED);
+        progressionAcceptedInputs.Add(CharacterInputAction.LOCK_ENEMY, ProgressionManager.Progression.LOCK_ON_UNLOCKED);
+        progressionAcceptedInputs.Add(CharacterInputAction.SHIELD, ProgressionManager.Progression.SHIELD_UNLOCKED);
+    }
+
+    public bool IsInputAccepted(CharacterInputAction inputAction)
+    {
+        return IsInputAcceptedInCurrentProgression(inputAction) && IsInputAcceptedInCurrentState(inputAction);
+    }
+
+    private bool IsInputAcceptedInCurrentProgression(CharacterInputAction inputAction)
+    {
+        if (!progressionAcceptedInputs.ContainsKey(inputAction))
+        {
+            return true;
+        }
+
+        return GameManager.instance.progressionManager.CheckProgression(progressionAcceptedInputs[inputAction]);
+    }
+
+    private bool IsInputAcceptedInCurrentState(CharacterInputAction inputAction)
     {
         CharacterManager.CharacterState currentCharacterState = characterManager.GetCharacterState();
 

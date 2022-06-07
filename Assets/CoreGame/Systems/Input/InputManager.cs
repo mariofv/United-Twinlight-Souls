@@ -256,7 +256,7 @@ public class InputManager : MonoBehaviour
 
     public void OnJumpInput(InputAction.CallbackContext context)
     {
-        if (!GameManager.instance.player.GetControlledCharacter().characterInputManager.IsInputAcceptedInCurrentState(CharacterInputManager.CharacterInputAction.JUMP))
+        if (!GameManager.instance.player.GetControlledCharacter().characterInputManager.IsInputAccepted(CharacterInputManager.CharacterInputAction.JUMP))
         {
             return;
         }
@@ -265,7 +265,7 @@ public class InputManager : MonoBehaviour
 
     public void OnLightAttackInput(InputAction.CallbackContext context)
     {
-        if (!GameManager.instance.player.GetControlledCharacter().characterInputManager.IsInputAcceptedInCurrentState(CharacterInputManager.CharacterInputAction.ATTACK))
+        if (!GameManager.instance.player.GetControlledCharacter().characterInputManager.IsInputAccepted(CharacterInputManager.CharacterInputAction.ATTACK))
         {
             return;
         }
@@ -274,7 +274,7 @@ public class InputManager : MonoBehaviour
 
     public void OnDashInput(InputAction.CallbackContext context)
     {
-        if (!GameManager.instance.player.GetControlledCharacter().characterInputManager.IsInputAcceptedInCurrentState(CharacterInputManager.CharacterInputAction.DASH))
+        if (!GameManager.instance.player.GetControlledCharacter().characterInputManager.IsInputAccepted(CharacterInputManager.CharacterInputAction.DASH))
         {
             return;
         }
@@ -283,7 +283,7 @@ public class InputManager : MonoBehaviour
 
     public void OnShieldInputStart(InputAction.CallbackContext context)
     {
-        if (!GameManager.instance.player.GetControlledCharacter().characterInputManager.IsInputAcceptedInCurrentState(CharacterInputManager.CharacterInputAction.SHIELD))
+        if (!GameManager.instance.player.GetControlledCharacter().characterInputManager.IsInputAccepted(CharacterInputManager.CharacterInputAction.SHIELD))
         {
             return;
         }
@@ -297,7 +297,7 @@ public class InputManager : MonoBehaviour
 
     public void OnLockEnemyInput(InputAction.CallbackContext context)
     {
-        if (!GameManager.instance.player.GetControlledCharacter().characterInputManager.IsInputAcceptedInCurrentState(CharacterInputManager.CharacterInputAction.LOCK_ENEMY))
+        if (!GameManager.instance.player.GetControlledCharacter().characterInputManager.IsInputAccepted(CharacterInputManager.CharacterInputAction.LOCK_ENEMY))
         {
             return;
         }
@@ -306,7 +306,7 @@ public class InputManager : MonoBehaviour
 
     public void OnChangeLockedEnemyInput(InputAction.CallbackContext context)
     {
-        if (!GameManager.instance.player.GetControlledCharacter().characterInputManager.IsInputAcceptedInCurrentState(CharacterInputManager.CharacterInputAction.LOCK_ENEMY))
+        if (!GameManager.instance.player.GetControlledCharacter().characterInputManager.IsInputAccepted(CharacterInputManager.CharacterInputAction.LOCK_ENEMY))
         {
             return;
         }
@@ -315,7 +315,7 @@ public class InputManager : MonoBehaviour
 
     public void OnInteractInput(InputAction.CallbackContext context)
     {
-        if (!GameManager.instance.player.GetControlledCharacter().characterInputManager.IsInputAcceptedInCurrentState(CharacterInputManager.CharacterInputAction.INTERACT))
+        if (!GameManager.instance.player.GetControlledCharacter().characterInputManager.IsInputAccepted(CharacterInputManager.CharacterInputAction.INTERACT))
         {
             return;
         }

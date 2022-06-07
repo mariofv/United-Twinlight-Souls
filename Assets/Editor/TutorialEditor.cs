@@ -8,15 +8,18 @@ using UnityEditor;
 public class TutorialEditor : Editor
 {
     SerializedProperty tutorialEvents;
+    SerializedProperty associatedProgression;
 
     void OnEnable()
     {
         tutorialEvents = serializedObject.FindProperty("tutorialEvents");
+        associatedProgression = serializedObject.FindProperty("associatedProgression");
     }
 
     public override void OnInspectorGUI()
     {
         serializedObject.Update();
+        EditorGUILayout.PropertyField(associatedProgression);
         EditorGUILayout.PropertyField(tutorialEvents);
 
         if (GUILayout.Button("Add ShowText event"))

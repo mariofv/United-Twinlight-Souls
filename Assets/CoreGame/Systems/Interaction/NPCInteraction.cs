@@ -24,6 +24,8 @@ public class NPCInteraction : MonoBehaviour
     [SerializeField] private DialogueAsset interactionDialogue;
     [SerializeField] private CinemachineVirtualCamera interactionCamera;
     [SerializeField] private float transitionTime;
+
+    [Header("Tutorial")]
     [SerializeField] private Tutorial interactionTutorial;
 
     private InteractionState currentState;
@@ -114,7 +116,7 @@ public class NPCInteraction : MonoBehaviour
 
     public void Show()
     {
-        if (hasPlayerInteracted)
+        if (hasPlayerInteracted || GameManager.instance.progressionManager.CheckProgression(interactionTutorial.associatedProgression))
         {
             return;
         }

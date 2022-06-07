@@ -5,6 +5,7 @@ using UnityEngine.Events;
 public class Tutorial : MonoBehaviour
 {
     [HideInInspector] public UnityEvent onTutorialEnd;
+    public ProgressionManager.Progression associatedProgression;
     [SerializeReference] public List<TutorialEvent> tutorialEvents = new List<TutorialEvent>();
     private int currentTutorialEvent = -1;
 
@@ -121,6 +122,8 @@ public class Tutorial : MonoBehaviour
         public override void StartEvent(Tutorial tutorialOwner)
         {
             string text = GetText(GameManager.instance.inputManager.GetInputDeviceType());
+
+            GameManager.instance.progressionManager.UnlockProgression(tutorialOwner.associatedProgression);
 
             GameManager.instance.uiManager.gameUIManager.tutorialUI.SetTutorialText(text);
             GameManager.instance.uiManager.gameUIManager.tutorialUI.Show();

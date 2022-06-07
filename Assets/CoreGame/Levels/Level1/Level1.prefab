@@ -3415,6 +3415,10 @@ PrefabInstance:
     m_TransformParent: {fileID: 532751478832974332}
     m_Modifications:
     - target: {fileID: -1323443200247617894, guid: c70af2cd12c3f31438dea6a8ffb8f528, type: 3}
+      propertyPath: associatedProgression
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: -1323443200247617894, guid: c70af2cd12c3f31438dea6a8ffb8f528, type: 3}
       propertyPath: tutorialEvents.Array.size
       value: 2
       objectReference: {fileID: 0}
