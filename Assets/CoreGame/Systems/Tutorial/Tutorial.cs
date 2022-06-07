@@ -5,13 +5,29 @@ using UnityEngine.Events;
 public class Tutorial : MonoBehaviour
 {
     [SerializeReference] public List<TutorialEvent> tutorialEvents = new List<TutorialEvent>();
-    private int currentTutorialEvent;
+    private int currentTutorialEvent = -1;
+
+    private void Update()
+    {
+        if (currentTutorialEvent == -1)
+        { 
+            return;
+        }
+
+        tutorialEvents[currentTutorialEvent].Update(Time.unscaledDeltaTime);
+    }
 
     public void StartTutorial()
     {
         currentTutorialEvent = 0;
 
         StartTutorialEvent(tutorialEvents[currentTutorialEvent]);
+    }
+
+    public void EndTutorial()
+    {
+        currentTutorialEvent = -1;
+        GameManager.instance.tutorialManager.EndTutorial();
     }
 
     private void StartTutorialEvent(TutorialEvent tutorialEvent)
@@ -27,7 +43,7 @@ public class Tutorial : MonoBehaviour
         ++currentTutorialEvent;
         if (currentTutorialEvent == tutorialEvents.Count)
         {
-            GameManager.instance.tutorialManager.EndTutorial();
+            EndTutorial();
         }
         else
         {
@@ -48,7 +64,10 @@ public class Tutorial : MonoBehaviour
         ShowTextTutorialEvent currentEvent = tutorialEvents[currentTutorialEvent] as ShowTextTutorialEvent;
         if (currentEvent != null)
         {
-            currentEvent.EndEvent();
+            if (currentEvent.CanBeInteracted())
+            {
+                currentEvent.EndEvent();
+            }
         }
     }
 
@@ -56,6 +75,8 @@ public class Tutorial : MonoBehaviour
     public abstract class TutorialEvent
     {
         [HideInInspector] public UnityEvent<TutorialEvent> onTutorialEventEnd;
+
+        public virtual void Update(float deltaTime) { }
 
         public abstract void StartEvent();
         protected virtual void EndEventSpecialized() {}
@@ -87,6 +108,14 @@ public class Tutorial : MonoBehaviour
         [SerializeField] private string psText;
         [SerializeField] private string xboxText;
 
+        private const float blockedInteractionTime = 2f;
+        private float currentTime = 0f;
+
+        public override void Update(float deltaTime)
+        {
+            currentTime += deltaTime;
+        }
+
         public override void StartEvent()
         {
             string text = GetText(GameManager.instance.inputManager.GetInputDeviceType());
@@ -95,7 +124,8 @@ public class Tutorial : MonoBehaviour
             GameManager.instance.uiManager.gameUIManager.tutorialUI.Show();
 
             GameManager.instance.EnterGameState(GameManager.GameState.TUTORIAL);
-            Time.timeScale = 0;
+            Time.timeScale = 0; 
+            currentTime = 0f;
         }
 
         protected override void EndEventSpecialized()
@@ -112,7 +142,12 @@ public class Tutorial : MonoBehaviour
             GameManager.instance.uiManager.gameUIManager.tutorialUI.SetTutorialText(text);
         }
 
-        public string GetText(InputManager.InputDeviceType inputDeviceType)
+        public bool CanBeInteracted()
+        {
+            return currentTime >= blockedInteractionTime;
+        }
+
+        private string GetText(InputManager.InputDeviceType inputDeviceType)
         {
             switch (inputDeviceType)
             {

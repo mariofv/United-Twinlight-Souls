@@ -15,11 +15,11 @@ public class NPCInteraction : MonoBehaviour
     }
 
     [SerializeField] private NPC npc;
+    [SerializeField] private SkinnedMeshRenderer npcRenderer;
     [SerializeField] private DialogueAsset interactionDialogue;
     [SerializeField] private Tutorial interactionTutorial;
     [SerializeField] private CinemachineVirtualCamera interactionCamera;
     [SerializeField] private PlayerDetectionCollider playerDetectionCollider;
-    [SerializeField] private SkinnedMeshRenderer npcRenderer;
     [SerializeField] private float transitionTime;
 
     private InteractionState currentState;
