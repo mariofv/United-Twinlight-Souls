@@ -142,7 +142,7 @@ public class NecroplantAI : EnemyAI
         necroplantBodyTransform.localScale = Vector3.one * progress;
     }
 
-    public void OnSpawnEnd()
+    public override void OnSpawnEndSpecific()
     {
         if (currentState != NecroplantState.SPAWN)
         {

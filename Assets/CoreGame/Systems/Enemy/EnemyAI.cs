@@ -31,6 +31,14 @@ public abstract class EnemyAI : MonoBehaviour
     protected virtual void UpdateSpecific() { }
     public abstract void Reanimate();
     public abstract void OnSpawnStart();
+    
+    public void OnSpawnEnd()
+    {
+        OnSpawnEndSpecific();
+        enemy.onSpawnEnd.Invoke();
+    }
+
+    public virtual void OnSpawnEndSpecific() { }
     public abstract void OnDeathStart();
     public abstract void OnHitStart();
 

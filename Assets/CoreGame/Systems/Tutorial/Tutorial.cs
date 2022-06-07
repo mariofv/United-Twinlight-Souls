@@ -25,7 +25,7 @@ public class Tutorial : MonoBehaviour
         [SerializeField] private EnemyWave enemyWave;
         public override void StartEvent()
         {
-            enemyWave.onWaveEnd.AddListener(EndEvent);
+            enemyWave.onWaveSpawnEnd.AddListener(EndEvent);
             enemyWave.StartWave();
         }
     }

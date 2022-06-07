@@ -127,7 +127,7 @@ public class MushdoomAI : EnemyAI
         audioSource.PlayOneShotRandom(mushdoomAudioClips.death1, mushdoomAudioClips.death2, mushdoomAudioClips.death3);
     }
 
-    public void OnSpawnEnd()
+    public override void OnSpawnEndSpecific()
     {
         if (currentState != MushdoomState.SPAWN)
         {

@@ -21,6 +21,7 @@ public class Enemy : MonoBehaviour
     [SerializeField] private int minAmountLightOrbs;
     [SerializeField] private int maxAmountLightOrbs;
 
+    public UnityEvent onSpawnEnd;
     public UnityEvent onSpawnedEnemyDead;
 
     void Awake()

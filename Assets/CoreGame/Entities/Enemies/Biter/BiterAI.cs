@@ -130,7 +130,7 @@ public class BiterAI : EnemyAI
         OnSpawnEnd();
     }
 
-    public void OnSpawnEnd()
+    public override void OnSpawnEndSpecific()
     {
         if (currentState != BiterState.SPAWN)
         {
