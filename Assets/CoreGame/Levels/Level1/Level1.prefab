@@ -4144,6 +4144,18 @@ PrefabInstance:
       propertyPath: interactionTutorial
       value: 
       objectReference: {fileID: 5393572172664181176}
+    - target: {fileID: 8488557902897753654, guid: f6c4e33756e8611469d3fa633acdd6f0, type: 3}
+      propertyPath: m_Size.x
+      value: 35
+      objectReference: {fileID: 0}
+    - target: {fileID: 8488557902897753654, guid: f6c4e33756e8611469d3fa633acdd6f0, type: 3}
+      propertyPath: m_Size.y
+      value: 5
+      objectReference: {fileID: 0}
+    - target: {fileID: 8488557902897753654, guid: f6c4e33756e8611469d3fa633acdd6f0, type: 3}
+      propertyPath: m_Size.z
+      value: 20
+      objectReference: {fileID: 0}
     - target: {fileID: 8889939422947368482, guid: f6c4e33756e8611469d3fa633acdd6f0, type: 3}
       propertyPath: m_RootOrder
       value: 0

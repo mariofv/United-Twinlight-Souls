@@ -14,13 +14,17 @@ public class NPCInteraction : MonoBehaviour
         HIDING
     }
 
+    [Header("NPC")]
     [SerializeField] private NPC npc;
     [SerializeField] private SkinnedMeshRenderer npcRenderer;
+    [SerializeField] private GameObject npcOrb;
+
+
+    [Header("Interaction")]
     [SerializeField] private DialogueAsset interactionDialogue;
-    [SerializeField] private Tutorial interactionTutorial;
     [SerializeField] private CinemachineVirtualCamera interactionCamera;
-    [SerializeField] private PlayerDetectionCollider playerDetectionCollider;
     [SerializeField] private float transitionTime;
+    [SerializeField] private Tutorial interactionTutorial;
 
     private InteractionState currentState;
     private float currentTime = 0f;
@@ -29,9 +33,6 @@ public class NPCInteraction : MonoBehaviour
 
     private void Awake()
     {
-        playerDetectionCollider.onPlayerDetected.AddListener(OnPlayerDetected);
-        playerDetectionCollider.onPlayerLost.AddListener(OnPlayerLost);
-
         npcRenderer.material.SetFloat("_FadeProgress", 1f);
     }
 
@@ -51,6 +52,7 @@ public class NPCInteraction : MonoBehaviour
                     if (progress == 1f)
                     {
                         currentState = InteractionState.AVAILABLE;
+                        npcOrb.SetActive(true);
                     }
                 }
                 break;
@@ -68,6 +70,7 @@ public class NPCInteraction : MonoBehaviour
                     if (progress == 1f)
                     {
                         currentState = InteractionState.HIDDEN;
+                        npcOrb.SetActive(false);
                     }
                 }
                 break;
@@ -90,32 +93,49 @@ public class NPCInteraction : MonoBehaviour
 
     private void EndInteraction()
     {
+
         GameManager.instance.player.GetControlledCharacter().characterVisualsManager.ShowMesh();
         GameManager.instance.cameraManager.LoadCamera(GameManager.instance.levelManager.GetCurrentLevel().GetCurrentCamera());
         npc.LookAtPlayer();
 
-        hasPlayerInteracted = true;
-        GameManager.instance.tutorialManager.StartTutorial(interactionTutorial);
-        currentState = InteractionState.AVAILABLE;
-
         GameManager.instance.dialogueManager.onDialogueEnd.RemoveListener(EndInteraction);
+        GameManager.instance.tutorialManager.StartTutorial(interactionTutorial);
+        interactionTutorial.onTutorialEnd.AddListener(Hide);
+        
+        hasPlayerInteracted = true;
+        currentState = InteractionState.AVAILABLE;
         GameManager.instance.EnterGameState(GameManager.GameState.COMBAT);
     }
 
     public bool IsAvailable()
     {
-        return currentState == InteractionState.AVAILABLE || currentState == InteractionState.INTERACTING;
+        return (currentState == InteractionState.AVAILABLE || currentState == InteractionState.INTERACTING) && !hasPlayerInteracted;
     }
 
-    private void OnPlayerDetected(Transform detectedPlayer)
+    public void Show()
     {
+        if (hasPlayerInteracted)
+        {
+            return;
+        }
+
         currentState = InteractionState.SHOWING;
         currentTime = 0f;
     }
 
-    private void OnPlayerLost()
+    public void Hide()
     {
+        interactionTutorial.onTutorialEnd.RemoveListener(Hide);
+
         currentState = InteractionState.HIDING;
         currentTime = 0f;
+    }
+
+    private void OnTriggerEnter(Collider other)
+    {
+        if (other.CompareTag(TagManager.PLAYER))
+        {
+            Show();
+        }
     }
 }

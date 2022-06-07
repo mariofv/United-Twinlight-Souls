@@ -4,6 +4,7 @@ using UnityEngine.Events;
 
 public class Tutorial : MonoBehaviour
 {
+    [HideInInspector] public UnityEvent onTutorialEnd;
     [SerializeReference] public List<TutorialEvent> tutorialEvents = new List<TutorialEvent>();
     private int currentTutorialEvent = -1;
 
@@ -28,6 +29,7 @@ public class Tutorial : MonoBehaviour
     {
         currentTutorialEvent = -1;
         GameManager.instance.tutorialManager.EndTutorial();
+        onTutorialEnd.Invoke();
     }
 
     private void StartTutorialEvent(TutorialEvent tutorialEvent)
