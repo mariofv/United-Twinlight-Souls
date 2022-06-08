@@ -3,7 +3,7 @@ using System.Collections.Generic;
 using UnityEngine;
 using Tweening;
 
-public class ControlsScreenUIManager : MainMenuScreenUIManager
+public class SystemScreenUIManager : MainMenuScreenUIManager
 {
     public override void ShowSpecialized(bool instant)
     {

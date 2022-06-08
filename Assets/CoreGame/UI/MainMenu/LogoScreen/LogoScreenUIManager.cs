@@ -19,7 +19,6 @@ public class LogoScreenUIManager : MainMenuScreenUIManager
     [SerializeField] private CanvasGroup logoMenuContainer;
     [SerializeField] private UICustomButton playCustomButton;
     [SerializeField] private Button playButton;
-    [SerializeField] private Button controlsButton;
     [SerializeField] private Button systemButton;
     [SerializeField] private Button creditsButton;
     [SerializeField] private Button exitButton;
@@ -30,7 +29,6 @@ public class LogoScreenUIManager : MainMenuScreenUIManager
     {
         pressAnyButtonButton.onClick.AddListener(OnAnyKeyButtonPressed);
         playButton.onClick.AddListener(OnPlayButtonClicked);
-        controlsButton.onClick.AddListener(OnControlsButtonClicked);
         systemButton.onClick.AddListener(OnSystemButtonClicked);
         creditsButton.onClick.AddListener(OnCreditsButtonClicked);
         exitButton.onClick.AddListener(OnExitButtonClicked);
@@ -91,12 +89,6 @@ public class LogoScreenUIManager : MainMenuScreenUIManager
     {
         GameManager.instance.audioManager.PlayUISound(AudioManager.UISound.CLICK);
         GameManager.instance.uiManager.mainMenuUIManager.OpenMainMenuScreen(MainMenuScreenId.SELECT_CHARACTER);
-    }
-
-    public void OnControlsButtonClicked()
-    {
-        GameManager.instance.audioManager.PlayUISound(AudioManager.UISound.CLICK);
-        GameManager.instance.uiManager.mainMenuUIManager.OpenMainMenuScreen(MainMenuScreenId.CONTROLS);
     }
 
     public void OnSystemButtonClicked()

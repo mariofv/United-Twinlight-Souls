@@ -11,7 +11,6 @@ public abstract class MainMenuScreenUIManager : UIElement
         LOGO,
         SELECT_CHARACTER,
         SELECT_LEVEL,
-        CONTROLS,
         SETTINGS,
         CREDITS
     }
