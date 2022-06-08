@@ -17,7 +17,7 @@ public class UIManager : MonoBehaviour
     public string mainMenuScene;
     public MainMenuUIManager mainMenuUIManager;
 
-    private List<InputDeviceButtonImage> inputDeviceButtonImages = new List<InputDeviceButtonImage>();
+    private List<InputDeviceDisplayer> inputDeviceDisplayers = new List<InputDeviceDisplayer>();
 
     public IEnumerator LoadMainMenuUI()
     {
@@ -99,19 +99,19 @@ public class UIManager : MonoBehaviour
 
     public void ChangeInputDeviceType(InputManager.InputDeviceType inputDeviceType)
     {
-        for (int i = 0; i < inputDeviceButtonImages.Count; ++i)
+        for (int i = 0; i < inputDeviceDisplayers.Count; ++i)
         {
-            inputDeviceButtonImages[i].SetInputDeviceImage(inputDeviceType);
+            inputDeviceDisplayers[i].SetInputDeviceType(inputDeviceType);
         }
     }
 
-    public void RegisterInputDeviceButtonImage(InputDeviceButtonImage inputDeviceButtonImage)
+    public void RegisterInputDeviceDisplayer(InputDeviceDisplayer inputDeviceDisplayer)
     {
-        inputDeviceButtonImages.Add(inputDeviceButtonImage);
+        inputDeviceDisplayers.Add(inputDeviceDisplayer);
     }
 
-    public void UnregisterInputDeviceButtonImage(InputDeviceButtonImage inputDeviceButtonImage)
+    public void UnregisterInputDeviceDisplayer(InputDeviceDisplayer inputDeviceDisplayer)
     {
-        inputDeviceButtonImages.Remove(inputDeviceButtonImage);
+        inputDeviceDisplayers.Remove(inputDeviceDisplayer);
     }
 }

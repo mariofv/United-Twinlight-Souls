@@ -1,20 +1,19 @@
-using UnityEngine;
-using UnityEngine.UI;
-using UnityEngine.EventSystems;
 using System.Collections;
+using System.Collections.Generic;
+using UnityEngine;
+using TMPro;
 
-[RequireComponent(typeof(Image))]
-public class InputDeviceButtonImage : InputDeviceDisplayer
+public class InputDeviceText : InputDeviceDisplayer
 {
-    private Image image;
+    private TextMeshProUGUI text;
 
-    [SerializeField] private Sprite pcImage;
-    [SerializeField] private Sprite psImage;
-    [SerializeField] private Sprite xboxImage;
+    [SerializeField] private string pcText;
+    [SerializeField] private string psText;
+    [SerializeField] private string xboxText;
 
     protected override void Awake()
     {
-        image = GetComponent<Image>();
+        text = GetComponent<TextMeshProUGUI>();
         base.Awake();
     }
 
@@ -23,15 +22,15 @@ public class InputDeviceButtonImage : InputDeviceDisplayer
         switch (inputDeviceType)
         {
             case InputManager.InputDeviceType.KEYBOARD:
-                image.sprite = pcImage;
+                text.text = pcText;
                 break;
 
             case InputManager.InputDeviceType.PS5_CONTROLLER:
-                image.sprite = psImage;
+                text.text = psText;
                 break;
 
             case InputManager.InputDeviceType.XBOX_CONTROLLER:
-                image.sprite = xboxImage;
+                text.text = xboxText;
                 break;
         }
     }
