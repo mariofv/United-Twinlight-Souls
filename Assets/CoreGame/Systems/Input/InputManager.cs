@@ -33,8 +33,12 @@ public class InputManager : MonoBehaviour
         playerInput.DeviceCheck.AnyKey.performed += ctx => CheckInputDevice(ctx);
 
         playerInput.MainMenu.AnyKey.performed += ctx => GameManager.instance.uiManager.mainMenuUIManager.OnAnyKeyPressed(ctx);
+        playerInput.MainMenu.UpNavigation.performed += ctx => GameManager.instance.uiManager.mainMenuUIManager.OnUpPressed(ctx);
+        playerInput.MainMenu.DownNavigation.performed += ctx => GameManager.instance.uiManager.mainMenuUIManager.OnDownPressed(ctx);
         playerInput.MainMenu.RightNavigation.performed += ctx => GameManager.instance.uiManager.mainMenuUIManager.OnRightPressed(ctx);
         playerInput.MainMenu.LeftNavigation.performed += ctx => GameManager.instance.uiManager.mainMenuUIManager.OnLeftPressed(ctx);
+        playerInput.MainMenu.NextTab.performed += ctx => GameManager.instance.uiManager.mainMenuUIManager.OnNextTabPressed(ctx);
+        playerInput.MainMenu.PreviousTab.performed += ctx => GameManager.instance.uiManager.mainMenuUIManager.OnPreviousTabPressed(ctx);
         playerInput.MainMenu.Confirm.performed += ctx => GameManager.instance.uiManager.mainMenuUIManager.OnConfirmPressed(ctx);
         playerInput.MainMenu.Cancel.performed += ctx => GameManager.instance.uiManager.mainMenuUIManager.OnCancelPressed(ctx);
 

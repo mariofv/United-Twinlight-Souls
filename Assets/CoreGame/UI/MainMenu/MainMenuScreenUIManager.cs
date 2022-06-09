@@ -19,8 +19,12 @@ public abstract class MainMenuScreenUIManager : UIElement
     [SerializeField] private CinemachineVirtualCamera mainMenuScreenVirtualCamera;
 
     public virtual void OnAnyKeyPressed() { }
+    public virtual void OnUpPressed() { }
+    public virtual void OnDownPressed() { }
     public virtual void OnRightPressed() { }
     public virtual void OnLeftPressed() { }
+    public virtual void OnNextTabPressed() { }
+    public virtual void OnPreviousTabPressed() { }
     public virtual void OnConfirmPressed() { }
     public virtual void OnCancelPressed() { }
 

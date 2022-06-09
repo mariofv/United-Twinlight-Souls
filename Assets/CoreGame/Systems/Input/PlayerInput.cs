@@ -1559,9 +1559,45 @@ public partial class @PlayerInput : IInputActionCollection2, IDisposable
                     ""initialStateCheck"": false
                 },
                 {
+                    ""name"": ""UpNavigation"",
+                    ""type"": ""Button"",
+                    ""id"": ""1fc35c0b-765e-4099-ba22-007742d317ca"",
+                    ""expectedControlType"": ""Button"",
+                    ""processors"": """",
+                    ""interactions"": """",
+                    ""initialStateCheck"": false
+                },
+                {
+                    ""name"": ""DownNavigation"",
+                    ""type"": ""Button"",
+                    ""id"": ""3effdaec-23a4-48c5-a2f3-5ce8787c0e15"",
+                    ""expectedControlType"": ""Button"",
+                    ""processors"": """",
+                    ""interactions"": """",
+                    ""initialStateCheck"": false
+                },
+                {
                     ""name"": ""Confirm"",
                     ""type"": ""Button"",
                     ""id"": ""967edfbe-73df-4550-9fab-6e5c65c5caa7"",
+                    ""expectedControlType"": ""Button"",
+                    ""processors"": """",
+                    ""interactions"": """",
+                    ""initialStateCheck"": false
+                },
+                {
+                    ""name"": ""NextTab"",
+                    ""type"": ""Button"",
+                    ""id"": ""9a2d1668-fe7a-44bb-8242-d92f337f69be"",
+                    ""expectedControlType"": ""Button"",
+                    ""processors"": """",
+                    ""interactions"": """",
+                    ""initialStateCheck"": false
+                },
+                {
+                    ""name"": ""PreviousTab"",
+                    ""type"": ""Button"",
+                    ""id"": ""1c3baabd-9722-401e-a8fb-57950b7239cd"",
                     ""expectedControlType"": ""Button"",
                     ""processors"": """",
                     ""interactions"": """",
@@ -1899,17 +1935,6 @@ public partial class @PlayerInput : IInputActionCollection2, IDisposable
                 },
                 {
                     ""name"": """",
-                    ""id"": ""b9f151b8-36a1-4d7d-9c7a-43eb469b507f"",
-                    ""path"": ""<Keyboard>/e"",
-                    ""interactions"": """",
-                    ""processors"": """",
-                    ""groups"": ""Keyboard&Mouse"",
-                    ""action"": ""Confirm"",
-                    ""isComposite"": false,
-                    ""isPartOfComposite"": false
-                },
-                {
-                    ""name"": """",
                     ""id"": ""e2dd6137-5dce-45d5-80d6-e9261dd0d044"",
                     ""path"": ""<Gamepad>/buttonSouth"",
                     ""interactions"": """",
@@ -1932,23 +1957,122 @@ public partial class @PlayerInput : IInputActionCollection2, IDisposable
                 },
                 {
                     ""name"": """",
-                    ""id"": ""dc3e33b9-718a-43c1-96b8-289f6d2fd5c5"",
-                    ""path"": ""<Keyboard>/q"",
-                    ""interactions"": """",
-                    ""processors"": """",
-                    ""groups"": ""Keyboard&Mouse"",
-                    ""action"": ""Cancel"",
-                    ""isComposite"": false,
-                    ""isPartOfComposite"": false
-                },
-                {
-                    ""name"": """",
                     ""id"": ""b40dbda4-b23b-48c8-a9b1-450b0a1005b9"",
                     ""path"": ""<Gamepad>/buttonEast"",
                     ""interactions"": """",
                     ""processors"": """",
                     ""groups"": ""Gamepad"",
                     ""action"": ""Cancel"",
+                    ""isComposite"": false,
+                    ""isPartOfComposite"": false
+                },
+                {
+                    ""name"": """",
+                    ""id"": ""092d3df3-58e2-4cca-8b0c-8b22d0c6ff47"",
+                    ""path"": ""<Keyboard>/w"",
+                    ""interactions"": """",
+                    ""processors"": """",
+                    ""groups"": ""Keyboard&Mouse"",
+                    ""action"": ""UpNavigation"",
+                    ""isComposite"": false,
+                    ""isPartOfComposite"": false
+                },
+                {
+                    ""name"": """",
+                    ""id"": ""a6cff9d6-7ef8-4eb4-9b5d-ebc0533ebf24"",
+                    ""path"": ""<Keyboard>/upArrow"",
+                    ""interactions"": """",
+                    ""processors"": """",
+                    ""groups"": ""Keyboard&Mouse"",
+                    ""action"": ""UpNavigation"",
+                    ""isComposite"": false,
+                    ""isPartOfComposite"": false
+                },
+                {
+                    ""name"": """",
+                    ""id"": ""c7100fce-5ab2-4ea1-bfa2-8ed77d7e6d09"",
+                    ""path"": ""<Gamepad>/dpad/up"",
+                    ""interactions"": """",
+                    ""processors"": """",
+                    ""groups"": ""Gamepad"",
+                    ""action"": ""UpNavigation"",
+                    ""isComposite"": false,
+                    ""isPartOfComposite"": false
+                },
+                {
+                    ""name"": """",
+                    ""id"": ""bad204d7-f5b5-4fe7-8095-1328045243df"",
+                    ""path"": ""<Keyboard>/s"",
+                    ""interactions"": """",
+                    ""processors"": """",
+                    ""groups"": ""Keyboard&Mouse"",
+                    ""action"": ""DownNavigation"",
+                    ""isComposite"": false,
+                    ""isPartOfComposite"": false
+                },
+                {
+                    ""name"": """",
+                    ""id"": ""319e5d2d-3a27-4676-9235-5e0e882185a3"",
+                    ""path"": ""<Keyboard>/downArrow"",
+                    ""interactions"": """",
+                    ""processors"": """",
+                    ""groups"": ""Keyboard&Mouse"",
+                    ""action"": ""DownNavigation"",
+                    ""isComposite"": false,
+                    ""isPartOfComposite"": false
+                },
+                {
+                    ""name"": """",
+                    ""id"": ""9bdf73ec-22eb-4a83-8dd1-e775f5cad24c"",
+                    ""path"": ""<Gamepad>/dpad/down"",
+                    ""interactions"": """",
+                    ""processors"": """",
+                    ""groups"": ""Gamepad"",
+                    ""action"": ""DownNavigation"",
+                    ""isComposite"": false,
+                    ""isPartOfComposite"": false
+                },
+                {
+                    ""name"": """",
+                    ""id"": ""49c1e1b2-9089-427d-89dd-977a098c0ec4"",
+                    ""path"": ""<Keyboard>/e"",
+                    ""interactions"": """",
+                    ""processors"": """",
+                    ""groups"": ""Keyboard&Mouse"",
+                    ""action"": ""NextTab"",
+                    ""isComposite"": false,
+                    ""isPartOfComposite"": false
+                },
+                {
+                    ""name"": """",
+                    ""id"": ""115ab6b0-6a28-43fd-8341-753d06980ec3"",
+                    ""path"": ""<Gamepad>/rightShoulder"",
+                    ""interactions"": """",
+                    ""processors"": """",
+                    ""groups"": ""Gamepad"",
+                    ""action"": ""NextTab"",
+                    ""isComposite"": false,
+                    ""isPartOfComposite"": false
+                },
+                {
+                    ""name"": """",
+                    ""id"": ""95aa6f82-5456-4410-82ee-a86e1dfb73ac"",
+                    ""path"": ""<Keyboard>/q"",
+                    ""interactions"": """",
+                    ""processors"": """",
+                    ""groups"": ""Keyboard&Mouse"",
+                    ""action"": ""PreviousTab"",
+                    ""isComposite"": false,
+                    ""isPartOfComposite"": false
+                },
+                {
+                    ""name"": """",
+                    ""id"": ""d64196d0-0fcc-46ce-862c-90cccdd2cdb5"",
+                    ""path"": ""<Gamepad>/leftShoulder"",
+                    ""interactions"": """",
+                    ""processors"": """",
+                    ""groups"": ""Gamepad"",
+                    ""action"": ""PreviousTab"",
                     ""isComposite"": false,
                     ""isPartOfComposite"": false
                 }
@@ -2282,7 +2406,11 @@ public partial class @PlayerInput : IInputActionCollection2, IDisposable
         m_MainMenu_AnyKey = m_MainMenu.FindAction("AnyKey", throwIfNotFound: true);
         m_MainMenu_LeftNavigation = m_MainMenu.FindAction("LeftNavigation", throwIfNotFound: true);
         m_MainMenu_RightNavigation = m_MainMenu.FindAction("RightNavigation", throwIfNotFound: true);
+        m_MainMenu_UpNavigation = m_MainMenu.FindAction("UpNavigation", throwIfNotFound: true);
+        m_MainMenu_DownNavigation = m_MainMenu.FindAction("DownNavigation", throwIfNotFound: true);
         m_MainMenu_Confirm = m_MainMenu.FindAction("Confirm", throwIfNotFound: true);
+        m_MainMenu_NextTab = m_MainMenu.FindAction("NextTab", throwIfNotFound: true);
+        m_MainMenu_PreviousTab = m_MainMenu.FindAction("PreviousTab", throwIfNotFound: true);
         m_MainMenu_Cancel = m_MainMenu.FindAction("Cancel", throwIfNotFound: true);
         // DeviceCheck
         m_DeviceCheck = asset.FindActionMap("DeviceCheck", throwIfNotFound: true);
@@ -2773,7 +2901,11 @@ public partial class @PlayerInput : IInputActionCollection2, IDisposable
     private readonly InputAction m_MainMenu_AnyKey;
     private readonly InputAction m_MainMenu_LeftNavigation;
     private readonly InputAction m_MainMenu_RightNavigation;
+    private readonly InputAction m_MainMenu_UpNavigation;
+    private readonly InputAction m_MainMenu_DownNavigation;
     private readonly InputAction m_MainMenu_Confirm;
+    private readonly InputAction m_MainMenu_NextTab;
+    private readonly InputAction m_MainMenu_PreviousTab;
     private readonly InputAction m_MainMenu_Cancel;
     public struct MainMenuActions
     {
@@ -2782,7 +2914,11 @@ public partial class @PlayerInput : IInputActionCollection2, IDisposable
         public InputAction @AnyKey => m_Wrapper.m_MainMenu_AnyKey;
         public InputAction @LeftNavigation => m_Wrapper.m_MainMenu_LeftNavigation;
         public InputAction @RightNavigation => m_Wrapper.m_MainMenu_RightNavigation;
+        public InputAction @UpNavigation => m_Wrapper.m_MainMenu_UpNavigation;
+        public InputAction @DownNavigation => m_Wrapper.m_MainMenu_DownNavigation;
         public InputAction @Confirm => m_Wrapper.m_MainMenu_Confirm;
+        public InputAction @NextTab => m_Wrapper.m_MainMenu_NextTab;
+        public InputAction @PreviousTab => m_Wrapper.m_MainMenu_PreviousTab;
         public InputAction @Cancel => m_Wrapper.m_MainMenu_Cancel;
         public InputActionMap Get() { return m_Wrapper.m_MainMenu; }
         public void Enable() { Get().Enable(); }
@@ -2802,9 +2938,21 @@ public partial class @PlayerInput : IInputActionCollection2, IDisposable
                 @RightNavigation.started -= m_Wrapper.m_MainMenuActionsCallbackInterface.OnRightNavigation;
                 @RightNavigation.performed -= m_Wrapper.m_MainMenuActionsCallbackInterface.OnRightNavigation;
                 @RightNavigation.canceled -= m_Wrapper.m_MainMenuActionsCallbackInterface.OnRightNavigation;
+                @UpNavigation.started -= m_Wrapper.m_MainMenuActionsCallbackInterface.OnUpNavigation;
+                @UpNavigation.performed -= m_Wrapper.m_MainMenuActionsCallbackInterface.OnUpNavigation;
+                @UpNavigation.canceled -= m_Wrapper.m_MainMenuActionsCallbackInterface.OnUpNavigation;
+                @DownNavigation.started -= m_Wrapper.m_MainMenuActionsCallbackInterface.OnDownNavigation;
+                @DownNavigation.performed -= m_Wrapper.m_MainMenuActionsCallbackInterface.OnDownNavigation;
+                @DownNavigation.canceled -= m_Wrapper.m_MainMenuActionsCallbackInterface.OnDownNavigation;
                 @Confirm.started -= m_Wrapper.m_MainMenuActionsCallbackInterface.OnConfirm;
                 @Confirm.performed -= m_Wrapper.m_MainMenuActionsCallbackInterface.OnConfirm;
                 @Confirm.canceled -= m_Wrapper.m_MainMenuActionsCallbackInterface.OnConfirm;
+                @NextTab.started -= m_Wrapper.m_MainMenuActionsCallbackInterface.OnNextTab;
+                @NextTab.performed -= m_Wrapper.m_MainMenuActionsCallbackInterface.OnNextTab;
+                @NextTab.canceled -= m_Wrapper.m_MainMenuActionsCallbackInterface.OnNextTab;
+                @PreviousTab.started -= m_Wrapper.m_MainMenuActionsCallbackInterface.OnPreviousTab;
+                @PreviousTab.performed -= m_Wrapper.m_MainMenuActionsCallbackInterface.OnPreviousTab;
+                @PreviousTab.canceled -= m_Wrapper.m_MainMenuActionsCallbackInterface.OnPreviousTab;
                 @Cancel.started -= m_Wrapper.m_MainMenuActionsCallbackInterface.OnCancel;
                 @Cancel.performed -= m_Wrapper.m_MainMenuActionsCallbackInterface.OnCancel;
                 @Cancel.canceled -= m_Wrapper.m_MainMenuActionsCallbackInterface.OnCancel;
@@ -2821,9 +2969,21 @@ public partial class @PlayerInput : IInputActionCollection2, IDisposable
                 @RightNavigation.started += instance.OnRightNavigation;
                 @RightNavigation.performed += instance.OnRightNavigation;
                 @RightNavigation.canceled += instance.OnRightNavigation;
+                @UpNavigation.started += instance.OnUpNavigation;
+                @UpNavigation.performed += instance.OnUpNavigation;
+                @UpNavigation.canceled += instance.OnUpNavigation;
+                @DownNavigation.started += instance.OnDownNavigation;
+                @DownNavigation.performed += instance.OnDownNavigation;
+                @DownNavigation.canceled += instance.OnDownNavigation;
                 @Confirm.started += instance.OnConfirm;
                 @Confirm.performed += instance.OnConfirm;
                 @Confirm.canceled += instance.OnConfirm;
+                @NextTab.started += instance.OnNextTab;
+                @NextTab.performed += instance.OnNextTab;
+                @NextTab.canceled += instance.OnNextTab;
+                @PreviousTab.started += instance.OnPreviousTab;
+                @PreviousTab.performed += instance.OnPreviousTab;
+                @PreviousTab.canceled += instance.OnPreviousTab;
                 @Cancel.started += instance.OnCancel;
                 @Cancel.performed += instance.OnCancel;
                 @Cancel.canceled += instance.OnCancel;
@@ -2939,7 +3099,11 @@ public partial class @PlayerInput : IInputActionCollection2, IDisposable
         void OnAnyKey(InputAction.CallbackContext context);
         void OnLeftNavigation(InputAction.CallbackContext context);
         void OnRightNavigation(InputAction.CallbackContext context);
+        void OnUpNavigation(InputAction.CallbackContext context);
+        void OnDownNavigation(InputAction.CallbackContext context);
         void OnConfirm(InputAction.CallbackContext context);
+        void OnNextTab(InputAction.CallbackContext context);
+        void OnPreviousTab(InputAction.CallbackContext context);
         void OnCancel(InputAction.CallbackContext context);
     }
     public interface IDeviceCheckActions

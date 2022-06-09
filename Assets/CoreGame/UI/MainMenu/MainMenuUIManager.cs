@@ -64,6 +64,16 @@ public class MainMenuUIManager : MonoBehaviour
         mainMenuScreens[currentMainMenuScrenId].OnAnyKeyPressed();
     }
 
+    public void OnUpPressed(InputAction.CallbackContext context)
+    {
+        mainMenuScreens[currentMainMenuScrenId].OnUpPressed();
+    }
+
+    public void OnDownPressed(InputAction.CallbackContext context)
+    {
+        mainMenuScreens[currentMainMenuScrenId].OnDownPressed();
+    }
+
     public void OnRightPressed(InputAction.CallbackContext context)
     {
         mainMenuScreens[currentMainMenuScrenId].OnRightPressed();
@@ -72,6 +82,16 @@ public class MainMenuUIManager : MonoBehaviour
     public void OnLeftPressed(InputAction.CallbackContext context)
     {
         mainMenuScreens[currentMainMenuScrenId].OnLeftPressed();
+    }
+
+    public void OnNextTabPressed(InputAction.CallbackContext context)
+    {
+        mainMenuScreens[currentMainMenuScrenId].OnNextTabPressed();
+    }
+
+    public void OnPreviousTabPressed(InputAction.CallbackContext context)
+    {
+        mainMenuScreens[currentMainMenuScrenId].OnPreviousTabPressed();
     }
 
     public void OnConfirmPressed(InputAction.CallbackContext context)
