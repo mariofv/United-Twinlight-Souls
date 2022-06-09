@@ -34,19 +34,19 @@ public class SystemScreenUIManager : MainMenuScreenUIManager
         GameManager.instance.uiManager.mainMenuUIManager.OpenMainMenuScreen(MainMenuScreenId.LOGO);
     }
 
-    private void NextTab()
+    public void NextTab()
     {
         int nextTab = (currentTab + 1) % settingsTabs.Count;
         OpenTab(nextTab);
     }
 
-    private void PreviousTab()
+    public void PreviousTab()
     {
         int nextTab = (currentTab - 1) % settingsTabs.Count;
         OpenTab(nextTab);
     }
 
-    private void OpenTab(int tabIndex)
+    public void OpenTab(int tabIndex)
     {
         if (currentTab != -1)
         {
