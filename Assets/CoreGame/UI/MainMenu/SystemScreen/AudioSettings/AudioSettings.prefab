@@ -372,6 +372,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: SystemCursor
       objectReference: {fileID: 0}
+    - target: {fileID: 4648015443198021145, guid: 68d8d1b6f9e44414ab93658ac6a3039f, type: 3}
+      propertyPath: m_IsActive
+      value: 0
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 68d8d1b6f9e44414ab93658ac6a3039f, type: 3}
 --- !u!224 &382889747075688354 stripped

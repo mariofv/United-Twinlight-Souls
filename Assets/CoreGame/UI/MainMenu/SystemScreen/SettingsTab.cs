@@ -62,6 +62,10 @@ public class SettingsTab : MonoBehaviour
                     {
                         currentState = TabState.CLOSED;
                         tabContent.gameObject.SetActive(false);
+                        if (tabSettings != null)
+                        {
+                            tabSettings.Close();
+                        }
                     }
                 }
                 break;

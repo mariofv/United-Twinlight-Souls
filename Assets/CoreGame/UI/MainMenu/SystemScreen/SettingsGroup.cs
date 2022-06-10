@@ -11,7 +11,13 @@ public class SettingsGroup : MonoBehaviour
 
     public void Open()
     {
+        settingsCursor.gameObject.SetActive(true);
         MoveCursor(0);
+    }
+
+    public void Close()
+    {
+        settingsCursor.gameObject.SetActive(false);
     }
 
     public void MoveCursorUp()
