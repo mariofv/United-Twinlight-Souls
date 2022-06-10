@@ -37,4 +37,14 @@ public class AudioSettingsTab : MonoBehaviour
         currentIndex = nextIndex;
         audioCursor.Move(audioSettings[currentIndex].GetComponent<RectTransform>().position);
     }
+
+    public void OnLeftPressed()
+    {
+        audioSettings[currentIndex].DecreaseSetting();
+    }
+
+    public void OnRightPressed()
+    {
+        audioSettings[currentIndex].IncreaseSetting();
+    }
 }

@@ -104,4 +104,24 @@ public class SettingsTab : MonoBehaviour
 
         tabSettings.MoveCursorDown();
     }
+
+    public void OnLeftPressed()
+    {
+        if (tabSettings == null)
+        {
+            return;
+        }
+
+        tabSettings.OnLeftPressed();
+    }
+
+    public void OnRightPressed()
+    {
+        if (tabSettings == null)
+        {
+            return;
+        }
+
+        tabSettings.OnRightPressed();
+    }
 }

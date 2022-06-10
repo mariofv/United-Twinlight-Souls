@@ -65,6 +65,16 @@ public class SystemScreenUIManager : MainMenuScreenUIManager
         settingsTabs[currentTab].OnDownPressed();
     }
 
+    public override void OnRightPressed()
+    {
+        settingsTabs[currentTab].OnRightPressed();
+    }
+
+    public override void OnLeftPressed()
+    {
+        settingsTabs[currentTab].OnLeftPressed();
+    }
+
     public void OpenTab(int tabIndex)
     {
         CloseCurrentTab();
