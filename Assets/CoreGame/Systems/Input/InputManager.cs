@@ -63,7 +63,14 @@ public class InputManager : MonoBehaviour
 
         playerInput.Tutorial.AnyKey.started += ctx => OnTutorialAnyKeyInput(ctx);
 
-        playerInput.Pause.Pause.started += ctx => GameManager.instance.OnPauseInput(ctx);
+        playerInput.Pause.Pause.started += ctx => GameManager.instance.OnPauseInput(ctx); 
+        playerInput.Pause.UpNavigation.performed += ctx => GameManager.instance.uiManager.gameUIManager.pauseUI.OnUpPressed(ctx);
+        playerInput.Pause.DownNavigation.performed += ctx => GameManager.instance.uiManager.gameUIManager.pauseUI.OnDownPressed(ctx);
+        playerInput.Pause.RightNavigation.performed += ctx => GameManager.instance.uiManager.gameUIManager.pauseUI.OnRightPressed(ctx);
+        playerInput.Pause.LeftNavigation.performed += ctx => GameManager.instance.uiManager.gameUIManager.pauseUI.OnLeftPressed(ctx);
+        playerInput.Pause.NextTab.performed += ctx => GameManager.instance.uiManager.gameUIManager.pauseUI.OnNextTabPressed(ctx);
+        playerInput.Pause.PreviousTab.performed += ctx => GameManager.instance.uiManager.gameUIManager.pauseUI.OnPreviousTabPressed(ctx);
+        playerInput.Pause.Cancel.performed += ctx => GameManager.instance.uiManager.gameUIManager.pauseUI.OnCancelPressed(ctx);
 
         playerInput.LoadingScreen.PreviousTip.started += ctx => OnPreviousTipInput(ctx);
         playerInput.LoadingScreen.NextTip.started += ctx => OnNextTipInput(ctx);

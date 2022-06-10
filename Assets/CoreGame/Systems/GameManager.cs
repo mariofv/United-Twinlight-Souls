@@ -192,6 +192,11 @@ public class GameManager : MonoBehaviour
 
     public void OnPauseInput(InputAction.CallbackContext context)
     {
+        if (uiManager.gameUIManager.pauseUI.IsSystemsMenuOpen())
+        {
+            return;
+        }
+
         if (IsGamePaused())
         {
             ResumeGame();
