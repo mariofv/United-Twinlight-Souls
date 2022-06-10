@@ -16,6 +16,7 @@ public class SettingsTab : MonoBehaviour
 
     private Image tabImage;
     [SerializeField] private CanvasGroup tabContent;
+    [SerializeField] private AudioSettingsTab tabSettings;
 
     private TabState currentState;
     private float currentTime = 0f;
@@ -78,5 +79,25 @@ public class SettingsTab : MonoBehaviour
         currentTime = 0f;
 
         currentState = TabState.CLOSING;
+    }
+
+    public void OnUpPressed()
+    {
+        if (tabSettings == null)
+        {
+            return;
+        }
+
+        tabSettings.MoveCursorUp();
+    }
+
+    public void OnDownPressed()
+    {
+        if (tabSettings == null)
+        {
+            return;
+        }
+
+        tabSettings.MoveCursorDown();
     }
 }
