@@ -91,6 +91,10 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 130393087102289839}
     m_Modifications:
+    - target: {fileID: -4027969770477742167, guid: 7fbee322f38907742a1cdc5d29c21969, type: 3}
+      propertyPath: settingName
+      value: MasterVolume
+      objectReference: {fileID: 0}
     - target: {fileID: 3134038021377775202, guid: 7fbee322f38907742a1cdc5d29c21969, type: 3}
       propertyPath: m_text
       value: MASTER
@@ -393,6 +397,10 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 130393087102289839}
     m_Modifications:
+    - target: {fileID: -4027969770477742167, guid: 7fbee322f38907742a1cdc5d29c21969, type: 3}
+      propertyPath: settingName
+      value: EffectsVolume
+      objectReference: {fileID: 0}
     - target: {fileID: 3134038021377775202, guid: 7fbee322f38907742a1cdc5d29c21969, type: 3}
       propertyPath: m_text
       value: Effects
@@ -606,6 +614,10 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 130393087102289839}
     m_Modifications:
+    - target: {fileID: -4027969770477742167, guid: 7fbee322f38907742a1cdc5d29c21969, type: 3}
+      propertyPath: settingName
+      value: MusicVolume
+      objectReference: {fileID: 0}
     - target: {fileID: 3134038021377775202, guid: 7fbee322f38907742a1cdc5d29c21969, type: 3}
       propertyPath: m_text
       value: Music

@@ -804,3 +804,6 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   leftButton: {fileID: 5410176548649604747}
   rightButton: {fileID: 7870436271608501099}
+  valueText: {fileID: 2067647682107348150}
+  audioMixer: {fileID: 24100000, guid: 22f9637782e41ee40b5b354d1d6441a7, type: 2}
+  settingName: 
