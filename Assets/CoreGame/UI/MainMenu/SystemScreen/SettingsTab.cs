@@ -16,7 +16,6 @@ public class SettingsTab : MonoBehaviour
 
     private Image tabImage;
     [SerializeField] private CanvasGroup tabContent;
-    [SerializeField] private TextMeshProUGUI tabName;
 
     private TabState currentState;
     private float currentTime = 0f;
@@ -57,6 +56,7 @@ public class SettingsTab : MonoBehaviour
                     if (progress == 1f)
                     {
                         currentState = TabState.CLOSED;
+                        tabContent.gameObject.SetActive(false);
                     }
                 }
                 break;
@@ -68,6 +68,7 @@ public class SettingsTab : MonoBehaviour
         tabImage.SetAlpha(1f);
         currentTime = 0f;
 
+        tabContent.gameObject.SetActive(true);
         currentState = TabState.OPENING;
     }
 
