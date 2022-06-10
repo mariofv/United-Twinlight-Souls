@@ -65,11 +65,11 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_Sprite: {fileID: 0}
-  m_Type: 0
+  m_Sprite: {fileID: 21300000, guid: 0a367a92cff6d0b4ebeafab78106bb91, type: 3}
+  m_Type: 3
   m_PreserveAspect: 0
   m_FillCenter: 1
-  m_FillMethod: 4
+  m_FillMethod: 0
   m_FillAmount: 1
   m_FillClockwise: 1
   m_FillOrigin: 0
@@ -804,6 +804,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   leftButton: {fileID: 5410176548649604747}
   rightButton: {fileID: 7870436271608501099}
-  valueText: {fileID: 2067647682107348150}
   audioMixer: {fileID: 24100000, guid: 22f9637782e41ee40b5b354d1d6441a7, type: 2}
   settingName: 
+  barFill: {fileID: 8732479195035609416}
+  valueText: {fileID: 2067647682107348150}

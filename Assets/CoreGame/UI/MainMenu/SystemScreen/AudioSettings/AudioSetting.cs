@@ -9,10 +9,12 @@ public class AudioSetting : MonoBehaviour
 {
     [SerializeField] private Button leftButton;
     [SerializeField] private Button rightButton;
-    [SerializeField] private TextMeshProUGUI valueText;
 
     [SerializeField] private AudioMixer audioMixer;
     [SerializeField] private string settingName;
+
+    [SerializeField] private Image barFill;
+    [SerializeField] private TextMeshProUGUI valueText;
 
     private const float MAX_DB = 0f;
     private const float MIN_DB = -40f;
@@ -59,9 +61,10 @@ public class AudioSetting : MonoBehaviour
             audioMixer.SetFloat(settingName, newValue);
         }
 
-        float progress = ((newValue - MIN_DB) / (MAX_DB - MIN_DB)) * 10f;
-        Debug.Log(progress);
-        valueText.text = (Mathf.RoundToInt(progress).ToString());
+        float progress = (newValue - MIN_DB) / (MAX_DB - MIN_DB);
+        barFill.fillAmount = progress;
+
+        valueText.text = (Mathf.RoundToInt(progress * 10f).ToString());
 
     }
 }
