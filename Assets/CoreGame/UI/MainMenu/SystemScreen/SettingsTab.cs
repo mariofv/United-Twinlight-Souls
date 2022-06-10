@@ -42,6 +42,10 @@ public class SettingsTab : MonoBehaviour
                     if (progress == 1f)
                     {
                         currentState = TabState.OPENED;
+                        if (tabSettings != null)
+                        {
+                            tabSettings.Open();
+                        }
                     }
                 }
                 break;

@@ -9,7 +9,7 @@ public class AudioSettingsTab : MonoBehaviour
 
     private int currentIndex = 0;
 
-    private void Start()
+    public void Open()
     {
         MoveCursor(0);
     }

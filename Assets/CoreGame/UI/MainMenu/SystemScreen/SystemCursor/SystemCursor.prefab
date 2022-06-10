@@ -71,6 +71,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: fbb8fcd2b97bc4e48b7ed0467d34212a, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  bloomImage: {fileID: 9216238069891217511}
+  bloomSpeed: 2
 --- !u!1 &4741747501755214713
 GameObject:
   m_ObjectHideFlags: 0
