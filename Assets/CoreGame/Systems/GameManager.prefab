@@ -146,7 +146,7 @@ Transform:
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 524553839652415316}
-  m_RootOrder: 13
+  m_RootOrder: 14
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!114 &7448497158459097342
 MonoBehaviour:
@@ -443,6 +443,49 @@ MonoBehaviour:
   controlledCharacterId: 0
   barald: {fileID: 0}
   ilona: {fileID: 0}
+--- !u!1 &3299677358401506056
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 9069691136186765586}
+  - component: {fileID: 5033053512087257889}
+  m_Layer: 0
+  m_Name: SettingsManager
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &9069691136186765586
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 3299677358401506056}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_Children: []
+  m_Father: {fileID: 524553839652415316}
+  m_RootOrder: 12
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &5033053512087257889
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 3299677358401506056}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 249b099d6bbf91340941736616e79b87, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &4460627717119397217
 GameObject:
   m_ObjectHideFlags: 0
@@ -644,7 +687,7 @@ Transform:
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 524553839652415316}
-  m_RootOrder: 12
+  m_RootOrder: 13
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!114 &397808582770711792
 MonoBehaviour:
@@ -959,7 +1002,7 @@ Transform:
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 524553839652415316}
-  m_RootOrder: 14
+  m_RootOrder: 15
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!114 &2673386968378463884
 MonoBehaviour:
@@ -1063,6 +1106,7 @@ Transform:
   - {fileID: 2466625216122636718}
   - {fileID: 2457315403810700360}
   - {fileID: 3151836746294167228}
+  - {fileID: 9069691136186765586}
   - {fileID: 935625039725407020}
   - {fileID: 725598255694744953}
   - {fileID: 2734630497730633885}
@@ -1095,6 +1139,7 @@ MonoBehaviour:
   lootManager: {fileID: 5666603426748226613}
   progressionManager: {fileID: 7442533706663217899}
   scenesManager: {fileID: 1403718774155991487}
+  settingsManager: {fileID: 5033053512087257889}
   tutorialManager: {fileID: 397808582770711792}
   uiManager: {fileID: 2673386968378463884}
 --- !u!1 &8437860147554033200

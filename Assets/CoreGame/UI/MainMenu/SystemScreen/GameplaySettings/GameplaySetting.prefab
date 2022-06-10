@@ -451,7 +451,7 @@ RectTransform:
   m_AnchorMin: {x: 0, y: 0}
   m_AnchorMax: {x: 0, y: 0}
   m_AnchoredPosition: {x: 0, y: 0}
-  m_SizeDelta: {x: 400, y: 50}
+  m_SizeDelta: {x: 750, y: 50}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!222 &8551912976787373522
 CanvasRenderer:
@@ -589,7 +589,7 @@ RectTransform:
   m_AnchorMin: {x: 0, y: 0}
   m_AnchorMax: {x: 0, y: 0}
   m_AnchoredPosition: {x: 0, y: 0}
-  m_SizeDelta: {x: 1200, y: 100}
+  m_SizeDelta: {x: 1700, y: 100}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &8793463958263241958
 MonoBehaviour:
@@ -631,3 +631,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   leftButton: {fileID: 5410176548649604747}
   rightButton: {fileID: 7870436271608501099}
+  settingType: 0
+  valueText: {fileID: 2111892888325758159}
+  onValue: 
+  offValue: 

@@ -25,6 +25,7 @@ public class InputManager : MonoBehaviour
     private float rumbleDuration = 0f;
     private bool rumbling = false;
 
+    private SettingsManager settingsManager;
 
     void Awake()
     {
@@ -75,10 +76,9 @@ public class InputManager : MonoBehaviour
         }
     }
 
-    // Start is called before the first frame update
-    void Start()
+    private void Start()
     {
-
+        settingsManager = GameManager.instance.settingsManager;
     }
 
     // Update is called once per frame
@@ -102,6 +102,11 @@ public class InputManager : MonoBehaviour
 
     public void Rumble(float leftMotorSpeed, float rightMotorSpeed, float duration)
     {
+        if (!settingsManager.vibrationEnabled)
+        {
+            return;
+        }
+
         if (Gamepad.current != null)
         {
             Gamepad.current.SetMotorSpeeds(leftMotorSpeed, rightMotorSpeed);
