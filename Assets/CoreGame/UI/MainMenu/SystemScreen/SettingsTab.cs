@@ -16,7 +16,7 @@ public class SettingsTab : MonoBehaviour
 
     private Image tabImage;
     [SerializeField] private CanvasGroup tabContent;
-    [SerializeField] private AudioSettingsTab tabSettings;
+    [SerializeField] private SettingsGroup tabSettings;
 
     private TabState currentState;
     private float currentTime = 0f;

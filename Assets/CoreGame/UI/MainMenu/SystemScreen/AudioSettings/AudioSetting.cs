@@ -5,11 +5,8 @@ using UnityEngine.UI;
 using TMPro;
 using UnityEngine.Audio;
 
-public class AudioSetting : MonoBehaviour
+public class AudioSetting : Setting
 {
-    [SerializeField] private Button leftButton;
-    [SerializeField] private Button rightButton;
-
     [SerializeField] private AudioMixer audioMixer;
     [SerializeField] private string settingName;
 
@@ -21,14 +18,13 @@ public class AudioSetting : MonoBehaviour
     private const float MUTE_DB = -80f;
     private float step;
 
-    private void Awake()
+    protected override void Awake()
     {
-        leftButton.onClick.AddListener(DecreaseSetting);
-        rightButton.onClick.AddListener(IncreaseSetting);
+        base.Awake();
         step = (MAX_DB - MIN_DB) / 10f;
     }
 
-    public void IncreaseSetting()
+    public override void IncreaseSetting()
     {
         float currentValue;
         audioMixer.GetFloat(settingName, out currentValue);
@@ -41,7 +37,7 @@ public class AudioSetting : MonoBehaviour
         SetAudioSettingVolume(currentValue);
     }
 
-    public void DecreaseSetting()
+    public override void DecreaseSetting()
     {
         float currentValue;
         audioMixer.GetFloat(settingName, out currentValue);

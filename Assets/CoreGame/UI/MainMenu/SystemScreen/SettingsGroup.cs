@@ -2,10 +2,10 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class AudioSettingsTab : MonoBehaviour
+public class SettingsGroup : MonoBehaviour
 {
-    [SerializeField] private SystemCursor audioCursor;
-    [SerializeField] private List<AudioSetting> audioSettings;
+    [SerializeField] private SystemCursor settingsCursor;
+    [SerializeField] private List<Setting> settings;
 
     private int currentIndex = 0;
 
@@ -19,7 +19,7 @@ public class AudioSettingsTab : MonoBehaviour
         int nextSetting = currentIndex - 1;
         if (nextSetting == -1)
         {
-            nextSetting = audioSettings.Count - 1;
+            nextSetting = settings.Count - 1;
         }
 
         MoveCursor(nextSetting);
@@ -27,7 +27,7 @@ public class AudioSettingsTab : MonoBehaviour
 
     public void MoveCursorDown()
     {
-        int nextSetting = (currentIndex + 1) % audioSettings.Count;
+        int nextSetting = (currentIndex + 1) % settings.Count;
 
         MoveCursor(nextSetting);
     }
@@ -35,16 +35,16 @@ public class AudioSettingsTab : MonoBehaviour
     public void MoveCursor(int nextIndex)
     {
         currentIndex = nextIndex;
-        audioCursor.Move(audioSettings[currentIndex].GetComponent<RectTransform>().position);
+        settingsCursor.Move(settings[currentIndex].GetComponent<RectTransform>().position);
     }
 
     public void OnLeftPressed()
     {
-        audioSettings[currentIndex].DecreaseSetting();
+        settings[currentIndex].DecreaseSetting();
     }
 
     public void OnRightPressed()
     {
-        audioSettings[currentIndex].IncreaseSetting();
+        settings[currentIndex].IncreaseSetting();
     }
 }
