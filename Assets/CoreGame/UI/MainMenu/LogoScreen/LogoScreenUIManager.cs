@@ -20,7 +20,6 @@ public class LogoScreenUIManager : MainMenuScreenUIManager
     [SerializeField] private UICustomButton playCustomButton;
     [SerializeField] private Button playButton;
     [SerializeField] private Button systemButton;
-    [SerializeField] private Button creditsButton;
     [SerializeField] private Button exitButton;
 
     private bool isLogoMenuOpened = false;
@@ -30,7 +29,6 @@ public class LogoScreenUIManager : MainMenuScreenUIManager
         pressAnyButtonButton.onClick.AddListener(OnAnyKeyButtonPressed);
         playButton.onClick.AddListener(OnPlayButtonClicked);
         systemButton.onClick.AddListener(OnSystemButtonClicked);
-        creditsButton.onClick.AddListener(OnCreditsButtonClicked);
         exitButton.onClick.AddListener(OnExitButtonClicked);
     }
 
@@ -95,12 +93,6 @@ public class LogoScreenUIManager : MainMenuScreenUIManager
     {
         GameManager.instance.audioManager.PlayUISound(AudioManager.UISound.CLICK);
         GameManager.instance.uiManager.mainMenuUIManager.OpenMainMenuScreen(MainMenuScreenId.SETTINGS);
-    }
-
-    public void OnCreditsButtonClicked()
-    {
-        GameManager.instance.audioManager.PlayUISound(AudioManager.UISound.CLICK);
-        GameManager.instance.uiManager.mainMenuUIManager.OpenMainMenuScreen(MainMenuScreenId.CREDITS);
     }
 
     public void OnExitButtonClicked()
