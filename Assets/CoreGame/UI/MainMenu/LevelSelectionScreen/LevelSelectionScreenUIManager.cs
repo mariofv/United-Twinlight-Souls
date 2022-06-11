@@ -31,6 +31,11 @@ public class LevelSelectionScreenUIManager : MainMenuScreenUIManager
 
     private void OpenLevelDescription(int index)
     {
+        if (index == currentLevelDescription)
+        {
+            return;
+        }
+
         CloseCurrentLevelDescription();
         currentLevelDescription = index;
         levelDescriptionScreens[currentLevelDescription].Open();
@@ -43,5 +48,31 @@ public class LevelSelectionScreenUIManager : MainMenuScreenUIManager
             return;
         }
         levelDescriptionScreens[currentLevelDescription].Close();
+    }
+
+    public override void OnCancelPressed()
+    {
+        GameManager.instance.uiManager.mainMenuUIManager.OpenMainMenuScreen(MainMenuScreenId.SELECT_CHARACTER);
+    }
+
+    public override void OnConfirmPressed()
+    {
+        GameManager.instance.InitGame(currentLevelDescription);
+    }
+
+    public override void OnLeftPressed()
+    {
+        int nextIndex = currentLevelDescription - 1;
+        if (nextIndex == -1)
+        {
+            nextIndex = GameManager.instance.progressionManager.GetMaxLevelUnlocked();
+        }
+        OpenLevelDescription(nextIndex);
+    }
+
+    public override void OnRightPressed()
+    {
+        int nextIndex = (currentLevelDescription + 1) % (GameManager.instance.progressionManager.GetMaxLevelUnlocked() + 1);
+        OpenLevelDescription(nextIndex);
     }
 }

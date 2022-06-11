@@ -61,6 +61,8 @@ public class LevelManager : MonoBehaviour
         GameManager.instance.cameraManager.LoadCamera(currentLevel.GetCurrentCamera());
 
         GameManager.instance.EnterGameState(GameManager.GameState.COMBAT, changeGameStateInput: true);
+        GameManager.instance.progressionManager.SetMaxLevelUnlocked(level);
+
 
         GameManager.instance.uiManager.loadingScreenUIManager.Hide();
 

@@ -67,6 +67,8 @@ public class LevelDescriptionScreen : MonoBehaviour
     {
         currentTime = 0f;
 
+        GameManager.instance.cameraManager.LoadCamera(levelCamera);
+
         levelDescriptionContainer.gameObject.SetActive(true);
         currentState = LevelDescriptionScreenState.OPENING;
     }

@@ -15,6 +15,7 @@ public class ProgressionManager : MonoBehaviour
     };
 
     private Progression currentProgression;
+    private int maxLevelUnlocked = 2;
 
     public bool CheckProgression(Progression progression)
     {
@@ -24,5 +25,15 @@ public class ProgressionManager : MonoBehaviour
     public void UnlockProgression(Progression progression)
     {
         currentProgression |= progression;
+    }
+
+    public int GetMaxLevelUnlocked()
+    {
+        return maxLevelUnlocked;
+    }
+
+    public void SetMaxLevelUnlocked(int level)
+    {
+        maxLevelUnlocked = Mathf.Max(maxLevelUnlocked, level);
     }
 }
