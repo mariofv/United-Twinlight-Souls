@@ -34,12 +34,6 @@ public class MainMenuUIManager : MonoBehaviour
         OpenMainMenuScreen(MainMenuScreenUIManager.MainMenuScreenId.LOGO);
     }
 
-    // Update is called once per frame
-    void Update()
-    {
-        
-    }
-
     public void OpenMainMenuScreen(MainMenuScreenUIManager.MainMenuScreenId mainMenuScreenId)
     {
         if (currentMainMenuScrenId != MainMenuScreenUIManager.MainMenuScreenId.NONE)

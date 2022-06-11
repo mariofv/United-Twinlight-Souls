@@ -77,7 +77,7 @@ public class SelectCharacterScreenUIManager : MainMenuScreenUIManager
         {
             GameManager.instance.player.ControlIlona();
         }
-        GameManager.instance.InitGame(0);
+        GameManager.instance.uiManager.mainMenuUIManager.OpenMainMenuScreen(MainMenuScreenId.SELECT_LEVEL);
     }
 
     public override void OnCancelPressed()
