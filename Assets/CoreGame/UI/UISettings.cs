@@ -22,6 +22,7 @@ public class UISettings : MonoBehaviour
     public class MainMenuUISettings
     {
         public const float LOGO_DISPLAY_TIME = 2.5f;
+        public const float LEVEL_TRANSITION_TIME = 0.5f;
     };
 
     public class GameUISettings

@@ -24,7 +24,7 @@ MonoBehaviour:
         m_PreInfinity: 0
         m_PostInfinity: 0
         m_RotationOrder: 0
-  - m_From: LogoVirtualCamera
+  - m_From: '**ANY CAMERA**'
     m_To: CharacterSelectionVirtualCamera
     m_Blend:
       m_Style: 5
@@ -72,6 +72,39 @@ MonoBehaviour:
     m_To: ZoneVirtualCamera
     m_Blend:
       m_Style: 5
+      m_Time: 0.5
+      m_CustomCurve:
+        serializedVersion: 2
+        m_Curve: []
+        m_PreInfinity: 0
+        m_PostInfinity: 0
+        m_RotationOrder: 0
+  - m_From: '**ANY CAMERA**'
+    m_To: Level1VirtualCamera
+    m_Blend:
+      m_Style: 1
+      m_Time: 0.5
+      m_CustomCurve:
+        serializedVersion: 2
+        m_Curve: []
+        m_PreInfinity: 0
+        m_PostInfinity: 0
+        m_RotationOrder: 0
+  - m_From: '**ANY CAMERA**'
+    m_To: Level2VirtualCamera
+    m_Blend:
+      m_Style: 1
+      m_Time: 0.5
+      m_CustomCurve:
+        serializedVersion: 2
+        m_Curve: []
+        m_PreInfinity: 0
+        m_PostInfinity: 0
+        m_RotationOrder: 0
+  - m_From: '**ANY CAMERA**'
+    m_To: Level3VirtualCamera
+    m_Blend:
+      m_Style: 1
       m_Time: 0.5
       m_CustomCurve:
         serializedVersion: 2

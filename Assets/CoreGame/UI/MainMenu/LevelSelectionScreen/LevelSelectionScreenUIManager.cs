@@ -14,6 +14,11 @@ public class LevelSelectionScreenUIManager : MainMenuScreenUIManager
         OpenLevelDescription(0);
     }
 
+    public override void HideSpecialized(bool instant)
+    {
+        GameManager.instance.uiManager.mainMenuUIManager.ShowAndHideDarkVeil(UISettings.MainMenuUISettings.LEVEL_TRANSITION_TIME);
+    }
+
     protected override void CreateShowTweens()
     {
         TweeningAnimation fadeAnimation = uiElementCanvasGroup.TweenFade(UISettings.GameUISettings.DISPLAY_TIME, 0f, 1f).DontKillOnEnd().Unscaled();

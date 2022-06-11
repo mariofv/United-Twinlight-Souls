@@ -34,7 +34,7 @@ public class LevelDescriptionScreen : MonoBehaviour
             case LevelDescriptionScreenState.OPENING:
                 {
                     currentTime += Time.unscaledDeltaTime;
-                    float progress = Mathf.Min(1f, currentTime / UISettings.GameUISettings.DISPLAY_TIME);
+                    float progress = Mathf.Min(1f, currentTime / UISettings.MainMenuUISettings.LEVEL_TRANSITION_TIME);
 
                     levelDescriptionContainer.alpha = progress;
 
@@ -49,7 +49,7 @@ public class LevelDescriptionScreen : MonoBehaviour
             case LevelDescriptionScreenState.CLOSING:
                 {
                     currentTime += Time.unscaledDeltaTime;
-                    float progress = Mathf.Min(1f, currentTime / UISettings.GameUISettings.DISPLAY_TIME);
+                    float progress = Mathf.Min(1f, currentTime / UISettings.MainMenuUISettings.LEVEL_TRANSITION_TIME);
 
                     levelDescriptionContainer.alpha = 1f - progress;
 
@@ -76,7 +76,7 @@ public class LevelDescriptionScreen : MonoBehaviour
     public void Close()
     {
         currentTime = 0f;
-
+        GameManager.instance.uiManager.mainMenuUIManager.ShowAndHideDarkVeil(UISettings.MainMenuUISettings.LEVEL_TRANSITION_TIME);
         currentState = LevelDescriptionScreenState.CLOSING;
     }
 

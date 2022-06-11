@@ -1,6 +1,7 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.UI;
 using UnityEngine.InputSystem;
 
 public class MainMenuUIManager : MonoBehaviour
@@ -12,6 +13,11 @@ public class MainMenuUIManager : MonoBehaviour
 
     [SerializeField] private Transform baraldTransform;
     [SerializeField] private Transform ilonaTransform;
+
+    [SerializeField] private Image darkVeil;
+    private float darkVeilTime;
+    private float currentTime = 0f;
+    private bool darkVeilShown = false;
 
     private void Awake()
     {
@@ -34,6 +40,30 @@ public class MainMenuUIManager : MonoBehaviour
         OpenMainMenuScreen(MainMenuScreenUIManager.MainMenuScreenId.LOGO);
     }
 
+    private void Update()
+    {
+        if (darkVeilShown)
+        {
+            currentTime += Time.deltaTime;
+            float progress = Mathf.Min(1f, currentTime / darkVeilTime);
+            float darkVeilProgress;
+            if (progress <= 0.25f)
+            {
+                darkVeilProgress = progress * 4f;
+            }
+            else if (progress > 0.75f)
+            {
+                darkVeilProgress = 1f - (progress - 0.5f) * 4f;
+            }
+            else
+            {
+                darkVeilProgress = 1f;
+            }
+
+            darkVeil.SetAlpha(Mathf.SmoothStep(0f, 1f, darkVeilProgress));
+        }
+    }
+
     public void OpenMainMenuScreen(MainMenuScreenUIManager.MainMenuScreenId mainMenuScreenId)
     {
         if (currentMainMenuScrenId != MainMenuScreenUIManager.MainMenuScreenId.NONE)
@@ -46,6 +76,13 @@ public class MainMenuUIManager : MonoBehaviour
         GameManager.instance.cameraManager.LoadCamera(mainMenuScreens[currentMainMenuScrenId].GetMainMenuScreenCamera());
 
         mainMenuScreens[mainMenuScreenId].Show();
+    }
+
+    public void ShowAndHideDarkVeil(float time)
+    {
+        currentTime = 0f;
+        darkVeilShown = true;
+        darkVeilTime = time;
     }
 
     public void CloseMainMenuScreen(MainMenuScreenUIManager.MainMenuScreenId mainMenuScreenId)

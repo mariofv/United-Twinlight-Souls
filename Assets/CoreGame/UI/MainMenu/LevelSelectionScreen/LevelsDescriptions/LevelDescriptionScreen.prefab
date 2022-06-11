@@ -125,6 +125,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   levelDescriptionContainer: {fileID: 4475779854111269960}
+  darkVeil: {fileID: 0}
   titleBloom: {fileID: 6118984123060222721}
   bloomSpeed: 0.5
   levelCamera: {fileID: 0}
