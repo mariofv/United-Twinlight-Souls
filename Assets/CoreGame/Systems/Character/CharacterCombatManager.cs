@@ -39,6 +39,12 @@ public class CharacterCombatManager : CharacterSubManager
         }
     }
 
+    public void OnCharacterDeath()
+    {
+        isInLightAttackChain = false;
+        currentLightAttackChain = 0;
+    }
+
     public void SetInvincible(bool invincible)
     {
         playerHurtbox.enabled = !invincible;

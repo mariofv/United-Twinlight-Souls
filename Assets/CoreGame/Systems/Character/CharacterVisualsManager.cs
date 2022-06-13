@@ -112,6 +112,7 @@ public class CharacterVisualsManager : CharacterSubManager
         characterAnimator.SetBool("isAirborne", false);
         characterAnimator.SetBool("moving", false);
         characterAnimator.SetFloat("verticalVelocity", 0f);
+        characterAnimator.ResetTrigger("attack");
     }
 
     public void ShowMesh()

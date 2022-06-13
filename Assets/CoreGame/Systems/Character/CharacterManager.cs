@@ -174,8 +174,12 @@ public class CharacterManager : MonoBehaviour
     public void Kill()
     {
         characterVisualsManager.TriggerDeath();
+        characterVisualsManager.ResetVisuals();
+        
         Move(Vector2.zero);
         characterCombatManager.SetInvincible(true);
+        characterCombatManager.OnCharacterDeath();
+
         SetCharacterState(CharacterState.DEAD);
     }
 
