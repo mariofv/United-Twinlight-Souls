@@ -43,6 +43,8 @@ public class CharacterCombatManager : CharacterSubManager
     {
         isInLightAttackChain = false;
         currentLightAttackChain = 0;
+
+        RepairShield();
     }
 
     public void SetInvincible(bool invincible)
