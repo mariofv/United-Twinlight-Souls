@@ -51,10 +51,12 @@ public class LoadingScreenUIManager : UIElement
     {
         currentTime = 0;
         currentTip = 0;
-        displayingTips = true;
+        //displayingTips = true;
 
+        /*
         loadingScreenTips[currentTip].gameObject.SetActive(true);
         tipsShowTweens[currentTip].Play();
+        */
     }
 
     public override void HideSpecialized(bool instant)
@@ -108,6 +110,8 @@ public class LoadingScreenUIManager : UIElement
 
     private void ShowTip(int lastTip, int currentTip)
     {
+        return;
+
         tipsHideTweens[lastTip * 2].Rewind();
         tipsHideTweens[lastTip * 2].Play();
         tipsHideTweens[lastTip * 2 + 1].Rewind();
