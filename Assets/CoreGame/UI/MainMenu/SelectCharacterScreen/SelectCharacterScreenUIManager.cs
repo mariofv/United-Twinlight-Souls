@@ -78,7 +78,7 @@ public class SelectCharacterScreenUIManager : MainMenuScreenUIManager
             GameManager.instance.player.ControlIlona();
         }
 
-        if (GameManager.instance.progressionManager.GetMaxLevelUnlocked() == 0)
+        if (GameManager.instance.progressionManager.GetMaxLevelUnlocked() != 0)
         { 
             GameManager.instance.uiManager.mainMenuUIManager.OpenMainMenuScreen(MainMenuScreenId.SELECT_LEVEL);
         }
