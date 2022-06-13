@@ -18,7 +18,7 @@ public class ZoneCamera : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        if (zoneCameraRail == null)
+        if (zoneCameraRail == null || GameManager.instance.GetCurrentGameState() == GameManager.GameState.MAIN_MENU)
         {
             return;
         }
