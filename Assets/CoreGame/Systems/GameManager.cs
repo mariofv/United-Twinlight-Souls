@@ -172,6 +172,7 @@ public class GameManager : MonoBehaviour
         bool unloadInstant = true;
 
         uiManager.UnloadGameStateUI(gameState, instant: unloadInstant);
+        ExitGameState(gameState);
 
         lastGameState = gameState;
         gameState = state;
@@ -183,6 +184,30 @@ public class GameManager : MonoBehaviour
         }
 
         uiManager.LoadGameStateUI(gameState);
+    }
+
+    private void ExitGameState(GameState state)
+    {
+        switch (state)
+        {
+            case GameState.NONE:
+                break;
+            case GameState.MAIN_MENU:
+                break;
+            case GameState.COMBAT:
+                break;
+            case GameState.DIALOGUE:
+                break;
+            case GameState.TUTORIAL:
+                break;
+            case GameState.CINEMATIC:
+                GameManager.instance.cinematicManager.EndCurrentCinematic();
+                break;
+            case GameState.PAUSE:
+                break;
+            case GameState.LOADING_LEVEL:
+                break;
+        }
     }
 
     public GameState GetCurrentGameState()
