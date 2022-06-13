@@ -15,7 +15,7 @@ public class ProgressionManager : MonoBehaviour
     };
 
     private Progression currentProgression;
-    private int maxLevelUnlocked = 2;
+    private int maxLevelUnlocked = 0;
 
     public bool CheckProgression(Progression progression)
     {
@@ -37,10 +37,15 @@ public class ProgressionManager : MonoBehaviour
         maxLevelUnlocked = Mathf.Max(maxLevelUnlocked, level);
         if (maxLevelUnlocked != 0)
         {
-            UnlockProgression(Progression.LIGHT_ATTACK_UNLOCKED);
-            UnlockProgression(Progression.LOCK_ON_UNLOCKED);
-            UnlockProgression(Progression.SHIELD_UNLOCKED);
-            UnlockProgression(Progression.DASH_UNLOCKED);
+            UnlockEverything();
         }
+    }
+
+    public void UnlockEverything()
+    {
+        UnlockProgression(Progression.LIGHT_ATTACK_UNLOCKED);
+        UnlockProgression(Progression.LOCK_ON_UNLOCKED);
+        UnlockProgression(Progression.SHIELD_UNLOCKED);
+        UnlockProgression(Progression.DASH_UNLOCKED);
     }
 }

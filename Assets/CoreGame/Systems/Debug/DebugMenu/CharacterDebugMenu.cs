@@ -32,6 +32,10 @@ public class CharacterDebugMenu : DebugMenu
             GameManager.instance.player.GetControlledCharacter().EnableMovement();
             GameManager.instance.uiManager.gameUIManager.hudUI.SelectIlonaPortrait();
         }
+        if (GUILayout.Button("Unlock Everything"))
+        {
+            GameManager.instance.progressionManager.UnlockEverything();
+        }
         GUILayout.EndHorizontal();
 
 
