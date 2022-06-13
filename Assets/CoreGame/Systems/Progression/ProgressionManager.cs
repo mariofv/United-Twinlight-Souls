@@ -35,5 +35,12 @@ public class ProgressionManager : MonoBehaviour
     public void SetMaxLevelUnlocked(int level)
     {
         maxLevelUnlocked = Mathf.Max(maxLevelUnlocked, level);
+        if (maxLevelUnlocked != 0)
+        {
+            UnlockProgression(Progression.LIGHT_ATTACK_UNLOCKED);
+            UnlockProgression(Progression.LOCK_ON_UNLOCKED);
+            UnlockProgression(Progression.SHIELD_UNLOCKED);
+            UnlockProgression(Progression.DASH_UNLOCKED);
+        }
     }
 }
