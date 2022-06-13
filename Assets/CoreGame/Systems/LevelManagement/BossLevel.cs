@@ -13,6 +13,7 @@ public class BossLevel : Level
 
     private void Start()
     {
+        GameManager.instance.enemyManager.AddSpawnedEnemy(bossAI.GetEnemy());
         StartBossPhase(0);
     }
 

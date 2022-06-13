@@ -7,7 +7,8 @@ public class Enemy : MonoBehaviour
 {
     [SerializeField] private EnemyAI enemyAI;
     [SerializeField] private Animator enemyAnimator;
-    [SerializeField] private List<Collider> enemyHurtBoxes;
+    [SerializeField] private List<Collider> enemyHurtBoxesColliders;
+    public List<EnemyHurtbox> enemyHurtBoxes;
     [SerializeField] private bool isBoss;
 
     [Header("Enemy Health")]
@@ -27,6 +28,11 @@ public class Enemy : MonoBehaviour
     void Awake()
     {
         enemyAI.Link(this);
+        enemyHurtBoxes = new List<EnemyHurtbox>(enemyHurtBoxesColliders.Count);
+        for (int i = 0; i < enemyHurtBoxesColliders.Count; ++i)
+        {
+            enemyHurtBoxes.Add(enemyHurtBoxesColliders[i].GetComponent<EnemyHurtbox>());
+        }
     }
 
     public void Hurt(int damage)
@@ -132,9 +138,9 @@ public class Enemy : MonoBehaviour
 
     public void SetInvincible(bool isInvincible)
     {
-        for (int i = 0; i < enemyHurtBoxes.Count; ++i)
+        for (int i = 0; i < enemyHurtBoxesColliders.Count; ++i)
         {
-            enemyHurtBoxes[i].enabled = !isInvincible;
+            enemyHurtBoxesColliders[i].enabled = !isInvincible;
         }
     }
 

@@ -93,7 +93,7 @@ public class CharacterCombatManager : CharacterSubManager
 
         if (characterManager.characterLockManager.IsLockingEnemy())
         {
-            Vector3 lockedEnemyPosition = characterManager.characterLockManager.GetLockedEnemyPosition();
+            Vector3 lockedEnemyPosition = characterManager.characterLockManager.GetLockedEnemyHurtboxPosition();
             Vector3 lookDirection = lockedEnemyPosition - transform.position;
             lookDirection.y = 0f;
 

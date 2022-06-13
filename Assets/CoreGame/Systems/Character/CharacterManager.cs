@@ -45,6 +45,7 @@ public class CharacterManager : MonoBehaviour
         characterAnimationEventsManager.onDeathEnd.AddListener(OnDeathEnd);
 
         DisableMovement();
+        DisableLock();
     }
 
     // Update is called once per frame
@@ -154,6 +155,16 @@ public class CharacterManager : MonoBehaviour
     public void DisableMovement()
     {
         characterMovementManager.enabled = false;
+    }
+
+    public void EnableLock()
+    {
+        characterLockManager.enabled = true;
+    }
+
+    public void DisableLock()
+    {
+        characterLockManager.enabled = false;
     }
 
     public void StartStun()

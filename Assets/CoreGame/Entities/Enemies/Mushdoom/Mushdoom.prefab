@@ -203,14 +203,18 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   enemyAI: {fileID: 7873632020264568125}
   enemyAnimator: {fileID: 5341458217088628165}
-  enemyHurtBoxes:
+  enemyHurtBoxesColliders:
   - {fileID: 7234784144486757714}
+  enemyHurtBoxes: []
   isBoss: 0
   maxHealth: 20
   currentHealth: 0
   orientateEnemyAfterHit: 1
   minAmountLightOrbs: 1
   maxAmountLightOrbs: 3
+  onSpawnEnd:
+    m_PersistentCalls:
+      m_Calls: []
   onSpawnedEnemyDead:
     m_PersistentCalls:
       m_Calls: []

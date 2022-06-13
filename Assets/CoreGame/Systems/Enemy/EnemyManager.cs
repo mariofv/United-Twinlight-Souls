@@ -75,6 +75,11 @@ public class EnemyManager : MonoBehaviour
         necroplantPool.EmptyPool();
     }
 
+    public void AddSpawnedEnemy(Enemy enemyToBeAdded)
+    {
+        spawnedEnemies.Add(enemyToBeAdded);
+    }
+
     public void RemoveSpawnedEnemy(Enemy enemyToBeRemoved)
     {
         spawnedEnemies.Remove(enemyToBeRemoved);

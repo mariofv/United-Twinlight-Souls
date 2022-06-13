@@ -67,4 +67,9 @@ public abstract class EnemyAI : MonoBehaviour
     {
         return enemyNavMeshAgent.velocity != Vector3.zero;
     }
+
+    public Enemy GetEnemy()
+    {
+        return enemy;
+    }
 }

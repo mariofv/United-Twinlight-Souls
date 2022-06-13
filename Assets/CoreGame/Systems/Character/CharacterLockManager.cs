@@ -19,9 +19,9 @@ public class CharacterLockManager : CharacterSubManager
     private LockState currentState;
 
     private float currentSoftLockCheckTime = 0f;
-    private Enemy currentSoftLockedEnemy = null;
+    private EnemyHurtbox currentSoftLockedEnemyHurtbox = null;
 
-    private Enemy currentLockedEnemy = null;
+    private EnemyHurtbox currentLockedEnemyHurtbox = null;
 
     // Update is called once per frame
     void Update()
@@ -32,27 +32,27 @@ public class CharacterLockManager : CharacterSubManager
             if (currentSoftLockCheckTime >= timeUntilSoftLockCheck)
             {
                 currentSoftLockCheckTime = 0f;
-                CheckPotentialLockedEnemy();
+                CheckPotentialLockedEnemyHurtbox();
             }
         }
     }
 
-    public void SwitchLockEnemy()
+    public void SwitchLockEnemyHurtbox()
     {
         if (currentState != LockState.LOCK)
         {
-            Enemy softLockedEnemy = currentSoftLockedEnemy;
-            if (softLockedEnemy == null)
+            EnemyHurtbox softLockedEnemyHurtbox = currentSoftLockedEnemyHurtbox;
+            if (softLockedEnemyHurtbox == null)
             {
                 return;
             }
 
-            SoftUnlockEnemy();
-            LockEnemy(softLockedEnemy);
+            SoftUnlockEnemyHurtbox();
+            LockEnemyHurtbox(softLockedEnemyHurtbox);
         }
         else
         {
-            UnlockEnemy();
+            UnlockEnemyHurtbox();
         }
     }
 
@@ -63,27 +63,27 @@ public class CharacterLockManager : CharacterSubManager
             return;
         }
 
-        Enemy nextEnemy = GetNextEnemy(currentLockedEnemy);
-        if (nextEnemy != null)
+        EnemyHurtbox nextEnemyHurtbox = GetNextEnemyHurtbox(currentLockedEnemyHurtbox);
+        if (nextEnemyHurtbox != null)
         {
-            UnlockEnemy(hasToHideUI: false);
-            LockEnemy(nextEnemy);
+            UnlockEnemyHurtbox(hasToHideUI: false);
+            LockEnemyHurtbox(nextEnemyHurtbox);
         }
     }
 
-    private void SoftLockEnemy(Enemy enemy)
+    private void SoftLockEnemyHurtbox(EnemyHurtbox enemyHurtbox)
     {
-        currentSoftLockedEnemy = enemy;
-        currentSoftLockedEnemy.onSpawnedEnemyDead.AddListener(OnSoftLockedEnemyDeath);
+        currentSoftLockedEnemyHurtbox = enemyHurtbox;
+        currentSoftLockedEnemyHurtbox.GetEnemyScript().onSpawnedEnemyDead.AddListener(OnSoftLockedEnemyDeath);
 
-        GameManager.instance.uiManager.gameUIManager.lockUI.SoftLockEnemy(currentSoftLockedEnemy.transform);
+        GameManager.instance.uiManager.gameUIManager.lockUI.SoftLockEnemy(currentSoftLockedEnemyHurtbox.transform);
         currentState = LockState.SOFT_LOCK;
     }
 
-    private void SoftUnlockEnemy()
+    private void SoftUnlockEnemyHurtbox()
     {
-        currentSoftLockedEnemy.onSpawnedEnemyDead.RemoveListener(OnSoftLockedEnemyDeath);
-        currentSoftLockedEnemy = null;
+        currentSoftLockedEnemyHurtbox.GetEnemyScript().onSpawnedEnemyDead.RemoveListener(OnSoftLockedEnemyDeath);
+        currentSoftLockedEnemyHurtbox = null;
 
         GameManager.instance.uiManager.gameUIManager.lockUI.UnlockEnemy(hasToHideUI: true);
         currentState = LockState.NONE;
@@ -91,22 +91,22 @@ public class CharacterLockManager : CharacterSubManager
 
     private void OnSoftLockedEnemyDeath(Enemy enemy)
     {
-        SoftUnlockEnemy();
+        SoftUnlockEnemyHurtbox();
     }
 
-    private void LockEnemy(Enemy enemy)
+    private void LockEnemyHurtbox(EnemyHurtbox enemyHurtbox)
     {
-        currentLockedEnemy = enemy;
-        currentLockedEnemy.onSpawnedEnemyDead.AddListener(OnLockedEnemyDeath);
+        currentLockedEnemyHurtbox = enemyHurtbox;
+        currentLockedEnemyHurtbox.GetEnemyScript().onSpawnedEnemyDead.AddListener(OnLockedEnemyDeath);
 
-        GameManager.instance.uiManager.gameUIManager.lockUI.LockEnemy(currentLockedEnemy.transform);
+        GameManager.instance.uiManager.gameUIManager.lockUI.LockEnemy(currentLockedEnemyHurtbox.transform);
         currentState = LockState.LOCK;
     }
 
-    private void UnlockEnemy(bool hasToHideUI = true)
+    private void UnlockEnemyHurtbox(bool hasToHideUI = true)
     {
-        currentLockedEnemy.onSpawnedEnemyDead.RemoveListener(OnLockedEnemyDeath);
-        currentLockedEnemy = null;
+        currentLockedEnemyHurtbox.GetEnemyScript().onSpawnedEnemyDead.RemoveListener(OnLockedEnemyDeath);
+        currentLockedEnemyHurtbox = null;
 
         GameManager.instance.uiManager.gameUIManager.lockUI.UnlockEnemy(hasToHideUI);
         currentState = LockState.NONE;
@@ -114,65 +114,69 @@ public class CharacterLockManager : CharacterSubManager
 
     private void OnLockedEnemyDeath(Enemy enemy)
     {
-        UnlockEnemy();
-        Enemy bestSuitableEnemy = GetBestSuitableLockEnemy();
-        if (bestSuitableEnemy != null)
+        UnlockEnemyHurtbox();
+        EnemyHurtbox bestSuitableEnemyHurtobx = GetBestSuitableLockEnemyHurtbox();
+        if (bestSuitableEnemyHurtobx != null)
         {
-            LockEnemy(bestSuitableEnemy);
+            LockEnemyHurtbox(bestSuitableEnemyHurtobx);
         }
     }
 
-    private void CheckPotentialLockedEnemy()
+    private void CheckPotentialLockedEnemyHurtbox()
     {
-        Enemy bestSuitableEnemy = GetBestSuitableLockEnemy();
-        if (bestSuitableEnemy != null)
+        EnemyHurtbox bestSuitableEnemyHurtbox = GetBestSuitableLockEnemyHurtbox();
+        if (bestSuitableEnemyHurtbox != null)
         {
             if (currentState == LockState.SOFT_LOCK)
             {
-                if (bestSuitableEnemy != currentSoftLockedEnemy)
+                if (bestSuitableEnemyHurtbox != currentSoftLockedEnemyHurtbox)
                 {
-                    SoftUnlockEnemy();
-                    SoftLockEnemy(bestSuitableEnemy);
+                    SoftUnlockEnemyHurtbox();
+                    SoftLockEnemyHurtbox(bestSuitableEnemyHurtbox);
                 }
             }
             else
             {
-                SoftLockEnemy(bestSuitableEnemy);
+                SoftLockEnemyHurtbox(bestSuitableEnemyHurtbox);
             }
         }
         else
         {
             if (currentState == LockState.SOFT_LOCK)
             {
-                SoftUnlockEnemy();
+                SoftUnlockEnemyHurtbox();
             }
         }
     }
 
-    private Enemy GetBestSuitableLockEnemy()
+    private EnemyHurtbox GetBestSuitableLockEnemyHurtbox()
     {
         List<Enemy> spawnedEnemies;
         GameManager.instance.enemyManager.GetSpawnedEnemies(out spawnedEnemies);
 
-        Enemy bestSuitableEnemy = null;
+        EnemyHurtbox bestSuitableEnemyHurtbox = null;
         float bestSuitableEnemyPriority = 0f;
 
         for (int i = 0; i < spawnedEnemies.Count; ++i)
         {
-            float currentEnemyPriority = 0f;
-            Vector3 currentEnemyPosition = spawnedEnemies[i].transform.position;
-
-            currentEnemyPriority += ComputeDistancePriority(currentEnemyPosition);
-            currentEnemyPriority += ComputeFrontOfPlayerPriority(currentEnemyPosition);
-
-            if (currentEnemyPriority > bestSuitableEnemyPriority)
+            for (int j = 0; j < spawnedEnemies[i].enemyHurtBoxes.Count; ++j)
             {
-                bestSuitableEnemyPriority = currentEnemyPriority;
-                bestSuitableEnemy = spawnedEnemies[i];
+                float currentEnemyHurtboxPriority = 0f;
+                Vector3 currentEnemyHurtboxPosition = spawnedEnemies[i].enemyHurtBoxes[j].transform.position;
+
+                currentEnemyHurtboxPriority += ComputeDistancePriority(currentEnemyHurtboxPosition);
+                currentEnemyHurtboxPriority += ComputeFrontOfPlayerPriority(currentEnemyHurtboxPosition);
+
+                if (currentEnemyHurtboxPriority > bestSuitableEnemyPriority)
+                {
+                    bestSuitableEnemyPriority = currentEnemyHurtboxPriority;
+                    bestSuitableEnemyHurtbox = spawnedEnemies[i].enemyHurtBoxes[j];
+                }
+
             }
         }
 
-        return bestSuitableEnemy;
+        return bestSuitableEnemyHurtbox;
     }
 
     private float ComputeDistancePriority(Vector3 enemyPosition)
@@ -199,28 +203,29 @@ public class CharacterLockManager : CharacterSubManager
         return 0f;
     }
 
-    private Enemy GetNextEnemy(Enemy enemy)
+    private EnemyHurtbox GetNextEnemyHurtbox(EnemyHurtbox enemyHurtbox)
     {
         List<Enemy> spawnedEnemies;
         GameManager.instance.enemyManager.GetSpawnedEnemies(out spawnedEnemies);
-
-        int currentEnemyIndex = -1;
+        List<EnemyHurtbox> enemiesHurtboxes = new List<EnemyHurtbox>();
 
         for (int i = 0; i < spawnedEnemies.Count; ++i)
         {
-            if (spawnedEnemies[i] == enemy)
+            for (int j = 0; j < spawnedEnemies[i].enemyHurtBoxes.Count; ++j)
             {
-                currentEnemyIndex = i;
-                break;
+                enemiesHurtboxes.Add(spawnedEnemies[i].enemyHurtBoxes[j]);
             }
         }
 
-        if (currentEnemyIndex == -1)
+        for (int i = 0; i < enemiesHurtboxes.Count; ++i)
         {
-            return null;
+            if (enemiesHurtboxes[i] == enemyHurtbox)
+            {
+                return enemiesHurtboxes[(i + 1) % enemiesHurtboxes.Count];
+            }
         }
-        int nextEnemyIndex = (currentEnemyIndex + 1) % spawnedEnemies.Count;
-        return spawnedEnemies[nextEnemyIndex];
+
+        return null;
     }
 
     public bool IsLockingEnemy()
@@ -228,15 +233,15 @@ public class CharacterLockManager : CharacterSubManager
         return currentState != LockState.NONE;
     }
 
-    public Vector3 GetLockedEnemyPosition()
+    public Vector3 GetLockedEnemyHurtboxPosition()
     {
         if (currentState == LockState.LOCK)
         {
-            return currentLockedEnemy.transform.position;
+            return currentLockedEnemyHurtbox.transform.position;
         }
         else
         {
-            return currentSoftLockedEnemy.transform.position;
+            return currentSoftLockedEnemyHurtbox.transform.position;
         }
     }
 

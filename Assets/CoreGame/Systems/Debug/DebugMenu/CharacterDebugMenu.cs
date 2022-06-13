@@ -17,19 +17,23 @@ public class CharacterDebugMenu : DebugMenu
         if (GUILayout.Button("Control Barald"))
         {
             GameManager.instance.player.GetControlledCharacter().DisableMovement();
+            GameManager.instance.player.GetControlledCharacter().DisableLock();
             GameManager.instance.player.GetBarald().Teleport(GameManager.instance.player.GetControlledCharacter().characterMovementManager.GetPosition());
             GameManager.instance.player.GetIlona().Teleport(GameManager.instance.levelManager.GetCurrentLevel().voidPosition.position);
             GameManager.instance.player.ControlBarald();
             GameManager.instance.player.GetControlledCharacter().EnableMovement();
+            GameManager.instance.player.GetControlledCharacter().EnableLock();
             GameManager.instance.uiManager.gameUIManager.hudUI.SelectBaraldPortrait();
         }
         if (GUILayout.Button("Control Ilona"))
         {
             GameManager.instance.player.GetControlledCharacter().DisableMovement();
+            GameManager.instance.player.GetControlledCharacter().DisableLock();
             GameManager.instance.player.GetIlona().Teleport(GameManager.instance.player.GetControlledCharacter().characterMovementManager.GetPosition());
             GameManager.instance.player.GetBarald().Teleport(GameManager.instance.levelManager.GetCurrentLevel().voidPosition.position);
             GameManager.instance.player.ControlIlona();
             GameManager.instance.player.GetControlledCharacter().EnableMovement();
+            GameManager.instance.player.GetControlledCharacter().EnableLock();
             GameManager.instance.uiManager.gameUIManager.hudUI.SelectIlonaPortrait();
         }
         if (GUILayout.Button("Unlock Everything"))

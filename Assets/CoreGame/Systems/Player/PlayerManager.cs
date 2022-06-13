@@ -35,6 +35,7 @@ public class PlayerManager : MonoBehaviour
             return;
         }
 
+        controlledCharacterManager.DisableLock();
         controlledCharacterManager.DisableMovement();
         controlledCharacterManager.ResetVisuals();
         controlledCharacterManager = null;

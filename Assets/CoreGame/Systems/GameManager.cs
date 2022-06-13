@@ -142,6 +142,7 @@ public class GameManager : MonoBehaviour
         }
         CursorHider.ShowCursor();
         player.GetControlledCharacter().EnableMovement();
+        player.GetControlledCharacter().EnableLock();
     }
     public void CloseGame()
     {

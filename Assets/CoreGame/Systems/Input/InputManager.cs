@@ -317,7 +317,7 @@ public class InputManager : MonoBehaviour
         {
             return;
         }
-        GameManager.instance.player.GetControlledCharacter().characterLockManager.SwitchLockEnemy();
+        GameManager.instance.player.GetControlledCharacter().characterLockManager.SwitchLockEnemyHurtbox();
     }
 
     public void OnChangeLockedEnemyInput(InputAction.CallbackContext context)
