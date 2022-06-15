@@ -143,14 +143,14 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 9c2d5016f48cbb34cb376ac4d8b57653, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  attackTime: 2
+  attackTime: 1
   attackDamage: 25
   hitBoxDuration: 0.2
   attackCollider: {fileID: 4208090638500227759}
   crackMeshRenderer: {fileID: 3391273388755620450}
   shockwave: {fileID: 8289165870657507337}
   shockwaveDamage: 10
-  shockwaveSpeed: 10
+  shockwaveSpeed: 5
   shockwaveMeshRenderer: {fileID: 7058677014017281162}
 --- !u!65 &4208090638500227759
 BoxCollider:
