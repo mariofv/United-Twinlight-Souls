@@ -49,6 +49,9 @@ public class BossAI : EnemyAI
     [Header("Slam")]
     [SerializeField] private float slamPreparationTime;
 
+    [Header("Earthquake")]
+    [SerializeField] private BossEarthquake earthquake;
+
     [Header("Idle Phase 2")]
     [SerializeField] private float minTimeBetweenAttacksPhase2;
     [SerializeField] private float maxTimeBetweenAttacksPhase2;
@@ -217,6 +220,7 @@ public class BossAI : EnemyAI
 
     public void OnEarthquakeHit()
     {
+        earthquake.Trigger();
         GameManager.instance.cameraManager.ShakeCamera(CameraManager.CameraShakeType.STRONG, 2f);
         audioSource.PlayOneShot(bossAudioClips.earthquakeHit);
     }
