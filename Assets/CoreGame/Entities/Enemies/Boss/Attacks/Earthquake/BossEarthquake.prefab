@@ -11,6 +11,7 @@ GameObject:
   - component: {fileID: 1793016669882688062}
   - component: {fileID: 7199249321769195546}
   - component: {fileID: 7058677014017281162}
+  - component: {fileID: 8289165870657507337}
   m_Layer: 0
   m_Name: Shockwave
   m_TagString: Untagged
@@ -81,6 +82,21 @@ MeshRenderer:
   m_SortingLayer: 0
   m_SortingOrder: 0
   m_AdditionalVertexStreams: {fileID: 0}
+--- !u!114 &8289165870657507337
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 6186897690104452869}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: e63b9376fea47d54c9a98189f2fc5e88, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  earthquake: {fileID: 7918524482322858092}
+  attackRadius: 4
+  safeRadius: 3
 --- !u!1 &6344107715762774782
 GameObject:
   m_ObjectHideFlags: 0
@@ -127,12 +143,14 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 9c2d5016f48cbb34cb376ac4d8b57653, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  attackTime: 2
   attackDamage: 25
   hitBoxDuration: 0.2
   attackCollider: {fileID: 4208090638500227759}
-  attackTime: 2
-  shockwaveSpeed: 10
   crackMeshRenderer: {fileID: 3391273388755620450}
+  shockwave: {fileID: 8289165870657507337}
+  shockwaveDamage: 10
+  shockwaveSpeed: 10
   shockwaveMeshRenderer: {fileID: 7058677014017281162}
 --- !u!65 &4208090638500227759
 BoxCollider:

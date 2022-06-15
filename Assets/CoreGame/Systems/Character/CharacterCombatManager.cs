@@ -52,6 +52,19 @@ public class CharacterCombatManager : CharacterSubManager
         playerHurtbox.enabled = !invincible;
     }
 
+    public bool IsInvincible()
+    {
+        if (Debug.isDebugBuild || Application.isEditor)
+        {
+            if (GameManager.instance.debugManager.godMode)
+            {
+                return true;
+            }
+        }
+
+        return !playerHurtbox.enabled;
+    }
+
     public void LightAttack()
     {
         if (currentLightAttackChain >= 0)

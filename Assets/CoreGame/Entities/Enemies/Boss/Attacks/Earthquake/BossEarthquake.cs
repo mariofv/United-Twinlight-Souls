@@ -10,16 +10,21 @@ public class BossEarthquake : MonoBehaviour
         ACTIVE
     }
 
+    [SerializeField] private float attackTime;
+
+    [Header("Attack")]
     [SerializeField] private int attackDamage;
     [SerializeField] private float hitBoxDuration;
     [SerializeField] private BoxCollider attackCollider;
-
-
-    [SerializeField] private float attackTime;
-    [SerializeField] private float shockwaveSpeed;
-
     [SerializeField] private MeshRenderer crackMeshRenderer;
+
+
+    [Header("Shockwave")]
+    [SerializeField] private BossEarthquakeShockwave shockwave;
+    [SerializeField] private int shockwaveDamage;
+    [SerializeField] private float shockwaveSpeed;
     [SerializeField] private MeshRenderer shockwaveMeshRenderer;
+
 
     private Material crackMaterial;
     private Transform shockwaveTransform;
@@ -65,6 +70,7 @@ public class BossEarthquake : MonoBehaviour
 
                 if (progress == 1f)
                 {
+                    shockwave.End();
                     currentState = BossEarthquakeState.INACTIVE;
                 }
                 break;
@@ -77,6 +83,12 @@ public class BossEarthquake : MonoBehaviour
         hasAttackHurtPlayer = false;
         currentTime = 0f;
         attackCollider.enabled = true;
+        shockwave.Trigger();
+    }
+
+    public void OnShockwaveHit()
+    {
+        GameManager.instance.player.GetControlledCharacter().characterStatsManager.Hurt(shockwaveDamage, transform.position, attackCausesStun: true);
     }
 
     private void OnTriggerEnter(Collider other)

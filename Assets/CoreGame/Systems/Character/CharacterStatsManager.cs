@@ -38,12 +38,9 @@ public class CharacterStatsManager : CharacterSubManager
 
     public void Hurt(int damage, Vector3 hitPosition, bool attackCausesStun = false)
     {
-        if (Debug.isDebugBuild || Application.isEditor)
+        if (characterManager.characterCombatManager.IsInvincible())
         {
-            if (GameManager.instance.debugManager.godMode)
-            {
-                damage = 0;
-            }
+            return;
         }
 
         if (characterManager.characterCombatManager.IsShieldActive())
