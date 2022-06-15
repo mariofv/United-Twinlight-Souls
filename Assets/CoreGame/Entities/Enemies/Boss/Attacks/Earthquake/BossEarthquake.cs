@@ -83,7 +83,7 @@ public class BossEarthquake : MonoBehaviour
     {
         if (!hasAttackHurtPlayer && other.CompareTag(TagManager.PLAYER))
         {
-            GameManager.instance.player.GetControlledCharacter().characterStatsManager.Hurt(attackDamage, transform.position);
+            GameManager.instance.player.GetControlledCharacter().characterStatsManager.Hurt(attackDamage, transform.position, attackCausesStun:true);
             hasAttackHurtPlayer = true;
         }
     }
