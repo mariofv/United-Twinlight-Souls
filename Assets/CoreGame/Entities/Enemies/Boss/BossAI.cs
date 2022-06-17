@@ -48,6 +48,9 @@ public class BossAI : EnemyAI
 
     [Header("Slam")]
     [SerializeField] private float slamPreparationTime;
+    [SerializeField] private BossSlam slam;
+    [SerializeField] private Transform slamHandTransform;
+    [SerializeField] private float slamOffset;
 
     [Header("Earthquake")]
     [SerializeField] private BossEarthquake earthquake;
@@ -177,6 +180,7 @@ public class BossAI : EnemyAI
     {
         GameManager.instance.cameraManager.ShakeCamera(CameraManager.CameraShakeType.STRONG, 1f);
         audioSource.PlayOneShot(bossAudioClips.slamHit);
+        slam.Trigger(slamHandTransform.position + Vector3.up * -slamOffset);
     }
 
     public void OnSlamEnd()

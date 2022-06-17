@@ -271,6 +271,9 @@ MonoBehaviour:
   minTimeBetweenAttacksPhase1: 4
   maxTimeBetweenAttacksPhase1: 6
   slamPreparationTime: 3
+  slam: {fileID: 2573111852712792400}
+  slamHandTransform: {fileID: 3045811980876196011}
+  slamOffset: 2.125
   earthquake: {fileID: 6864107141809240421}
   minTimeBetweenAttacksPhase2: 4
   maxTimeBetweenAttacksPhase2: 6
@@ -390,6 +393,7 @@ Transform:
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:
   - {fileID: 8862286888285052554}
+  - {fileID: 7545830321589497323}
   m_Father: {fileID: 3173178779799949770}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
@@ -869,14 +873,19 @@ Animator:
   m_CorrespondingSourceObject: {fileID: 5866666021909216657, guid: 1f90de5df7596e040891991af3c34d0e, type: 3}
   m_PrefabInstance: {fileID: 2681013852730758096}
   m_PrefabAsset: {fileID: 0}
---- !u!4 &7612032118678402794 stripped
+--- !u!4 &3045811980876196011 stripped
 Transform:
-  m_CorrespondingSourceObject: {fileID: 5519021728138503482, guid: 1f90de5df7596e040891991af3c34d0e, type: 3}
+  m_CorrespondingSourceObject: {fileID: 1112453150438734715, guid: 1f90de5df7596e040891991af3c34d0e, type: 3}
   m_PrefabInstance: {fileID: 2681013852730758096}
   m_PrefabAsset: {fileID: 0}
 --- !u!4 &4078963597105873002 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 2139135207487689658, guid: 1f90de5df7596e040891991af3c34d0e, type: 3}
+  m_PrefabInstance: {fileID: 2681013852730758096}
+  m_PrefabAsset: {fileID: 0}
+--- !u!4 &7612032118678402794 stripped
+Transform:
+  m_CorrespondingSourceObject: {fileID: 5519021728138503482, guid: 1f90de5df7596e040891991af3c34d0e, type: 3}
   m_PrefabInstance: {fileID: 2681013852730758096}
   m_PrefabAsset: {fileID: 0}
 --- !u!114 &1331827990689238038
@@ -947,6 +956,51 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 9c2d5016f48cbb34cb376ac4d8b57653, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+--- !u!1001 &4955010734972109203
+PrefabInstance:
+  m_ObjectHideFlags: 0
+  serializedVersion: 2
+  m_Modification:
+    m_TransformParent: {fileID: 5118020389723882546}
+    m_Modifications:
+    - target: {fileID: 3205314645694098552, guid: 07507e7324430424087fc031d91961dc, type: 3}
+      propertyPath: m_RootOrder
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 3205314645694098552, guid: 07507e7324430424087fc031d91961dc, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 3205314645694098552, guid: 07507e7324430424087fc031d91961dc, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 3205314645694098552, guid: 07507e7324430424087fc031d91961dc, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4102029741760918204, guid: 07507e7324430424087fc031d91961dc, type: 3}
+      propertyPath: m_Name
+      value: BossSlam
+      objectReference: {fileID: 0}
+    m_RemovedComponents: []
+  m_SourcePrefab: {fileID: 100100000, guid: 07507e7324430424087fc031d91961dc, type: 3}
+--- !u!4 &7545830321589497323 stripped
+Transform:
+  m_CorrespondingSourceObject: {fileID: 3205314645694098552, guid: 07507e7324430424087fc031d91961dc, type: 3}
+  m_PrefabInstance: {fileID: 4955010734972109203}
+  m_PrefabAsset: {fileID: 0}
+--- !u!114 &2573111852712792400 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 7455211767380676803, guid: 07507e7324430424087fc031d91961dc, type: 3}
+  m_PrefabInstance: {fileID: 4955010734972109203}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: d82168ef1dbb5f040a7283fae4f66063, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
 --- !u!1001 &6880530730607999619
