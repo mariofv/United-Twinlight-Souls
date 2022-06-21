@@ -4,15 +4,16 @@ using UnityEngine;
 
 public class BossLeftPunch : MonoBehaviour
 {
-    // Start is called before the first frame update
-    void Start()
+    [SerializeField] private BossAttackRockPool bossAttackRockPool;
+
+    private void Awake()
     {
-        
+        bossAttackRockPool.InitPool();
     }
 
-    // Update is called once per frame
-    void Update()
+    public void Trigger(Vector3 position)
     {
-        
+        BossAttackRock bossAttackRock = bossAttackRockPool.GetInstance();
+        bossAttackRock.Spawn(position, false);
     }
 }

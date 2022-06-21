@@ -61,6 +61,9 @@ public class BossAI : EnemyAI
     private BalancedRandomSelector phase2AttackSelector;
     private float currentTimeBetweenAttacksPhase2;
 
+    [Header("Left Punch")]
+    [SerializeField] private BossLeftPunch leftPunch;
+
     [Header("Idle Phase 3")]
     [SerializeField] private List<EnemyWave> phase3Waves;
     [SerializeField] private float avalancheCastingTime;
@@ -274,7 +277,6 @@ public class BossAI : EnemyAI
         currentBossState = BossState.LEFT_PUNCH;
         enemy.TriggerAnimation("leftPunch");
         audioSource.PlayOneShot(bossAudioClips.punchSwing);
-
     }
 
     public void OnLeftPunchEnd()
@@ -441,11 +443,16 @@ public class BossAI : EnemyAI
         {
             GameManager.instance.cameraManager.ShakeCamera(CameraManager.CameraShakeType.NORMAL, 2f);
 
+            Vector3 attackPosition = NavMeshHelper.GetNearPosition(slamHandTransform.position + Vector3.forward * 10f, 0f);
+            leftPunch.Trigger(attackPosition);
+
         }
         else if (currentBossState == BossState.RIGHT_PUNCH)
         {
             GameManager.instance.cameraManager.ShakeCamera(CameraManager.CameraShakeType.NORMAL, 2f);
 
+            Vector3 attackPosition = NavMeshHelper.GetNearPosition(slamHandTransform.position + Vector3.forward * 10f, 0f);
+            leftPunch.Trigger(attackPosition);
         }
     }
 

@@ -47,11 +47,11 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   rockTransform: {fileID: 4621170507648643052}
   shadowTransform: {fileID: 6722990694370148333}
-  foreshadowTime: 1.5
-  spawnFromGroundTime: 1
-  spawnFromGroundHeight: 2
-  spawnFromCellingTime: 3
-  spawnFromCellingHeight: 10
+  foreshadowTime: 1
+  spawnFromGroundTime: 0.25
+  spawnFromGroundHeight: 3
+  spawnFromCellingTime: 0.5
+  spawnFromCellingHeight: 15
 --- !u!1 &8847302042980008095
 GameObject:
   m_ObjectHideFlags: 0
@@ -124,7 +124,7 @@ SpriteRenderer:
   m_SortingLayer: 0
   m_SortingOrder: 0
   m_Sprite: {fileID: 21300000, guid: d57bf1400ff255c408f745c9d5903d69, type: 3}
-  m_Color: {r: 1, g: 1, b: 1, a: 1}
+  m_Color: {r: 1, g: 0, b: 0, a: 1}
   m_FlipX: 0
   m_FlipY: 0
   m_DrawMode: 0

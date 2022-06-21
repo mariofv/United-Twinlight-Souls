@@ -179,7 +179,8 @@ Transform:
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
-  m_Children: []
+  m_Children:
+  - {fileID: 5544796684239981299}
   m_Father: {fileID: 3173178779799949770}
   m_RootOrder: 1
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
@@ -277,6 +278,7 @@ MonoBehaviour:
   earthquake: {fileID: 6864107141809240421}
   minTimeBetweenAttacksPhase2: 4
   maxTimeBetweenAttacksPhase2: 6
+  leftPunch: {fileID: 8431269062088123057}
   phase3Waves: []
   avalancheCastingTime: 10
   stunTime: 5
@@ -1001,6 +1003,79 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: d82168ef1dbb5f040a7283fae4f66063, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+--- !u!1001 &5600096673388383514
+PrefabInstance:
+  m_ObjectHideFlags: 0
+  serializedVersion: 2
+  m_Modification:
+    m_TransformParent: {fileID: 8398565454243746600}
+    m_Modifications:
+    - target: {fileID: 91366616331847657, guid: a67fbc85b40895c4fb9cd73dbde758cd, type: 3}
+      propertyPath: m_RootOrder
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 91366616331847657, guid: a67fbc85b40895c4fb9cd73dbde758cd, type: 3}
+      propertyPath: m_LocalPosition.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 91366616331847657, guid: a67fbc85b40895c4fb9cd73dbde758cd, type: 3}
+      propertyPath: m_LocalPosition.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 91366616331847657, guid: a67fbc85b40895c4fb9cd73dbde758cd, type: 3}
+      propertyPath: m_LocalPosition.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 91366616331847657, guid: a67fbc85b40895c4fb9cd73dbde758cd, type: 3}
+      propertyPath: m_LocalRotation.w
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 91366616331847657, guid: a67fbc85b40895c4fb9cd73dbde758cd, type: 3}
+      propertyPath: m_LocalRotation.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 91366616331847657, guid: a67fbc85b40895c4fb9cd73dbde758cd, type: 3}
+      propertyPath: m_LocalRotation.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 91366616331847657, guid: a67fbc85b40895c4fb9cd73dbde758cd, type: 3}
+      propertyPath: m_LocalRotation.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 91366616331847657, guid: a67fbc85b40895c4fb9cd73dbde758cd, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 91366616331847657, guid: a67fbc85b40895c4fb9cd73dbde758cd, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 91366616331847657, guid: a67fbc85b40895c4fb9cd73dbde758cd, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 606630058014862102, guid: a67fbc85b40895c4fb9cd73dbde758cd, type: 3}
+      propertyPath: m_Name
+      value: BossLeftPunch
+      objectReference: {fileID: 0}
+    m_RemovedComponents: []
+  m_SourcePrefab: {fileID: 100100000, guid: a67fbc85b40895c4fb9cd73dbde758cd, type: 3}
+--- !u!4 &5544796684239981299 stripped
+Transform:
+  m_CorrespondingSourceObject: {fileID: 91366616331847657, guid: a67fbc85b40895c4fb9cd73dbde758cd, type: 3}
+  m_PrefabInstance: {fileID: 5600096673388383514}
+  m_PrefabAsset: {fileID: 0}
+--- !u!114 &8431269062088123057 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 4086568930668818347, guid: a67fbc85b40895c4fb9cd73dbde758cd, type: 3}
+  m_PrefabInstance: {fileID: 5600096673388383514}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 84ca55a1e336bbe4daec37e175a4ef78, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
 --- !u!1001 &6880530730607999619

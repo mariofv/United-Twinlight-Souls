@@ -62,7 +62,7 @@ public class BossAttackRock : MonoBehaviour
                     {
                         progress = Mathf.Min(1f, currentTime / spawnFromGroundTime);
 
-                        newHeight = Mathf.Lerp(spawnFromGroundHeight, 1.5f, progress);
+                        newHeight = Mathf.Lerp(-spawnFromGroundHeight, 1.5f, progress);
                     }
                     else
                     {
@@ -92,23 +92,24 @@ public class BossAttackRock : MonoBehaviour
 
     public void Spawn(Vector3 position, bool isSpawningFromGround)
     {
-        currentState = AttackRockState.SPAWNING;
+        currentState = AttackRockState.FORESHADOWING;
         currentTime = 0f;
 
         transform.position = position;
 
         this.isSpawningFromGround = isSpawningFromGround;
+        Vector3 spawnPosition = rockTransform.position; 
         if (isSpawningFromGround)
         {
-            rockTransform.position = rockTransform.position - Vector3.up * spawnFromGroundHeight;
+            spawnPosition.y = -spawnFromGroundHeight;
             rockTransform.rotation = Quaternion.identity;
         }
         else
         {
-            rockTransform.position = rockTransform.position + Vector3.up * spawnFromCellingHeight;
+            spawnPosition.y = spawnFromCellingHeight;
             rockTransform.rotation = Quaternion.Euler(180f, 0f, 0f);
         }
-
+        rockTransform.position = spawnPosition;
     }
 
     public bool IsActive()
