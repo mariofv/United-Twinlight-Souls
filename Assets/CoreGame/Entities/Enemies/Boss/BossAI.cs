@@ -444,7 +444,7 @@ public class BossAI : EnemyAI
             GameManager.instance.cameraManager.ShakeCamera(CameraManager.CameraShakeType.NORMAL, 2f);
 
             Vector3 attackPosition = NavMeshHelper.GetNearPosition(slamHandTransform.position + Vector3.forward * 10f, 0f);
-            leftPunch.Trigger(attackPosition);
+            leftPunch.Trigger();
 
         }
         else if (currentBossState == BossState.RIGHT_PUNCH)
@@ -452,7 +452,7 @@ public class BossAI : EnemyAI
             GameManager.instance.cameraManager.ShakeCamera(CameraManager.CameraShakeType.NORMAL, 2f);
 
             Vector3 attackPosition = NavMeshHelper.GetNearPosition(slamHandTransform.position + Vector3.forward * 10f, 0f);
-            leftPunch.Trigger(attackPosition);
+            leftPunch.Trigger();
         }
     }
 

@@ -1060,6 +1060,22 @@ PrefabInstance:
       propertyPath: m_Name
       value: BossLeftPunch
       objectReference: {fileID: 0}
+    - target: {fileID: 4086568930668818347, guid: a67fbc85b40895c4fb9cd73dbde758cd, type: 3}
+      propertyPath: attackAngle
+      value: 30.79
+      objectReference: {fileID: 0}
+    - target: {fileID: 4086568930668818347, guid: a67fbc85b40895c4fb9cd73dbde758cd, type: 3}
+      propertyPath: attackDirection.w
+      value: -0.93175465
+      objectReference: {fileID: 0}
+    - target: {fileID: 4086568930668818347, guid: a67fbc85b40895c4fb9cd73dbde758cd, type: 3}
+      propertyPath: attackDirection.y
+      value: 0.36308855
+      objectReference: {fileID: 0}
+    - target: {fileID: 4086568930668818347, guid: a67fbc85b40895c4fb9cd73dbde758cd, type: 3}
+      propertyPath: attackDirection.z
+      value: 0
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: a67fbc85b40895c4fb9cd73dbde758cd, type: 3}
 --- !u!4 &5544796684239981299 stripped

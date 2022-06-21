@@ -45,6 +45,12 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   bossAttackRockPool: {fileID: 2686631848370108422}
+  attackWaves: 02000000030000000300000004000000
+  timeBetweenWaves: 0.25
+  attackLength: 15
+  attackArch: 45
+  minAttackAngle: -10
+  maxAttackAngle: 10
 --- !u!1001 &6756790026901897522
 PrefabInstance:
   m_ObjectHideFlags: 0
