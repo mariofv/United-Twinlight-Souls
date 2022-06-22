@@ -67,10 +67,14 @@ public class BossAI : EnemyAI
 
     [Header("Idle Phase 3")]
     [SerializeField] private List<EnemyWave> phase3Waves;
-    [SerializeField] private float avalancheCastingTime;
-    [SerializeField] private float stunTime;
     private int currentWave = -1;
 
+    [Header("Avalanche")]
+    [SerializeField] private BossAvalanche avalanche;
+    [SerializeField] private float avalancheCastingTime;
+    [SerializeField] private float stunTime;
+
+    [Space(10)]
     [SerializeField] private BossAttackRockPool bossAttackRockPool;
 
     private void Awake()
@@ -353,6 +357,7 @@ public class BossAI : EnemyAI
     {
         currentBossState = BossState.AVALANCHE;
         currentTime = 0f;
+        avalanche.Trigger();
     }
 
     private void UpdateAvalancheState()
@@ -361,6 +366,7 @@ public class BossAI : EnemyAI
         if (currentTime >= avalancheCastingTime)
         {
             TransitionToStartStunState();
+            avalanche.End();
         }
     }
 
