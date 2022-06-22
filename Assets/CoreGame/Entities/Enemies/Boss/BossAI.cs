@@ -61,8 +61,9 @@ public class BossAI : EnemyAI
     private BalancedRandomSelector phase2AttackSelector;
     private float currentTimeBetweenAttacksPhase2;
 
-    [Header("Left Punch")]
+    [Header("Punches")]
     [SerializeField] private BossLeftPunch leftPunch;
+    [SerializeField] private BossRightPunch rightPunch;
 
     [Header("Idle Phase 3")]
     [SerializeField] private List<EnemyWave> phase3Waves;
@@ -442,17 +443,13 @@ public class BossAI : EnemyAI
         if (currentBossState == BossState.LEFT_PUNCH)
         {
             GameManager.instance.cameraManager.ShakeCamera(CameraManager.CameraShakeType.NORMAL, 2f);
-
-            Vector3 attackPosition = NavMeshHelper.GetNearPosition(slamHandTransform.position + Vector3.forward * 10f, 0f);
             leftPunch.Trigger();
 
         }
         else if (currentBossState == BossState.RIGHT_PUNCH)
         {
             GameManager.instance.cameraManager.ShakeCamera(CameraManager.CameraShakeType.NORMAL, 2f);
-
-            Vector3 attackPosition = NavMeshHelper.GetNearPosition(slamHandTransform.position + Vector3.forward * 10f, 0f);
-            leftPunch.Trigger();
+            rightPunch.Trigger();
         }
     }
 
