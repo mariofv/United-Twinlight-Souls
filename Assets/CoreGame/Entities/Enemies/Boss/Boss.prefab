@@ -284,6 +284,7 @@ MonoBehaviour:
   phase3Waves: []
   avalancheCastingTime: 10
   stunTime: 5
+  bossAttackRockPool: {fileID: 4801818100264552921}
 --- !u!195 &5454076620399081758
 NavMeshAgent:
   m_ObjectHideFlags: 0
@@ -366,6 +367,7 @@ Transform:
   m_Children:
   - {fileID: 5118020389723882546}
   - {fileID: 8398565454243746600}
+  - {fileID: 5575501312899628944}
   m_Father: {fileID: 2681013851269993635}
   m_RootOrder: 1
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
@@ -956,6 +958,10 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 2360768603143022722, guid: 15b3fdb2072b17e45b242abee7668ded, type: 3}
+      propertyPath: bossAttackRockPool
+      value: 
+      objectReference: {fileID: 4801818100264552921}
     - target: {fileID: 8757765714724832461, guid: 15b3fdb2072b17e45b242abee7668ded, type: 3}
       propertyPath: m_Name
       value: BossRightPunch
@@ -1019,6 +1025,11 @@ PrefabInstance:
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 115b198f027180f4c9c35e02a56e6ede, type: 3}
+--- !u!4 &8862286888285052554 stripped
+Transform:
+  m_CorrespondingSourceObject: {fileID: 5213866527870248835, guid: 115b198f027180f4c9c35e02a56e6ede, type: 3}
+  m_PrefabInstance: {fileID: 3649733207765842185}
+  m_PrefabAsset: {fileID: 0}
 --- !u!114 &6864107141809240421 stripped
 MonoBehaviour:
   m_CorrespondingSourceObject: {fileID: 7918524482322858092, guid: 115b198f027180f4c9c35e02a56e6ede, type: 3}
@@ -1030,11 +1041,79 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 9c2d5016f48cbb34cb376ac4d8b57653, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
---- !u!4 &8862286888285052554 stripped
+--- !u!1001 &4192668504462553325
+PrefabInstance:
+  m_ObjectHideFlags: 0
+  serializedVersion: 2
+  m_Modification:
+    m_TransformParent: {fileID: 3173178779799949770}
+    m_Modifications:
+    - target: {fileID: 8224647734696969108, guid: 84c62989997335942b8155a9f656778d, type: 3}
+      propertyPath: m_Name
+      value: BossAttackRockPool
+      objectReference: {fileID: 0}
+    - target: {fileID: 8597214655610244989, guid: 84c62989997335942b8155a9f656778d, type: 3}
+      propertyPath: m_RootOrder
+      value: 2
+      objectReference: {fileID: 0}
+    - target: {fileID: 8597214655610244989, guid: 84c62989997335942b8155a9f656778d, type: 3}
+      propertyPath: m_LocalPosition.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 8597214655610244989, guid: 84c62989997335942b8155a9f656778d, type: 3}
+      propertyPath: m_LocalPosition.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 8597214655610244989, guid: 84c62989997335942b8155a9f656778d, type: 3}
+      propertyPath: m_LocalPosition.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 8597214655610244989, guid: 84c62989997335942b8155a9f656778d, type: 3}
+      propertyPath: m_LocalRotation.w
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 8597214655610244989, guid: 84c62989997335942b8155a9f656778d, type: 3}
+      propertyPath: m_LocalRotation.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 8597214655610244989, guid: 84c62989997335942b8155a9f656778d, type: 3}
+      propertyPath: m_LocalRotation.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 8597214655610244989, guid: 84c62989997335942b8155a9f656778d, type: 3}
+      propertyPath: m_LocalRotation.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 8597214655610244989, guid: 84c62989997335942b8155a9f656778d, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 8597214655610244989, guid: 84c62989997335942b8155a9f656778d, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 8597214655610244989, guid: 84c62989997335942b8155a9f656778d, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.z
+      value: 0
+      objectReference: {fileID: 0}
+    m_RemovedComponents: []
+  m_SourcePrefab: {fileID: 100100000, guid: 84c62989997335942b8155a9f656778d, type: 3}
+--- !u!4 &5575501312899628944 stripped
 Transform:
-  m_CorrespondingSourceObject: {fileID: 5213866527870248835, guid: 115b198f027180f4c9c35e02a56e6ede, type: 3}
-  m_PrefabInstance: {fileID: 3649733207765842185}
+  m_CorrespondingSourceObject: {fileID: 8597214655610244989, guid: 84c62989997335942b8155a9f656778d, type: 3}
+  m_PrefabInstance: {fileID: 4192668504462553325}
   m_PrefabAsset: {fileID: 0}
+--- !u!114 &4801818100264552921 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: -537012661033223884, guid: 84c62989997335942b8155a9f656778d, type: 3}
+  m_PrefabInstance: {fileID: 4192668504462553325}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 858f72774dd8bf947b08502f4a4058a5, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1001 &4955010734972109203
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -1064,11 +1143,6 @@ PrefabInstance:
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 07507e7324430424087fc031d91961dc, type: 3}
---- !u!4 &7545830321589497323 stripped
-Transform:
-  m_CorrespondingSourceObject: {fileID: 3205314645694098552, guid: 07507e7324430424087fc031d91961dc, type: 3}
-  m_PrefabInstance: {fileID: 4955010734972109203}
-  m_PrefabAsset: {fileID: 0}
 --- !u!114 &2573111852712792400 stripped
 MonoBehaviour:
   m_CorrespondingSourceObject: {fileID: 7455211767380676803, guid: 07507e7324430424087fc031d91961dc, type: 3}
@@ -1080,6 +1154,11 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: d82168ef1dbb5f040a7283fae4f66063, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+--- !u!4 &7545830321589497323 stripped
+Transform:
+  m_CorrespondingSourceObject: {fileID: 3205314645694098552, guid: 07507e7324430424087fc031d91961dc, type: 3}
+  m_PrefabInstance: {fileID: 4955010734972109203}
+  m_PrefabAsset: {fileID: 0}
 --- !u!1001 &5600096673388383514
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -1151,6 +1230,10 @@ PrefabInstance:
       propertyPath: attackDirection.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 4086568930668818347, guid: a67fbc85b40895c4fb9cd73dbde758cd, type: 3}
+      propertyPath: bossAttackRockPool
+      value: 
+      objectReference: {fileID: 4801818100264552921}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: a67fbc85b40895c4fb9cd73dbde758cd, type: 3}
 --- !u!4 &5544796684239981299 stripped

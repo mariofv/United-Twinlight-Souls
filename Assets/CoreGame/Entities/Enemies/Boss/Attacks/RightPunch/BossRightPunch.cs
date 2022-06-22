@@ -19,11 +19,6 @@ public class BossRightPunch : MonoBehaviour
     private RightPunchState attackState;
     private float currentTime = 0f;
 
-    private void Awake()
-    {
-        bossAttackRockPool.InitPool();
-    }
-
     private void Update()
     {
         switch (attackState)

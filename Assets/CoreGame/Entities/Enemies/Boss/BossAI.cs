@@ -71,6 +71,8 @@ public class BossAI : EnemyAI
     [SerializeField] private float stunTime;
     private int currentWave = -1;
 
+    [SerializeField] private BossAttackRockPool bossAttackRockPool;
+
     private void Awake()
     {
         phase1AttackSelector = new BalancedRandomSelector(2, 0.2f);
@@ -80,6 +82,7 @@ public class BossAI : EnemyAI
     private void Start()
     {
         playerTransform = GameManager.instance.player.GetControlledCharacter().transform;
+        bossAttackRockPool.InitPool();
         TransitionToIdlePhase1State();
     }
 

@@ -27,7 +27,6 @@ public class BossLeftPunch : MonoBehaviour
 
     private void Awake()
     {
-        bossAttackRockPool.InitPool();
         attackLengthStep = attackLength / attackWaves.Count;
     }
 

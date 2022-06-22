@@ -86,6 +86,7 @@ public class BossAttackRock : MonoBehaviour
 
             case AttackRockState.EXPLODING:
                 currentState = AttackRockState.INACTIVE;
+                transform.position = GameManager.instance.levelManager.GetCurrentLevel().voidPosition.position;
                 break;
         }
     }

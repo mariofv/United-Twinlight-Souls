@@ -60,7 +60,7 @@ public class BossAttackRockPool : MonoBehaviour
         for (int i = 0; i < batchSize; ++i)
         {
             BossAttackRock newBossAttackRockInstance = Instantiate(bossAttackRockPrefab, transform).GetComponent<BossAttackRock>();
-
+            newBossAttackRockInstance.transform.position = Vector3.up * 100000f;
             instantiatedAttackRocks.Add(newBossAttackRockInstance);
         }
     }
