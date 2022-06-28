@@ -154,6 +154,10 @@ PrefabInstance:
       propertyPath: brokenShield
       value: 
       objectReference: {fileID: 1032474035}
+    - target: {fileID: 1499359725188604915, guid: 4622866028b83bf4a82cdcec90573ed3, type: 3}
+      propertyPath: thrownAttacksParent
+      value: 
+      objectReference: {fileID: 1886960189}
     - target: {fileID: 2286648280658548795, guid: 4622866028b83bf4a82cdcec90573ed3, type: 3}
       propertyPath: m_IsKinematic
       value: 1
@@ -349,6 +353,10 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 1886960189}
     m_Modifications:
+    - target: {fileID: 4895769299075125929, guid: 8bf3f32bd915a684c82dcb9a32172f06, type: 3}
+      propertyPath: thrownAttacksParent
+      value: 
+      objectReference: {fileID: 1886960189}
     - target: {fileID: 4913848581889118377, guid: 8bf3f32bd915a684c82dcb9a32172f06, type: 3}
       propertyPath: m_Name
       value: Ilona

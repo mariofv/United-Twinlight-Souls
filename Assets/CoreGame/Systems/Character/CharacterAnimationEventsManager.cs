@@ -7,6 +7,7 @@ public class CharacterAnimationEventsManager : CharacterSubManager
 {
     public UnityEvent onDeathEnd;
     public UnityEvent onLightAttackEnd;
+    public UnityEvent onSpecialAttackThrow;
     public UnityEvent onSpecialAttackEnd;
 
     public void OnDeathEnd()
@@ -17,6 +18,11 @@ public class CharacterAnimationEventsManager : CharacterSubManager
     public void OnLightAttackEnd()
     {
         onLightAttackEnd.Invoke();
+    }
+
+    public void OnSpecialAttackThrow()
+    {
+        onSpecialAttackThrow.Invoke();
     }
 
     public void OnSpecialAttackEnd()

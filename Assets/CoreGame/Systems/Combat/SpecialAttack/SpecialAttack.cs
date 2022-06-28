@@ -4,7 +4,8 @@ using UnityEngine;
 
 public class SpecialAttack : MonoBehaviour
 {
-    [SerializeField] private List<ParticleSystem> specialAttackVFXs;
+    [SerializeField] private Transform thrownAttacksParent;
+    [SerializeField] private List<ParticleSystem> specialAttackEffects;
     
     [SerializeField] private float speed;
     [SerializeField] private float helpSpeed;
@@ -15,7 +16,7 @@ public class SpecialAttack : MonoBehaviour
 
     private void Update()
     {
-        if (!triggered)
+        if (direction == Vector3.zero)
         {
             return;
         }
@@ -29,7 +30,7 @@ public class SpecialAttack : MonoBehaviour
         transform.position += (speed * direction + helpSpeed * directionToTarget) * Time.deltaTime;
     }
 
-    public void Trigger(Vector3 throwDirection, EnemyHurtbox targetHurtbox)
+    public void Cast(Transform holder)
     {
         if (triggered)
         {
@@ -37,13 +38,25 @@ public class SpecialAttack : MonoBehaviour
         }
 
         triggered = true;
+        transform.parent = holder;
+
+        for (int i = 0; i < specialAttackEffects.Count; ++i)
+        {
+            specialAttackEffects[i].Play();
+        }
+    }
+
+    public void Throw(Vector3 throwDirection, EnemyHurtbox targetHurtbox)
+    {
+        if (!triggered)
+        {
+            throw new UnityException("Special attack casted when not triggered!");
+        }
+
+        transform.parent = thrownAttacksParent;
+
         direction = throwDirection;
         target = targetHurtbox.transform;
-
-        for (int i = 0; i < specialAttackVFXs.Count; ++i)
-        {
-            specialAttackVFXs[i].Play();
-        }
     }
 
     public void Stop()
@@ -57,9 +70,9 @@ public class SpecialAttack : MonoBehaviour
         target = null;
         direction = Vector3.zero;
 
-        for (int i = 0; i < specialAttackVFXs.Count; ++i)
+        for (int i = 0; i < specialAttackEffects.Count; ++i)
         {
-            specialAttackVFXs[i].Stop();
+            specialAttackEffects[i].Stop();
         }
     }
 }

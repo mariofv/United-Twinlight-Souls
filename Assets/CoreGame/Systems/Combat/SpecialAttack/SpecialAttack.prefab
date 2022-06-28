@@ -44,7 +44,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 8aa95221949ec2c47bf207b897e20a4a, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  specialAttackVFXs:
+  thrownAttacksParent: {fileID: 0}
+  specialAttackEffects:
   - {fileID: 3489140108830922349}
   - {fileID: 3488967159035081263}
   - {fileID: 3488856657656710067}

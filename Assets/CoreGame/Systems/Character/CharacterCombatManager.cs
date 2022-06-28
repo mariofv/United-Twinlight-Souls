@@ -4,16 +4,20 @@ using UnityEngine;
 
 public class CharacterCombatManager : CharacterSubManager
 {
+    [Header("Defense")]
     [SerializeField] private Collider playerHurtbox;
     [SerializeField] private Shield playerShield;
 
+    [Header("Light attack")]
     [SerializeField] private List<LightAttack> lightAttacks;
     private bool isInLightAttackChain = false;
     private int currentLightAttackChain = -1;
 
+    [Header("Special attack")]
+    [SerializeField] private Transform specialAttackHolder;
     [SerializeField] private SpecialAttack specialAttack;
 
-
+    [Header("Targeting")]
     [SerializeField] private float orientatingTime;
     private bool isOrientatingPlayer = false;
     private Quaternion startingOrientation;
@@ -24,6 +28,7 @@ public class CharacterCombatManager : CharacterSubManager
     void Start()
     {
         characterManager.characterAnimationEventsManager.onLightAttackEnd.AddListener(EndLightAttack);
+        characterManager.characterAnimationEventsManager.onSpecialAttackThrow.AddListener(ThrowSpecialAttack);
         characterManager.characterAnimationEventsManager.onSpecialAttackEnd.AddListener(EndSpecialAttack);
     }
 
@@ -162,12 +167,24 @@ public class CharacterCombatManager : CharacterSubManager
 
             isOrientatingPlayer = true;
             currentTime = 0f;
+        }
 
-            specialAttack.Trigger(lookDirection.normalized, characterManager.characterLockManager.GetLockedEnemyHurtbox());
+        specialAttack.Cast(specialAttackHolder);
+    }
+
+    private void ThrowSpecialAttack()
+    {
+        if (characterManager.characterLockManager.IsLockingEnemy())
+        {
+            Vector3 lockedEnemyPosition = characterManager.characterLockManager.GetLockedEnemyHurtboxPosition();
+            Vector3 lookDirection = lockedEnemyPosition - transform.position;
+            lookDirection.y = 0f;
+
+            specialAttack.Throw(lookDirection.normalized, characterManager.characterLockManager.GetLockedEnemyHurtbox());
         }
         else
         {
-            specialAttack.Trigger(transform.forward, null);
+            specialAttack.Throw(transform.forward, null);
         }
     }
 
@@ -178,7 +195,6 @@ public class CharacterCombatManager : CharacterSubManager
 
     private void EndSpecialAttack()
     {
-        specialAttack.Stop();
         characterManager.SetCharacterState(CharacterManager.CharacterState.IDLE);
     }
 
