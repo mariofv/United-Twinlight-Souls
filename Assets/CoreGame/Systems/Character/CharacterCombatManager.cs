@@ -11,6 +11,9 @@ public class CharacterCombatManager : CharacterSubManager
     private bool isInLightAttackChain = false;
     private int currentLightAttackChain = -1;
 
+    [SerializeField] private SpecialAttack specialAttack;
+
+
     [SerializeField] private float orientatingTime;
     private bool isOrientatingPlayer = false;
     private Quaternion startingOrientation;
