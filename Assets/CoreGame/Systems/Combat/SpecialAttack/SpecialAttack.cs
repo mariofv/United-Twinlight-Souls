@@ -4,15 +4,21 @@ using UnityEngine;
 
 public class SpecialAttack : MonoBehaviour
 {
-    // Start is called before the first frame update
-    void Start()
+    [SerializeField] private List<ParticleSystem> specialAttackVFXs;
+
+    public void Trigger()
     {
-        
+        for (int i = 0; i < specialAttackVFXs.Count; ++i)
+        {
+            specialAttackVFXs[i].Play();
+        }
     }
 
-    // Update is called once per frame
-    void Update()
+    public void Stop()
     {
-        
+        for (int i = 0; i < specialAttackVFXs.Count; ++i)
+        {
+            specialAttackVFXs[i].Stop();
+        }
     }
 }

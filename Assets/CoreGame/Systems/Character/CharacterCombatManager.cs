@@ -163,7 +163,7 @@ public class CharacterCombatManager : CharacterSubManager
             currentTime = 0f;
         }
 
-        //specialAttack
+        specialAttack.Trigger();
     }
 
     public bool CanExecuteSpecialAttack()
@@ -173,6 +173,7 @@ public class CharacterCombatManager : CharacterSubManager
 
     private void EndSpecialAttack()
     {
+        specialAttack.Stop();
         characterManager.SetCharacterState(CharacterManager.CharacterState.IDLE);
     }
 
