@@ -48,6 +48,7 @@ public class CharacterInputManager : CharacterSubManager
         idleAccepetedInputs.Add(CharacterInputAction.MOVE);
         idleAccepetedInputs.Add(CharacterInputAction.JUMP);
         idleAccepetedInputs.Add(CharacterInputAction.LIGHT_ATTACK);
+        idleAccepetedInputs.Add(CharacterInputAction.SPECIAL_ATTACK);
         idleAccepetedInputs.Add(CharacterInputAction.DASH);
         idleAccepetedInputs.Add(CharacterInputAction.SHIELD);
         idleAccepetedInputs.Add(CharacterInputAction.LOCK_ENEMY);
@@ -58,6 +59,7 @@ public class CharacterInputManager : CharacterSubManager
         movingAccepetedInputs.Add(CharacterInputAction.MOVE);
         movingAccepetedInputs.Add(CharacterInputAction.JUMP);
         movingAccepetedInputs.Add(CharacterInputAction.LIGHT_ATTACK);
+        movingAccepetedInputs.Add(CharacterInputAction.SPECIAL_ATTACK);
         movingAccepetedInputs.Add(CharacterInputAction.DASH);
         movingAccepetedInputs.Add(CharacterInputAction.LOCK_ENEMY);
         movingAccepetedInputs.Add(CharacterInputAction.SHIELD);

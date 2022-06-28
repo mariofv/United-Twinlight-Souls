@@ -24,6 +24,7 @@ public class CharacterCombatManager : CharacterSubManager
     void Start()
     {
         characterManager.characterAnimationEventsManager.onLightAttackEnd.AddListener(EndLightAttack);
+        characterManager.characterAnimationEventsManager.onSpecialAttackEnd.AddListener(EndSpecialAttack);
     }
 
     private void Update()
@@ -141,6 +142,37 @@ public class CharacterCombatManager : CharacterSubManager
         EndCurrentLightAttack();
         isInLightAttackChain = false;
         currentLightAttackChain = -1;
+        characterManager.SetCharacterState(CharacterManager.CharacterState.IDLE);
+    }
+
+    public void SpecialAttack()
+    {
+        characterManager.characterMovementManager.SetInputedMovement(Vector3.zero);
+        characterManager.characterVisualsManager.TriggerSpecialAttack();
+
+        if (characterManager.characterLockManager.IsLockingEnemy())
+        {
+            Vector3 lockedEnemyPosition = characterManager.characterLockManager.GetLockedEnemyHurtboxPosition();
+            Vector3 lookDirection = lockedEnemyPosition - transform.position;
+            lookDirection.y = 0f;
+
+            startingOrientation = transform.rotation;
+            targetOrientation = Quaternion.LookRotation(lookDirection);
+
+            isOrientatingPlayer = true;
+            currentTime = 0f;
+        }
+
+        //specialAttack
+    }
+
+    public bool CanExecuteSpecialAttack()
+    {
+        return true;
+    }
+
+    private void EndSpecialAttack()
+    {
         characterManager.SetCharacterState(CharacterManager.CharacterState.IDLE);
     }
 

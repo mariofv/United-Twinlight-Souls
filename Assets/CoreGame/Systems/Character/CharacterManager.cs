@@ -94,15 +94,13 @@ public class CharacterManager : MonoBehaviour
 
     public void SpecialAttack()
     {
-        /*
-        if (!characterCombatManager.CanExecuteLightAttack())
+        if (!characterCombatManager.CanExecuteSpecialAttack())
         {
             return;
         }
 
-        characterCombatManager.LightAttack();
+        characterCombatManager.SpecialAttack();
         SetCharacterState(CharacterState.SPECIAL_ATTACKING);
-        */
     }
 
     public void StartDash()
