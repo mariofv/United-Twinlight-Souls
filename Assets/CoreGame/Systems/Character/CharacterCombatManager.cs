@@ -156,14 +156,19 @@ public class CharacterCombatManager : CharacterSubManager
             Vector3 lookDirection = lockedEnemyPosition - transform.position;
             lookDirection.y = 0f;
 
+
             startingOrientation = transform.rotation;
             targetOrientation = Quaternion.LookRotation(lookDirection);
 
             isOrientatingPlayer = true;
             currentTime = 0f;
-        }
 
-        specialAttack.Trigger();
+            specialAttack.Trigger(lookDirection.normalized, characterManager.characterLockManager.GetLockedEnemyHurtbox());
+        }
+        else
+        {
+            specialAttack.Trigger(transform.forward, null);
+        }
     }
 
     public bool CanExecuteSpecialAttack()

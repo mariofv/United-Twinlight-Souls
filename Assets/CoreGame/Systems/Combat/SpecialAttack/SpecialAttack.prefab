@@ -49,6 +49,8 @@ MonoBehaviour:
   - {fileID: 3488967159035081263}
   - {fileID: 3488856657656710067}
   - {fileID: 3488431272202118655}
+  speed: 20
+  helpSpeed: 1
 --- !u!1001 &3651108601553675451
 PrefabInstance:
   m_ObjectHideFlags: 0

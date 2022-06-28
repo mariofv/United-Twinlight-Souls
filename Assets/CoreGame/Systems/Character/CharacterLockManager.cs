@@ -233,6 +233,18 @@ public class CharacterLockManager : CharacterSubManager
         return currentState != LockState.NONE;
     }
 
+    public EnemyHurtbox GetLockedEnemyHurtbox()
+    {
+        if (currentState == LockState.LOCK)
+        {
+            return currentLockedEnemyHurtbox;
+        }
+        else
+        {
+            return currentSoftLockedEnemyHurtbox;
+        }
+    }
+
     public Vector3 GetLockedEnemyHurtboxPosition()
     {
         if (currentState == LockState.LOCK)
@@ -244,5 +256,4 @@ public class CharacterLockManager : CharacterSubManager
             return currentSoftLockedEnemyHurtbox.transform.position;
         }
     }
-
 }
