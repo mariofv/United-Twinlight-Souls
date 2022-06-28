@@ -55,6 +55,15 @@ public partial class @PlayerInput : IInputActionCollection2, IDisposable
                     ""initialStateCheck"": false
                 },
                 {
+                    ""name"": ""SpecialAttack"",
+                    ""type"": ""Button"",
+                    ""id"": ""65046361-4d0d-4329-bcf9-fe5a99699477"",
+                    ""expectedControlType"": ""Button"",
+                    ""processors"": """",
+                    ""interactions"": """",
+                    ""initialStateCheck"": false
+                },
+                {
                     ""name"": ""Interact"",
                     ""type"": ""Button"",
                     ""id"": ""0a9af82e-d46c-4423-8191-528fb65a42e1"",
@@ -362,6 +371,28 @@ public partial class @PlayerInput : IInputActionCollection2, IDisposable
                     ""processors"": """",
                     ""groups"": ""Keyboard&Mouse"",
                     ""action"": ""Dash"",
+                    ""isComposite"": false,
+                    ""isPartOfComposite"": false
+                },
+                {
+                    ""name"": """",
+                    ""id"": ""577c439d-1253-4947-a15e-b3bb9b709c12"",
+                    ""path"": ""<Keyboard>/k"",
+                    ""interactions"": """",
+                    ""processors"": """",
+                    ""groups"": ""Keyboard&Mouse"",
+                    ""action"": ""SpecialAttack"",
+                    ""isComposite"": false,
+                    ""isPartOfComposite"": false
+                },
+                {
+                    ""name"": """",
+                    ""id"": ""4c1c7392-132e-45c3-9fd7-6c0b3542628e"",
+                    ""path"": ""<Gamepad>/buttonEast"",
+                    ""interactions"": """",
+                    ""processors"": """",
+                    ""groups"": ""Gamepad"",
+                    ""action"": ""SpecialAttack"",
                     ""isComposite"": false,
                     ""isPartOfComposite"": false
                 }
@@ -2623,6 +2654,7 @@ public partial class @PlayerInput : IInputActionCollection2, IDisposable
         m_Combat_Movement = m_Combat.FindAction("Movement", throwIfNotFound: true);
         m_Combat_Jump = m_Combat.FindAction("Jump", throwIfNotFound: true);
         m_Combat_LightAttack = m_Combat.FindAction("LightAttack", throwIfNotFound: true);
+        m_Combat_SpecialAttack = m_Combat.FindAction("SpecialAttack", throwIfNotFound: true);
         m_Combat_Interact = m_Combat.FindAction("Interact", throwIfNotFound: true);
         m_Combat_Shield = m_Combat.FindAction("Shield", throwIfNotFound: true);
         m_Combat_LockEnemy = m_Combat.FindAction("LockEnemy", throwIfNotFound: true);
@@ -2745,6 +2777,7 @@ public partial class @PlayerInput : IInputActionCollection2, IDisposable
     private readonly InputAction m_Combat_Movement;
     private readonly InputAction m_Combat_Jump;
     private readonly InputAction m_Combat_LightAttack;
+    private readonly InputAction m_Combat_SpecialAttack;
     private readonly InputAction m_Combat_Interact;
     private readonly InputAction m_Combat_Shield;
     private readonly InputAction m_Combat_LockEnemy;
@@ -2757,6 +2790,7 @@ public partial class @PlayerInput : IInputActionCollection2, IDisposable
         public InputAction @Movement => m_Wrapper.m_Combat_Movement;
         public InputAction @Jump => m_Wrapper.m_Combat_Jump;
         public InputAction @LightAttack => m_Wrapper.m_Combat_LightAttack;
+        public InputAction @SpecialAttack => m_Wrapper.m_Combat_SpecialAttack;
         public InputAction @Interact => m_Wrapper.m_Combat_Interact;
         public InputAction @Shield => m_Wrapper.m_Combat_Shield;
         public InputAction @LockEnemy => m_Wrapper.m_Combat_LockEnemy;
@@ -2780,6 +2814,9 @@ public partial class @PlayerInput : IInputActionCollection2, IDisposable
                 @LightAttack.started -= m_Wrapper.m_CombatActionsCallbackInterface.OnLightAttack;
                 @LightAttack.performed -= m_Wrapper.m_CombatActionsCallbackInterface.OnLightAttack;
                 @LightAttack.canceled -= m_Wrapper.m_CombatActionsCallbackInterface.OnLightAttack;
+                @SpecialAttack.started -= m_Wrapper.m_CombatActionsCallbackInterface.OnSpecialAttack;
+                @SpecialAttack.performed -= m_Wrapper.m_CombatActionsCallbackInterface.OnSpecialAttack;
+                @SpecialAttack.canceled -= m_Wrapper.m_CombatActionsCallbackInterface.OnSpecialAttack;
                 @Interact.started -= m_Wrapper.m_CombatActionsCallbackInterface.OnInteract;
                 @Interact.performed -= m_Wrapper.m_CombatActionsCallbackInterface.OnInteract;
                 @Interact.canceled -= m_Wrapper.m_CombatActionsCallbackInterface.OnInteract;
@@ -2808,6 +2845,9 @@ public partial class @PlayerInput : IInputActionCollection2, IDisposable
                 @LightAttack.started += instance.OnLightAttack;
                 @LightAttack.performed += instance.OnLightAttack;
                 @LightAttack.canceled += instance.OnLightAttack;
+                @SpecialAttack.started += instance.OnSpecialAttack;
+                @SpecialAttack.performed += instance.OnSpecialAttack;
+                @SpecialAttack.canceled += instance.OnSpecialAttack;
                 @Interact.started += instance.OnInteract;
                 @Interact.performed += instance.OnInteract;
                 @Interact.canceled += instance.OnInteract;
@@ -3371,6 +3411,7 @@ public partial class @PlayerInput : IInputActionCollection2, IDisposable
         void OnMovement(InputAction.CallbackContext context);
         void OnJump(InputAction.CallbackContext context);
         void OnLightAttack(InputAction.CallbackContext context);
+        void OnSpecialAttack(InputAction.CallbackContext context);
         void OnInteract(InputAction.CallbackContext context);
         void OnShield(InputAction.CallbackContext context);
         void OnLockEnemy(InputAction.CallbackContext context);

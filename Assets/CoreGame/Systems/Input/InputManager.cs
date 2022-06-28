@@ -47,6 +47,7 @@ public class InputManager : MonoBehaviour
         playerInput.Combat.Movement.canceled += ctx => OnMovementInput(ctx);
         playerInput.Combat.Jump.started += ctx => OnJumpInput(ctx);
         playerInput.Combat.LightAttack.started += ctx => OnLightAttackInput(ctx);
+        playerInput.Combat.SpecialAttack.started += ctx => OnSpecialAttackInput(ctx);
         playerInput.Combat.Dash.started += ctx => OnDashInput(ctx);
         playerInput.Combat.Shield.started += ctx => OnShieldInputStart(ctx);
         playerInput.Combat.Shield.canceled += ctx => OnShieldInputEnd(ctx);
@@ -281,11 +282,20 @@ public class InputManager : MonoBehaviour
 
     public void OnLightAttackInput(InputAction.CallbackContext context)
     {
-        if (!GameManager.instance.player.GetControlledCharacter().characterInputManager.IsInputAccepted(CharacterInputManager.CharacterInputAction.ATTACK))
+        if (!GameManager.instance.player.GetControlledCharacter().characterInputManager.IsInputAccepted(CharacterInputManager.CharacterInputAction.LIGHT_ATTACK))
         {
             return;
         }
         GameManager.instance.player.GetControlledCharacter().LightAttack();
+    }
+
+    public void OnSpecialAttackInput(InputAction.CallbackContext context)
+    {
+        if (!GameManager.instance.player.GetControlledCharacter().characterInputManager.IsInputAccepted(CharacterInputManager.CharacterInputAction.SPECIAL_ATTACK))
+        {
+            return;
+        }
+        GameManager.instance.player.GetControlledCharacter().SpecialAttack();
     }
 
     public void OnDashInput(InputAction.CallbackContext context)

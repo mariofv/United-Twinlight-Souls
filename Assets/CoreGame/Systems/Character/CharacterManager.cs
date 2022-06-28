@@ -10,7 +10,8 @@ public class CharacterManager : MonoBehaviour
         MOVING,
         JUMPING,
         DASHING,
-        ATTACKING,
+        LIGHT_ATTACKING,
+        SPECIAL_ATTACKING,
         INTERACTING,
         STUNNED,
         DEAD
@@ -88,7 +89,20 @@ public class CharacterManager : MonoBehaviour
         }
 
         characterCombatManager.LightAttack();
-        SetCharacterState(CharacterState.ATTACKING);
+        SetCharacterState(CharacterState.LIGHT_ATTACKING);
+    }
+
+    public void SpecialAttack()
+    {
+        /*
+        if (!characterCombatManager.CanExecuteLightAttack())
+        {
+            return;
+        }
+
+        characterCombatManager.LightAttack();
+        SetCharacterState(CharacterState.SPECIAL_ATTACKING);
+        */
     }
 
     public void StartDash()

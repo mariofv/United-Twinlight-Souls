@@ -10,7 +10,8 @@ public class CharacterInputManager : CharacterSubManager
     {
         MOVE,
         JUMP,
-        ATTACK,
+        LIGHT_ATTACK,
+        SPECIAL_ATTACK,
         SHIELD,
         INTERACT, 
         LOCK_ENEMY,
@@ -46,7 +47,7 @@ public class CharacterInputManager : CharacterSubManager
         idleAccepetedInputs.Add(CharacterInputAction.INTERACT);
         idleAccepetedInputs.Add(CharacterInputAction.MOVE);
         idleAccepetedInputs.Add(CharacterInputAction.JUMP);
-        idleAccepetedInputs.Add(CharacterInputAction.ATTACK);
+        idleAccepetedInputs.Add(CharacterInputAction.LIGHT_ATTACK);
         idleAccepetedInputs.Add(CharacterInputAction.DASH);
         idleAccepetedInputs.Add(CharacterInputAction.SHIELD);
         idleAccepetedInputs.Add(CharacterInputAction.LOCK_ENEMY);
@@ -56,7 +57,7 @@ public class CharacterInputManager : CharacterSubManager
         movingAccepetedInputs.Add(CharacterInputAction.INTERACT);
         movingAccepetedInputs.Add(CharacterInputAction.MOVE);
         movingAccepetedInputs.Add(CharacterInputAction.JUMP);
-        movingAccepetedInputs.Add(CharacterInputAction.ATTACK);
+        movingAccepetedInputs.Add(CharacterInputAction.LIGHT_ATTACK);
         movingAccepetedInputs.Add(CharacterInputAction.DASH);
         movingAccepetedInputs.Add(CharacterInputAction.LOCK_ENEMY);
         movingAccepetedInputs.Add(CharacterInputAction.SHIELD);
@@ -69,10 +70,14 @@ public class CharacterInputManager : CharacterSubManager
         jumpingAccepetedInputs.Add(CharacterInputAction.DASH);
         characterStateAcceptedInputs.Add(CharacterManager.CharacterState.JUMPING, jumpingAccepetedInputs);
 
-        List<CharacterInputAction> attackngAccepetedInputs = new List<CharacterInputAction>();
-        attackngAccepetedInputs.Add(CharacterInputAction.ATTACK);
-        attackngAccepetedInputs.Add(CharacterInputAction.LOCK_ENEMY);
-        characterStateAcceptedInputs.Add(CharacterManager.CharacterState.ATTACKING, attackngAccepetedInputs);
+        List<CharacterInputAction> lightAttackingAccepetedInputs = new List<CharacterInputAction>();
+        lightAttackingAccepetedInputs.Add(CharacterInputAction.LIGHT_ATTACK);
+        lightAttackingAccepetedInputs.Add(CharacterInputAction.LOCK_ENEMY);
+        characterStateAcceptedInputs.Add(CharacterManager.CharacterState.LIGHT_ATTACKING, lightAttackingAccepetedInputs);
+
+        List<CharacterInputAction> specialAttackingAccepetedInputs = new List<CharacterInputAction>();
+        specialAttackingAccepetedInputs.Add(CharacterInputAction.LOCK_ENEMY);
+        characterStateAcceptedInputs.Add(CharacterManager.CharacterState.SPECIAL_ATTACKING, specialAttackingAccepetedInputs);
 
         List<CharacterInputAction> dashingAccepetedInputs = new List<CharacterInputAction>();
         characterStateAcceptedInputs.Add(CharacterManager.CharacterState.DASHING, dashingAccepetedInputs);
@@ -92,7 +97,8 @@ public class CharacterInputManager : CharacterSubManager
     {
         progressionAcceptedInputs = new Dictionary<CharacterInputAction, ProgressionManager.Progression>();
 
-        progressionAcceptedInputs.Add(CharacterInputAction.ATTACK, ProgressionManager.Progression.LIGHT_ATTACK_UNLOCKED);
+        progressionAcceptedInputs.Add(CharacterInputAction.LIGHT_ATTACK, ProgressionManager.Progression.LIGHT_ATTACK_UNLOCKED);
+        progressionAcceptedInputs.Add(CharacterInputAction.SPECIAL_ATTACK, ProgressionManager.Progression.SPECIAL_ATTACK_UNLOCKED);
         progressionAcceptedInputs.Add(CharacterInputAction.DASH, ProgressionManager.Progression.DASH_UNLOCKED);
         progressionAcceptedInputs.Add(CharacterInputAction.LOCK_ENEMY, ProgressionManager.Progression.LOCK_ON_UNLOCKED);
         progressionAcceptedInputs.Add(CharacterInputAction.SHIELD, ProgressionManager.Progression.SHIELD_UNLOCKED);
