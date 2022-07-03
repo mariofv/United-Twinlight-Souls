@@ -9,6 +9,7 @@ public class SpecialAttack : MonoBehaviour
 
     [SerializeField] private int damage;
     [SerializeField] private SphereCollider hitbox;
+    [SerializeField] private SphereCollider projectileHitbox;
     [SerializeField] private float projectileLife;
 
     [SerializeField] private float speed;
@@ -69,7 +70,8 @@ public class SpecialAttack : MonoBehaviour
 
         direction = throwDirection;
         target = targetHurtbox.transform;
-        hitbox.enabled = true; 
+        hitbox.enabled = true;
+        projectileHitbox.enabled = true; 
         currentLifeTime = 0f;
     }
 
@@ -83,6 +85,7 @@ public class SpecialAttack : MonoBehaviour
         triggered = false;
         target = null;
         direction = Vector3.zero;
+        projectileHitbox.enabled = false;
         hitbox.enabled = false;
 
         for (int i = 0; i < specialAttackEffects.Count; ++i)
@@ -101,10 +104,6 @@ public class SpecialAttack : MonoBehaviour
         if (other.transform.CompareTag(TagManager.ENEMY_HURTBOX))
         {
             other.transform.GetComponent<EnemyHurtbox>().GetEnemyScript().Hurt(damage);
-            Stop();
-        }
-        else if (other.transform.CompareTag(TagManager.LEVEL_COLLIDER))
-        {
             Stop();
         }
     }
