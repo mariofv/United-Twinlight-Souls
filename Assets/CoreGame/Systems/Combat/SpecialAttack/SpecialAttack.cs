@@ -6,7 +6,10 @@ public class SpecialAttack : MonoBehaviour
 {
     [SerializeField] private Transform thrownAttacksParent;
     [SerializeField] private List<ParticleSystem> specialAttackEffects;
-    
+
+    [SerializeField] private int damage;
+    [SerializeField] private SphereCollider hitbox;
+
     [SerializeField] private float speed;
     [SerializeField] private float helpSpeed;
     private Transform target;
@@ -39,6 +42,7 @@ public class SpecialAttack : MonoBehaviour
 
         triggered = true;
         transform.parent = holder;
+        transform.localPosition = Vector3.zero;
 
         for (int i = 0; i < specialAttackEffects.Count; ++i)
         {
@@ -57,6 +61,7 @@ public class SpecialAttack : MonoBehaviour
 
         direction = throwDirection;
         target = targetHurtbox.transform;
+        hitbox.enabled = true;
     }
 
     public void Stop()
@@ -69,6 +74,7 @@ public class SpecialAttack : MonoBehaviour
         triggered = false;
         target = null;
         direction = Vector3.zero;
+        hitbox.enabled = false;
 
         for (int i = 0; i < specialAttackEffects.Count; ++i)
         {
@@ -79,5 +85,18 @@ public class SpecialAttack : MonoBehaviour
     public bool IsAvailable()
     {
         return !triggered;
+    }
+
+    private void OnCollisionEnter(Collision collision)
+    {
+        if (collision.transform.CompareTag(TagManager.ENEMY_HURTBOX))
+        {
+            collision.transform.GetComponent<EnemyHurtbox>().GetEnemyScript().Hurt(damage);
+            Stop();
+        }
+        else if (collision.transform.CompareTag(TagManager.LEVEL_COLLIDER))
+        {
+            Stop();
+        }
     }
 }
