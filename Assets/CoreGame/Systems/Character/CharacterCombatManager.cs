@@ -153,6 +153,7 @@ public class CharacterCombatManager : CharacterSubManager
     public void SpecialAttack()
     {
         characterManager.characterMovementManager.SetInputedMovement(Vector3.zero);
+        SetInvincible(true);
         characterManager.characterVisualsManager.TriggerSpecialAttack();
 
         if (characterManager.characterLockManager.IsLockingEnemy())
@@ -186,6 +187,7 @@ public class CharacterCombatManager : CharacterSubManager
         {
             specialAttack.Throw(transform.forward, null);
         }
+        SetInvincible(false);
     }
 
     public bool CanExecuteSpecialAttack()
