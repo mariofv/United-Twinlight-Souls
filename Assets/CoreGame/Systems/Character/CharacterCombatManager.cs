@@ -190,7 +190,7 @@ public class CharacterCombatManager : CharacterSubManager
 
     public bool CanExecuteSpecialAttack()
     {
-        return true;
+        return specialAttack.IsAvailable();
     }
 
     private void EndSpecialAttack()

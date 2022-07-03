@@ -75,4 +75,9 @@ public class SpecialAttack : MonoBehaviour
             specialAttackEffects[i].Stop();
         }
     }
+
+    public bool IsAvailable()
+    {
+        return !triggered;
+    }
 }
