@@ -11,7 +11,7 @@ GameObject:
   - component: {fileID: 7109250230593029514}
   - component: {fileID: 4732138668825117883}
   - component: {fileID: 2342759988395671383}
-  m_Layer: 0
+  m_Layer: 13
   m_Name: EnemyHurtbox
   m_TagString: EnemyHurtBox
   m_Icon: {fileID: 0}
@@ -57,3 +57,4 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 31d734c5651cb1142bf9f42664ed34ca, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  enemyScript: {fileID: 0}

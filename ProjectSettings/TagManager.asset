@@ -27,7 +27,7 @@ TagManager:
   - PickedParticleAttractor
   - ShieldPieces
   - PlayerProjectiles
-  - 
+  - EnemyHurtbox
   - 
   - 
   - 

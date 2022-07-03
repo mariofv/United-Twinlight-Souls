@@ -9,6 +9,7 @@ public class SpecialAttack : MonoBehaviour
 
     [SerializeField] private int damage;
     [SerializeField] private SphereCollider hitbox;
+    [SerializeField] private float projectileLife;
 
     [SerializeField] private float speed;
     [SerializeField] private float helpSpeed;
@@ -16,6 +17,7 @@ public class SpecialAttack : MonoBehaviour
     private Vector3 direction;
 
     private bool triggered = false;
+    private float currentLifeTime = 0f;
 
     private void Update()
     {
@@ -24,6 +26,7 @@ public class SpecialAttack : MonoBehaviour
             return;
         }
 
+        currentLifeTime += Time.deltaTime;
         Vector3 directionToTarget = Vector3.zero;
         if (target != null)
         {
@@ -31,6 +34,11 @@ public class SpecialAttack : MonoBehaviour
         }
 
         transform.position += (speed * direction + helpSpeed * directionToTarget) * Time.deltaTime;
+
+        if (currentLifeTime >= projectileLife)
+        {
+            Stop();
+        }
     }
 
     public void Cast(Transform holder)
@@ -61,7 +69,8 @@ public class SpecialAttack : MonoBehaviour
 
         direction = throwDirection;
         target = targetHurtbox.transform;
-        hitbox.enabled = true;
+        hitbox.enabled = true; 
+        currentLifeTime = 0f;
     }
 
     public void Stop()
@@ -87,14 +96,14 @@ public class SpecialAttack : MonoBehaviour
         return !triggered;
     }
 
-    private void OnCollisionEnter(Collision collision)
+    private void OnTriggerEnter(Collider other)
     {
-        if (collision.transform.CompareTag(TagManager.ENEMY_HURTBOX))
+        if (other.transform.CompareTag(TagManager.ENEMY_HURTBOX))
         {
-            collision.transform.GetComponent<EnemyHurtbox>().GetEnemyScript().Hurt(damage);
+            other.transform.GetComponent<EnemyHurtbox>().GetEnemyScript().Hurt(damage);
             Stop();
         }
-        else if (collision.transform.CompareTag(TagManager.LEVEL_COLLIDER))
+        else if (other.transform.CompareTag(TagManager.LEVEL_COLLIDER))
         {
             Stop();
         }
