@@ -99,6 +99,7 @@ MonoBehaviour:
   - {fileID: 5080869992459096911}
   specialAttackHolder: {fileID: 2832289474973148569}
   specialAttack: {fileID: 1499359725188604915}
+  specialAttackCooldown: 1.5
   orientatingTime: 0.1
 --- !u!114 &5102444277900775136
 MonoBehaviour:

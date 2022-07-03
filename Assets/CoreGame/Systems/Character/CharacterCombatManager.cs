@@ -16,6 +16,8 @@ public class CharacterCombatManager : CharacterSubManager
     [Header("Special attack")]
     [SerializeField] private Transform specialAttackHolder;
     [SerializeField] private SpecialAttack specialAttack;
+    [SerializeField] private float specialAttackCooldown;
+    private float specialAttackCurrentTime = 0f;
 
     [Header("Targeting")]
     [SerializeField] private float orientatingTime;
@@ -45,6 +47,11 @@ public class CharacterCombatManager : CharacterSubManager
             {
                 isOrientatingPlayer = false;
             }
+        }
+
+        if (specialAttackCurrentTime > 0f)
+        {
+            specialAttackCurrentTime = Mathf.Max(0f, specialAttackCurrentTime - Time.deltaTime);
         }
     }
 
@@ -188,11 +195,12 @@ public class CharacterCombatManager : CharacterSubManager
             specialAttack.Throw(transform.forward, null);
         }
         SetInvincible(false);
+        specialAttackCurrentTime = specialAttackCooldown;
     }
 
     public bool CanExecuteSpecialAttack()
     {
-        return specialAttack.IsAvailable();
+        return specialAttack.IsAvailable() && specialAttackCurrentTime == 0f;
     }
 
     private void EndSpecialAttack()
