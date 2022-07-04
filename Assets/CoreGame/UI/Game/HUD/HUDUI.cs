@@ -15,6 +15,8 @@ public class HUDUI : UIElement
 
     [Header("Light Bar")]
     [SerializeField] private Image lightBarFill;
+    [SerializeField] private Image lightBarBall;
+    [SerializeField] private Animation lightBarReloadAnimation;
 
     public override void ShowSpecialized(bool instant)
     {
@@ -46,6 +48,21 @@ public class HUDUI : UIElement
     public void SetHealth(float healthPercentage)
     {
         healthBarFill.fillAmount = healthPercentage;
+    }
+
+    public void SetLight(float lightPercentage)
+    {
+        lightBarFill.fillAmount = lightPercentage;
+        if (lightPercentage == 1f)
+        {
+            lightBarBall.enabled = true;
+            lightBarReloadAnimation.Play();
+        }
+    }
+
+    public void UseLight()
+    {
+        lightBarBall.enabled = false;
     }
 
     public void SelectBaraldPortrait()

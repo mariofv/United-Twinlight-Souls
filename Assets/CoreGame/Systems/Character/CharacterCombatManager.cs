@@ -52,6 +52,8 @@ public class CharacterCombatManager : CharacterSubManager
         if (specialAttackCurrentTime > 0f)
         {
             specialAttackCurrentTime = Mathf.Max(0f, specialAttackCurrentTime - Time.deltaTime);
+            float cooldownPercentage = 1f - specialAttackCurrentTime / specialAttackCooldown;
+            GameManager.instance.uiManager.gameUIManager.hudUI.SetLight(cooldownPercentage);
         }
     }
 
@@ -196,6 +198,7 @@ public class CharacterCombatManager : CharacterSubManager
         }
         SetInvincible(false);
         specialAttackCurrentTime = specialAttackCooldown;
+        GameManager.instance.uiManager.gameUIManager.hudUI.UseLight();
     }
 
     public bool CanExecuteSpecialAttack()

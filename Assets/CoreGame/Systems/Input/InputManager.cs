@@ -245,12 +245,10 @@ public class InputManager : MonoBehaviour
         else if (context.control.device is DualShockGamepad)
         {
             newInputDeviceType = InputDeviceType.PS5_CONTROLLER;
-            Debug.Log(context.control.device);
         }
         else if (context.control.device is XInputController)
         {
             newInputDeviceType = InputDeviceType.XBOX_CONTROLLER;
-            Debug.Log(context.control.device);
         }
 
         if (currentInputDeviceType == newInputDeviceType)

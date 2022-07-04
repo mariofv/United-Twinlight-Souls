@@ -297,7 +297,7 @@ MonoBehaviour:
   m_FillMethod: 0
   m_FillAmount: 1
   m_FillClockwise: 1
-  m_FillOrigin: 0
+  m_FillOrigin: 1
   m_UseSpriteMesh: 0
   m_PixelsPerUnitMultiplier: 1
 --- !u!1 &4362299940347873437
@@ -398,6 +398,7 @@ GameObject:
   - component: {fileID: 1229435130469768291}
   - component: {fileID: 2451931611962634955}
   - component: {fileID: 3045401585336085822}
+  - component: {fileID: 327418276085642061}
   m_Layer: 5
   m_Name: FullIndicator
   m_TagString: Untagged
@@ -462,6 +463,22 @@ MonoBehaviour:
   m_FillOrigin: 0
   m_UseSpriteMesh: 0
   m_PixelsPerUnitMultiplier: 1
+--- !u!111 &327418276085642061
+Animation:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 5540242077418606149}
+  m_Enabled: 1
+  serializedVersion: 3
+  m_Animation: {fileID: 7400000, guid: 8c2a5f1e30bcb6642b538ed92f2587f4, type: 2}
+  m_Animations:
+  - {fileID: 7400000, guid: 8c2a5f1e30bcb6642b538ed92f2587f4, type: 2}
+  m_WrapMode: 0
+  m_PlayAutomatically: 0
+  m_AnimatePhysics: 0
+  m_CullingType: 0
 --- !u!1 &5724650837529659447
 GameObject:
   m_ObjectHideFlags: 0
@@ -793,6 +810,8 @@ MonoBehaviour:
   ilonaPortrait: {fileID: 1166282064628210135}
   healthBarFill: {fileID: 4764490192703234151}
   lightBarFill: {fileID: 7222938687769391184}
+  lightBarBall: {fileID: 3045401585336085822}
+  lightBarReloadAnimation: {fileID: 327418276085642061}
 --- !u!1 &8851675417622412455
 GameObject:
   m_ObjectHideFlags: 0
