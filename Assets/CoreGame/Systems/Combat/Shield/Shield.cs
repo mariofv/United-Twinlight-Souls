@@ -59,6 +59,8 @@ public class Shield : MonoBehaviour
 
     private void Update()
     {
+        UpdateShieldRegeneration();
+
         switch (currentState)
         {
             case ShieldState.DISABLED:
@@ -78,13 +80,6 @@ public class Shield : MonoBehaviour
 
             case ShieldState.RAISED:
                 {
-                    float timeSinceLastHit = Time.time - lastHitTime;
-                    if (currentHealth < maxHealth && timeSinceLastHit >= timeUntilHealthRegeneration)
-                    {
-                        int newHealth = Mathf.Min(maxHealth, healthAfterLastHit + Mathf.RoundToInt(timeSinceLastHit * healthRegenerationSpeed));
-                        SetShieldHealth(newHealth);
-                    }
-
                     if (hitAnimation)
                     {
                         hitLerp = Mathf.Min(1f, hitLerp + Time.deltaTime * lerpSpeed);
@@ -112,6 +107,16 @@ public class Shield : MonoBehaviour
 
             case ShieldState.BROKEN:
                 break;
+        }
+    }
+
+    private void UpdateShieldRegeneration()
+    {
+        float timeSinceLastHit = Time.time - lastHitTime;
+        if (currentHealth < maxHealth && timeSinceLastHit >= timeUntilHealthRegeneration)
+        {
+            int newHealth = Mathf.Min(maxHealth, healthAfterLastHit + Mathf.RoundToInt(timeSinceLastHit * healthRegenerationSpeed));
+            SetShieldHealth(newHealth);
         }
     }
 
@@ -157,6 +162,8 @@ public class Shield : MonoBehaviour
         shieldRenderer.material.SetColor("_DisolveEdgeColor", newShieldDissolveColor);
 
         shieldRenderer.material.SetFloat("_BreakProgress", (1f - currentHealthProgress));
+
+        GameManager.instance.uiManager.gameUIManager.hudUI.SetShieldProgress(currentHealthProgress);
 
         if (currentHealth == 0)
         {

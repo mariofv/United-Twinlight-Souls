@@ -18,6 +18,10 @@ public class HUDUI : UIElement
     [SerializeField] private Image lightBarBall;
     [SerializeField] private Animation lightBarReloadAnimation;
 
+    [Header("Skills Bar")]
+    [SerializeField] private Image shieldBar;
+    [SerializeField] private Image dashBar;
+
     public override void ShowSpecialized(bool instant)
     {
         if (GameManager.instance.player.GetControlledCharacterId() == Character.CharacterId.BARALD)
@@ -63,6 +67,16 @@ public class HUDUI : UIElement
     public void UseLight()
     {
         lightBarBall.enabled = false;
+    }
+
+    public void SetShieldProgress(float percentage)
+    {
+        shieldBar.fillAmount = percentage;
+    }
+
+    public void SetDashProgress(float percentage)
+    {
+        dashBar.fillAmount = percentage;
     }
 
     public void SelectBaraldPortrait()

@@ -38,17 +38,18 @@ public class CharacterStatsManager : CharacterSubManager
 
     public void Hurt(int damage, Vector3 hitPosition, bool attackCausesStun = false)
     {
-        if (characterManager.characterCombatManager.IsInvincible())
-        {
-            return;
-        }
-
         if (characterManager.characterCombatManager.IsShieldActive())
         {
             characterManager.characterCombatManager.HitShield(damage, hitPosition);
         }
         else
         {
+
+            if (characterManager.characterCombatManager.IsInvincible())
+            {
+                return;
+            }
+
             currentHealth = Mathf.Max(0, currentHealth - damage);
             float currentHealthPercentage = (float)currentHealth / maxHealth;
             GameManager.instance.uiManager.gameUIManager.hudUI.SetHealth(currentHealthPercentage);
