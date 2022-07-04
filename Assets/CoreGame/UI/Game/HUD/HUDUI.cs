@@ -12,6 +12,12 @@ public class HUDUI : UIElement
 
     [Header("Health Bar")]
     [SerializeField] private Image healthBarFill;
+    [SerializeField] private Image healthBarDelayedFill;
+    [SerializeField] private float delayedFillDelay;
+    [SerializeField] private float delayedFillTimeToCatch;
+    private float originalDelayedFillTarget;
+    private float fillTarget;
+    private float delayedTimer;
 
     [Header("Light Bar")]
     [SerializeField] private Image lightBarFill;
@@ -21,6 +27,18 @@ public class HUDUI : UIElement
     [Header("Skills Bar")]
     [SerializeField] private Image shieldBar;
     [SerializeField] private Image dashBar;
+
+    private void Update()
+    {
+        if (delayedTimer > 0f)
+        {
+            delayedTimer = Mathf.Max(0f, delayedTimer - Time.deltaTime);
+            if (delayedTimer <= delayedFillTimeToCatch)
+            {
+                healthBarDelayedFill.fillAmount = Mathf.Lerp(originalDelayedFillTarget, fillTarget, 1f - delayedTimer / delayedFillTimeToCatch);
+            }
+        }
+    }
 
     public override void ShowSpecialized(bool instant)
     {
@@ -52,6 +70,9 @@ public class HUDUI : UIElement
     public void SetHealth(float healthPercentage)
     {
         healthBarFill.fillAmount = healthPercentage;
+        fillTarget = healthPercentage;
+        originalDelayedFillTarget = healthBarDelayedFill.fillAmount;
+        delayedTimer = delayedFillDelay + delayedFillTimeToCatch;
     }
 
     public void SetLight(float lightPercentage)
