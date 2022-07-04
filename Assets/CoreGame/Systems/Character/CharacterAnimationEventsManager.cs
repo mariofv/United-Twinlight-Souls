@@ -6,7 +6,11 @@ using UnityEngine.Events;
 public class CharacterAnimationEventsManager : CharacterSubManager
 {
     public UnityEvent onDeathEnd;
-    public UnityEvent onLightAttackEnd;
+    
+    public UnityEvent<int> onLightAttackEnd;
+    public UnityEvent onLightAttackEnableHitbox;
+    public UnityEvent onLightAttackDisableHitbox;
+
     public UnityEvent onSpecialAttackThrow;
     public UnityEvent onSpecialAttackEnd;
 
@@ -15,9 +19,19 @@ public class CharacterAnimationEventsManager : CharacterSubManager
         onDeathEnd.Invoke();
     }
 
-    public void OnLightAttackEnd()
+    public void OnLightAttackEnd(int attackIndex)
     {
-        onLightAttackEnd.Invoke();
+        onLightAttackEnd.Invoke(attackIndex);
+    }
+
+    public void OnLightAttackEnableHitbox()
+    {
+        onLightAttackEnableHitbox.Invoke();
+    }
+
+    public void OnLightAttackDisableHitbox()
+    {
+        onLightAttackDisableHitbox.Invoke();
     }
 
     public void OnSpecialAttackThrow()

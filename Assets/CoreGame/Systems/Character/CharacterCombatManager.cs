@@ -4,13 +4,25 @@ using UnityEngine;
 
 public class CharacterCombatManager : CharacterSubManager
 {
+    private class LightAttackData
+    {
+        public LightAttackData(int damage, float minimumProgressToChain)
+        {
+            this.damage = damage;
+            this.minimunProgressToChain = minimumProgressToChain;
+        }
+
+        public int damage;
+        public float minimunProgressToChain;
+    }
+
     [Header("Defense")]
     [SerializeField] private Collider playerHurtbox;
     [SerializeField] private Shield playerShield;
 
     [Header("Light attack")]
-    [SerializeField] private List<LightAttack> lightAttacks;
-    private bool isInLightAttackChain = false;
+    [SerializeField] private LightAttackHitbox lightAttackHitbox;
+    private List<LightAttackData> lightAttacks;
     private int currentLightAttackChain = -1;
 
     [Header("Special attack")]
@@ -30,8 +42,16 @@ public class CharacterCombatManager : CharacterSubManager
     void Start()
     {
         characterManager.characterAnimationEventsManager.onLightAttackEnd.AddListener(EndLightAttack);
+        characterManager.characterAnimationEventsManager.onLightAttackEnableHitbox.AddListener(EnableLightAttackHitbox);
+        characterManager.characterAnimationEventsManager.onLightAttackDisableHitbox.AddListener(DisableLightAttackHitbox);
+
         characterManager.characterAnimationEventsManager.onSpecialAttackThrow.AddListener(ThrowSpecialAttack);
         characterManager.characterAnimationEventsManager.onSpecialAttackEnd.AddListener(EndSpecialAttack);
+
+        lightAttacks = new List<LightAttackData>();
+        lightAttacks.Add(new LightAttackData(2, 0.5f));
+        lightAttacks.Add(new LightAttackData(2, 0.5f));
+        lightAttacks.Add(new LightAttackData(4, 0.5f));
     }
 
     private void Update()
@@ -59,8 +79,7 @@ public class CharacterCombatManager : CharacterSubManager
 
     public void OnCharacterDeath()
     {
-        isInLightAttackChain = false;
-        currentLightAttackChain = 0;
+        currentLightAttackChain = -1;
 
         RepairShield();
     }
@@ -87,7 +106,7 @@ public class CharacterCombatManager : CharacterSubManager
     {
         if (currentLightAttackChain >= 0)
         {
-            EndCurrentLightAttack();
+            DisableLightAttackHitbox();
         }
 
         ++currentLightAttackChain;
@@ -96,7 +115,7 @@ public class CharacterCombatManager : CharacterSubManager
 
     public bool CanExecuteLightAttack()
     {
-        if (!isInLightAttackChain)
+        if (currentLightAttackChain == -1)
         {
             return true;
         }
@@ -113,14 +132,8 @@ public class CharacterCombatManager : CharacterSubManager
 
     private void ExecuteLightAttack(int chainIndex)
     {
-        if (!isInLightAttackChain)
-        {
-            isInLightAttackChain = true;
-        }
-
         characterManager.characterMovementManager.SetInputedMovement(Vector3.zero);
         characterManager.characterVisualsManager.TriggerLightAttack();
-        lightAttacks[currentLightAttackChain].gameObject.SetActive(true);
 
         if (characterManager.characterLockManager.IsLockingEnemy())
         {
@@ -136,27 +149,27 @@ public class CharacterCombatManager : CharacterSubManager
         }
     }
 
-    private void EndCurrentLightAttack()
+    private void EnableLightAttackHitbox()
     {
-        if (currentLightAttackChain >= lightAttacks.Count || currentLightAttackChain < 0)
-        {
-            throw new UnityException("Trying to do light attack with an incorrect index (" + currentLightAttackChain + ")!");
-        }
+        lightAttackHitbox.gameObject.SetActive(true);
+    }
 
-        lightAttacks[currentLightAttackChain].gameObject.SetActive(false);
+    private void DisableLightAttackHitbox()
+    {
+        lightAttackHitbox.gameObject.SetActive(false);
     }
     
-    private void EndLightAttack()
+    private void EndLightAttack(int attackIndex)
     {
-        if (!isInLightAttackChain)
-        {
-            return;
-        }
+        //Debug.Log("End light attack recived index: " + attackIndex + " current: " + currentLightAttackChain);
 
-        EndCurrentLightAttack();
-        isInLightAttackChain = false;
         currentLightAttackChain = -1;
         characterManager.SetCharacterState(CharacterManager.CharacterState.IDLE);
+    }
+
+    public int GetCurrentLightAttackDamage()
+    {
+        return lightAttacks[currentLightAttackChain].damage;
     }
 
     public void SpecialAttack()

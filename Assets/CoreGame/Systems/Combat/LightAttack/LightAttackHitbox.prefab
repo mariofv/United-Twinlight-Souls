@@ -13,7 +13,7 @@ GameObject:
   - component: {fileID: 3344603211857377816}
   - component: {fileID: 2118430735894333964}
   m_Layer: 0
-  m_Name: LightAttack
+  m_Name: LightAttackHitbox
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -45,8 +45,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: dabc66a73ddbac342938304321a9ce8f, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  damage: 0
-  minimunProgressToChain: 0
+  characterCombatManager: {fileID: 0}
 --- !u!65 &3344603211857377816
 BoxCollider:
   m_ObjectHideFlags: 0
