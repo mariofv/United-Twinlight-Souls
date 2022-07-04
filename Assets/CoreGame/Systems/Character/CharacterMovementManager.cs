@@ -22,8 +22,8 @@ public class CharacterMovementManager : CharacterSubManager
     [SerializeField] private float dashSpeedMultiplier;
     [SerializeField] private float dashDuration;
     [SerializeField] private float dashCooldown;
-    private float lastDashUseTime = -100f;
     private float currentDashTime = 0f;
+    private float currentDashCooldown = 0f;
 
     private Vector3 movementVector;
     private bool isMoving = false;
@@ -49,6 +49,12 @@ public class CharacterMovementManager : CharacterSubManager
                 isDashing = false;
                 characterManager.EndDash();
             }
+        }
+
+        if (currentDashCooldown > 0f)
+        {
+            currentDashCooldown = Mathf.Max(0f, currentDashCooldown - Time.deltaTime);
+            GameManager.instance.uiManager.gameUIManager.hudUI.SetDashProgress(1f - currentDashCooldown / dashCooldown);
         }
 
         if (IsMoving())
@@ -97,13 +103,13 @@ public class CharacterMovementManager : CharacterSubManager
 
     public bool CanDash()
     {
-        return Time.time - lastDashUseTime >= dashCooldown;
+        return currentDashCooldown == 0f;
     }
 
     public void EnableDashMultiplier()
     {
         isDashing = true;
-        lastDashUseTime = Time.time;
+        currentDashCooldown = dashCooldown;
         currentDashTime = 0f;
     }
 
