@@ -246,7 +246,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 262807725005965494, guid: 9aa138b6efb0c244098e2e3efd8c2ead, type: 3}
       propertyPath: selectedLevel
-      value: 1
+      value: 2
       objectReference: {fileID: 0}
     - target: {fileID: 262807725005965494, guid: 9aa138b6efb0c244098e2e3efd8c2ead, type: 3}
       propertyPath: showEnemyDebugInfo
