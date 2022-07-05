@@ -62,6 +62,7 @@ public class PickupPool : MonoBehaviour
         {
             Pickup newPickupInstance = Instantiate(poolPrefab, transform).GetComponent<Pickup>();
 
+            newPickupInstance.transform.position = new Vector3(20000f, 0f, 0f);
             instantiatedPickups.Add(newPickupInstance);
         }
     }
