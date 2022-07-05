@@ -115,6 +115,11 @@ public class LevelManager : MonoBehaviour
         }
         GameManager.instance.enemyManager.KillAllEnemies(spawnLoot: false);
 
+        if (IsCurrentLevelBoss())
+        {
+            BossLevel bossLevel = GetCurrentLevelAsBoss();
+            bossLevel.SpawnBoss();
+        }
 
         GameManager.instance.audioManager.SetCurrentLevelMusic(gameLevels[currentLevelIndex].levelMusic);
         GameManager.instance.player.GetNotControlledCharacter().Teleport(currentLevel.voidPosition.position);

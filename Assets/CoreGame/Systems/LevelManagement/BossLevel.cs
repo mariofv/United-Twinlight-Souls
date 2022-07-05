@@ -6,14 +6,26 @@ using UnityEngine;
 public class BossLevel : Level
 {
     [SerializeField] private CinemachineVirtualCamera virtualCamera;
-    [SerializeField] private BossAI bossAI;
+
+    [SerializeField] private Transform bossHolder;
+    [SerializeField] private GameObject bossPrefab;
+    private BossAI bossAI;
+    
     [SerializeField] private List<float> phasesThresholds;
 
     private int currentBossPhase = 0;
 
     private void Start()
     {
+        SpawnBoss();
+    }
+
+    public void SpawnBoss()
+    {
+        GameObject instantiatedBoss = Instantiate(bossPrefab, bossHolder);
+        bossAI = instantiatedBoss.GetComponent<BossAI>();
         GameManager.instance.enemyManager.AddSpawnedEnemy(bossAI.GetEnemy());
+        GameManager.instance.uiManager.gameUIManager.bossHealthBarUI.InflictDamage(1f, 1f);
         StartBossPhase(0);
     }
 
