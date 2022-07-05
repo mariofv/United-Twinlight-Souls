@@ -10,6 +10,7 @@ GameObject:
   m_Component:
   - component: {fileID: 7024071998780608591}
   - component: {fileID: 3661852351161061209}
+  - component: {fileID: 7381310444216794464}
   m_Layer: 0
   m_Name: BossAttackRock
   m_TagString: Untagged
@@ -52,6 +53,22 @@ MonoBehaviour:
   spawnFromGroundHeight: 3
   spawnFromCellingTime: 0.5
   spawnFromCellingHeight: 15
+  explodingTime: 0.25
+  hitbox: {fileID: 7381310444216794464}
+  rockDamage: 5
+--- !u!65 &7381310444216794464
+BoxCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1290731189664228352}
+  m_Material: {fileID: 0}
+  m_IsTrigger: 1
+  m_Enabled: 0
+  serializedVersion: 2
+  m_Size: {x: 3.92, y: 4, z: 3.5}
+  m_Center: {x: 0, y: 2.25, z: 0}
 --- !u!1 &8847302042980008095
 GameObject:
   m_ObjectHideFlags: 0

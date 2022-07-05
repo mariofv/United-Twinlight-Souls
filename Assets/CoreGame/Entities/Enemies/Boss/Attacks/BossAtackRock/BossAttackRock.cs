@@ -25,6 +25,14 @@ public class BossAttackRock : MonoBehaviour
     [Header("Ceilling Spawning")]
     [SerializeField] private float spawnFromCellingTime;
     [SerializeField] private float spawnFromCellingHeight;
+    
+    [Header("Exploding")]
+    [SerializeField] private float explodingTime;
+
+    [Header("Hitbox")]
+    [SerializeField] private BoxCollider hitbox;
+    [SerializeField] private int rockDamage;
+    private bool hasHitPlayer = false;
 
     private bool isSpawningFromGround;
 
@@ -79,14 +87,23 @@ public class BossAttackRock : MonoBehaviour
                     {
                         currentState = AttackRockState.EXPLODING;
                         currentTime = 0f;
+                        hitbox.enabled = true;
                     }
 
                 }
                 break;
 
             case AttackRockState.EXPLODING:
-                currentState = AttackRockState.INACTIVE;
-                transform.position = GameManager.instance.levelManager.GetCurrentLevel().voidPosition.position;
+                {
+                    currentTime += Time.deltaTime;
+
+                    if (currentTime >= explodingTime)
+                    {
+                        currentState = AttackRockState.INACTIVE;
+                        hitbox.enabled = false;
+                        transform.position = GameManager.instance.levelManager.GetCurrentLevel().voidPosition.position;
+                    }
+                }
                 break;
         }
     }
@@ -95,6 +112,7 @@ public class BossAttackRock : MonoBehaviour
     {
         currentState = AttackRockState.FORESHADOWING;
         currentTime = 0f;
+        hasHitPlayer = false;
 
         transform.position = position;
 
@@ -116,5 +134,14 @@ public class BossAttackRock : MonoBehaviour
     public bool IsActive()
     {
         return currentState != AttackRockState.INACTIVE;
+    }
+
+    private void OnTriggerEnter(Collider other)
+    {
+        if (!hasHitPlayer && other.CompareTag(TagManager.PLAYER))
+        {
+            GameManager.instance.player.GetControlledCharacter().characterStatsManager.Hurt(rockDamage, transform.position, attackCausesStun: false);
+            hasHitPlayer = true;
+        }
     }
 }

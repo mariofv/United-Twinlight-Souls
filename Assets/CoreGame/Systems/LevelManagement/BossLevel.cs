@@ -37,7 +37,7 @@ public class BossLevel : Level
 
     public void ForceStartBossPhase(int bossPhase)
     {
-        Enemy bossScript = GameObject.Find("Boss").GetComponent<Enemy>();
+        Enemy bossScript = bossAI.GetEnemy();
         int bossCurrentHealth = bossScript.GetCurrentHealth();
         int bossMaxHealth = bossScript.GetMaxHealth();
         float phaseHealthPercentage = phasesThresholds[bossPhase];
