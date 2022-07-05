@@ -7,7 +7,7 @@ public class CharacterAnimationEventsManager : CharacterSubManager
 {
     public UnityEvent onDeathEnd;
     
-    public UnityEvent<int> onLightAttackEnd;
+    public UnityEvent onLightAttackEnd;
     public UnityEvent onLightAttackEnableHitbox;
     public UnityEvent onLightAttackDisableHitbox;
 
@@ -19,9 +19,9 @@ public class CharacterAnimationEventsManager : CharacterSubManager
         onDeathEnd.Invoke();
     }
 
-    public void OnLightAttackEnd(int attackIndex)
+    public void OnLightAttackEnd()
     {
-        onLightAttackEnd.Invoke(attackIndex);
+        onLightAttackEnd.Invoke();
     }
 
     public void OnLightAttackEnableHitbox()

@@ -113,6 +113,12 @@ public class CharacterCombatManager : CharacterSubManager
         ExecuteLightAttack(currentLightAttackChain);
     }
 
+    public void EndLightAttackChain()
+    {
+        DisableLightAttackHitbox();
+        EndLightAttack();
+    }
+
     public bool CanExecuteLightAttack()
     {
         if (currentLightAttackChain == -1)
@@ -121,6 +127,11 @@ public class CharacterCombatManager : CharacterSubManager
         }
 
         if (currentLightAttackChain == lightAttacks.Count - 1)
+        {
+            return false;
+        }
+
+        if (characterManager.GetCharacterState() == CharacterManager.CharacterState.STUNNED)
         {
             return false;
         }
@@ -159,11 +170,15 @@ public class CharacterCombatManager : CharacterSubManager
         lightAttackHitbox.gameObject.SetActive(false);
     }
     
-    private void EndLightAttack(int attackIndex)
+    private void EndLightAttack()
     {
-        //Debug.Log("End light attack recived index: " + attackIndex + " current: " + currentLightAttackChain);
-
         currentLightAttackChain = -1;
+
+        if (characterManager.GetCharacterState() == CharacterManager.CharacterState.STUNNED)
+        {
+            return;
+        }
+
         characterManager.SetCharacterState(CharacterManager.CharacterState.IDLE);
     }
 

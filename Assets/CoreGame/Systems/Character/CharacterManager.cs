@@ -184,6 +184,7 @@ public class CharacterManager : MonoBehaviour
         characterVisualsManager.StartStun();
         characterStatsManager.StartStun();
         Move(Vector2.zero);
+        characterCombatManager.EndLightAttackChain();
         SetCharacterState(CharacterState.STUNNED);
     }
 
