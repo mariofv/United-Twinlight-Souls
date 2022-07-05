@@ -169,6 +169,12 @@ public class CharacterCombatManager : CharacterSubManager
 
     public int GetCurrentLightAttackDamage()
     {
+        if (currentLightAttackChain < 0 || currentLightAttackChain >= lightAttacks.Count)
+        {
+            lightAttackHitbox.gameObject.SetActive(false);
+            return 0;
+        }
+
         return lightAttacks[currentLightAttackChain].damage;
     }
 
