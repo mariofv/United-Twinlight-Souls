@@ -58,7 +58,11 @@ public class ZonedLevel : Level
     {
         currentCombatArea = null;
         levelZones[currentZone].zoneExitBarrier.Open();
-        levelZones[currentZone].zonePurificationCinematic.onCinematicEnd.RemoveListener(AdvanceZone);
+
+        if (levelZones[currentZone].zonePurificationCinematic != null)
+        {
+            levelZones[currentZone].zonePurificationCinematic.onCinematicEnd.RemoveListener(AdvanceZone);
+        }
 
         ++currentZone;
         GameManager.instance.cameraManager.LoadCamera(GetCurrentCamera());
