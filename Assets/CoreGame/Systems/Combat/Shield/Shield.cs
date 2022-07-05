@@ -182,6 +182,7 @@ public class Shield : MonoBehaviour
         brokenShield.transform.position = transform.position;
         brokenShield.Explode(lastHitPosition);
 
+        GameManager.instance.player.GetControlledCharacter().characterCombatManager.SetInvincible(false);
         GameManager.instance.player.GetControlledCharacter().StartStun();
     }
 

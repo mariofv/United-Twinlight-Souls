@@ -118,6 +118,8 @@ public class CharacterVisualsManager : CharacterSubManager
         characterAnimator.SetBool("moving", false);
         characterAnimator.SetFloat("verticalVelocity", 0f);
         characterAnimator.ResetTrigger("attack");
+        characterAnimator.ResetTrigger("startStun");
+        characterAnimator.ResetTrigger("endStun");
     }
 
     public void ShowMesh()
