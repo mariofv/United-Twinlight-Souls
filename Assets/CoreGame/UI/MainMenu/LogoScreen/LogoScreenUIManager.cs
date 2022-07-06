@@ -16,6 +16,7 @@ public class LogoScreenUIManager : MainMenuScreenUIManager
     [SerializeField] private CanvasGroup pressAnyButtonContainer;
 
     [Header("Logo menu")]
+    [SerializeField] private CanvasGroup keyHelperContainer;
     [SerializeField] private CanvasGroup logoMenuContainer;
     [SerializeField] private UICustomButton playCustomButton;
     [SerializeField] private Button playButton;
@@ -61,6 +62,7 @@ public class LogoScreenUIManager : MainMenuScreenUIManager
         pressAnyButtonButton.gameObject.TweenDisable(UISettings.GameUISettings.DISPLAY_TIME);
 
         logoMenuContainer.gameObject.SetActive(true);
+        keyHelperContainer.gameObject.SetActive(true);
         logoMenuContainer.TweenFade(UISettings.GameUISettings.DISPLAY_TIME, 0f, 1f);
 
         GameManager.instance.audioManager.PlayUISound(AudioManager.UISound.CLICK);
