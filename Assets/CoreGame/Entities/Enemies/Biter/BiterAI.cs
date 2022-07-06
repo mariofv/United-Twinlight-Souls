@@ -248,6 +248,12 @@ public class BiterAI : EnemyAI
 
     private void TransitionToDashState()
     {
+
+        Vector3 lookDirection = GameManager.instance.player.GetControlledCharacter().transform.position - transform.position;
+        lookDirection.y = 0f;
+        Quaternion lookRotation = Quaternion.LookRotation(lookDirection);
+        transform.rotation = lookRotation;
+
         enemy.TriggerAnimation("dash");
         currentState = BiterState.DASHING;
     }
