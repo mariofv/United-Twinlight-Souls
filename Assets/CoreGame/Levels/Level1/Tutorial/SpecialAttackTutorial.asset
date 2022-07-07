@@ -1,0 +1,21 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: d6a72d1c2734eb045b5da13c5a8c7c9d, type: 3}
+  m_Name: SpecialAttackTutorial
+  m_EditorClassIdentifier: 
+  tutorialTextMessages:
+  - pcText: Press <sprite="KeyboardAtlas" name="K_Key_Light"> to use the <color="green">light
+      ball</color>, a powerful ranged attack.
+    psText: Press <sprite="PSAtlas" name="PS5_Circle"> to use the <color="green">light
+      ball</color>, a powerful ranged attack.
+    xboxText: Press <sprite="XBoxAtlas" name="XboxSeriesX_B">  to use the <color="green">light
+      ball</color>, a powerful ranged attack.
