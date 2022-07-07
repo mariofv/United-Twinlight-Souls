@@ -5716,11 +5716,11 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 8889939422947368482, guid: f6c4e33756e8611469d3fa633acdd6f0, type: 3}
       propertyPath: m_LocalPosition.y
-      value: 3
+      value: 2.22
       objectReference: {fileID: 0}
     - target: {fileID: 8889939422947368482, guid: f6c4e33756e8611469d3fa633acdd6f0, type: 3}
       propertyPath: m_LocalPosition.z
-      value: -75.7
+      value: -77.98
       objectReference: {fileID: 0}
     - target: {fileID: 8889939422947368482, guid: f6c4e33756e8611469d3fa633acdd6f0, type: 3}
       propertyPath: m_LocalRotation.w
@@ -7984,7 +7984,7 @@ PrefabInstance:
     - target: {fileID: -1323443200247617894, guid: c70af2cd12c3f31438dea6a8ffb8f528, type: 3}
       propertyPath: tutorialEvents.Array.data[1].tutorialText
       value: 
-      objectReference: {fileID: 0}
+      objectReference: {fileID: 11400000, guid: bef6cc39dd8d5cf49bb65bbf19eeb286, type: 2}
     - target: {fileID: -1323443200247617894, guid: c70af2cd12c3f31438dea6a8ffb8f528, type: 3}
       propertyPath: tutorialEvents.Array.data[0].enemyCombatArea
       value: 

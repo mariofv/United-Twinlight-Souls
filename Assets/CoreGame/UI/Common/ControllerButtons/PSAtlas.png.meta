@@ -3,14 +3,8 @@ guid: 972d39c6df413e24fb14f51f53a3c8ec
 TextureImporter:
   internalIDToNameTable:
   - first:
-      213: -1225397489463024342
-    second: PS5_Diagram
-  - first:
-      213: 5053556591745780986
-    second: PS5_Diagram_Simple
-  - first:
-      213: 4849922650762550130
-    second: PS5_Options_Alt
+      213: -454132054917450334
+    second: PS5_Right_Stick_Click
   - first:
       213: -217965588299418808
     second: PS5_R1
@@ -36,14 +30,14 @@ TextureImporter:
       213: -652276769228694795
     second: PS5_Left_Stick_Click
   - first:
-      213: 455311826327796185
-    second: PS5_Dpad_Down
-  - first:
       213: -6864129051128224912
     second: PS5_R2
   - first:
-      213: 3656123363091472589
-    second: PS5_Dpad_Up
+      213: 4849922650762550130
+    second: PS5_Options_Alt
+  - first:
+      213: 6938736726820517673
+    second: PS5_Share
   - first:
       213: -6961777612959160066
     second: PS5_Triangle
@@ -72,11 +66,11 @@ TextureImporter:
       213: 8113908301925735125
     second: PS5_Touch_Pad
   - first:
-      213: 6938736726820517673
-    second: PS5_Share
+      213: 3656123363091472589
+    second: PS5_Dpad_Up
   - first:
-      213: -454132054917450334
-    second: PS5_Right_Stick_Click
+      213: 455311826327796185
+    second: PS5_Dpad_Down
   externalObjects: {}
   serializedVersion: 11
   mipmaps:
@@ -154,53 +148,11 @@ TextureImporter:
     serializedVersion: 2
     sprites:
     - serializedVersion: 2
-      name: PS5_Diagram
+      name: PS5_Right_Stick_Click
       rect:
         serializedVersion: 2
         x: 4
         y: 4
-        width: 1452
-        height: 940
-      alignment: 6
-      pivot: {x: 0, y: 0}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      outline: []
-      physicsShape: []
-      tessellationDetail: -1
-      bones: []
-      spriteID: a25a6ebc9738efee0800000000000000
-      internalID: -1225397489463024342
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
-    - serializedVersion: 2
-      name: PS5_Diagram_Simple
-      rect:
-        serializedVersion: 2
-        x: 1464
-        y: 4
-        width: 1452
-        height: 940
-      alignment: 6
-      pivot: {x: 0, y: 0}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      outline: []
-      physicsShape: []
-      tessellationDetail: -1
-      bones: []
-      spriteID: afc475ff1f6d12640800000000000000
-      internalID: 5053556591745780986
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
-    - serializedVersion: 2
-      name: PS5_Options_Alt
-      rect:
-        serializedVersion: 2
-        x: 4
-        y: 952
         width: 100
         height: 100
       alignment: 6
@@ -210,8 +162,8 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: -1
       bones: []
-      spriteID: 27b92d274f26e4340800000000000000
-      internalID: 4849922650762550130
+      spriteID: 2a5f6895d4992b9f0800000000000000
+      internalID: -454132054917450334
       vertices: []
       indices: 
       edges: []
@@ -220,8 +172,8 @@ TextureImporter:
       name: PS5_R1
       rect:
         serializedVersion: 2
-        x: 1464
-        y: 952
+        x: 112
+        y: 4
         width: 100
         height: 100
       alignment: 6
@@ -241,8 +193,8 @@ TextureImporter:
       name: PS5_Share_Alt
       rect:
         serializedVersion: 2
-        x: 2924
-        y: 4
+        x: 4
+        y: 112
         width: 100
         height: 100
       alignment: 6
@@ -263,7 +215,7 @@ TextureImporter:
       rect:
         serializedVersion: 2
         x: 112
-        y: 952
+        y: 112
         width: 100
         height: 100
       alignment: 6
@@ -283,8 +235,8 @@ TextureImporter:
       name: PS5_Circle_0
       rect:
         serializedVersion: 2
-        x: 4
-        y: 1060
+        x: 220
+        y: 4
         width: 100
         height: 100
       alignment: 6
@@ -304,8 +256,8 @@ TextureImporter:
       name: PS5_Dpad_Right
       rect:
         serializedVersion: 2
-        x: 112
-        y: 1060
+        x: 4
+        y: 220
         width: 100
         height: 100
       alignment: 6
@@ -325,8 +277,8 @@ TextureImporter:
       name: PS5_Cross
       rect:
         serializedVersion: 2
-        x: 1572
-        y: 952
+        x: 220
+        y: 112
         width: 100
         height: 100
       alignment: 6
@@ -346,8 +298,8 @@ TextureImporter:
       name: PS5_Dpad_Left
       rect:
         serializedVersion: 2
-        x: 1464
-        y: 1060
+        x: 112
+        y: 220
         width: 100
         height: 100
       alignment: 6
@@ -367,8 +319,8 @@ TextureImporter:
       name: PS5_Left_Stick_Click
       rect:
         serializedVersion: 2
-        x: 1572
-        y: 1060
+        x: 220
+        y: 220
         width: 100
         height: 100
       alignment: 6
@@ -385,32 +337,11 @@ TextureImporter:
       edges: []
       weights: []
     - serializedVersion: 2
-      name: PS5_Dpad_Down
-      rect:
-        serializedVersion: 2
-        x: 3032
-        y: 4
-        width: 100
-        height: 100
-      alignment: 6
-      pivot: {x: 0, y: 0}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      outline: []
-      physicsShape: []
-      tessellationDetail: -1
-      bones: []
-      spriteID: 9d97d4691b7915600800000000000000
-      internalID: 455311826327796185
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
-    - serializedVersion: 2
       name: PS5_R2
       rect:
         serializedVersion: 2
-        x: 2924
-        y: 112
+        x: 328
+        y: 4
         width: 100
         height: 100
       alignment: 6
@@ -427,10 +358,31 @@ TextureImporter:
       edges: []
       weights: []
     - serializedVersion: 2
-      name: PS5_Dpad_Up
+      name: PS5_Options_Alt
       rect:
         serializedVersion: 2
-        x: 3032
+        x: 4
+        y: 328
+        width: 100
+        height: 100
+      alignment: 6
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 27b92d274f26e4340800000000000000
+      internalID: 4849922650762550130
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: PS5_Share
+      rect:
+        serializedVersion: 2
+        x: 328
         y: 112
         width: 100
         height: 100
@@ -441,8 +393,8 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: -1
       bones: []
-      spriteID: dc0e218e3d82db230800000000000000
-      internalID: 3656123363091472589
+      spriteID: 927f7104a485b4060800000000000000
+      internalID: 6938736726820517673
       vertices: []
       indices: 
       edges: []
@@ -451,8 +403,8 @@ TextureImporter:
       name: PS5_Triangle
       rect:
         serializedVersion: 2
-        x: 220
-        y: 952
+        x: 112
+        y: 328
         width: 100
         height: 100
       alignment: 6
@@ -472,8 +424,8 @@ TextureImporter:
       name: PS5_L1
       rect:
         serializedVersion: 2
-        x: 4
-        y: 1168
+        x: 328
+        y: 220
         width: 100
         height: 100
       alignment: 6
@@ -494,7 +446,7 @@ TextureImporter:
       rect:
         serializedVersion: 2
         x: 220
-        y: 1060
+        y: 328
         width: 100
         height: 100
       alignment: 6
@@ -514,8 +466,8 @@ TextureImporter:
       name: PS5_Microphone
       rect:
         serializedVersion: 2
-        x: 112
-        y: 1168
+        x: 328
+        y: 328
         width: 100
         height: 100
       alignment: 6
@@ -535,8 +487,8 @@ TextureImporter:
       name: PS5_Left_Stick
       rect:
         serializedVersion: 2
-        x: 220
-        y: 1168
+        x: 436
+        y: 4
         width: 100
         height: 100
       alignment: 6
@@ -556,8 +508,8 @@ TextureImporter:
       name: PS5_L2
       rect:
         serializedVersion: 2
-        x: 1680
-        y: 952
+        x: 4
+        y: 436
         width: 100
         height: 100
       alignment: 6
@@ -577,8 +529,8 @@ TextureImporter:
       name: PS5_Square
       rect:
         serializedVersion: 2
-        x: 1464
-        y: 1168
+        x: 436
+        y: 112
         width: 100
         height: 100
       alignment: 6
@@ -598,8 +550,8 @@ TextureImporter:
       name: PS5_Dpad
       rect:
         serializedVersion: 2
-        x: 1680
-        y: 1060
+        x: 112
+        y: 436
         width: 100
         height: 100
       alignment: 6
@@ -619,8 +571,8 @@ TextureImporter:
       name: PS5_Touch_Pad
       rect:
         serializedVersion: 2
-        x: 1572
-        y: 1168
+        x: 436
+        y: 220
         width: 100
         height: 100
       alignment: 6
@@ -637,11 +589,11 @@ TextureImporter:
       edges: []
       weights: []
     - serializedVersion: 2
-      name: PS5_Share
+      name: PS5_Dpad_Up
       rect:
         serializedVersion: 2
-        x: 1680
-        y: 1168
+        x: 220
+        y: 436
         width: 100
         height: 100
       alignment: 6
@@ -651,18 +603,18 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: -1
       bones: []
-      spriteID: 927f7104a485b4060800000000000000
-      internalID: 6938736726820517673
+      spriteID: dc0e218e3d82db230800000000000000
+      internalID: 3656123363091472589
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: PS5_Right_Stick_Click
+      name: PS5_Dpad_Down
       rect:
         serializedVersion: 2
-        x: 3140
-        y: 4
+        x: 436
+        y: 328
         width: 100
         height: 100
       alignment: 6
@@ -672,8 +624,8 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: -1
       bones: []
-      spriteID: 2a5f6895d4992b9f0800000000000000
-      internalID: -454132054917450334
+      spriteID: 9d97d4691b7915600800000000000000
+      internalID: 455311826327796185
       vertices: []
       indices: 
       edges: []
