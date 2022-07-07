@@ -252,8 +252,12 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   combatAreaCamera: {fileID: 5043518782798118323}
   combatAreaCheckpoint: {fileID: 995100904257392732}
+  combatAreaPlayerDetectionCollider: {fileID: 4185672943003950148}
   combatAreaEnterGateCollider: {fileID: 6497489611437970914}
   combatAreaWaves: []
+  onCombatAreaEnd:
+    m_PersistentCalls:
+      m_Calls: []
 --- !u!65 &4185672943003950148
 BoxCollider:
   m_ObjectHideFlags: 0

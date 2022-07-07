@@ -26,9 +26,13 @@ public class TutorialEditor : Editor
         {
             ((Tutorial)serializedObject.targetObject).tutorialEvents.Add(new Tutorial.ShowTextTutorialEvent());
         }
-        if (GUILayout.Button("Add SpawnEnemies event"))
+        if (GUILayout.Button("Add StartCombatArea event"))
         {
-            ((Tutorial)serializedObject.targetObject).tutorialEvents.Add(new Tutorial.SpawnEnemyTutorialEvent());
+            ((Tutorial)serializedObject.targetObject).tutorialEvents.Add(new Tutorial.StartCombatAreaTutorialEvent());
+        }
+        if (GUILayout.Button("Add WaitTime event"))
+        {
+            ((Tutorial)serializedObject.targetObject).tutorialEvents.Add(new Tutorial.WaitTimeTutorialEvent());
         }
         serializedObject.ApplyModifiedProperties();
     }

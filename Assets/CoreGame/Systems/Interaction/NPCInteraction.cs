@@ -101,12 +101,21 @@ public class NPCInteraction : MonoBehaviour
         npc.LookAtPlayer();
 
         GameManager.instance.dialogueManager.onDialogueEnd.RemoveListener(EndInteraction);
-        GameManager.instance.tutorialManager.StartTutorial(interactionTutorial);
-        interactionTutorial.onTutorialEnd.AddListener(Hide);
-        
-        hasPlayerInteracted = true;
-        currentState = InteractionState.AVAILABLE;
+
         GameManager.instance.EnterGameState(GameManager.GameState.COMBAT);
+        hasPlayerInteracted = true;
+
+        if (interactionTutorial != null)
+        {
+            GameManager.instance.tutorialManager.StartTutorial(interactionTutorial);
+            interactionTutorial.onTutorialEnd.AddListener(Hide);
+            currentState = InteractionState.AVAILABLE;
+        }
+        else
+        {
+            Hide();
+        }
+
     }
 
     public bool IsAvailable()
@@ -116,9 +125,17 @@ public class NPCInteraction : MonoBehaviour
 
     public void Show()
     {
-        if (hasPlayerInteracted || GameManager.instance.progressionManager.CheckProgression(interactionTutorial.associatedProgression))
+        if (hasPlayerInteracted)
         {
             return;
+        }
+
+        if (interactionTutorial != null)
+        {
+            if (GameManager.instance.progressionManager.CheckProgression(interactionTutorial.associatedProgression))
+            {
+                return;
+            }
         }
 
         currentState = InteractionState.SHOWING;
@@ -127,7 +144,10 @@ public class NPCInteraction : MonoBehaviour
 
     public void Hide()
     {
-        interactionTutorial.onTutorialEnd.RemoveListener(Hide);
+        if (interactionTutorial != null)
+        {
+            interactionTutorial.onTutorialEnd.RemoveListener(Hide);
+        }
 
         currentState = InteractionState.HIDING;
         currentTime = 0f;

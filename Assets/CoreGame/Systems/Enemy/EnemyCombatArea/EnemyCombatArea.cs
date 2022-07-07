@@ -1,19 +1,23 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.Events;
 using Cinemachine;
 
 public class EnemyCombatArea : MonoBehaviour
 {
     [SerializeField] private CinemachineVirtualCamera combatAreaCamera;
     [SerializeField] private Checkpoint combatAreaCheckpoint;
+    public BoxCollider combatAreaPlayerDetectionCollider;
     [SerializeField] private BoxCollider combatAreaEnterGateCollider;
     [SerializeField] private List<EnemyWave> combatAreaWaves;
+
+    public UnityEvent onCombatAreaEnd;
 
     private bool started = false;
     private int currentWave = 0;
 
-    private void StartCombatArea()
+    public void StartCombatArea()
     {
         started = true;
         currentWave = 0;
@@ -25,6 +29,7 @@ public class EnemyCombatArea : MonoBehaviour
 
     private void EndCombatArea()
     {
+        onCombatAreaEnd.Invoke();
         combatAreaCheckpoint.ActivateCheckpoint();
         GameManager.instance.levelManager.GetCurrentLevelAsZoned().PlayZoneCinematic();
     }

@@ -86,22 +86,39 @@ public class Tutorial : MonoBehaviour
         }
     }
 
-    public class SpawnEnemyTutorialEvent : TutorialEvent
+    public class StartCombatAreaTutorialEvent : TutorialEvent
     {
-        [SerializeField] private EnemyWave enemyWave;
+        [SerializeField] private EnemyCombatArea enemyCombatArea;
         public override void StartEvent(Tutorial tutorialOwner)
         {
-            enemyWave.onWaveSpawnEnd.AddListener(EndEvent);
-
-            enemyWave.onWaveEnd.RemoveAllListeners();
-            enemyWave.onWaveEnd.AddListener(tutorialOwner.EndTutorial);
-
-            enemyWave.StartWave();
+            enemyCombatArea.onCombatAreaEnd.AddListener(EndEvent);
+            enemyCombatArea.StartCombatArea();
+            enemyCombatArea.combatAreaPlayerDetectionCollider.enabled = true;
         }
 
         protected override void EndEventSpecialized()
         {
-            enemyWave.onWaveSpawnEnd.RemoveListener(EndEvent);
+            enemyCombatArea.onCombatAreaEnd.RemoveListener(EndEvent);
+        }
+    }
+
+    public class WaitTimeTutorialEvent : TutorialEvent
+    {
+        [SerializeField] private float timeToWait;
+        private float currentTime = 0f;
+
+        public override void StartEvent(Tutorial tutorialOwner)
+        {
+            currentTime = 0f;
+        }
+
+        public override void Update(float deltaTime)
+        {
+            currentTime += deltaTime;
+            if (currentTime > timeToWait)
+            {
+                EndEvent();
+            }
         }
     }
 
