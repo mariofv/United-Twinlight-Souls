@@ -49,14 +49,6 @@ public class Tutorial : MonoBehaviour
             StartTutorialEvent(tutorialEvents[currentTutorialEvent]);
         }
     }
-    public void OnInputDeviceChanged(InputManager.InputDeviceType inputDeviceType)
-    {
-        ShowTextTutorialEvent currentEvent = tutorialEvents[currentTutorialEvent] as ShowTextTutorialEvent;
-        if (currentEvent != null)
-        {
-            currentEvent.OnInputDeviceChanged(inputDeviceType);
-        }
-    }
 
     public void AnyKeyPressed()
     {
@@ -65,8 +57,17 @@ public class Tutorial : MonoBehaviour
         {
             if (currentEvent.CanBeInteracted())
             {
-                currentEvent.EndEvent();
+                currentEvent.AdvanceTutorialText();
             }
+        }
+    }
+
+    public void OnInputDeviceChanged(InputManager.InputDeviceType inputDeviceType)
+    {
+        ShowTextTutorialEvent currentEvent = tutorialEvents[currentTutorialEvent] as ShowTextTutorialEvent;
+        if (currentEvent != null)
+        {
+            currentEvent.OnInputDeviceChanged(inputDeviceType);
         }
     }
 
@@ -124,12 +125,11 @@ public class Tutorial : MonoBehaviour
 
     public class ShowTextTutorialEvent : TutorialEvent
     {
-        [SerializeField] private string pcText;
-        [SerializeField] private string psText;
-        [SerializeField] private string xboxText;
+        [SerializeField] private TutorialTextAsset tutorialText;
 
         private const float blockedInteractionTime = 1f;
         private float currentTime = 0f;
+        private int currentTutorialTextIndex = 0;
 
         public override void Update(float deltaTime)
         {
@@ -138,11 +138,9 @@ public class Tutorial : MonoBehaviour
 
         public override void StartEvent(Tutorial tutorialOwner)
         {
-            string text = GetText(GameManager.instance.inputManager.GetInputDeviceType());
-
             GameManager.instance.progressionManager.UnlockProgression(tutorialOwner.associatedProgression);
 
-            GameManager.instance.uiManager.gameUIManager.tutorialUI.SetTutorialText(text);
+            ShowCurrentTutorialText();
             GameManager.instance.uiManager.gameUIManager.tutorialUI.Show();
 
             GameManager.instance.EnterGameState(GameManager.GameState.TUTORIAL);
@@ -157,34 +155,34 @@ public class Tutorial : MonoBehaviour
             GameManager.instance.uiManager.gameUIManager.tutorialUI.Hide();
         }
 
+        public void AdvanceTutorialText()
+        {
+            ++currentTutorialTextIndex;
+            if (currentTutorialTextIndex == tutorialText.tutorialTextMessages.Count)
+            {
+                EndEvent();
+            }
+            else
+            {
+                currentTime = 0f;
+                ShowCurrentTutorialText();
+            }
+        }
+
+        private void ShowCurrentTutorialText()
+        {
+            string currentTutorialText = tutorialText.tutorialTextMessages[currentTutorialTextIndex].GetText(GameManager.instance.inputManager.GetInputDeviceType());
+            GameManager.instance.uiManager.gameUIManager.tutorialUI.SetTutorialText(currentTutorialText);
+        }
+
         public void OnInputDeviceChanged(InputManager.InputDeviceType inputDeviceType)
         {
-            string text = GetText(inputDeviceType);
-
-            GameManager.instance.uiManager.gameUIManager.tutorialUI.SetTutorialText(text);
+            ShowCurrentTutorialText();
         }
 
         public bool CanBeInteracted()
         {
             return currentTime >= blockedInteractionTime;
-        }
-
-        private string GetText(InputManager.InputDeviceType inputDeviceType)
-        {
-            switch (inputDeviceType)
-            {
-                case InputManager.InputDeviceType.KEYBOARD:
-                    return pcText;
-
-                case InputManager.InputDeviceType.PS5_CONTROLLER:
-                    return psText;
-
-                case InputManager.InputDeviceType.XBOX_CONTROLLER:
-                    return xboxText;
-
-                default:
-                    return "";
-            }
         }
     }
 }

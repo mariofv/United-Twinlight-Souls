@@ -1,0 +1,32 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: d6a72d1c2734eb045b5da13c5a8c7c9d, type: 3}
+  m_Name: BasicCombatTutorial
+  m_EditorClassIdentifier: 
+  tutorialTextMessages:
+  - pcText: Press <sprite="KeyboardAtlas" name="J_Key_Light"> to do a <color="green">
+      light attack</color>. You can also <color="green"> lock an enemy</color> pressing
+      <sprite="KeyboardAtlas" name="R_Key_Light">, and <color="green"> change the
+      locked enemy</color> pressing <sprite="KeyboardAtlas" name="F_Key_Light">.
+    psText: 'Press <sprite="PSAtlas" name="PS5_Square"> to do a <color="green"> light
+      attack</color>. '
+    xboxText: Press <sprite="XBoxAtlas" name="XboxSeriesX_X"> to do a <color="green">
+      light attack</color>
+  - pcText: You can also <color="green"> lock an enemy</color> pressing <sprite="KeyboardAtlas"
+      name="R_Key_Light">, and <color="green"> change the locked enemy</color> pressing
+      <sprite="KeyboardAtlas" name="F_Key_Light">.
+    psText: You can also <color="green"> lock an enemy</color> pressing <sprite="PSAtlas"
+      name="PS5_R1">, and <color="green"> change the locked enemy</color> pressing
+      <sprite="PSAtlas" name="PS5_L2">.
+    xboxText: You can also <color="green"> lock an enemy</color> pressing <sprite="XBoxAtlas"
+      name="XboxSeriesX_RB">, and <color="green"> change the locked enemy</color>
+      pressing <sprite="XBoxAtlas" name="XboxSeriesX_LT">.

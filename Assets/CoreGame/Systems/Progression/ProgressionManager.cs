@@ -8,11 +8,9 @@ public class ProgressionManager : MonoBehaviour
     public enum Progression
     {
         NONE = 0,
-        LIGHT_ATTACK_UNLOCKED = 1,
-        LOCK_ON_UNLOCKED = 2,
-        SHIELD_UNLOCKED = 4,
-        DASH_UNLOCKED = 8,
-        SPECIAL_ATTACK_UNLOCKED = 16,
+        BASIC_COMBAT_UNLOCKED = 1,
+        DEFENSIVE_COMBAT_UNLOCKED = 2,
+        SPECIAL_ATTACK_UNLOCKED = 4,
     };
 
     private Progression currentProgression;
@@ -44,10 +42,8 @@ public class ProgressionManager : MonoBehaviour
 
     public void UnlockEverything()
     {
-        UnlockProgression(Progression.LIGHT_ATTACK_UNLOCKED);
+        UnlockProgression(Progression.BASIC_COMBAT_UNLOCKED);
         UnlockProgression(Progression.SPECIAL_ATTACK_UNLOCKED);
-        UnlockProgression(Progression.LOCK_ON_UNLOCKED);
-        UnlockProgression(Progression.SHIELD_UNLOCKED);
-        UnlockProgression(Progression.DASH_UNLOCKED);
+        UnlockProgression(Progression.DEFENSIVE_COMBAT_UNLOCKED);
     }
 }

@@ -99,11 +99,11 @@ public class CharacterInputManager : CharacterSubManager
     {
         progressionAcceptedInputs = new Dictionary<CharacterInputAction, ProgressionManager.Progression>();
 
-        progressionAcceptedInputs.Add(CharacterInputAction.LIGHT_ATTACK, ProgressionManager.Progression.LIGHT_ATTACK_UNLOCKED);
+        progressionAcceptedInputs.Add(CharacterInputAction.LIGHT_ATTACK, ProgressionManager.Progression.BASIC_COMBAT_UNLOCKED);
         progressionAcceptedInputs.Add(CharacterInputAction.SPECIAL_ATTACK, ProgressionManager.Progression.SPECIAL_ATTACK_UNLOCKED);
-        progressionAcceptedInputs.Add(CharacterInputAction.DASH, ProgressionManager.Progression.DASH_UNLOCKED);
-        progressionAcceptedInputs.Add(CharacterInputAction.LOCK_ENEMY, ProgressionManager.Progression.LOCK_ON_UNLOCKED);
-        progressionAcceptedInputs.Add(CharacterInputAction.SHIELD, ProgressionManager.Progression.SHIELD_UNLOCKED);
+        progressionAcceptedInputs.Add(CharacterInputAction.DASH, ProgressionManager.Progression.DEFENSIVE_COMBAT_UNLOCKED);
+        progressionAcceptedInputs.Add(CharacterInputAction.LOCK_ENEMY, ProgressionManager.Progression.BASIC_COMBAT_UNLOCKED);
+        progressionAcceptedInputs.Add(CharacterInputAction.SHIELD, ProgressionManager.Progression.DEFENSIVE_COMBAT_UNLOCKED);
     }
 
     public bool IsInputAccepted(CharacterInputAction inputAction)
