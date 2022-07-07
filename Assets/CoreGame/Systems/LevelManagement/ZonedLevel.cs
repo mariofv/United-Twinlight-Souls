@@ -40,29 +40,11 @@ public class ZonedLevel : Level
         currentCombatArea = combatArea;
     }
 
-    public void PlayZoneCinematic()
-    {
-        Cinematic currentZoneCinematic = levelZones[currentZone].zonePurificationCinematic;
-        if (currentZoneCinematic != null)
-        {
-            GameManager.instance.cinematicManager.PlayCinematic(currentZoneCinematic);
-            currentZoneCinematic.onCinematicEnd.AddListener(AdvanceZone);
-        }
-        else
-        {
-            AdvanceZone();
-        }
-    }
-
-    private void AdvanceZone()
+    public void AdvanceZone()
     {
         currentCombatArea = null;
+        levelZones[currentZone].Purify();
         levelZones[currentZone].zoneExitBarrier.Open();
-
-        if (levelZones[currentZone].zonePurificationCinematic != null)
-        {
-            levelZones[currentZone].zonePurificationCinematic.onCinematicEnd.RemoveListener(AdvanceZone);
-        }
 
         ++currentZone;
         GameManager.instance.cameraManager.LoadCamera(GetCurrentCamera());
