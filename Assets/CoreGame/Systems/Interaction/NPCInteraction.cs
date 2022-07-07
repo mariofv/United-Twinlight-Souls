@@ -108,14 +108,8 @@ public class NPCInteraction : MonoBehaviour
         if (interactionTutorial != null)
         {
             GameManager.instance.tutorialManager.StartTutorial(interactionTutorial);
-            interactionTutorial.onTutorialEnd.AddListener(Hide);
-            currentState = InteractionState.AVAILABLE;
         }
-        else
-        {
-            Hide();
-        }
-
+        Hide();
     }
 
     public bool IsAvailable()
@@ -144,11 +138,6 @@ public class NPCInteraction : MonoBehaviour
 
     public void Hide()
     {
-        if (interactionTutorial != null)
-        {
-            interactionTutorial.onTutorialEnd.RemoveListener(Hide);
-        }
-
         currentState = InteractionState.HIDING;
         currentTime = 0f;
     }
