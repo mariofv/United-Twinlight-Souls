@@ -1,13 +1,7 @@
 fileFormatVersion: 2
-guid: 6a46539c1004fec418069c2e8ee68e4e
+guid: 9ff77947d05441c4fa14554423f988c5
 TextureImporter:
   internalIDToNameTable:
-  - first:
-      213: 3008205981533696408
-    second: XboxSeriesX_Diagram
-  - first:
-      213: -4192922657333519605
-    second: XboxSeriesX_Diagram_Simple
   - first:
       213: -3162298095629279127
     second: XboxSeriesX_Share
@@ -145,53 +139,11 @@ TextureImporter:
     serializedVersion: 2
     sprites:
     - serializedVersion: 2
-      name: XboxSeriesX_Diagram
-      rect:
-        serializedVersion: 2
-        x: 4
-        y: 4
-        width: 1452
-        height: 940
-      alignment: 6
-      pivot: {x: 0, y: 0}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      outline: []
-      physicsShape: []
-      tessellationDetail: -1
-      bones: []
-      spriteID: 891758ce66b4fb920800000000000000
-      internalID: 3008205981533696408
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
-    - serializedVersion: 2
-      name: XboxSeriesX_Diagram_Simple
-      rect:
-        serializedVersion: 2
-        x: 1464
-        y: 4
-        width: 1452
-        height: 940
-      alignment: 6
-      pivot: {x: 0, y: 0}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      outline: []
-      physicsShape: []
-      tessellationDetail: -1
-      bones: []
-      spriteID: b0bd2f6ee0fbfc5c0800000000000000
-      internalID: -4192922657333519605
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
-    - serializedVersion: 2
       name: XboxSeriesX_Share
       rect:
         serializedVersion: 2
         x: 4
-        y: 952
+        y: 4
         width: 100
         height: 100
       alignment: 6
@@ -211,8 +163,8 @@ TextureImporter:
       name: XboxSeriesX_Y
       rect:
         serializedVersion: 2
-        x: 1464
-        y: 952
+        x: 112
+        y: 4
         width: 100
         height: 100
       alignment: 6
@@ -232,8 +184,8 @@ TextureImporter:
       name: XboxSeriesX_Dpad_Up
       rect:
         serializedVersion: 2
-        x: 2924
-        y: 4
+        x: 4
+        y: 112
         width: 100
         height: 100
       alignment: 6
@@ -254,7 +206,7 @@ TextureImporter:
       rect:
         serializedVersion: 2
         x: 112
-        y: 952
+        y: 112
         width: 100
         height: 100
       alignment: 6
@@ -274,8 +226,8 @@ TextureImporter:
       name: XboxSeriesX_B
       rect:
         serializedVersion: 2
-        x: 4
-        y: 1060
+        x: 220
+        y: 4
         width: 100
         height: 100
       alignment: 6
@@ -295,8 +247,8 @@ TextureImporter:
       name: XboxSeriesX_A
       rect:
         serializedVersion: 2
-        x: 112
-        y: 1060
+        x: 4
+        y: 220
         width: 100
         height: 100
       alignment: 6
@@ -316,8 +268,8 @@ TextureImporter:
       name: XboxSeriesX_Right_Stick_Click
       rect:
         serializedVersion: 2
-        x: 1572
-        y: 952
+        x: 220
+        y: 112
         width: 100
         height: 100
       alignment: 6
@@ -337,8 +289,8 @@ TextureImporter:
       name: XboxSeriesX_Left_Stick
       rect:
         serializedVersion: 2
-        x: 1464
-        y: 1060
+        x: 112
+        y: 220
         width: 100
         height: 100
       alignment: 6
@@ -358,8 +310,8 @@ TextureImporter:
       name: XboxSeriesX_LB
       rect:
         serializedVersion: 2
-        x: 1572
-        y: 1060
+        x: 220
+        y: 220
         width: 100
         height: 100
       alignment: 6
@@ -379,7 +331,7 @@ TextureImporter:
       name: XboxSeriesX_Right_Stick
       rect:
         serializedVersion: 2
-        x: 3032
+        x: 328
         y: 4
         width: 100
         height: 100
@@ -400,8 +352,8 @@ TextureImporter:
       name: XboxSeriesX_LT
       rect:
         serializedVersion: 2
-        x: 2924
-        y: 112
+        x: 4
+        y: 328
         width: 100
         height: 100
       alignment: 6
@@ -421,7 +373,7 @@ TextureImporter:
       name: XboxSeriesX_RT
       rect:
         serializedVersion: 2
-        x: 3032
+        x: 328
         y: 112
         width: 100
         height: 100
@@ -442,8 +394,8 @@ TextureImporter:
       name: XboxSeriesX_Menu
       rect:
         serializedVersion: 2
-        x: 220
-        y: 952
+        x: 112
+        y: 328
         width: 100
         height: 100
       alignment: 6
@@ -463,8 +415,8 @@ TextureImporter:
       name: XboxSeriesX_Left_Stick_Click
       rect:
         serializedVersion: 2
-        x: 4
-        y: 1168
+        x: 328
+        y: 220
         width: 100
         height: 100
       alignment: 6
@@ -485,7 +437,7 @@ TextureImporter:
       rect:
         serializedVersion: 2
         x: 220
-        y: 1060
+        y: 328
         width: 100
         height: 100
       alignment: 6
@@ -505,8 +457,8 @@ TextureImporter:
       name: XboxSeriesX_View
       rect:
         serializedVersion: 2
-        x: 112
-        y: 1168
+        x: 328
+        y: 328
         width: 100
         height: 100
       alignment: 6
@@ -526,8 +478,8 @@ TextureImporter:
       name: XboxSeriesX_Dpad_Down
       rect:
         serializedVersion: 2
-        x: 220
-        y: 1168
+        x: 436
+        y: 4
         width: 100
         height: 100
       alignment: 6
@@ -547,8 +499,8 @@ TextureImporter:
       name: XboxSeriesX_X
       rect:
         serializedVersion: 2
-        x: 1680
-        y: 952
+        x: 4
+        y: 436
         width: 100
         height: 100
       alignment: 6
@@ -568,8 +520,8 @@ TextureImporter:
       name: XboxSeriesX_RB
       rect:
         serializedVersion: 2
-        x: 1464
-        y: 1168
+        x: 436
+        y: 112
         width: 100
         height: 100
       alignment: 6
@@ -589,8 +541,8 @@ TextureImporter:
       name: XboxSeriesX_Dpad_Left
       rect:
         serializedVersion: 2
-        x: 1680
-        y: 1060
+        x: 112
+        y: 436
         width: 100
         height: 100
       alignment: 6
