@@ -13,6 +13,7 @@ MonoBehaviour:
   m_Name: IntroDialogue
   m_EditorClassIdentifier: 
   dialogueMessages:
-  - hey you!
-  - don't forget that I love you
-  - aaaaaand have a nice day
+  - Spirit of light, you are finally awake!
+  - Evil forces have awaken and corrupted our beloved forest.
+  - Please use your power to defeat these menace and saves us all.
+  - I will meet you across the path to guide you!
