@@ -140,6 +140,8 @@ public class Tutorial : MonoBehaviour
         {
             GameManager.instance.progressionManager.UnlockProgression(tutorialOwner.associatedProgression);
 
+            GameManager.instance.saveManager.SaveGame();
+
             ShowCurrentTutorialText();
             GameManager.instance.uiManager.gameUIManager.tutorialUI.Show();
 

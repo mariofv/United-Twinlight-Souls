@@ -63,6 +63,7 @@ public class LevelManager : MonoBehaviour
         GameManager.instance.EnterGameState(GameManager.GameState.COMBAT, changeGameStateInput: true);
         GameManager.instance.progressionManager.SetMaxLevelUnlocked(level);
 
+        GameManager.instance.saveManager.SaveGame();
 
         GameManager.instance.uiManager.loadingScreenUIManager.Hide();
 
