@@ -88,7 +88,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   uiElementCanvasGroup: {fileID: 1546968328144914715}
   interactionIndicatorTransform: {fileID: 7955289101658301656}
-  verticalOffset: 50
+  verticalOffset: 150
 --- !u!1 &2743367705146276176
 GameObject:
   m_ObjectHideFlags: 0
