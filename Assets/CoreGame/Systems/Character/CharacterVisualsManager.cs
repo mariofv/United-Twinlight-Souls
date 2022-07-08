@@ -69,6 +69,11 @@ public class CharacterVisualsManager : CharacterSubManager
         characterAnimator.SetTrigger("attack");
     }
 
+    public void TriggerEndLightAttack()
+    {
+        characterAnimator.SetTrigger("endAttack");
+    }
+
     public void TriggerSpecialAttack()
     {
         characterAnimator.SetTrigger("specialAttack");

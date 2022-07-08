@@ -21,7 +21,7 @@ public class CharacterCombatManager : CharacterSubManager
     [SerializeField] private Shield playerShield;
 
     [Header("Light attack")]
-    [SerializeField] private LightAttackHitbox lightAttackHitbox;
+    [SerializeField] private List<LightAttackHitbox> lightAttackHitboxes;
     private List<LightAttackData> lightAttacks;
     private int currentLightAttackChain = -1;
 
@@ -41,10 +41,6 @@ public class CharacterCombatManager : CharacterSubManager
     // Start is called before the first frame update
     void Start()
     {
-        characterManager.characterAnimationEventsManager.onLightAttackEnd.AddListener(EndLightAttack);
-        characterManager.characterAnimationEventsManager.onLightAttackEnableHitbox.AddListener(EnableLightAttackHitbox);
-        characterManager.characterAnimationEventsManager.onLightAttackDisableHitbox.AddListener(DisableLightAttackHitbox);
-
         characterManager.characterAnimationEventsManager.onSpecialAttackThrow.AddListener(ThrowSpecialAttack);
         characterManager.characterAnimationEventsManager.onSpecialAttackEnd.AddListener(EndSpecialAttack);
 
@@ -104,19 +100,8 @@ public class CharacterCombatManager : CharacterSubManager
 
     public void LightAttack()
     {
-        if (currentLightAttackChain >= 0)
-        {
-            DisableLightAttackHitbox();
-        }
-
         ++currentLightAttackChain;
         ExecuteLightAttack(currentLightAttackChain);
-    }
-
-    public void EndLightAttackChain()
-    {
-        DisableLightAttackHitbox();
-        EndLightAttack();
     }
 
     public bool CanExecuteLightAttack()
@@ -160,19 +145,20 @@ public class CharacterCombatManager : CharacterSubManager
         }
     }
 
-    private void EnableLightAttackHitbox()
+    public void EnableLightAttackHitbox(int attackIndex)
     {
-        lightAttackHitbox.gameObject.SetActive(true);
+        lightAttackHitboxes[attackIndex].gameObject.SetActive(true);
     }
 
-    private void DisableLightAttackHitbox()
+    public void DisableLightAttackHitbox(int attackIndex)
     {
-        lightAttackHitbox.gameObject.SetActive(false);
+        lightAttackHitboxes[attackIndex].gameObject.SetActive(false);
     }
-    
-    private void EndLightAttack()
+
+    public void EndLightAttack()
     {
         currentLightAttackChain = -1;
+        characterManager.characterVisualsManager.TriggerEndLightAttack();
 
         if (characterManager.GetCharacterState() == CharacterManager.CharacterState.STUNNED)
         {
@@ -182,15 +168,9 @@ public class CharacterCombatManager : CharacterSubManager
         characterManager.SetCharacterState(CharacterManager.CharacterState.IDLE);
     }
 
-    public int GetCurrentLightAttackDamage()
+    public int GetLightAttackDamage(int lightAttackIndex)
     {
-        if (currentLightAttackChain < 0 || currentLightAttackChain >= lightAttacks.Count)
-        {
-            lightAttackHitbox.gameObject.SetActive(false);
-            return 0;
-        }
-
-        return lightAttacks[currentLightAttackChain].damage;
+        return lightAttacks[lightAttackIndex].damage;
     }
 
     public void SpecialAttack()
