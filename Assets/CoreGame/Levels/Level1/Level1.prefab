@@ -2601,7 +2601,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 7900803378919081687, guid: de5c6b98e7f20f8418d2946e0e0f8239, type: 3}
       propertyPath: m_Enabled
-      value: 0
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 8618156768170743629, guid: de5c6b98e7f20f8418d2946e0e0f8239, type: 3}
       propertyPath: m_Materials.Array.data[0]
@@ -2634,6 +2634,10 @@ PrefabInstance:
     - target: {fileID: 8642934269050416720, guid: de5c6b98e7f20f8418d2946e0e0f8239, type: 3}
       propertyPath: m_LocalRotation.z
       value: 0.8615835
+      objectReference: {fileID: 0}
+    - target: {fileID: 8643278428830619200, guid: de5c6b98e7f20f8418d2946e0e0f8239, type: 3}
+      propertyPath: associatedProgression
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 8643278428830619200, guid: de5c6b98e7f20f8418d2946e0e0f8239, type: 3}
       propertyPath: combatAreaWaves.Array.size
@@ -4277,7 +4281,11 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 7900803378919081687, guid: de5c6b98e7f20f8418d2946e0e0f8239, type: 3}
       propertyPath: m_Enabled
-      value: 0
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 8643278428830619200, guid: de5c6b98e7f20f8418d2946e0e0f8239, type: 3}
+      propertyPath: associatedProgression
+      value: 4
       objectReference: {fileID: 0}
     - target: {fileID: 8643278428830619200, guid: de5c6b98e7f20f8418d2946e0e0f8239, type: 3}
       propertyPath: combatAreaWaves.Array.size
@@ -6284,7 +6292,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 7900803378919081687, guid: de5c6b98e7f20f8418d2946e0e0f8239, type: 3}
       propertyPath: m_Enabled
-      value: 0
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 8618156768170743629, guid: de5c6b98e7f20f8418d2946e0e0f8239, type: 3}
       propertyPath: m_Materials.Array.data[0]
@@ -6317,6 +6325,10 @@ PrefabInstance:
     - target: {fileID: 8642934269050416720, guid: de5c6b98e7f20f8418d2946e0e0f8239, type: 3}
       propertyPath: m_LocalRotation.z
       value: 0.27390963
+      objectReference: {fileID: 0}
+    - target: {fileID: 8643278428830619200, guid: de5c6b98e7f20f8418d2946e0e0f8239, type: 3}
+      propertyPath: associatedProgression
+      value: 2
       objectReference: {fileID: 0}
     - target: {fileID: 8643278428830619200, guid: de5c6b98e7f20f8418d2946e0e0f8239, type: 3}
       propertyPath: combatAreaWaves.Array.size

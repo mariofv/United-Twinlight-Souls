@@ -11,6 +11,7 @@ public class EnemyCombatArea : MonoBehaviour
     public BoxCollider combatAreaPlayerDetectionCollider;
     [SerializeField] private BoxCollider combatAreaEnterGateCollider;
     [SerializeField] private List<EnemyWave> combatAreaWaves;
+    [SerializeField] private ProgressionManager.Progression associatedProgression;
 
     public UnityEvent onCombatAreaEnd;
 
@@ -68,9 +69,14 @@ public class EnemyCombatArea : MonoBehaviour
 
     private void OnTriggerEnter(Collider other)
     {
-        if (other.CompareTag(TagManager.PLAYER) && !started)
+        if (other.CompareTag(TagManager.PLAYER) && CanStart())
         {
             StartCombatArea();
         }
+    }
+
+    private bool CanStart()
+    {
+        return !started && GameManager.instance.progressionManager.CheckProgression(associatedProgression);
     }
 }
