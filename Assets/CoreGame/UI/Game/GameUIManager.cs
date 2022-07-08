@@ -8,6 +8,7 @@ public class GameUIManager : MonoBehaviour
     public DamageIndicatorUI damageIndicatorUI;
     public DialogueUI dialogueUI;
     public HUDUI hudUI;
+    public InteractionUI interactionUI;
     public LockUI lockUI;
     public PauseUI pauseUI;
     public TutorialUI tutorialUI;

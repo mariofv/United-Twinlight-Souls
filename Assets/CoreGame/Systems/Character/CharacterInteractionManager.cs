@@ -32,6 +32,7 @@ public class CharacterInteractionManager : CharacterSubManager
             characterManager.Move(Vector2.zero);
             characterManager.SetCharacterState(CharacterManager.CharacterState.INTERACTING);
             npcInteraction.StartInteraction();
+            GameManager.instance.uiManager.gameUIManager.interactionUI.Hide();
         }
     }
 
@@ -50,6 +51,12 @@ public class CharacterInteractionManager : CharacterSubManager
         if (other.CompareTag(TagManager.NPC))
         {
             npcInteraction = other.GetComponent<NPC>().GetInteraction();
+
+            if (npcInteraction.IsAvailable())
+            {
+                GameManager.instance.uiManager.gameUIManager.interactionUI.SetTargetTransform(other.transform);
+                GameManager.instance.uiManager.gameUIManager.interactionUI.Show();
+            }
         }
     }
 
@@ -58,6 +65,8 @@ public class CharacterInteractionManager : CharacterSubManager
         if (other.CompareTag(TagManager.NPC))
         {
             npcInteraction = null;
+            GameManager.instance.uiManager.gameUIManager.interactionUI.SetTargetTransform(null);
+            GameManager.instance.uiManager.gameUIManager.interactionUI.Hide();
         }
     }
 }
