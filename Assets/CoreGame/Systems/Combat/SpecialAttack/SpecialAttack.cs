@@ -69,7 +69,11 @@ public class SpecialAttack : MonoBehaviour
         transform.parent = thrownAttacksParent;
 
         direction = throwDirection;
-        target = targetHurtbox.transform;
+        if (targetHurtbox != null)
+        {
+            target = targetHurtbox.transform;
+        }
+
         hitbox.enabled = true;
         projectileHitbox.enabled = true; 
         currentLifeTime = 0f;
