@@ -215,6 +215,11 @@ public class BiterAI : EnemyAI
 
     private void TransitionToBiteState()
     {
+        Vector3 lookDirection = GameManager.instance.player.GetControlledCharacter().transform.position - transform.position;
+        lookDirection.y = 0f;
+        Quaternion lookRotation = Quaternion.LookRotation(lookDirection);
+        transform.rotation = lookRotation;
+
         enemy.TriggerAnimation("bite");
         currentState = BiterState.BITING;
         biterBiteAttack.SetColliderActive(true);
@@ -248,7 +253,6 @@ public class BiterAI : EnemyAI
 
     private void TransitionToDashState()
     {
-
         Vector3 lookDirection = GameManager.instance.player.GetControlledCharacter().transform.position - transform.position;
         lookDirection.y = 0f;
         Quaternion lookRotation = Quaternion.LookRotation(lookDirection);

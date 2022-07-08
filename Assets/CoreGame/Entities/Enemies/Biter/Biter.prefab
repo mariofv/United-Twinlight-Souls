@@ -441,6 +441,22 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 5495930942829184317}
     m_Modifications:
+    - target: {fileID: -3086729806322244622, guid: 40c7fe4768df5964abbe98947dea4d1d, type: 3}
+      propertyPath: m_Size.x
+      value: 1.5
+      objectReference: {fileID: 0}
+    - target: {fileID: -3086729806322244622, guid: 40c7fe4768df5964abbe98947dea4d1d, type: 3}
+      propertyPath: m_Size.y
+      value: 2.5
+      objectReference: {fileID: 0}
+    - target: {fileID: -3086729806322244622, guid: 40c7fe4768df5964abbe98947dea4d1d, type: 3}
+      propertyPath: m_Size.z
+      value: 2
+      objectReference: {fileID: 0}
+    - target: {fileID: -3086729806322244622, guid: 40c7fe4768df5964abbe98947dea4d1d, type: 3}
+      propertyPath: m_Center.y
+      value: 1.25
+      objectReference: {fileID: 0}
     - target: {fileID: 6770185393721622476, guid: 40c7fe4768df5964abbe98947dea4d1d, type: 3}
       propertyPath: m_Name
       value: DashAttack
@@ -455,11 +471,11 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 6883051864700286147, guid: 40c7fe4768df5964abbe98947dea4d1d, type: 3}
       propertyPath: m_LocalPosition.y
-      value: 2
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 6883051864700286147, guid: 40c7fe4768df5964abbe98947dea4d1d, type: 3}
       propertyPath: m_LocalPosition.z
-      value: 0
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 6883051864700286147, guid: 40c7fe4768df5964abbe98947dea4d1d, type: 3}
       propertyPath: m_LocalRotation.w
