@@ -85,6 +85,11 @@ public class GameManager : MonoBehaviour
             yield return new WaitForFixedUpdate();
         }
 
+        enemyManager.KillAllEnemies(spawnLoot: false);
+        enemyManager.EmptyEnemyPools();
+
+        lootManager.EmptyPickupPools();
+
         player.DeselectCurrentCharacter();
         EnterGameState(GameState.MAIN_MENU);
 
@@ -93,11 +98,6 @@ public class GameManager : MonoBehaviour
 
         audioManager.PlayMainMenuMusic();
         inputManager.EnablePauseInput(false);
-
-        enemyManager.KillAllEnemies(spawnLoot: false);
-        enemyManager.EmptyEnemyPools();
-
-        lootManager.EmptyPickupPools();
 
         uiManager.levelTransitionUIManager.FadeIn();
         while (uiManager.levelTransitionUIManager.IsFadingIn())
