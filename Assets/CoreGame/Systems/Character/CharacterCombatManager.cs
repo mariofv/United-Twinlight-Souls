@@ -160,7 +160,7 @@ public class CharacterCombatManager : CharacterSubManager
         currentLightAttackChain = -1;
         characterManager.characterVisualsManager.TriggerEndLightAttack();
 
-        if (characterManager.GetCharacterState() == CharacterManager.CharacterState.STUNNED)
+        if (characterManager.GetCharacterState() == CharacterManager.CharacterState.STUNNED || characterManager.GetCharacterState() == CharacterManager.CharacterState.DEAD)
         {
             return;
         }
