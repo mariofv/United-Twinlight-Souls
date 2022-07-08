@@ -46,6 +46,7 @@ public class GameManager : MonoBehaviour
     public LevelManager levelManager;
     public LootManager lootManager;
     public ProgressionManager progressionManager;
+    public SaveManager saveManager;
     public ScenesManager scenesManager;
     public SettingsManager settingsManager;
     public TutorialManager tutorialManager;

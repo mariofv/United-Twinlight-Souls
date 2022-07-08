@@ -11,6 +11,8 @@ public class DebugManager : MonoBehaviour
     public bool godMode = false;
     public bool saitamaMode = false;
     public bool flashMode = false;
+    public bool isDebugSaveDataEnabled = true;
+    public DebugSave debugSave;
 
     [Header("Debug menus")]
     [SerializeField] private DebugMenuManager debugMenuManager;
