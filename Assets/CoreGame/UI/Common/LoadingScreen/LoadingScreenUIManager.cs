@@ -111,16 +111,5 @@ public class LoadingScreenUIManager : UIElement
     private void ShowTip(int lastTip, int currentTip)
     {
         return;
-
-        tipsHideTweens[lastTip * 2].Rewind();
-        tipsHideTweens[lastTip * 2].Play();
-        tipsHideTweens[lastTip * 2 + 1].Rewind();
-        tipsHideTweens[lastTip * 2 + 1].Play();
-
-        loadingScreenTips[currentTip].gameObject.SetActive(true);
-        tipsShowTweens[currentTip].Rewind();
-        tipsShowTweens[currentTip].Play();
-
-        currentTime = 0f;
     }
 }
