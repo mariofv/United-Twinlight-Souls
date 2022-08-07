@@ -249,8 +249,12 @@ PrefabInstance:
       value: 
       objectReference: {fileID: 11400000, guid: 989ba5b5344f3d74b82cd2565411bd04, type: 2}
     - target: {fileID: 262807725005965494, guid: 9aa138b6efb0c244098e2e3efd8c2ead, type: 3}
-      propertyPath: selectedLevel
+      propertyPath: loadMainMenu
       value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 262807725005965494, guid: 9aa138b6efb0c244098e2e3efd8c2ead, type: 3}
+      propertyPath: selectedLevel
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 262807725005965494, guid: 9aa138b6efb0c244098e2e3efd8c2ead, type: 3}
       propertyPath: showEnemyDebugInfo
