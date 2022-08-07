@@ -106,7 +106,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: b1a2ae3206e77384d871ae17f439c6b6, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  levelToTransition: 0
+  levelToTransition: 2
 --- !u!65 &7594434429432050063
 BoxCollider:
   m_ObjectHideFlags: 0
