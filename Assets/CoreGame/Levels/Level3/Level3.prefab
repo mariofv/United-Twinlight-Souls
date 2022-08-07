@@ -142,13 +142,13 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: ededfea5213bb3c4eab06bacbb5fc947, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  introLevelCinematic: {fileID: 8225127174557107857}
+  introLevelCinematic: {fileID: 0}
   startPosition: {fileID: 336865110503242926}
   voidPosition: {fileID: 336865111453969264}
   virtualCamera: {fileID: 3941070815509736529}
   bossHolder: {fileID: 0}
   bossPrefab: {fileID: 0}
-  bossDeathCinematic: {fileID: 0}
+  bossDeathCinematic: {fileID: 8225127174557107857}
   phasesThresholds:
   - 1
   - 0.66
