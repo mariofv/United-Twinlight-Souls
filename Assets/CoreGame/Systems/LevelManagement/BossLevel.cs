@@ -9,6 +9,7 @@ public class BossLevel : Level
 
     [SerializeField] private Transform bossHolder;
     [SerializeField] private GameObject bossPrefab;
+    [SerializeField] private Cinematic bossDeathCinematic;
     private BossAI bossAI;
     
     [SerializeField] private List<float> phasesThresholds;
@@ -66,6 +67,18 @@ public class BossLevel : Level
             currentBossPhase = newPhase;
             StartBossPhase(currentBossPhase);
         }
+    }
+
+    public void TriggerBossDeath()
+    {
+        GameManager.instance.cinematicManager.PlayCinematic(bossDeathCinematic);
+        bossDeathCinematic.onCinematicEnd.AddListener(OnDeathCinematicEnd);
+    }
+
+    private void OnDeathCinematicEnd()
+    {
+        bossDeathCinematic.onCinematicEnd.RemoveListener(OnDeathCinematicEnd);
+        GameManager.instance.InitMainMenu();
     }
 
     public int GetNumberOfPhases()

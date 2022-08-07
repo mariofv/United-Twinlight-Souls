@@ -400,7 +400,7 @@ public class BossAI : EnemyAI
 
     public override void OnDeathStart()
     {
-        return;
+        GameManager.instance.levelManager.GetCurrentLevelAsBoss().TriggerBossDeath();
     }
 
     public override void OnHitStart()
