@@ -8,18 +8,10 @@ public class CursorHider
     public static void HideCursor()
     {
         Cursor.visible = false;
-        Cursor.lockState = CursorLockMode.Locked;
     }
+
     public static void ShowCursor()
     {
         Cursor.visible = true;
-        if (!Application.isEditor)
-        {
-            Cursor.lockState = CursorLockMode.Confined;
-        }
-        else
-        {
-            Cursor.lockState = CursorLockMode.None;
-        }
     }
 }
