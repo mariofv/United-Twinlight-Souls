@@ -2,8 +2,11 @@
  United Twilight Souls is a beat-em-up game adventure where you must overcome all the corrupted enemies and free the forest from the darkness. 
  
 ## Usage
-- Ensure that Blender is installed to import some mesh files.
-- To run the game ensure that the current and only loaded scene is RootScene.
+The Release should contain all needed files to run the game.
+
+In order to run the game inside the Unity editor you will need:
+- To ensure that Blender is installed to import some mesh files.
+- To ensure that the current and only loaded scene is RootScene.
 
 ## About
 This game is based on a past project towards which I contributed, Twinlight Souls.
